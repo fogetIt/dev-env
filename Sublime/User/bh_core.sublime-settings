@@ -1,0 +1,70 @@
+// BracketHighlighter
+// 高亮匹配标签、括号、引号等。需要设置主题，修改高亮方式。
+{
+    "bracket_styles": {
+        // use the color from the "default" style.
+        "default": {
+            "icon": "dot",
+            "color": "bracketsolider.default",
+            // - bracketsolider.default
+            // - entity.name.class
+            "style": "solid"
+            // - thin_underline
+            // - underline
+            // - solid
+            // - outline
+            // - squiggly
+            // - stippled
+        },
+        "unmatched": {
+            "icon": "question",
+            "color": "entity.name.class",
+            "style": "solid"
+        },
+        "curly": {
+            "icon": "curly_bracket",
+            "color": "entity.name.class",
+            "style": "outline"
+        },
+        "round": {
+            "icon": "round_bracket",
+            "color": "entity.name.class",
+            "style": "outline"
+        },
+        "square": {
+            "icon": "square_bracket",
+            "color": "entity.name.class",
+            "style": "outline"
+        },
+        "angle": {
+            "icon": "angle_bracket",
+            "color": "entity.name.class",
+            "style": "solid"
+        },
+        "tag": {
+            "icon": "tag",
+            "color": "entity.name.class",
+            "style": "solid"
+        },
+        "c_define": {
+            "icon": "hash",
+            "color": "entity.name.class",
+            "style": "solid"
+        },
+        "single_quote": {
+            "icon": "single_quote",
+            "color": "entity.name.class",
+            "style": "underline"
+        },
+        "double_quote": {
+            "icon": "double_quote",
+            "color": "entity.name.class",
+            "style": "underline"
+        },
+        "regex": {
+            "icon": "regex",
+            "color": "entity.name.class",
+            "style": "solid"
+        }
+    }
+}

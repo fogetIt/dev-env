@@ -1,0 +1,10 @@
+[
+	// Clickable URLs
+	{
+		"button": "button1",
+		"count": 2,
+		// "press_command": [],
+		"modifiers": ["ctrl"],
+		"command": "open_url_under_cursor",
+	}
+]

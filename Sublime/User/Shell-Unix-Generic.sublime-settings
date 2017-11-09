@@ -1,0 +1,14 @@
+{
+	// .conf文件使用shell语法高亮
+	"extensions":
+	[
+		"ifcfg-eno16777736",
+		"conf",
+		"inittab",
+		"repo",
+		"exports",
+		"fstab",
+		"cnf",
+		"config"
+	],
+}

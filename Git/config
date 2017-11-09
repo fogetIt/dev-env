@@ -1,0 +1,10 @@
+# ～/.ssh/config
+
+Host github.com
+User FengZhiMo
+IdentityFile ~/.ssh/id_rsa
+
+Host gitlab.test.com
+User root
+IdentityFile ~/.ssh/id_rsa_gitlab
+# IdentityFile /c/Users/zdd/.ssh/id_rsa_gitlab

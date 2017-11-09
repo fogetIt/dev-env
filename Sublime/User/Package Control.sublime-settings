@@ -1,0 +1,182 @@
+// https://packagecontrol.io/
+{
+    "bootstrapped": true,
+    "in_process_packages":
+    [
+    ],
+    "installed_packages":
+    [
+        /**
+         * common
+         */
+        "PackageResourceViewer",
+        "Terminal",
+        // 快捷键Ctrl+Shift+T或者右键，打开Powershell/Terminal
+        "DocBlockr",
+        // 输入/**并且按下Tab键，自动补全注释，支持多种语言
+        "FileHeader",
+        // 新建文件、添加文件头：Ctrl+Alt+N/侧边栏右键
+        // 修改模板文件
+        // .+\s@Last Modified by:\s.+\n
+        // .+\s@Author:\s.+\n
+        "Alignment",
+        // 多行选择和多行选择对齐
+        "Clipboard Manager",
+        // 超级剪贴板
+        // "TrailingSpaces",
+        // 高亮显示多余的空格和Tab（影响Ctrl+Z/Y）
+        /**
+         * diff
+         */
+        "Sublimerge 3",
+        // 开2个窗口，分别打开需要比较的文件，右键
+        // Ctrl+Alt+D
+        "Modific",
+        // 左侧显示表示修改信息的图标
+        // Ctrl+Alt+D，比较分支
+        "StyleToken",
+        // 以不同的颜色高亮特定的一段文本，并提供跳转
+        "GitStatusBar",
+        // 状态栏显示分支信息
+        /**
+         * front_end
+         */
+        "BracketHighlighter",
+        // 高亮匹配标签、括号、引号等。需要设置主题，修改高亮方式
+        "Color Highlighter",
+        // 集成了ColorPicker，在颜色值上点右键->“Choose color”
+        // 高亮颜色值
+        // "Gutter Color",
+        // 在行前高亮颜色值，需要安装ImageMagick
+        // "CSScomb",
+        // CSS属性排序（自定义规则）
+        "Emmet",
+        // 快速生成html、css标签结构
+        "HTML-CSS-JS Prettify",
+        // 格式化（需要nodejs支持）：Ctrl+Shift+H
+        /**
+         * format
+         */
+        "CSS Format",
+        // Ctrl+Shift+P----fortmat
+        // 选中css----右键CSS Format...
+        "SublimeAStyleFormatter",
+        // C/C++/C#/Java 代码格式化：Ctrl+Alt+F
+        "JsFormat",
+        // JS 代码格式化：Ctrl+Alt+F
+        "Python PEP8 Autoformat",
+        // python pep8格式化
+        /**
+         * complete
+         */
+        "AutoFileName",
+        // 自动补全src，href
+        "SVG-Snippets",
+        // SVG 代码片段
+        "Placeholders",
+        // 文本、图片、列表、表格等的代码片段
+        "JavaImports",
+        // java导包
+        "Jedi - Python autocompletion",
+        "Djaneiro",
+        // Django模版和关键词高亮、代码片段
+        "Django",
+        // Django代码片段
+        // "JavaScript Completions",
+        "jQuery",
+        // 提供一些jquery片段
+        "Autoprefixer",
+        // CSS3属性的浏览器前缀自动填充（如-webkit--moz--o--m-）：Ctrl+Alt+X
+        /**
+         * encodeing
+         */
+        "ChineseLocalizations",
+        // 汉化
+        "ConvertToUTF8",
+        // 转码
+        "Ctranslator tool",
+        // 翻译
+        "Codecs33",
+        // 解决由于Sublime Text3内嵌的Python限制，ConvertToUTF8无法正常工作
+        "Unicode Character Insert",
+        // 插入unicode字符：Ctrl+Shift+U-I
+        /**
+         * python
+         */
+        "SublimeREPL",
+        /**
+         * markdown
+         */
+        "Markdown Preview",
+        // 浏览器渲染：Alt+M
+        "MarkdownTOC",
+        // 生成markdown目录
+        // 将光标置于文档首部，Tools -➤ MarkdownTOC -➤ Insert TOC
+        "MarkdownEditing",
+        // 支持markdown语法，并附带主题
+        "Markdown Table Formatter",
+        // 格式化markdown table：Ctrl+S
+        // linux下汉字不整齐
+        /**
+         * theme
+         */
+        "SideBarEnhancements",
+        // 侧边栏增强
+        "Themr",
+        // 控制侧边栏和上边框
+        "ColorSchemeSelector",
+        // ubuntu使用sublime-text-imfix安装sublime后，无法选择配色
+        "ayu",
+        "Boxy Theme",
+        "Theme - Piatto",
+        "Theme - Glacier",
+        /**
+         * remote
+         */
+        "SFTP",
+        // 远程编辑服务器上的文件:文件 -➤ SFTP/FTP -➤ Browse Server
+        //
+        // "Material Theme",
+        // "Seti_UI",
+        // "Theme - Primer",
+        // "Theme - Bamboo",
+        //
+        // "ChineseTranslator",        // 翻译(调用有道词典api)
+                                       // Ctrl+Shift+C
+        //
+        // "Sublimerge Pro",           // 收费，与Sublimerge3不能共存
+        // "SublimeTmpl",              // 新建html、css、js等：
+                                       // Ctrl+Alt+H/C/J
+                                       //（模板、快捷键可改）
+        // "AdvancedNewFile",          // Ctrl+Alt+N新建文件并指定类型
+        // "GitGutter",                // 在左侧显示表示修改信息的图标
+        // "Local History",            // Ctrl+Shift+P/Tools -➤ local History
+        // "Clickable URLs",           // 让文件中的URL显示下划线
+        // "Colorcoder",               // 高亮所有变量
+        // "Anaconda",                 // python补全
+        // "SublimeCodeIntel",         // 多语言补全提示，插件包非常大
+                                       // 选中变量、函数，右键跳转到定义
+        //
+        // "MarkdownHighlighting",     // 支持markdown语法
+        // "Evernote",                 // 同步文件到印象笔记
+        // "Table Editor",             // 格式化markdown table：tab
+        // "OmniMarkupPreviewer",      // 浏览器同步渲染：
+                                       // Ctrl+B（默认Ctrl+Alt+O）
+                                       // 不支持脚注、删除线
+                                       // Ctrl+Alt+X: Export Markup as HTML.
+                                       // Ctrl+Alt+C: Copy Markup as HTML.
+        // "IMESupport",               // 输入框跟随
+        // "All Autocomplete",         // 搜索打开的标签页进行补全
+        // "Restructured​Text Improved",
+        "Nodejs",
+        // nodejs构建（win下中文乱码）：Alt+R
+        "Ethereum",
+        // 支持solidity语法
+        "INI",
+        // 支持INI语法
+    ],
+    "repositories":
+    [
+        "https://github.com/FengZhiMo/MarkdownTableFormatter"
+    ]
+}

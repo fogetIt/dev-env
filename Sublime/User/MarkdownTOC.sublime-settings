@@ -1,0 +1,17 @@
+{
+    // 生成跳转锚点
+    "default_autoanchor": true,
+    // 目录以链接形式呈现
+    "default_autolink": true,
+    // 链接以括号包裹round/square
+    "default_bracket": "round",
+    // 无限目录深度
+    "default_depth": 0,
+    "default_indent": "\t",
+    "default_lowercase_only_ascii": false,
+    "default_style": "unordered",
+    "id_replacements": {
+    "-": " ",
+    "" : ["&lt;","&gt;","&amp;","&apos;","&quot;","&#60;","&#62;","&#38;","&#39;","&#34;","!","#","$","&","'","(",")","*","+",",","/",":",";","=","?","@","[","]","`","\"", ".","<",">","{","}","™","®","©"]
+    }
+}

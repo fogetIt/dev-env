@@ -1,0 +1,5 @@
+{
+	"ha_style": "solid",
+	// default(underlined)、outlined、none、solid、strippled、squiggly
+	"ha_icons": true,
+}

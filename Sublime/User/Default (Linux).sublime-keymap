@@ -1,0 +1,129 @@
+[
+    //查找替换
+    { "keys": ["ctrl+alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+    { "keys": ["ctrl+f12"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+    //ctrl +
+    { "keys": ["ctrl++"], "command": "unfold" },
+    { "keys": ["ctrl+="], "command": "unfold" },
+    { "keys": ["ctrl+equals"], "command": "unfold" },
+    { "keys": ["ctrl+keypad_plus"], "command": "unfold" },
+    //ctrl -
+    { "keys": ["ctrl+-"], "command": "fold" },
+    { "keys": ["ctrl+keypad_minus"], "command": "fold" },
+    //ctrl shift +
+    { "keys": ["ctrl+shift++"], "command": "unfold_all" },
+    { "keys": ["ctrl+shift+="], "command": "unfold_all" },
+    { "keys": ["ctrl+shift+equals"], "command": "unfold_all" },
+    { "keys": ["ctrl+shift+keypad_plus"], "command": "unfold_all" },
+    //ctrl shift -
+    { "keys": ["ctrl+shift+-"], "command": "fold_all" },
+    { "keys": ["ctrl+shift+keypad_minus"], "command": "fold_all" },
+    //书签
+    { "keys": ["ctrl+f11"], "command": "toggle_bookmark" },
+    { "keys": ["alt+f11"], "command": "select_all_bookmarks" },
+    //
+    // Themr，控制侧边栏和上边框
+    // "command": "themr_cycle_themes", "args": {"direction": "prev"}
+    { "keys": ["ctrl+shift+a"], "command": "themr_list_themes" },
+    // Color Scheme Select，控制配色方案
+    // "command": "select_color_scheme", "args": {"direction": "previous"}
+    { "keys": ["ctrl+shift+x"], "command": "select_color_scheme"},
+    // ConvertToUTF8，设置UTF-8的快捷方式
+    {
+        "keys": ["ctrl+shift+alt+c"], "command": "convert_to_utf8",
+            "args":
+            {
+                "encoding": "UTF-8",
+                "stamp": "0"
+            }
+    },
+    /**
+     * SublimeREPL
+     * 参考<<\Data\Packages\SublimeREPL\config\***\Default.sublime-commands
+     */
+    // repl_python_run
+    {
+        "keys":["f5"], "caption": "SublimeREPL: Python - RUN current file",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_python_run",
+            "file": "config/Python/Main.sublime-menu"
+        }
+    },
+    // repl_shell
+    {
+        "keys":["ctrl+f5"],
+        "caption": "SublimeREPL: Shell",
+        "command": "run_existing_window_command",
+        "args":
+        {
+            "id": "repl_shell",
+            "file": "config/Shell/Main.sublime-menu"
+        }
+    },
+    // repl_python_pdb
+    {
+        "keys":["f8"],
+        "caption": "SublimeREPL: Python - PDB current file",
+        "command": "run_existing_window_command",
+        "args":
+        {
+            "id": "repl_python_pdb",
+            "file": "config/Python/Main.sublime-menu"
+        }
+    },
+    // sublimeTmpl
+    // {
+    //     "keys": ["ctrl+alt+p"],
+    //     "caption": "Tmpl: Create python",
+    //     "command": "sublime_tmpl",
+    //     "args": {"type": "python"}
+    // },
+    // OmniMarkupPreviewer
+    {
+        "keys": ["ctrl+b"], "command": "omni_markup_preview",
+        "context": [{"key": "omnimarkup_is_enabled", "operator": "equal", "operand": ""}]
+    },
+    // Alignment
+    {"keys": ["super+a"], "command": "alignment"},
+    // Markdown Preview
+    {
+        "keys": ["alt+m"],
+        "command": "markdown_preview",
+        "args":
+        {
+            "target": "browser",
+            "parser":"markdown"
+        }
+    },
+    // Color Highlighter
+    {
+        "keys": ["ctrl+alt+p"],
+        "command": "color_picker",
+        "context": [
+            {
+                "key": "color_highlighter.color_picker"
+            }
+        ]
+    },
+    // Clipboard Manager
+    {
+        "keys": ["ctrl+super+c"],
+        "command": "clipboard_manager_show"
+    },
+    // sublimerge
+    { "keys": ["ctrl+alt+d"], "command": "sublimerge"},
+    // plainTasks
+    { "keys": ["ctrl+shift+b"], "command": "plain_tasks_archive","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
+    // sftp
+    // { "keys": ["ctrl+super+v"], "command": "sftp_browse_server" },
+    //
+    // 向下、向上选中多行，默认alt+shift+up/down
+    { "keys": ["ctrl+up"], "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["ctrl+down"], "command": "select_lines", "args": {"forward": true} },
+    //
+    // ChineseTranslator
+    // { "keys": ["ctrl+shift+c"], "command": "translate" },
+    // Ctranslator tool
+    { "keys": ["ctrl+shift+c"], "command": "auto_translate" }
+]

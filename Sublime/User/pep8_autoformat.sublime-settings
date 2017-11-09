@@ -1,0 +1,6 @@
+{
+    // pep8_autoformat插件
+    // 快捷键 CTRL+SHIFT+R 自动格式化python代码
+    "autoformat_on_save": true,      // 保存时自动格式化
+    "max-line-length": 79,
+}

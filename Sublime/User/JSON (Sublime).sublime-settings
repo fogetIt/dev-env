@@ -1,0 +1,6 @@
+// These settings override both User and Default settings for the JSON syntax
+{
+	"translate_tabs_to_spaces": false,
+}
+// 关闭.sublime-settings自动格式化tab键
+// 这样修改.sublime-settings文件高亮才会生效
