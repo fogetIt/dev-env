@@ -1,12 +1,16 @@
 ##### Docker系统(一个很小的虚拟机)
-+ 快照----记录原始镜像的修改，只能本地运行
-+ 镜像----打包后的快照，可以发给别人
++ 快照
+    * 记录原始镜像的修改，只能本地运行
++ 镜像
+    * 打包后的快照，可以发给别人
 + 简化了安装、配置：复制----运行
-- docker服务端----一个服务进程，管理着所有的容器
-- docker客户端----docker服务端的远程控制器，可以用来控制docker的服务端进程
-    + 大部分情况下，docker服务端和客户端运行在一台机器上
+- docker 服务端
+    + 一个服务进程，管理着所有的容器
+- docker 客户端
+    + docker服务端的远程控制器，可以用来控制docker的服务端进程
+    + 大部分情况下，docker 服务端和客户端运行在一台机器上
 
-通过nginx启动django算一个服务
+通过 nginx 启动 django 算一个服务
 
 ##### docker守护进程
 - 每个docker实例占用一个进程，每个实例里安装一个服务
@@ -16,10 +20,38 @@
     + sudo usermod -aG docker zdd
     + 该操作需要重新登录才能生效
 
-##### 搜索、下载
+##### install docker
+- 安装默认版本 docker
+    ```shell
+    # docker -v
+    sudo apt -y install docker.io
+    ```
+- 安装最新版本 docker
+    ```shell
+    sudo apt-fast update
+    # 确保APT能使用https方式工作，并且CA证书已安装了
+    sudo apt-fast -y install curl apt-transport-https ca-certificates
+    # 使用官网脚本/DaoCloud 脚本/阿里云脚本
+    wget -qO- https://get.docker.com/ | sh
+    curl -sSL https://get.daocloud.io/docker | sh
+    curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+    ```
+
+##### 使用国内镜像加速
+- [注册阿里云](http://www.cnblogs.com/atuotuo/p/6264800.html)
+    ```shell
+    sudo cp -f ./daemon.json /etc/docker/
+    ```
+- 重启守护进程
+    ```shell
+    sudo service docker restart
+    ```
+
+
+##### 搜索
 ```shell
 # 搜索可用的镜像(宿主、程序)
-docker search <MIRROR_NAME>
+sudo docker search <MIRROR_NAME>
 : "参数
 [--no-trunc]    完整显示描述信息
 example
@@ -28,12 +60,13 @@ example
 Linux宿主镜像----专门为容器设计的Linux发行版(轻量和可移植)
 Ubuntu、Alpine Linux、CoreOS、Project Atomic、Ubuntu Snappy、RancherOS、VMware-Photon
 "
-# 拉取镜像
-docker pull <MIRROR_ADDR>
-# 查看本地下载的镜像
-docker images
-# 删除镜像
-docker rmi <IMAGE_ID>
+```
+
+##### 下载
+```shell
+docker pull <MIRROR_ADDR>  # 拉取镜像
+docker images              # 查看本地下载的镜像
+docker rmi <IMAGE_ID>      # 删除镜像
 ```
 
 ##### 构建

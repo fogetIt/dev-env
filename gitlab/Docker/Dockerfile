@@ -1,3 +1,4 @@
+# gitlab8.8 dockerfile
 FROM gitlab/gitlab-ce:8.8.6-ce.1
 MAINTAINER Tao Wang <twang2218@gmail.com>
 
