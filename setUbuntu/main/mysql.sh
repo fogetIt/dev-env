@@ -1,11 +1,11 @@
 #!/bin/bash
 # @Date:   2017-05-09 20:51:14
-# @Last Modified time: 2017-08-08 17:15:28
+# @Last Modified time: 2017-11-20 17:00:40
+echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 mysql --version
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-get -y install mysql-server mysql-client
+    sudo apt-get -y install mysql-server mysql-client
 fi
 
 : "mysql -u root -p

@@ -1,7 +1,8 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2017-07-07 12:14:39
-#
+# @Last Modified time: 2017-11-20 17:01:11
+echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+
 subl -v
 
 if [ $? != 0 ]; then

@@ -1,11 +1,11 @@
 #!/bin/bash
 # @Date:   2017-04-01 13:44:31
-# @Last Modified time: 2017-07-07 10:14:16
-#
+# @Last Modified time: 2017-11-20 17:00:20
+echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+
 git --version
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install git
+    sudo apt-fast -y install git
 
     if [ $? == 0 ]; then
         git config --global user.name "FengZhiMo"

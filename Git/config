@@ -5,6 +5,7 @@ User FengZhiMo
 IdentityFile ~/.ssh/id_rsa
 
 Host gitlab.test.com
+Port 2222
 User root
 IdentityFile ~/.ssh/id_rsa_gitlab
 # IdentityFile /c/Users/zdd/.ssh/id_rsa_gitlab

@@ -1,14 +1,13 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:12:33
-# @Last Modified time: 2017-07-07 10:18:51
-#
+# @Last Modified time: 2017-11-20 17:00:36
+echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+
 # install mongodb
 mongo --version
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast update
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install mongodb
+    sudo apt-fast update
+    sudo apt-fast -y install mongodb
 fi
 
 

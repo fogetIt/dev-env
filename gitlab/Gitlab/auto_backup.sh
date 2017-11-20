@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-28 15:44:04
-# @Last Modified time: 2017-05-08 18:18:29
+# @Last Modified time: 2017-11-20 14:31:24
 psd="123zhang"
 # 定时任务命令和脚本中必须写绝对路径
 home="/home/zdd"
@@ -22,7 +22,7 @@ elif [ $1 == "backup" ]; then
     backup_path="/tmp/gitlab_backups"
     : '
     sudo gitlab-rake gitlab:backup:create [SKIP=db,uploads]
-    SKIP———————忽略要备份内容
+    SKIP  忽略要备份内容
     '
     echo $psd | sudo -S gitlab-rake gitlab:backup:create
 

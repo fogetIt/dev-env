@@ -1,6 +1,7 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2017-09-08 15:36:35
+# @Last Modified time: 2017-11-20 17:00:29
+echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : "下载
 --->解压到指定目录(/opt/go)
 --->配置环境变量
@@ -9,8 +10,8 @@
 
 GOPATH允许多个目录
     分隔符
-        Windows    ;
-        Linux      :
+        Windows;
+        Linux:
     默认将go get获取的包存放在第一个目录下
     约定有三个子目录
         src    存放源代码(比如：.go .c .h .s等)
@@ -22,14 +23,12 @@ GOPATH允许多个目录
 
 go version
 if [ $? != 0 ]; then
-    goland_url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
+    golang_url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
 
     cd $SOFTWARES \
-    && wget -O go.tar.gz $goland_url \
-    && echo $USER_PASSWD | sudo -S \
-        mkdir /opt/go \
-    && echo $USER_PASSWD | sudo -S \
-        tar \
+    && wget -O go.tar.gz $golang_url \
+    && sudo mkdir /opt/go \
+    && sudo tar \
             -zxvf go.tar.gz \
             -C /opt/go \
             --strip-components 1 \
@@ -42,8 +41,7 @@ if [ $? != 0 ]; then
         export GOPATH=\$HOME/gocode \n \
         export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin \n \
         \033[0m" \
-    && echo $USER_PASSWD | sudo -S \
-        subl /etc/profile
+    && sudo subl /etc/profile
     : "
     命令行修改环境变量
         立即生效，重启失效

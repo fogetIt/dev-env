@@ -1,4 +1,10 @@
-# gitlab8.8 dockerfile
+# 根据Dockerfile自动安装gitlab8.8.6
+: "
+# 生成一个TAG为8.8.6-ce.1的image
+# 生成一个TAG为<none>的image
+sudo docker build --build-arg -f .
+sudo docker images
+"
 FROM gitlab/gitlab-ce:8.8.6-ce.1
 MAINTAINER Tao Wang <twang2218@gmail.com>
 

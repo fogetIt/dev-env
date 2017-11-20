@@ -1,16 +1,15 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2017-10-18 09:43:03
-#
+# @Last Modified time: 2017-11-20 17:01:06
+echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+
 pip --version
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python-pip
+    sudo apt-fast -y install python-pip
 fi
 pip3 --version
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python3-pip
+    sudo apt-fast -y install python3-pip
 fi
 : '
 # 写法2（只能以shell文件执行）
@@ -39,67 +38,56 @@ ipython-notebook————ipython的broswer交互工具
 '
 ipython -V
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt -y install ipython
+    sudo apt -y install ipython
 fi
 ipython3 -V
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt -y install ipython3
+    sudo apt -y install ipython3
 fi
 ipython netbook -V
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install ipython-notebook
+    sudo apt-fast -y install ipython-notebook
 fi
 ipython3 netbook -V
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install ipython3-notebook
+    sudo apt-fast -y install ipython3-notebook
 fi
 
 
 : 'Tkinter图形库'
 python -c "import Tkinter; exit()"
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python-tk
+    sudo apt-fast -y install python-tk
 fi
 python3 -c "import tkinter; exit()"
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python3-tk
+    sudo apt-fast -y install python3-tk
 fi
 
 
 : 'libmysqlclient-dev————virtualenv的MySQLdb的依赖'
 python -c "import MySQLdb;exit()"
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install libmysqlclient-dev
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python-mysqldb
+    sudo apt-fast -y install libmysqlclient-dev
+    sudo apt-fast -y install python-mysqldb
 fi
 
 
 : 'TA-Lib、QScintilla依赖的.h头文件'
 dpkg-query -S python-dev
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python-dev
+    sudo apt-fast -y install python-dev
 fi
 dpkg-query -S python3-dev
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python3-dev
+    sudo apt-fast -y install python3-dev
 fi
 
 
 : 'PyQt5'
 python -c "import PyQt5;exit()"
 if [ $? != 0 ]; then
-    echo $USER_PASSWD | sudo -S \
-        apt-fast -y install python-pyqt5
+    sudo apt-fast -y install python-pyqt5
 fi
 : 'eric IDE依赖的所有python3库
 PyQt, sip and QScintilla
