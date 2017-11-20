@@ -34,7 +34,7 @@
     # 使用官网脚本/DaoCloud 脚本/阿里云脚本
     wget -qO- https://get.docker.com/ | sh
     curl -sSL https://get.daocloud.io/docker | sh
-    curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+    curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh
     ```
 
 ##### 使用国内镜像加速

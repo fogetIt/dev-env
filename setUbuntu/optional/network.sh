@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-07 10:36:23
-# @Last Modified time: 2017-07-07 10:16:47
+# @Last Modified time: 2017-11-14 14:34:45
 : '
 从Ubuntu 15.04开始, nm-tool 就已经不存在,代之以 nmcli
 nmcli dev show 可以查看MAC, IP, DNS等信息
@@ -34,7 +34,7 @@ echo $USER_PASSWD | sudo -S ufw status
 # 系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常
 # ufw default deny
 #
-# ubuntu防火墙的其余命令
+# 关闭 ubuntu 防火墙的其余命令
 # iptables -P INPUT ACCEPT
 # iptables -P FORWARD ACCEPT
 # iptables -P OUTPUT ACCEPT
