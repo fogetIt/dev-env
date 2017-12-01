@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2016-09-22 09:31:01
-# @Last Modified time: 2017-12-01 13:49:14
+# @Last Modified time: 2017-12-01 13:50:15
 #
 # PATH:${Git}\cmd;
 import os
@@ -58,7 +58,7 @@ class Git:
             self.commit()
         else:
             print 'ERROR'
-        print '------------------------------>>>%s' % _dir
+        print '%s>>>%s' % ("-" * 40, _dir)
 
     def run(self, _dir):
         # _path = self.parent_path + '\\' + _dir
