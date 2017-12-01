@@ -25,43 +25,44 @@ chrome://extensions/
 chrome://apps/
 ```
 
-|名称                            |用途                           |
-|:------------------------------|:-----------------------------|
-|谷歌访问助手                     |google                        |
-|SetupVPN                       |翻墙                           |
-|Stylish                        |为任意网站定制主题               |
-|                               |                              |
-|Spring Summer Fall Winter      |                              |
-|Nature HD Wallpapers           |                              |
-|Infinity                       |新标签页、背景、主题、管理          |
-|                               |安装在主题插件之后               |
-|                               |                              |
-|octotree                       |github目录呈现                 |
-|Awesome AutoComplete For GitHub|github快捷搜索                 |
-|Isometric Contributions        |立体显示githubcommit           |
-|                               |                              |
-|划词翻译                        |                              |
-|                               |                              |
-|Postman                        |                              |
-|Postman Interceptor            |                              |
-|Request Maker                  |                              |
-|ReRes                          |支持单个url或目录映射            |
-|                               |勾选：允许访问文件网址            |
-|Web Maker                      |前端编辑器                     |
-|ColorZilla                     |取色器                         |
-|Markdown Editor                |                              |
-|Quick QRCode                   |快速生成二维码                  |
-|OneTab                         |把所有tab回收，然后记录每天的历史  |
-|                               |可以一键还原某一天的tab          |
-|grammarly                      |英语语法                       |
-|                               |                              |
-|draw.io Diagrams               |流程图                         |
-|draw.io Desktop                |                              |
-|Pixlr Editor                   |图像编辑                       |
-|                               |                              |
-|Charset                        |设置/查看编码                   |
-|                               |                              |
-|Get CRX                        |提取crx文件                    |
+|名称                            |用途                         |
+|:------------------------------|:---------------------------|
+|谷歌访问助手                     |google                      |
+|SetupVPN                       |翻墙                         |
+|Stylish                        |为任意网站定制主题             |
+|                               |                            |
+|Spring Summer Fall Winter      |                            |
+|Nature HD Wallpapers           |                            |
+|Infinity                       |新标签页、背景、主题、管理        |
+|                               |安装在主题插件之后             |
+|                               |                            |
+|octotree                       |github目录呈现               |
+|Awesome AutoComplete For GitHub|github快捷搜索               |
+|Isometric Contributions        |立体显示githubcommit         |
+|                               |                            |
+|google翻译                      |                            |
+|ImTranslator                   |                            |
+|                               |                            |
+|Postman                        |                            |
+|Postman Interceptor            |                            |
+|Request Maker                  |                            |
+|ReRes                          |支持单个url或目录映射          |
+|                               |勾选：允许访问文件网址          |
+|Web Maker                      |前端编辑器                   |
+|ColorZilla                     |取色器                       |
+|Markdown Editor                |                            |
+|Quick QRCode                   |快速生成二维码                |
+|OneTab                         |把所有tab回收，然后记录每天的历史|
+|                               |可以一键还原某一天的tab        |
+|grammarly                      |英语语法                     |
+|                               |                            |
+|draw.io Diagrams               |流程图                       |
+|draw.io Desktop                |                            |
+|Pixlr Editor                   |图像编辑                     |
+|                               |                            |
+|Charset                        |设置/查看编码                 |
+|                               |                            |
+|Get CRX                        |提取crx文件                  |
 
 ##### 进程管理
 Shift+Esc
