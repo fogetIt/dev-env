@@ -1,8 +1,8 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:35:57
-# @Last Modified time: 2017-11-20 17:01:00
+# @Last Modified time: 2017-12-13 13:21:33
 echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
-node_url="https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x64.tar.xz"
+node_url="http://cdn.npm.taobao.org/dist/node/v8.9.0/node-v8.9.0-linux-x64.tar.xz"
 
 node -v && npm -v
 if [ $? != 0 ]; then
