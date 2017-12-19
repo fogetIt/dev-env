@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2017-11-20 17:08:35
+# @Last Modified time: 2017-12-18 11:02:10
 echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : '
 http://idea.iteblog.com/key.php
@@ -56,7 +56,7 @@ name=idea
 title=IdeaIU
 install_jetbrains $url $name $title
 # ***************************************************************
-url="https://download.jetbrains.8686c.com/go/goland-173.3727.24.tar.gz"
+url="https://download.jetbrains.8686c.com/go/goland-2017.3.tar.gz"
 name=goland
-title=Gogland
+title=Goland
 install_jetbrains $url $name $title

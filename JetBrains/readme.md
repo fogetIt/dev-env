@@ -80,3 +80,11 @@ File--->Invalidate caches
 
 ##### indent
 Settings--->Code Style--->语言类型--->Tabs and Indents
+
+
+##### 字体
+```
+Ubuntu Mono
+Noto Sans CJK JP DemiLight
+Monospaced
+```
