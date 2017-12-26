@@ -1,12 +1,12 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2017-12-18 11:02:10
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:11:03
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : '
 http://idea.iteblog.com/key.php
 或者试用30天
 '
-keymap_file=$FATHER_DIR/JetBrains/DefaultCustom.xml
+keymap_file=$working_directory/JetBrains/DefaultCustom.xml
 
 function install_jetbrains() {
     url=$1
@@ -14,9 +14,9 @@ function install_jetbrains() {
     title=$3
     link_file=/usr/bin/$name
     if [ ! -f $link_file ]; then
-        # && rm -rf $SOFTWARES/$title* \
+        # && rm -rf $installation_directory/$title* \
         # && wget -O $title.tar.gz $url \
-        cd $SOFTWARES \
+        cd $installation_directory \
         && mkdir $title \
         && tar \
             -zxvf $title.tar.gz \

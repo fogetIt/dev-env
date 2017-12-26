@@ -1,12 +1,12 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:35:57
-# @Last Modified time: 2017-12-13 13:21:33
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:09:34
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 node_url="http://cdn.npm.taobao.org/dist/node/v8.9.0/node-v8.9.0-linux-x64.tar.xz"
 
 node -v && npm -v
 if [ $? != 0 ]; then
-    cd $SOFTWARES
+    cd $installation_directory
     sudo rm -rf ./node*
     wget -O node.tar.xz $node_url
     xz -d node.tar.xz

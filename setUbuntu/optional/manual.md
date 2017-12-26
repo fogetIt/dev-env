@@ -36,8 +36,7 @@ pkill  explorer.exe
 pkill  services.exe  
 ```
 
-##### [electronic打包的微信](http://github.com/geeeeeeeeek/electronic-wechat/releases/download/V2.0/linux-x64.tar.gz)
-- 下载---->执行可执行文件
+##### [electronic打包的微信](http://github.com/geeeeeeeeek/electronic-wechat)
 
 ##### GIMP（ubuntu应用程序自带，类photoshop）
 

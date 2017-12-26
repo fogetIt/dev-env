@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-11-13 15:34:58
-# @Last Modified time: 2017-11-20 15:08:23
+# @Last Modified time: 2017-12-26 16:00:09
 : "gitlab latest 汉化版
 [github address](https://github.com/twang2218/gitlab-ce-zh)
 [阿里云镜像库](https://dev.aliyun.com/search.html)
@@ -14,8 +14,8 @@ sudo docker run --detach \
     --publish 2222:22 \  # 需要配置.ssh/config
     --publish 4433:443 \
     --hostname gitlab.tianxi.com \
-    --volume $HOME/softwares/docker/gitlab/conf:/etc/gitlab \
-    --volume $HOME/softwares/docker/gitlab/logs:/var/log/gitlab \
-    --volume $HOME/softwares/docker/gitlab/data:/var/opt/gitlab \
+    --volume $HOME/USER_SOFTWARES/docker/gitlab/conf:/etc/gitlab \
+    --volume $HOME/USER_SOFTWARES/docker/gitlab/logs:/var/log/gitlab \
+    --volume $HOME/USER_SOFTWARES/docker/gitlab/data:/var/opt/gitlab \
     --restart=always \
     $IMAGE_ID

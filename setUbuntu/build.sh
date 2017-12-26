@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-07-05 12:34:39
-# @Last Modified time: 2017-11-20 16:51:34
-: "基于Ubuntu16.04LTS，自动搭建个人开发环境"
+# @Last Modified time: 2017-12-26 16:26:05
+: "基于Ubuntu16.04LTS，自动搭建开发环境"
 
 # function 可以省略
 function exit?() {
@@ -20,49 +20,61 @@ function exit?() {
 }
 
 
+function create_directory() {
+    path=$1
+    if [ ! -d $path ]; then
+        mkdir $path
+    fi
+}
+
+
 # 工作路径、用户密码、下载路径
-WORKSPACE=$(pwd)
-USER_PASSWD="123zhang"
-SOFTWARES=$HOME/softwares
-FATHER_DIR=$(dirname $(pwd))
-export USER_PASSWD
-export FATHER_DIR
-export SOFTWARES
+if [ $1 ]; then
+    user_password=$1
+    current_directory=$(pwd)
+    working_directory=$(dirname $(pwd))
+    installation_directory=$HOME/softwares
+    export user_password
+    export current_directory
+    export working_directory
+    export installation_directory
+
+    main=$(pwd)/main
+    chmod -R u+x $main
+
+    main/_init.sh
+    main/expect.sh
+    main/git.sh
+    main/wine.sh
+    main/sublime.sh
+    main/atom.sh
+    main/vim.sh
+    main/jetbrains.sh
+    main/pys.sh
+    main/mongodb.sh
+    main/mysql.sh
+    main/uget.sh
+    main/nodejs.sh
+    main/zsh.sh
+    main/golang.sh
 
 
-main=$WORKSPACE/main
-chmod -R u+x $main
+    : "
+    optional=$(pwd)/optional
+    chmod -R u+x $optional
+    optional/svn.sh
+    optional/markdown.sh
+    "
 
-main/_init.sh
-main/expect.sh
-main/git.sh
-main/wine.sh
-main/sublime.sh
-main/atom.sh
-main/vim.sh
-main/jetbrains.sh
-main/pys.sh
-main/mongodb.sh
-main/mysql.sh
-main/uget.sh
-main/nodejs.sh
-main/zsh.sh
-main/golang.sh
+    warn="warn: create or overwrite github folder![Y/n]" \
+        && exit? $warn \
+        && cat $HOME/.ssh/id_rsa.pub
 
-
-: "
-optional=$WORKSPACE/optional
-chmod -R u+x $optional
-optional/svn.sh
-optional/markdown.sh
-"
-
-warn="warn: create or overwrite github folder![Y/n]" \
-    && exit? $warn \
-    && cat $HOME/.ssh/id_rsa.pub
-
-warn="warn: please add pub key to github![Y/n]" \
-    && exit? $warn \
-    && github=$HOME/github \
-    && export github \
-    && $WORKSPACE/git_pull.sh
+    warn="warn: please add pub key to github![Y/n]" \
+        && exit? $warn \
+        && github=$HOME/github \
+        && export github \
+        && $(pwd)/git_pull.sh
+else
+    echo "need password"
+fi

@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2017-11-20 17:01:06
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:06:30
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 pip --version
 if [ $? != 0 ]; then
@@ -19,7 +19,7 @@ fi
    echo -e "\n"
    ) | sudo -S apt-fast install python-pip
 # 写法3（只能以shell文件执行）
-echo -e "\n" | (echo $USER_PASSWD | sudo -S apt-fast install python-pip)
+echo -e "\n" | (echo $user_password | sudo -S apt-fast install python-pip)
 '
 
 : 'virtualenv
@@ -28,13 +28,14 @@ echo -e "\n" | (echo $USER_PASSWD | sudo -S apt-fast install python-pip)
 '
 virtualenv --version
 if [ $? != 0 ]; then
-    pip install virtualenv
+    pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
     # easy_install virtualenv
 fi
 
-: '
-ipython————Python shell的一个交互加强版
-ipython-notebook————ipython的broswer交互工具
+: 'ipython
+Python shell 的一个交互加强版
+ipython-notebook
+ipython 的 broswer 交互工具
 '
 ipython -V
 if [ $? != 0 ]; then
@@ -97,7 +98,6 @@ if [ $? != 0 ]; then
     pip3 install QScintilla -i https://pypi.tuna.tsinghua.edu.cn/simple
 fi
 
-: "
-创建python虚拟环境
+: "创建python虚拟环境
 virtualenv ./ --no-site-packages -p /usr/bin/python
 "

@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-04-05 11:32:35
-# @Last Modified time: 2017-11-20 17:01:49
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:06:27
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : "wine
 用于运行Windows程序（qq依赖）
 "

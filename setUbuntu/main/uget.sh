@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-05-05 10:27:59
-# @Last Modified time: 2017-11-20 17:01:17
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:06:29
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : '
 wget          单线程，下载速度慢
 uget+aria2    多线程下载

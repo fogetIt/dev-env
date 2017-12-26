@@ -1,12 +1,12 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2017-11-20 17:01:11
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:11:03
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 subl -v
 
 if [ $? != 0 ]; then
-    cd $SOFTWARES
+    cd $installation_directory
     rm -rf sublime-text*
     : '通过sublime-text-imfix安装sublime、fcitx（小企鹅输入法框架，支持中文）'
     git clone https://github.com/lyfeyaj/sublime-text-imfix.git
@@ -20,7 +20,7 @@ fi
 
 read -p "Overwrite settings?[default no]" var
 if [ "$var" ]; then
-    cp -rf $FATHER_DIR/Sublime/* ~/.config/sublime-text-3/Packages/
+    cp -rf $working_directory/Sublime/* ~/.config/sublime-text-3/Packages/
 
     read -p "warn: please install package control![Y/n]" var
     if [ "$var" != "Y" ]; then

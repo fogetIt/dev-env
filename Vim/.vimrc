@@ -74,7 +74,7 @@ if has("win32")
     set rtp+=$VIM/vimfiles/bundle/vundle
 else
     autocmd! bufwritepost .vimrc source ~/.vim  " 修改配置文件后，无需重启
-    set rtp+=~/softwares/plugins/Vundle         " Vundle的路径
+    set rtp+=~/USER_SOFTWARES/plugins/Vundle         " Vundle的路径
 endif
 call vundle#rc()       " 插件安装路径（全局）
 " call vundle#begin()  " 插件安装路径

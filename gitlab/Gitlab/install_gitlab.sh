@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-26 13:50:34
-# @Last Modified time: 2017-07-06 14:38:23
+# @Last Modified time: 2017-12-26 16:00:10
 #
 psd="123zhang"
 
@@ -33,7 +33,7 @@ echo "deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/ubuntu xenial main" > /
 hanization=$1
 if [ $hanization == "zh" ]
     # 下载汉化包
-    cd ~/softwares
+    cd ~/USER_SOFTWARES
     # echo "y" | git clone https://gitlab.com/larryli/gitlab.git
     echo "y" | git clone https://git.coding.net/larryli/gitlab.git
 

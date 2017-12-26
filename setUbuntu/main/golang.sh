@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2017-11-20 17:00:29
-echo $USER_PASSWD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2017-12-26 16:09:37
+echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : "下载
 --->解压到指定目录(/opt/go)
 --->配置环境变量
@@ -25,7 +25,7 @@ go version
 if [ $? != 0 ]; then
     golang_url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
 
-    cd $SOFTWARES \
+    cd $installation_directory \
     && wget -O go.tar.gz $golang_url \
     && sudo mkdir /opt/go \
     && sudo tar \

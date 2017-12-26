@@ -5,7 +5,7 @@ sudo docker stop gitlab & sudo docker update --restart=no gitlab
 
 ##### 管理
 ```shell
-vim $HOME/softwares/docker_gitlab/conf/gitlab.rb
+vim $HOME/USER_SOFTWARES/docker_gitlab/conf/gitlab.rb
 
 # 重启
 sudo docker exec -it CONTAINER_ID gitlab-ctl reconfigure
