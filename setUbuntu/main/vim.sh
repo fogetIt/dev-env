@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-20 11:26:20
-# @Last Modified time: 2017-12-26 16:10:59
+# @Last Modified time: 2018-01-03 16:22:02
 echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : 'vim       vi的超集
 vim-tiny     没有GUI，只有命令行（功能少，但是体积小，速度快）
@@ -10,10 +10,8 @@ vim-gnome    GNOME GUI的vim（依赖于gnome）
 cat vim --version
 if [ $? != 0 ]; then
     sudo apt-fast -y install vim
-    # echo $user_password | sudo -S \
-    #   apt-fast -y install vim-gtk
-    # echo $user_password | sudo -S \
-    #   apt-fast -y install vim-gnome
+    # sudo apt-fast -y install vim-gtk
+    # sudo apt-fast -y install vim-gnome
 fi
 
 cp -f $working_directory/Vim/.vimrc ~/

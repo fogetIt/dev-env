@@ -1,16 +1,10 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2017-12-26 16:06:30
+# @Last Modified time: 2018-01-07 10:58:01
 echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-pip --version
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python-pip
-fi
-pip3 --version
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python3-pip
-fi
+pip --version || sudo apt-fast -y install python-pip \
+pip3 --version || sudo apt-fast -y install python3-pip
 : '
 # 写法2（只能以shell文件执行）
 (
@@ -26,44 +20,23 @@ echo -e "\n" | (echo $user_password | sudo -S apt-fast install python-pip)
 为指定的目录搭建独立的python虚拟环境
 让不同的项目处于各自独立Python的环境中
 '
-virtualenv --version
-if [ $? != 0 ]; then
-    pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
-    # easy_install virtualenv
-fi
+virtualenv --version \
+|| pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 : 'ipython
 Python shell 的一个交互加强版
 ipython-notebook
 ipython 的 broswer 交互工具
 '
-ipython -V
-if [ $? != 0 ]; then
-    sudo apt -y install ipython
-fi
-ipython3 -V
-if [ $? != 0 ]; then
-    sudo apt -y install ipython3
-fi
-ipython netbook -V
-if [ $? != 0 ]; then
-    sudo apt-fast -y install ipython-notebook
-fi
-ipython3 netbook -V
-if [ $? != 0 ]; then
-    sudo apt-fast -y install ipython3-notebook
-fi
+ipython -V || sudo apt -y install ipython
+ipython3 -V || sudo apt -y install ipython3
+ipython netbook -V || sudo apt-fast -y install ipython-notebook
+ipython3 netbook -V || sudo apt-fast -y install ipython3-notebook
 
 
 : 'Tkinter图形库'
-python -c "import Tkinter; exit()"
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python-tk
-fi
-python3 -c "import tkinter; exit()"
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python3-tk
-fi
+python -c "import Tkinter; exit()" || sudo apt-fast -y install python-tk
+python3 -c "import tkinter; exit()" || sudo apt-fast -y install python3-tk
 
 
 : 'libmysqlclient-dev————virtualenv的MySQLdb的依赖'
@@ -75,29 +48,15 @@ fi
 
 
 : 'TA-Lib、QScintilla依赖的.h头文件'
-dpkg-query -S python-dev
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python-dev
-fi
-dpkg-query -S python3-dev
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python3-dev
-fi
+dpkg-query -S python-dev || sudo apt-fast -y install python-dev
+dpkg-query -S python3-dev || sudo apt-fast -y install python3-dev
 
 
 : 'PyQt5'
-python -c "import PyQt5;exit()"
-if [ $? != 0 ]; then
-    sudo apt-fast -y install python-pyqt5
-fi
+python -c "import PyQt5;exit()" || sudo apt-fast -y install python-pyqt5
+
 : 'eric IDE依赖的所有python3库
 PyQt, sip and QScintilla
 '
-pip3 list | grep QScintilla
-if [ $? != 0 ]; then
-    pip3 install QScintilla -i https://pypi.tuna.tsinghua.edu.cn/simple
-fi
-
-: "创建python虚拟环境
-virtualenv ./ --no-site-packages -p /usr/bin/python
-"
+pip3 list | grep QScintilla \
+|| pip3 install QScintilla -i https://pypi.tuna.tsinghua.edu.cn/simple

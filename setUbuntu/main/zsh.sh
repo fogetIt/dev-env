@@ -1,13 +1,9 @@
 #!/bin/bash
 # @Date:   2017-07-27 10:45:53
-# @Last Modified time: 2017-12-26 16:06:26
+# @Last Modified time: 2018-01-07 10:59:03
 echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-zsh --version
-if [ $? != 0 ]; then
-    : "安装"
-    sudo apt -y install zsh
-fi
+zsh --version || sudo apt -y install zsh
 
 : "查看发行版的可用shell"
 # cat /etc/shells
