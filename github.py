@@ -26,12 +26,12 @@ class Git:
             self.run(my_dir)
 
     def pull(self):
-        print 'nothing to commit'
+        print('nothing to commit')
         os.system('git pull origin master')
 
     def commit(self):
         now = time.strftime("%Y-%m-%d %H:%M:%S")
-        print 'commiting......'
+        print('commiting......')
         os.system('git add --all')
         os.system('git commit -m "%s"' % now)
         os.system('git pull origin master')
@@ -57,13 +57,13 @@ class Git:
         elif info == 1:
             self.commit()
         else:
-            print 'ERROR'
-        print '%s>>>%s' % ("-" * 40, _dir)
+            print('ERROR')
+        print('%s>>>%s' % ("-" * 40, _dir))
 
     def run(self, _dir):
         # _path = self.parent_path + '\\' + _dir
         _path = os.path.join(self.parent_path, _dir)
-        print _path
+        print(_path)
         # os.system('cd %s' % _path) # 无法切换工作目录
         os.chdir(_path)
         # print os.getcwd()
