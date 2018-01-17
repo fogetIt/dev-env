@@ -1,22 +1,19 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2017-12-26 16:11:03
+# @Last Modified time: 2018-01-17 17:34:52
 echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
-: '
-http://idea.iteblog.com/key.php
-或者试用30天
-'
-keymap_file=$working_directory/JetBrains/DefaultCustom.xml
+
 
 function install_jetbrains() {
     url=$1
     name=$2
     title=$3
     link_file=/usr/bin/$name
+    keymap_file=$working_directory/JetBrains/DefaultCustom.xml
     if [ ! -f $link_file ]; then
-        # && rm -rf $installation_directory/$title* \
-        # && wget -O $title.tar.gz $url \
         cd $installation_directory \
+        && rm -rf $installation_directory/$title* \
+        && wget -O $title.tar.gz $url \
         && mkdir $title \
         && tar \
             -zxvf $title.tar.gz \
@@ -25,18 +22,17 @@ function install_jetbrains() {
         && sudo rm -rf /opt/$title/ \
         && sudo mv ./$title/ /opt/$title/
         if [ $? == 0 ]; then
-            : "创建软链接(或者修改～/.bashrc)"
-            sudo ln -sf /opt/$title/bin/$name.sh $link_file
-            $name
-
-            : "复制快捷键配置文件到配置文件目录"
-            if [ $? == 0 ]; then
-                cd ~/.$title*/config
-                if [ ! -d ./keymaps/ ]; then
-                    mkdir keymaps \
-                    && sudo cp -f $keymap_file ./keymaps/ \
-                    && echo install $title success
-                fi
+            : "
+            创建软链接(或者修改～/.bashrc)
+            复制快捷键配置文件到配置文件目录
+            "
+            sudo ln -sf /opt/$title/bin/$name.sh $link_file \
+            && $name \
+            && cd ~/.$title*/config
+            if [ ! -d ./keymaps/ ]; then
+                mkdir keymaps \
+                && sudo cp -f $keymap_file ./keymaps/ \
+                && echo install $title success
             fi
         fi
     fi

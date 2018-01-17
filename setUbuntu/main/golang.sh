@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2017-12-26 16:09:37
+# @Last Modified time: 2018-01-17 17:31:31
 echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : "下载
 --->解压到指定目录(/opt/go)
@@ -21,17 +21,17 @@ GOPATH允许多个目录
             如果有多个目录，那么添加所有的bin目录
 "
 
-go version
-if [ $? != 0 ]; then
-    golang_url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
-
-    cd $installation_directory \
-    && wget -O go.tar.gz $golang_url \
+go version || (
+    golang_url= \
+    && cd $installation_directory \
+    && wget -O \
+        go.tar.gz \
+        "https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz" \
     && sudo mkdir /opt/go \
     && sudo tar \
-            -zxvf go.tar.gz \
-            -C /opt/go \
-            --strip-components 1 \
+        -zxvf go.tar.gz \
+        -C /opt/go \
+        --strip-components 1 \
     && export GOROOT=/opt/go \
     && export GOPATH=$HOME/gocode \
     && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
@@ -42,19 +42,19 @@ if [ $? != 0 ]; then
         export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin \n \
         \033[0m" \
     && sudo subl /etc/profile
-    : "
-    命令行修改环境变量
-        立即生效，重启失效
-            export ***
-    修改配置文件
-        重启生效
-            subl /etc/profile
-        立即生效
-            source /etc/profile
-    "
-fi
+    )
 
-: "echo -e "..."
--e
+: "
+命令行修改环境变量
+    立即生效，重启失效
+        export ***
+修改配置文件
+    重启生效
+        subl /etc/profile
+    立即生效
+        source /etc/profile
+    "
+
+: "echo -e '...'
 显示颜色、换行
 "
