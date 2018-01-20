@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2016-09-22 09:31:01
-# @Last Modified time: 2017-12-01 13:50:15
+# @Last Modified time: 2018-01-20 15:19:13
 #
 # PATH:${Git}\cmd;
 import os
@@ -13,8 +13,8 @@ class Git:
     def __init__(self, my_dir):
         self.parent_path = os.path.abspath("..")
         dir_list = [
-            'free_spider',
-            'security_door',
+            'free-spider',
+            # 'security_door',
             'nodeSpider',
             'scripts',
             'tools',
