@@ -1,17 +1,17 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-17 18:01:50
+# @Last Modified time: 2018-01-21 22:39:40
 echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-: "create installation_directory"
-[ ! -d $installation_directory ] && mkdir $installation_directory
+: "create SOFTWARES"
+[ ! -d $SOFTWARES ] && mkdir $SOFTWARES
 
 : "
 启用root用户
 修改root密码：sudo password root
 "
 sudo cp -f \
-    $current_directory/main/50-ubuntu.conf \
+    $(pwd)/main/50-ubuntu.conf \
     /usr/share/lightdm/lightdm.conf.d/
 
 
@@ -20,15 +20,15 @@ sudo cp -f \
 expect，用来处理交互的命令，使之自动化完成
 axel，多线程的命令行下载工具，替代 wget
 '
-expect -v || sudo apt -y install expect
-axel -V || sudo apt install axel
+expect -v; [ $? == 0 ] || sudo apt -y install expect
+axel -V; [ $? == 0 ] || sudo apt install axel
 
 
 : '
 apt-fast
 手动修改线程数   sudo vi /etc/apt-fast.conf
 '
-apt-fast -v | cat | head -n 1 || (
+apt-fast -v | cat | head -n 1; [ $? == 0 ] || (
     sudo add-apt-repository -y ppa:saiarcot895/myppa
     sudo apt-get update
     sudo apt-get -y install apt-fast
@@ -39,7 +39,7 @@ wget          单线程，下载速度慢
 uget+aria2    多线程下载
 uGet--->编辑--->设置--->插件--->aria2
 '
-uget-gtk --version || (
+uget-gtk --version; [ $? == 0 ] || (
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable \
     && sudo apt-fast update \
     && sudo apt-fast -y install uget \
@@ -53,35 +53,42 @@ uget-gtk --version || (
 wine
 用于运行Windows程序（qq依赖）
 "
-wine --version || sudo apt-fast -y install wine
+wine --version; [ $? == 0 ] || sudo apt-fast -y install wine
 
 
 # ***************************************************************
-git --version \
+git --version; [ $? == 0 ] \
 || (
     sudo apt-fast -y install git \
     && git config --global user.name "forgetIt" \
     && git config --global user.email "2271404280@qq.com" \
     && echo -e "\n" | ssh-keygen -t rsa -C "2271404280@qq.com" \
-    && echo "success"
+    && cat $HOME/.ssh/id_rsa.pub \
+    && read -p "please copy paste this public key to you github"
     )
 
+# [ ! -d $github ] \
+# && mkdir $HOME/github \
+# && cd $HOME/github \
+# && sudo rm -rf ./* \
+# && git init \
+# && git clone git@github.com:forgetIt/tools.git \
+# && echo "success"
 
 # ***************************************************************
-zsh --version || sudo apt -y install zsh
+zsh --version; [ $? == 0 ] || sudo apt -y install zsh
 
 : "
 查看发行版的可用shell
 cat /etc/shells
 "
-: "
-判断当前shell
-设置terminal的默认shell环境
-使用oh-my-zsh配置zsh
-"
+
+# 使用oh-my-zsh配置zsh
 [ $SHELL != /usr/bin/zsh ] \
 && echo $user_password | chsh -s `which zsh` \
-&& curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+&& sudo apt-fast install curl -y \
+&& curl -L \
+    https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
 # echo $user_password | chsh -s $(which bash) # 默认shell
 # echo $user_password | chsh -s $(which sh)
