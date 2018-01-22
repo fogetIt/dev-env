@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2018-01-21 22:44:56
-echo $user_password | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2018-01-22 15:43:44
+echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 : "
 下载
 解压到指定目录(/opt/go)
@@ -22,16 +22,13 @@ GOPATH允许多个目录
             如果有多个目录，那么添加所有的bin目录
 "
 
-go version; [ $? == 0 ] || (
-    url= "https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
+go version; [ $? = 0 ] || (
+    url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
 
     cd $SOFTWARES \
-    && wget -O go.tar.gz $url
+    && wget -O go.tar.gz $url \
     && sudo mkdir /opt/go \
-    && sudo tar \
-        -zxvf go.tar.gz \
-        -C /opt/go \
-        --strip-components 1 \
+    && sudo tar -zxvf go.tar.gz -C /opt/go --strip-components 1 \
     && export GOROOT=/opt/go \
     && export GOPATH=$HOME/gocode \
     && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
@@ -61,16 +58,15 @@ go version; [ $? == 0 ] || (
 
 # ****************************************************************************
 # -f/--force————移动、创建软链接时覆盖旧的
-node -v && npm -v; [ $? == 0 ] || (
+node -v && npm -v; [ $? = 0 ] || (
     url="https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
 
     cd $SOFTWARES \
     && sudo rm -rf ./node* \
     && wget -O node.tar.xz $url \
     && xz -d node.tar.xz \
-    && tar -xvf node.tar \
     && sudo rm -rf /opt/node \
-    && sudo mv -f ./node*/ /opt/node \
+    && tar -xvf node.tar -C /opt/node --strip-components 1 \
     && sudo ln -sf /opt/node/bin/node /usr/bin/node \
     && sudo ln -sf /opt/node/bin/npm /usr/bin/npm \
     && npm config set prefix /usr/local
@@ -90,8 +86,8 @@ node -v && npm -v; [ $? == 0 ] || (
 
 
 # ****************************************************************************
-pip --version; [ $? == 0 ] || sudo apt-fast -y install python-pip
-pip3 --version; [ $? == 0 ] || sudo apt-fast -y install python3-pip
+pip --version; [ $? = 0 ] || sudo apt-fast -y install python-pip
+pip3 --version; [ $? = 0 ] || sudo apt-fast -y install python3-pip
 : '
 # 写法2（只能以shell文件执行）
 (
@@ -108,48 +104,42 @@ virtualenv
 为指定的目录搭建独立的python虚拟环境
 让不同的项目处于各自独立Python的环境中
 '
-virtualenv --version; [ $? == 0 ] \
+virtualenv --version; [ $? = 0 ] \
 || pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 : '
-ipython
-Python shell 的一个交互加强版
-ipython-notebook
-ipython 的 broswer 交互工具
+ipython, powered python shell
+bpython, powered python shell, only support linux
+ipython-notebook, ipython broswer tool
 '
-ipython -V; [ $? == 0 ] || sudo apt -y install ipython
-ipython3 -V; [ $? == 0 ] || sudo apt -y install ipython3
-ipython netbook -V; [ $? == 0 ] || sudo apt-fast -y install ipython-notebook
-ipython3 netbook -V; [ $? == 0 ] || sudo apt-fast -y install ipython3-notebook
+ipython -V; [ $? = 0 ] || sudo apt -y install ipython
+ipython3 -V; [ $? = 0 ] || sudo apt -y install ipython3
+ipython netbook -V; [ $? = 0 ] || sudo apt-fast -y install ipython-notebook
+ipython3 netbook -V; [ $? = 0 ] || sudo apt-fast -y install ipython3-notebook
+bpython -V; [ $? = 0 ] || pip install bpython
 
-: "
-bpython
-only support linux
-自动补全、自动提示的IDE
-"
-bpython -V; [ $? == 0 ] || pip install bpython
 
 : 'Tkinter图形库'
-python -c "import Tkinter; exit()"; [ $? == 0 ] || sudo apt-fast -y install python-tk
-python3 -c "import tkinter; exit()"; [ $? == 0 ] || sudo apt-fast -y install python3-tk
+python -c "import Tkinter; exit()"; [ $? = 0 ] || sudo apt-fast -y install python-tk
+python3 -c "import tkinter; exit()"; [ $? = 0 ] || sudo apt-fast -y install python3-tk
 
 
 : 'libmysqlclient-dev，virtualenv的MySQLdb的依赖'
-python -c "import MySQLdb;exit()"; [ $? == 0 ] \
+python -c "import MySQLdb;exit()"; [ $? = 0 ] \
 || sudo apt-fast -y install libmysqlclient-dev python-mysqldb
 
 
 : 'TA-Lib、QScintilla依赖的.h头文件'
-dpkg-query -S python-dev; [ $? == 0 ] || sudo apt-fast -y install python-dev
-dpkg-query -S python3-dev; [ $? == 0 ] || sudo apt-fast -y install python3-dev
+dpkg-query -S python-dev; [ $? = 0 ] || sudo apt-fast -y install python-dev
+dpkg-query -S python3-dev; [ $? = 0 ] || sudo apt-fast -y install python3-dev
 
 
 : 'PyQt5'
-python -c "import PyQt5;exit()"; [ $? == 0 ] || sudo apt-fast -y install python-pyqt5
+python -c "import PyQt5;exit()"; [ $? = 0 ] || sudo apt-fast -y install python-pyqt5
 
 : '
 eric IDE依赖的所有python3库
 PyQt, sip and QScintilla
 '
-pip3 list | grep QScintilla; [ $? == 0 ] \
+pip3 list | grep QScintilla; [ $? = 0 ] \
 || pip3 install QScintilla -i https://pypi.tuna.tsinghua.edu.cn/simple

@@ -37,15 +37,11 @@ pkill  services.exe
 ```
 
 ##### [electronic打包的微信](http://github.com/geeeeeeeeek/electronic-wechat)
-
 ##### GIMP（ubuntu应用程序自带，类photoshop）
+##### 搜狗输入法
 
 : '
 echo $DESKTOP_SESSION
 ubuntu --> UNITY
 kubuntu --> KDE
 '
-
-##### 搜狗输入法
-- 安装
-- 配置----+

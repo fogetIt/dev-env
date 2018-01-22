@@ -11,10 +11,15 @@
 - [获取注册码](http://idea.lanyus.com/)
 - 或者填入license server
     ```
+    webstorm: http://idea.ibdyr.com
+    pycharm: https://jetlicense.nss.im/
     http://intellij.mandroid.cn/
     http://idea.imsxm.com/
     http://idea.iteblog.com/key.php
     ```
+- 或者
+    - [访问网址](http://idea.lanyus.com/)
+    - 无需修改用户名，点击获取注册码
 - 或者
     + 调整时间到2038年
     + 申请30天试用
@@ -51,23 +56,23 @@ File--->Invalidate caches
 - 远程调试
     + Run--->Edit Configurations--->添加Django server
 
-|快捷键            |含义        |
-|:----------------|:----------|
+|快捷键          |含义     |
+|:------------|:------|
 |绿色甲虫图标       |开启断点调试 |
 |CTRL+F8/行号后单击|设置/取消断点|
-|F8/点击StepOver   |下一步      |
-|CTRL+F5          |重启服务器  |
-|CTRL+SHIFT+F8    |查看所有断点 |
-|红色圆点加斜杠     |关闭断点调试 |
-|`CTRL+E`         |窗口面板    |
-|shift shift      |快速查找    |
+|F8/点击StepOver|下一步    |
+|CTRL+F5      |重启服务器  |
+|CTRL+SHIFT+F8|查看所有断点 |
+|红色圆点加斜杠      |关闭断点调试 |
+|`CTRL+E`     |窗口面板   |
+|shift shift  |快速查找   |
 
 编辑器右键，local history, show history： 显示本地修改记录
 
 ##### plugins
 
-|插件              |功能|
-|:----------------|:--|
+|插件               |功能|
+|:----------------|:-|
 |TranslationPlugin|翻译|
 
 ##### File--->Settings
