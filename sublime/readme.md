@@ -86,3 +86,13 @@ E36B85CC 84991F19 7575D828 470A92AB
     + https://github.com/FengZhiMo/MarkdownTableFormatter
 - Crtl + Shift + p
     + MarkdownTableFormatter
+
+
+##### 主题
+- 默认主题配置文件
+    + ${User}/Default.sublime-theme—
+    + 文件图标：${User}/icons/
+- 主题插件的配置文件
+    + ${User}/themeName.sublime-theme
+    + 文件图标：${themeName}/icons/
+- 通过修改主题配置文件就可以使用对应的文件图标，并继承和修改其样式

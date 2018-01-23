@@ -67,12 +67,13 @@ fi
 
 ##### 卸载/安装
 ```shell
-# apt-get程序
+# apt-get 程序
 sudo apt-cache search pyqt # 搜索ubuntu库
 sudo apt-get remove ***    # 卸载
 sudo apt-get autoclean
 sudo apt-get autoremove
-: "deb程序"
+# deb 程序
+sudo dpkg -i ***           # 安装
 sudo dpkg --configure -a   # 打断安装
 sudo dpkg -l | grep ***    # 查询deb包的详细信息
 sudo dpkg -P ***           # 彻底卸载
@@ -119,28 +120,26 @@ find ~/.local/ -name "图标名"
 - 依赖wine
 - 不能安装最新版
 
-##### [ubuntu QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
-- 安装前先卸载其它版的qq（如果以前安装过的话）
+##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
+- [下载](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
+- 有可能部分中文乱码，但是不影响聊天、使用
 
 ```shell
+# 卸载其它版的qq
 # 列出已经安装的qq相关包
 sudo dpkg -l | grep qq
 # 删除deb安装的包
 # 把能删的删掉，有依赖关系删不掉的不删
 sudo dpkg -P ***
-```
-- 安装wine
 
-```shell
+# 顺序安装
 sudo apt-get install wine
+sudo dpkg -i crossover-15_15.0.3-1_all.deb
+sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
+sudo apt-get install libgsm1 libgstreamer0.10-0 libgstreamer-plugins-base0.10-0
+sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
+sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
 ```
-- [下载链接](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
-    + 安装顺序
-        1. crossover-15_15.0.3-1_all.deb
-        2. crossover-15_15.0.3-1_all-free.deb
-        3. deepin-crossover-helper_1.0deepin0_all.deb
-        4. apps.com.qq.im_8.1.17255deepin11_i386.deb
-- 安装后的QQ（有可能）部分中文乱码，但是不影响聊天、使用
 
 ```shell
 #!/bin/bash
@@ -153,7 +152,13 @@ pkill  explorer.exe
 pkill  services.exe  
 ```
 
-##### [electronic打包的微信](http://github.com/geeeeeeeeek/electronic-wechat)
+###### chorme
+```shell
+sudo apt-get install libindicator7 libappindicator1
+sudo dpkg -i google-chorme-***.deb
+```
+
+##### [electronic packaged wechat](http://github.com/geeeeeeeeek/electronic-wechat)
 ##### GIMP
 - ubuntu应用程序自带，类photoshop
 
