@@ -1,13 +1,10 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-23 10:35:38
+# @Last Modified time: 2018-01-23 14:43:32
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-: '
-sublime
-通过sublime-text-imfix安装sublime、fcitx
-fcitx：小企鹅输入法框架，支持中文
-'
+# 通过sublime-text-imfix安装sublime、fcitx
+# fcitx：小企鹅输入法框架，支持中文
 subl -v || (
     cd $SOFTWARES \
     && rm -rf sublime-text* \
@@ -30,12 +27,10 @@ read -p \
     please install package control!"
 
 # **************************************************************
-: '
-vim        vi的超集
-vim-tiny   没有GUI，只有命令行（功能少，但是体积小，速度快）
-vim-gtk    GUI的vim（依赖于gtk）
-vim-gnome  GNOME GUI的vim（依赖于gnome）
-'
+# vim        vi的超集
+# vim-tiny   没有GUI，只有命令行（功能少，但是体积小，速度快）
+# vim-gtk    GUI的vim（依赖于gtk）
+# vim-gnome  GNOME GUI的vim（依赖于gnome）
 which vim && vim --version | cat | head -n 2 || (
     sudo apt-fast -y install vim \
     && cp -f $DIR/vim/.vimrc $HOME/

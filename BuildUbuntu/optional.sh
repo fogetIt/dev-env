@@ -1,12 +1,9 @@
 #!/bin/bash
 # @Date:   2017-06-08 14:43:35
-# @Last Modified time: 2018-01-23 09:54:42
+# @Last Modified time: 2018-01-23 14:46:38
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # markdown编辑器
-: "
-typora
-https://www.typora.io/#linux
-"
+# https://www.typora.io/#linux
 which typora
 if [ $? != 0 ]; then
     sudo apt-key adv \
@@ -23,10 +20,8 @@ sudo ifconfig enp5s0 down
 sudo ifconfig enp5s0 up
 
 
-: '
-UFW     Uncomplicated Firewall（简单的防火墙）————iptables的前端
-Gufw    UFW的图形界面前端，Gufw自称是世界上最简单的防火墙
-'
+# UFW     Uncomplicated Firewall（简单的防火墙）————iptables的前端
+# Gufw    UFW的图形界面前端，Gufw自称是世界上最简单的防火墙
 
 sudo ufw version
 if [ $? != 0 ]; then

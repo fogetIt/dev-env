@@ -1,45 +1,35 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-23 10:39:06
+# @Last Modified time: 2018-01-23 14:43:58
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : "create SOFTWARES"
 if [ ! -d $SOFTWARES ]; then
     mkdir $SOFTWARES
 fi
-: "
-启用root用户
-修改root密码：sudo password root
-"
+# 启用root用户
+# 修改root密码：sudo password root
 sudo cp -f $PWD/50-ubuntu.conf \
     /usr/share/lightdm/lightdm.conf.d/
 
+# 处理交互的命令，使之自动化完成
+expect -v || sudo apt -y install expect
 
 # ***************************************************************
-: '
-expect，用来处理交互的命令，使之自动化完成
-axel，多线程的命令行下载工具，替代 wget
-'
-expect -v || sudo apt -y install expect
+# 多线程的命令行下载工具，替代 wget
 axel -V | cat | head -n 2 || sudo apt install axel
 
 
-: '
-apt-fast
-sudo vi /etc/apt-fast.conf
-'
+# sudo vi /etc/apt-fast.conf
 which apt-fast && apt-fast -v | cat | head -n 2 || (
     sudo add-apt-repository -y ppa:saiarcot895/myppa
     sudo apt-get update
     sudo apt-get -y install apt-fast
     )
 
-: '
-wget          单线程下载
-uget+aria2    多线程下载
-
-编辑——>设置——>插件——>aria2
-'
+# wget          单线程下载
+# uget+aria2    多线程下载
+# 编辑——>设置——>插件——>aria2
 uget-gtk --version || (
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
     sudo apt-fast update
@@ -50,9 +40,7 @@ uget-gtk --version || (
     )
 
 # ***************************************************************
-: "
-for Windows softwares(e.g. qq)
-"
+# for Windows softwares(e.g. qq)
 wine --version || sudo apt-fast -y install wine
 
 
@@ -93,11 +81,8 @@ git --version && read -p \
 # ***************************************************************
 zsh --version || sudo apt -y install zsh
 
-: "
-list shells
-cat /etc/shells
-"
-
+# list shells
+# cat /etc/shells
 # 使用oh-my-zsh配置zsh
 [ $SHELL != /usr/bin/zsh ] \
 && echo $PASSWORD | chsh -s `which zsh` \
@@ -108,9 +93,7 @@ cat /etc/shells
 # echo $PASSWORD | chsh -s $(which bash) # 默认shell
 # echo $PASSWORD | chsh -s $(which sh)
 
-: "
-vim ~/.zshrc
-ZSH_THEME='random' # 每次打开一个终端后随机出现一个主题
-https://www.zhihu.com/question/21418449
-编辑-->配置文件首选项
-"
+# vim ~/.zshrc
+# ZSH_THEME='random' # 每次打开一个终端后随机出现一个主题
+# https://www.zhihu.com/question/21418449
+# 编辑-->配置文件首选项

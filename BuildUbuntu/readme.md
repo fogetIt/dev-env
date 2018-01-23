@@ -51,27 +51,25 @@ if [[ expression ]]; then # 支持&&,||,<,>,!=，$!不用加引号
 fi
 ```
 
-##### apt-get
-- 从网上下载包，并安装到本地
-- 官方url：/etc/apt/sources.list
-
-|参数                     |作用                       |
-|:----------------------|:------------------------|
-|ppa                    |Personal Package Archives|
-|                       |个人软件包集                   |
-|update                 |更新软件(下载源)列表              |
-|upgrade                |更新已安装软件                  |
-|dist-upgrade           |更新系统版本                   |
-|-y                     |自动回车确认                   |
-|--allow-unauthenticated|存在未认证的软件包，同时使用-y选项，必须    |
-
 ##### 卸载/安装
 ```shell
 # apt-get 程序
-sudo apt-cache search pyqt # 搜索ubuntu库
+# 官方下载源 /etc/apt/sources.list
+# ppa(Personal Package Archives)
+sudo apt-cache search ***           # 搜索ubuntu库
+sudo apt-get update                 # 更新下载源
+sudo add-apt-repository -y ppa:***  # 添加个人软件包集
+
+sudo apt-get install ***   # 安装
+sudo apt-get upgrade       # 更新已安装软件
+sudo apt-get dist-upgrade  # 更新系统版本
+
 sudo apt-get remove ***    # 卸载
 sudo apt-get autoclean
-sudo apt-get autoremove
+sudo apt-get autoremove    # 自动卸载依赖
+# -y                       自动回车确认
+# --allow-unauthenticated  存在未认证的软件包，同时使用-y选项，必须
+
 # deb 程序
 sudo dpkg -i ***           # 安装
 sudo dpkg --configure -a   # 打断安装
@@ -117,8 +115,21 @@ find ~/.local/ -name "图标名"
 
 
 ##### [youdao-dict](http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb)
-- 依赖wine
+- 依赖`wine`
 - 不能安装最新版
+
+##### 美化
+```shell
+sudo apt install docky
+# 下载 libdesktop-agnostic ，解压
+sudo add-apt-repository ppa:malept/experimental
+sudo apt-get update
+# 下载 dockmanager ，解压
+sudo apt-get install intltool libgnomeui-dev libdbus-glib-1-dev libdesktop-agnostic
+./configure
+make
+make install
+```
 
 ##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
 - [下载](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
@@ -158,7 +169,7 @@ sudo apt-get install libindicator7 libappindicator1
 sudo dpkg -i google-chorme-***.deb
 ```
 
-##### [electronic packaged wechat](http://github.com/geeeeeeeeek/electronic-wechat)
+##### [electronic wechat](http://github.com/geeeeeeeeek/electronic-wechat)
 ##### GIMP
 - ubuntu应用程序自带，类photoshop
 
