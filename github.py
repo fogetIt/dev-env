@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2016-09-22 09:31:01
-# @Last Modified time: 2018-01-20 15:19:13
+# @Last Modified time: 2018-01-23 10:45:19
 #
 # PATH:${Git}\cmd;
 import os
@@ -17,6 +17,7 @@ class Git:
             # 'security_door',
             'nodeSpider',
             'scripts',
+            'simple-chat',
             'tools',
         ]
         if my_dir == '':
