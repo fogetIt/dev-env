@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-05-08 10:56:59
-# @Last Modified time: 2018-01-20 12:14:29
+# @Last Modified time: 2018-01-23 16:17:53
 virtualenv --version \
 || pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
 
@@ -16,6 +16,6 @@ virtualenv --version \
     && rm -rf ../venv/
     ) \
 || (
-    virtualenv ../venv --no-site-packages \
+    virtualenv ../venv --system-site-packages \
     && virtualenv -p $(which python) ../venv
     )

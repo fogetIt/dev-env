@@ -124,6 +124,7 @@ sudo apt install docky
 # 下载 libdesktop-agnostic ，解压
 sudo add-apt-repository ppa:malept/experimental
 sudo apt-get update
+sudo apt-get install libdesktop-agnostic
 # 下载 dockmanager ，解压
 sudo apt-get install intltool libgnomeui-dev libdbus-glib-1-dev libdesktop-agnostic
 ./configure
@@ -172,11 +173,3 @@ sudo dpkg -i google-chorme-***.deb
 ##### [electronic wechat](http://github.com/geeeeeeeeek/electronic-wechat)
 ##### GIMP
 - ubuntu应用程序自带，类photoshop
-
-##### 搜狗输入法
-
-: '
-echo $DESKTOP_SESSION
-ubuntu --> UNITY
-kubuntu --> KDE
-'
