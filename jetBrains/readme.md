@@ -11,8 +11,7 @@
 - [获取注册码](http://idea.lanyus.com/)
 - 或者填入license server
     ```
-    webstorm: http://idea.ibdyr.com
-    pycharm: https://jetlicense.nss.im/
+    https://jetlicense.nss.im/
     http://intellij.mandroid.cn/
     http://idea.imsxm.com/
     http://idea.iteblog.com/key.php

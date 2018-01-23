@@ -1,11 +1,10 @@
 #!/bin/bash
 # @Date:   2017-07-05 12:34:39
-# @Last Modified time: 2018-01-22 14:31:03
+# @Last Modified time: 2018-01-23 10:04:57
 # 基于Ubuntu16.04LTS，自动搭建开发环境
 
 # function 可以省略
 function exit?() {
-    # read -p ${@:1} decide  # 接收带空格的参数
     read -p $* decide
     [ "$decide" != 'Y' -a "$decide" == 'n' ] && exit 0 || exit? $*
 }
@@ -17,7 +16,7 @@ shell 互相调用，不会影响 $(pwd)
 cd 命令会影响 $(pwd)
 "
 if [ $1 ]; then
-    PWD = $(pwd)               # 当前路径
+    PWD=$(pwd)                 # 当前路径
     DIR=$(dirname $(pwd))      # 工作路径
     PASSWORD=$1                # 用户密码
     SOFTWARES=$HOME/softwares  # 下载路径

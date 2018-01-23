@@ -1,33 +1,21 @@
 #!/bin/bash
 # @Date:   2017-06-08 14:43:35
-# @Last Modified time: 2018-01-21 22:36:01
-
+# @Last Modified time: 2018-01-23 09:54:42
+echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # markdown编辑器
-: "typora
+: "
+typora
 https://www.typora.io/#linux
 "
 which typora
 if [ $? != 0 ]; then
-    # optional, but recommended
-    echo $user_password | sudo -S \
-        apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-    # add Typora's repository
-    echo $user_password | sudo -S \
-        add-apt-repository 'deb https://typora.io ./linux/'
-    echo $user_password | sudo -S \
-        apt-fast update
-    # install typora
-    echo $user_password | sudo -S \
-        apt-fast install typora
+    sudo apt-key adv \
+        --keyserver keyserver.ubuntu.com \
+        --recv-keys BA300B7755AFCFAE
+    sudo add-apt-repository 'deb https://typora.io ./linux/'
+    sudo apt-fast update
+    sudo apt-fast install typora
 fi
-
-: "haroopad
-http://pad.haroopress.com/user.html
-"
-
-: "REMARKABLE
-https://remarkableapp.github.io/linux.html
-"
 
 # ************************************************************
 # ubuntu16.04LTS重启网卡
@@ -39,17 +27,14 @@ sudo ifconfig enp5s0 up
 UFW     Uncomplicated Firewall（简单的防火墙）————iptables的前端
 Gufw    UFW的图形界面前端，Gufw自称是世界上最简单的防火墙
 '
-user_password="123zhang"
 
-
-echo $user_password | sudo -S ufw version
+sudo ufw version
 if [ $? != 0 ]; then
-    # 安装/卸载iptables
     apt-get install iptables
     # apt-get remove iptables
 fi
 
-echo $user_password | sudo -S ufw status
+sudo ufw status
 #
 # 关闭/开启防火墙
 # ufw disable

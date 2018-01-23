@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-22 14:32:02
+# @Last Modified time: 2018-01-23 10:39:06
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : "create SOFTWARES"
@@ -20,27 +20,18 @@ sudo cp -f $PWD/50-ubuntu.conf \
 expect，用来处理交互的命令，使之自动化完成
 axel，多线程的命令行下载工具，替代 wget
 '
-expect -v; [ $? = 0 ] || sudo apt -y install expect
-axel -V; [ $? = 0 ] || sudo apt install axel
+expect -v || sudo apt -y install expect
+axel -V | cat | head -n 2 || sudo apt install axel
 
 
 : '
 apt-fast
 sudo vi /etc/apt-fast.conf
 '
-result=$(apt-fast -v); [ $? = 0 ] \
-&& echo ${result: 0:20} \
-|| (
-    sudo add-apt-repository -y ppa:saiarcot895/myppa \
-    && sudo apt-get update \
-    && sudo apt-get -y install apt-fast
-    )
-
-
-echo $(apt-fast -v | cat | head -n 1); [ $? = 0 ] || (
-    sudo add-apt-repository -y ppa:saiarcot895/myppa \
-    && sudo apt-get update \
-    && sudo apt-get -y install apt-fast
+which apt-fast && apt-fast -v | cat | head -n 2 || (
+    sudo add-apt-repository -y ppa:saiarcot895/myppa
+    sudo apt-get update
+    sudo apt-get -y install apt-fast
     )
 
 : '
@@ -49,8 +40,8 @@ uget+aria2    多线程下载
 
 编辑——>设置——>插件——>aria2
 '
-uget-gtk --version; [ $? = 0 ] || (
-    sudo add-apt-repository -y ppa:plushuang-tw/uget-stable \
+uget-gtk --version || (
+    sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
     sudo apt-fast update
     sudo apt-fast -y install uget
     sudo add-apt-repository -y ppa:t-tujikawa/ppa
@@ -62,14 +53,13 @@ uget-gtk --version; [ $? = 0 ] || (
 : "
 for Windows softwares(e.g. qq)
 "
-wine --version; [ $? = 0 ] || sudo apt-fast -y install wine
+wine --version || sudo apt-fast -y install wine
 
 
 # ***************************************************************
-git --version; [ $? = 0 ] || sudo apt-fast -y install git
+git --version || sudo apt-fast -y install git
 
-git --version; [ $? = 0 ] \
-&& read -p \
+git --version && read -p \
     "warning
     generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
 && [ "$var" = "Y" ] \
@@ -85,8 +75,7 @@ git --version; [ $? = 0 ] \
     && exit 0
     )
 
-git --version; [ $? = 0 ] \
-&& read -p \
+git --version && read -p \
     "warning
     clone repositories? [Y/n]" var \
 && [ "$var" = "Y" ] \
@@ -102,7 +91,7 @@ git --version; [ $? = 0 ] \
     )
 
 # ***************************************************************
-zsh --version; [ $? = 0 ] || sudo apt -y install zsh
+zsh --version || sudo apt -y install zsh
 
 : "
 list shells

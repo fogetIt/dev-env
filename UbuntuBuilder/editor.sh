@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-22 14:31:49
+# @Last Modified time: 2018-01-23 10:35:38
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : '
@@ -8,7 +8,7 @@ sublime
 通过sublime-text-imfix安装sublime、fcitx
 fcitx：小企鹅输入法框架，支持中文
 '
-subl -v; [ $? = 0 ] || (
+subl -v || (
     cd $SOFTWARES \
     && rm -rf sublime-text* \
     && git clone https://github.com/lyfeyaj/sublime-text-imfix.git \
@@ -36,9 +36,7 @@ vim-tiny   没有GUI，只有命令行（功能少，但是体积小，速度快
 vim-gtk    GUI的vim（依赖于gtk）
 vim-gnome  GNOME GUI的vim（依赖于gnome）
 '
-result=$(vim --version); [ $? = 0 ] \
-&& echo ${result: 0:20} \
-|| (
+which vim && vim --version | cat | head -n 2 || (
     sudo apt-fast -y install vim \
     && cp -f $DIR/vim/.vimrc $HOME/
     )
@@ -51,9 +49,7 @@ if [ ! -d $SOFTWARES/plugins ]; then
 fi
 
 # **************************************************************
-result=$(atom -v); [ $? = 0 ] \
-&& echo ${result: 0:20} \
-|| (
+which atom && atom -v | cat | head -n 2 || (
     sudo add-apt-repository -y ppa:webupd8team/atom
     sudo apt-fast update
     sudo apt-fast -y install atom

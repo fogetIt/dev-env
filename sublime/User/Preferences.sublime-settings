@@ -70,14 +70,7 @@
         ".hg",
         "CVS",
         ".idea",
-        "github/bin",
-        "github/lib",
-        "github/local",
-        "github/include",
-        "tianxi/bin",
-        "tianxi/lib",
-        "tianxi/local",
-        "tianxi/include",
+        "venv",
     ],
     /**
      * 侧边栏隐藏特定文件
