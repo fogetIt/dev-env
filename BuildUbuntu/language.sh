@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2018-01-23 14:46:03
+# @Last Modified time: 2018-01-23 18:12:38
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # 下载
 # 解压到指定目录(/opt/go)
@@ -58,9 +58,12 @@ node -v && npm -v || (
     cd $SOFTWARES \
     && sudo rm -rf ./node* \
     && wget -O node.tar.xz $url \
-    && xz -d node.tar.xz \
-    && sudo rm -rf /opt/node \
-    && tar -xvf node.tar -C /opt/node --strip-components 1 \
+    && xz -d node.tar.xz
+
+    sudo rm -rf /opt/node
+
+    sudo mkdir /opt/node/ \
+    && sudo tar -xvf node.tar -C /opt/node --strip-components 1 \
     && sudo ln -sf /opt/node/bin/node /usr/bin/node \
     && sudo ln -sf /opt/node/bin/npm /usr/bin/npm \
     && npm config set prefix /usr/local

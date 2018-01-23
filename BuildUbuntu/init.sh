@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-23 14:43:58
+# @Last Modified time: 2018-01-23 18:08:56
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : "create SOFTWARES"
@@ -17,7 +17,7 @@ expect -v || sudo apt -y install expect
 
 # ***************************************************************
 # 多线程的命令行下载工具，替代 wget
-axel -V | cat | head -n 2 || sudo apt install axel
+which axel && axel -V | cat | head -n 2 || sudo apt install axel
 
 
 # sudo vi /etc/apt-fast.conf
