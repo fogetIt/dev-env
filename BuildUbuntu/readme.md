@@ -102,10 +102,10 @@ source /etc/profile # 立即生效
 set -e
 : "如果任何语句的执行结果不是true则应该退出"
 : "某些命令执行失败，脚本会退出，$?判断也会失效"
-command1 & command2 & ...   # 命令同时执行
-command1; command2; ...     # 不管前面的命令是否执行成功，后面的命令都会执行
-command1 && command2 && ... # 只有前面的命令执行成功，后面的命令才会执行
-command1 || command2 || ... # 只有前面的命令返回假($? == 1)，后边的命令才会执行
+command1 & command2 & ...   # 同时执行
+command1; command2; ...     # 顺序执行，互不影响
+command1 && command2 && ... # 顺序执行，后面的命令依赖前面命令的成功($? == 0)
+command1 || command2 || ... # 顺序执行，后面的命令依赖前面命令的失败
 ```
 
 ##### 搜索无效的图标
@@ -114,9 +114,7 @@ find ~/.local/ |xargs grep -ri "图标名" -l
 find ~/.local/ -name "图标名"
 
 
-##### [youdao-dict](http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb)
-- 依赖`wine`
-- 不能安装最新版
+##### [youdao-dict](http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb)，不能安装最新版
 
 ##### 美化
 - 管理工具
@@ -124,7 +122,7 @@ find ~/.local/ -name "图标名"
     sudo apt install docky
     sudo apt-get install unity-tweak-tool
     ```
-- themes and icons
+- themes/icons
     ```shell
     sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
 
@@ -132,7 +130,6 @@ find ~/.local/ -name "图标名"
     sudo apt-get update
     sudo apt-get install flatabulous-theme
 
-    # themes and icons
     sudo add-apt-repository ppa:numix/ppa
     sudo apt-get update
     sudo apt-get install numix-gtk-theme numix-icon-theme-circle
