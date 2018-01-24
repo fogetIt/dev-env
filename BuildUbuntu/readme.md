@@ -10,8 +10,10 @@
 
 ---
 ##### sudo
-- -S
-    + 使sudo从标准输入中读取密码
+- -S,  read password from stdout
+
+##### wget
+- -O ***, save with file name
 
 ##### $
 - $!
@@ -32,10 +34,6 @@
 - $n
     + 传递参数给函数
     + 当n>=10时，需要使用${n}来获取参数
-
-##### wget
-- -O ***
-    + 以指定的文件名保存
 
 ##### if [ expression ]
 ```shell
@@ -73,7 +71,7 @@ sudo apt-get autoremove    # 自动卸载依赖
 # deb 程序
 sudo dpkg -i ***           # 安装
 sudo dpkg --configure -a   # 打断安装
-sudo dpkg -l | grep ***    # 查询deb包的详细信息
+sudo dpkg -l | grep ***    # 查询相关deb包信息
 sudo dpkg -P ***           # 彻底卸载
 sudo dpkg --purge ***
 ```
@@ -131,34 +129,23 @@ sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
 ##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
 - [下载](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
 - 有可能部分中文乱码，但是不影响聊天、使用
+- 卸载其它版的`QQ`，顺序安装
+    ```shell
+    sudo apt-get install wine
+    sudo dpkg -i crossover-15_15.0.3-1_all.deb
+    sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
+    sudo apt-get install libgsm1 libgstreamer0.10-0 libgstreamer-plugins-base0.10-0
+    sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
+    sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
 
-```shell
-# 卸载其它版的qq
-# 列出已经安装的qq相关包
-sudo dpkg -l | grep qq
-# 删除deb安装的包
-# 把能删的删掉，有依赖关系删不掉的不删
-sudo dpkg -P ***
-
-# 顺序安装
-sudo apt-get install wine
-sudo dpkg -i crossover-15_15.0.3-1_all.deb
-sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
-sudo apt-get install libgsm1 libgstreamer0.10-0 libgstreamer-plugins-base0.10-0
-sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
-sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
-```
-
-```shell
-#!/bin/bash
-: 'vim /usr/bin/killqq'
-ps aux | grep -v grep | grep wine |cut -c 9-15 | xargs kill
-ps aux | grep -v grep | grep QQ |cut -c 9-15 | xargs kill
-ps aux | grep -v grep | grep qq |cut -c 9-15 | xargs kill
-pkill  plugplay.exe  
-pkill  explorer.exe  
-pkill  services.exe  
-```
+    : 'vim /usr/bin/killqq'
+    ps aux | grep -v grep | grep wine |cut -c 9-15 | xargs kill
+    ps aux | grep -v grep | grep QQ |cut -c 9-15 | xargs kill
+    ps aux | grep -v grep | grep qq |cut -c 9-15 | xargs kill
+    pkill  plugplay.exe
+    pkill  explorer.exe
+    pkill  services.exe
+    ```
 
 ###### chorme
 ```shell
@@ -168,4 +155,3 @@ sudo dpkg -i google-chorme-***.deb
 
 ##### [electronic wechat](http://github.com/geeeeeeeeek/electronic-wechat)
 ##### GIMP
-- ubuntu应用程序自带，类photoshop
