@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-24 16:32:39
+# @Last Modified time: 2018-01-24 16:38:56
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
@@ -59,7 +59,6 @@ expect -v || sudo apt -y install expect
 which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
 # ***************************************************************
 zsh --version || sudo apt -y install zsh
-# list shells
 # cat /etc/shells
 # 使用oh-my-zsh配置zsh
 [ ${SHELL} != /usr/bin/zsh ] \
