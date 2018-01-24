@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-24 14:28:38
+# @Last Modified time: 2018-01-24 16:32:39
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
@@ -56,18 +56,20 @@ uget-gtk --version || (
 # 处理交互的命令，使之自动化完成
 expect -v || sudo apt -y install expect
 # ***************************************************************
+which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
+# ***************************************************************
 zsh --version || sudo apt -y install zsh
 # list shells
 # cat /etc/shells
 # 使用oh-my-zsh配置zsh
 [ ${SHELL} != /usr/bin/zsh ] \
 && echo ${PASSWORD} | chsh -s `which zsh` \
-&& sudo apt-fast install curl -y \
 && curl -L \
     https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
-# echo ${PASSWORD} | chsh -s $(which bash) # 默认shell
-# echo ${PASSWORD} | chsh -s $(which sh)
+
+# chsh -s $(which bash)
+# chsh -s $(which sh)
 
 # vim ~/.zshrc
 # ZSH_THEME='random' # 每次打开一个终端后随机出现一个主题

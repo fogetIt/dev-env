@@ -64,7 +64,7 @@ sudo apt-get dist-upgrade  # 更新系统版本
 
 sudo apt-get remove ***    # 卸载
 sudo apt-get autoclean
-sudo apt-get autoremove    # 自动卸载依赖
+sudo apt-get autoremove    # 自动卸载依赖（尽量不要用）
 # -y                       自动回车确认
 # --allow-unauthenticated  存在未认证的软件包，同时使用-y选项，必须
 
@@ -81,7 +81,7 @@ sudo dpkg --purge ***
 >    # 从标准输入覆盖写
 >>   # 从标准输入追加写
 tee  # 从标准输入读入
-tee -a    # 追加模式
+tee -a  # 追加模式
 ```
 
 http://blog.csdn.net/taiyang1987912/article/details/39551385
@@ -113,35 +113,7 @@ find ~/.local/ |xargs grep -ri "图标名"
 find ~/.local/ |xargs grep -ri "图标名" -l
 find ~/.local/ -name "图标名"
 
-
 ##### [youdao-dict](http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb)，不能安装最新版
-
-##### 美化
-- 管理工具
-    ```shell
-    sudo apt install docky
-    sudo apt-get install unity-tweak-tool
-    ```
-- themes/icons
-    ```shell
-    sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
-
-    sudo add-apt-repository ppa:noobslab/themes
-    sudo apt-get update
-    sudo apt-get install flatabulous-theme
-
-    sudo add-apt-repository ppa:numix/ppa
-    sudo apt-get update
-    sudo apt-get install numix-gtk-theme numix-icon-theme-circle
-
-    sudo add-apt-repository ppa:noobslab/icons
-    sudo apt-get update
-    sudo apt-get install ultra-flat-icons
-
-    sudo add-apt-repository ppa:snwh/pulp
-    sudo apt-get update
-    sudo apt-get install paper-icon-theme
-    ```
 
 ##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
 - [下载](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
