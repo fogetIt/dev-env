@@ -1,6 +1,8 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-24 14:27:55
+# @Last Modified time: 2018-01-24 15:50:08
+# echo -e '...'
+# 显示颜色、换行
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : "create SOFTWARES"

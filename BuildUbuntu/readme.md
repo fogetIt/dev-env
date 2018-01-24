@@ -77,23 +77,25 @@ sudo dpkg --purge ***
 ```
 
 ##### 文件操作
-
-|命令/符号|含义      |
-|:----|:-------|
-|>    |从标准输入覆盖写|
-|>>   |从标准输入追加写|
-|tee  |从标准输入读入 |
-|     |-a追加模式  |
-
+```shell
+>    # 从标准输入覆盖写
+>>   # 从标准输入追加写
+tee  # 从标准输入读入
+tee -a    # 追加模式
+```
 
 http://blog.csdn.net/taiyang1987912/article/details/39551385
 
 ##### 环境变量
-set 显示当前shell的变量，包括当前用户的变量
-env 显示当前用户的变量
-export 显示当前导出成用户变量的shell变量
-export 用户注销时值将丢失
-
+```shell
+set    # 显示当前shell的变量，包括当前用户的变量
+env    # 显示当前用户的变量
+export # 显示当前导出成用户变量的shell变量
+# 修改环境变量
+export ***          # 立即生效，用户注销时值将丢失
+subl /etc/profile   # 重启生效
+source /etc/profile # 立即生效
+```
 
 ##### 命令间隔符
 ```shell
@@ -124,8 +126,6 @@ find ~/.local/ -name "图标名"
     ```
 - themes and icons
     ```shell
-    # [下载，解压](https://pan.baidu.com/s/1miufmoK)
-    sudo mv Libra/  /usr/share/themes
     sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
 
     sudo add-apt-repository ppa:noobslab/themes

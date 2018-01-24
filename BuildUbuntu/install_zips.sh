@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-01-24 14:57:04
+# @Last Modified time: 2018-01-24 15:49:58
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
@@ -113,18 +113,6 @@ node -v && npm -v || (
 #         bin    编译后生成的可执行文件
 #             为了方便，可以把此目录加入到 PATH 中
 #             如果有多个目录，那么添加所有的bin目录
-
-# 修改环境变量
-#     立即生效，重启失效
-#         export ***
-#     重启生效
-#         subl /etc/profile
-#     立即生效
-#         source /etc/profile
-
-# echo -e '...'
-# 显示颜色、换行
-
 # ***************************************************************
 # sudo find / -name mongobooster | grep mongobooster
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
