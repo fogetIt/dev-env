@@ -117,14 +117,34 @@ find ~/.local/ -name "图标名"
 - 不能安装最新版
 
 ##### 美化
-```shell
-sudo apt install docky
-# [下载](https://pan.baidu.com/s/1miufmoK)
-# 解压
-sudo mv Libra/  /usr/share/themes
-sudo apt-get install unity-tweak-tool
-sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
-```
+- 管理工具
+    ```shell
+    sudo apt install docky
+    sudo apt-get install unity-tweak-tool
+    ```
+- themes and icons
+    ```shell
+    # [下载，解压](https://pan.baidu.com/s/1miufmoK)
+    sudo mv Libra/  /usr/share/themes
+    sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
+
+    sudo add-apt-repository ppa:noobslab/themes
+    sudo apt-get update
+    sudo apt-get install flatabulous-theme
+
+    # themes and icons
+    sudo add-apt-repository ppa:numix/ppa
+    sudo apt-get update
+    sudo apt-get install numix-gtk-theme numix-icon-theme-circle
+
+    sudo add-apt-repository ppa:noobslab/icons
+    sudo apt-get update
+    sudo apt-get install ultra-flat-icons
+
+    sudo add-apt-repository ppa:snwh/pulp
+    sudo apt-get update
+    sudo apt-get install paper-icon-theme
+    ```
 
 ##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
 - [下载](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
