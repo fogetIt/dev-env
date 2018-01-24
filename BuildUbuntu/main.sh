@@ -27,10 +27,9 @@ if [ $1 ]; then
 
     chmod -R u+x $(pwd) \
     && ./init.sh \
-    && ./editor.sh \
-    && ./jetbrains.sh \
-    && ./database.sh \
-    && ./language.sh
+    && ./install_apts.sh \
+    && ./install_zips.sh \
+    && ./install_pys.sh
 
     # optional.sh
 else
