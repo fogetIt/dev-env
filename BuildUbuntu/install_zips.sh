@@ -1,48 +1,30 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-01-24 14:04:18
-echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
-
-
-function uncompress2opt() {
-    url=$1
-    package=$2
-    compress=$3
-    cd $SOFTWARES \
-    && find /opt -name "${package}" -type d | grep "${package}" || (
-
-        [ ${compress} = "gzip" ] \
-        && find $SOFTWARES -name "${package}.tar.gz" -type f | grep "${package}.tar.gz" || \
-        wget -O "${package}.tar.gz" "${url}" && (
-            sudo mkdir "/opt/${package}" \
-            && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1
-            )
-
-        [ ${compress} = "xzip" ] \
-        && find $SOFTWARES -name "${package}.tar" -type f | grep "${package}.tar" || (
-            find $SOFTWARES -name "${package}.tar.xz" -type f | grep "${package.tar.xz}" \
-            || wget -O "${package}.tar.xz" "${url}" \
-            && xz -d "${package}.tar.xz"
-            ) && (
-            sudo mkdir "/opt/${package}" \
-            && sudo tar -xvf "${package}.tar" -C "/opt/${package}" --strip-components 1
-            )
-
-        ) && echo "download and uncompress zip package to /opt successful!"
-}
+# @Last Modified time: 2018-01-24 14:57:04
+echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
     url=$1
     name=$2
     package=$3
     if [ ! -f "/usr/bin/${name}" ]; then
-        uncompress2opt ${url} ${package} "gzip" \
+        if [ ! -d "/opt/${package}" ]; then
+            cd ${SOFTWARES}
+            if [ ! -f "${SOFTWARES}/${package}.tar.gz" ]; then
+                wget -O "${package}.tar.gz" "${url}"
+            fi
+            sudo mkdir "/opt/${package}" \
+            && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1
+        fi
+        [ $? = 0 ] \
+        && echo "download and uncompress zip package to /opt successful!" \
         && sudo ln -sf "/opt/${package}/bin/${name}.sh" "/usr/bin/${name}" \
         && "${name}" \
         && echo "create soft link successful!" \
-        && cd "${HOME}/.${package}*/config" \
-        && find ./ -name "keymaps" -type d | grep "keymaps" \
-        || mkdir keymaps \
+        && cd ${HOME}/.${package}*/config \
+        && (
+            find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
+            ) \
         && sudo cp -f "${DIR}/jetBrains/DefaultCustom.xml" ./keymaps/ \
         && echo "copy keymaps settings successful!"
     fi
@@ -71,10 +53,20 @@ package="GoLand"
 jetbrains ${url} ${name} ${package}
 # ***************************************************************
 node -v && npm -v || (
-    url="https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
-    name="node"
-    package="node"
-    uncompress2opt ${url} ${package} "xzip" \
+    if [ ! -d /opt/node ]; then
+        cd ${SOFTWARES}
+        if [ ! -f "${SOFTWARES}/node.tar"]; then
+            if [ ! -f "${SOFTWARES}/node.tar.xz" ]; then
+                wget -O "node.tar.xz" \
+                "https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
+            fi
+            xz -d node.tar.xz
+        fi
+        sudo mkdir /opt/node \
+        && sudo tar -xvf node.tar -C /opt/node --strip-components 1
+    fi
+    [ $? = 0 ] \
+    && echo "download and uncompress zip package to /opt successful!" \
     && sudo ln -sf /opt/node/bin/node /usr/bin/node \
     && sudo ln -sf /opt/node/bin/npm /usr/bin/npm \
     && echo "create soft link successful!" \
@@ -135,8 +127,8 @@ node -v && npm -v || (
 
 # ***************************************************************
 # sudo find / -name mongobooster | grep mongobooster
-sudo find $HOME/.config/ -name mongobooster | grep mongobooster || (
-    cd $SOFTWARES \
+sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
+    cd ${SOFTWARES} \
     && axel -n 16 \
     "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \

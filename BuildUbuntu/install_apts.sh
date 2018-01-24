@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-24 14:03:49
-echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2018-01-24 14:28:38
+echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
 # vim        super vi
@@ -10,13 +10,13 @@ echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # vim-gnome  vim with gnome GUI
 which vim && vim --version | cat | head -n 2 || (
     sudo apt-fast -y install vim \
-    && cp -f $DIR/vim/.vimrc $HOME/
+    && cp -f ${DIR}/vim/.vimrc ${HOME}/
     )
 # sudo apt-fast -y install vim-gtk vim-gnome
-if [ ! -d $SOFTWARES/plugins ]; then
-    mkdir $SOFTWARES/plugins \
+if [ ! -d ${SOFTWARES}/plugins ]; then
+    mkdir ${SOFTWARES}/plugins \
     && git clone git@github.com:VundleVim/Vundle.vim.git \
-        $SOFTWARES/plugins/Vundle
+        ${SOFTWARES}/plugins/Vundle
 fi
 # **************************************************************
 which atom && atom -v | cat | head -n 2 || (
@@ -60,14 +60,14 @@ zsh --version || sudo apt -y install zsh
 # list shells
 # cat /etc/shells
 # 使用oh-my-zsh配置zsh
-[ $SHELL != /usr/bin/zsh ] \
-&& echo $PASSWORD | chsh -s `which zsh` \
+[ ${SHELL} != /usr/bin/zsh ] \
+&& echo ${PASSWORD} | chsh -s `which zsh` \
 && sudo apt-fast install curl -y \
 && curl -L \
     https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
-# echo $PASSWORD | chsh -s $(which bash) # 默认shell
-# echo $PASSWORD | chsh -s $(which sh)
+# echo ${PASSWORD} | chsh -s $(which bash) # 默认shell
+# echo ${PASSWORD} | chsh -s $(which sh)
 
 # vim ~/.zshrc
 # ZSH_THEME='random' # 每次打开一个终端后随机出现一个主题

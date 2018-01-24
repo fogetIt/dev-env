@@ -92,3 +92,6 @@ Ubuntu Mono
 Noto Sans CJK JP DemiLight
 Monospaced
 ```
+
+##### PyCharm virtualenv
+- File--->Settings--->Project--->Project Interpreter

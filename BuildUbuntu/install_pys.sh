@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2018-01-23 18:12:38
-echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2018-01-24 14:25:17
+echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 pip --version || sudo apt-fast -y install python-pip
 pip3 --version || sudo apt-fast -y install python3-pip
