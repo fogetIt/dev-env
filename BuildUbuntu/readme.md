@@ -121,15 +121,10 @@ find ~/.local/ -name "图标名"
 ##### 美化
 ```shell
 sudo apt install docky
-# 下载 libdesktop-agnostic ，解压
-sudo add-apt-repository ppa:malept/experimental
-sudo apt-get update
-sudo apt-get install libdesktop-agnostic
-# 下载 dockmanager ，解压
-sudo apt-get install intltool libgnomeui-dev libdbus-glib-1-dev libdesktop-agnostic
-./configure
-make
-make install
+sudo apt-get install unity-tweak-tool
+# [下载](https://pan.baidu.com/s/1miufmoK)
+# 解压
+sudo mv Libra/  /usr/share/themes
 ```
 
 ##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
