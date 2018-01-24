@@ -1,5 +1,5 @@
 ##### 装win、ubuntu双系统：
-- 安装win7、win8、win10，分2~3个盘给ubuntu（/、swapn、/home）
+- 安装win7、win8、win10，分盘给ubuntu(/, swapn, /home)
 - 使用ultraISO、ubuntu镜像制作启动盘
 - 进bios改启动项，选择u盘启动
 - 安装ubuntu，选择其它选项安装，ubuntu启动项与/目录的挂载盘一致，完成后重启
@@ -121,10 +121,11 @@ find ~/.local/ -name "图标名"
 ##### 美化
 ```shell
 sudo apt install docky
-sudo apt-get install unity-tweak-tool
 # [下载](https://pan.baidu.com/s/1miufmoK)
 # 解压
 sudo mv Libra/  /usr/share/themes
+sudo apt-get install unity-tweak-tool
+sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
 ```
 
 ##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
