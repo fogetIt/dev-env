@@ -1,17 +1,14 @@
-##### ssh clone远程克隆
-
-|步骤    |操作                            |
-|:------|:------------------------------|
-|生成密钥|ssh-keygen -t rsa -C "...@..." |
-|       |公钥（路径、文件名可改）             |
-|       |~\.ssh\id_rsa.pub              |
-|       |私钥（路径、文件名可改）             |
-|       |~\.ssh\id_rsa                  |
-|使用密钥|git站点----settings----Addsshkey|
-|       |复制公钥的内容，粘贴到key内容框中   |
-|       |Title框随意填写，只要不重复即可     |
-
-git clone `<address>`
+##### ssh clone
+- generate ssh key(id_rsa.pub, id_rsa), default save to ~\.ssh\
+    ```shell
+    ssh-keygen -t rsa -C "...@..."
+    cat ~/.ssh/id_rsa.pub
+    ```
+- Add ssh key: git site----settings----sshkeys
+    ```shell
+    ssh -T git@github.com # test
+    ```
+- git clone `<address>`
 
 Git支持https、ssh协议，通过ssh支持的原生git协议速度最快。
 
@@ -37,14 +34,14 @@ git push --all origin
 #### 远程仓库
 
 |git remote                     |不带参数，列出远程分支                |
-|:------------------------------|:---------------------------------|
+|:------------------------------|:--------------------------|
 |git remote -v(--verbose)       |列出远程分支详细信息：[shortname][url]|
-|git remote show origin         |显示远程信息                        |
-|gitremoterm`<主机名>`           |删除远程主机                        |
-|git remote add origin [xxx.git]|本地仓库对应一个远程仓库              |
-|                               |                                  |
-|git branch -a                  |查看远程分支                        |
-|git push origin --delete ...   |删除远程分支                        |
+|git remote show origin         |显示远程信息                     |
+|gitremoterm`<主机名>`             |删除远程主机                     |
+|git remote add origin [xxx.git]|本地仓库对应一个远程仓库               |
+|                               |                           |
+|git branch -a                  |查看远程分支                     |
+|git push origin --delete ...   |删除远程分支                     |
 
 
 ##### 从远程仓库抓取数据到本地

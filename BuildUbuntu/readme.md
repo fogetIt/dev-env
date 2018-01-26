@@ -113,34 +113,4 @@ find ~/.local/ |xargs grep -ri "图标名"
 find ~/.local/ |xargs grep -ri "图标名" -l
 find ~/.local/ -name "图标名"
 
-##### [youdao-dict](http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb)，不能安装最新版
-
-##### [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
-- [下载](https://pan.baidu.com/s/1kV0u7Nh)，密码: 7vit
-- 有可能部分中文乱码，但是不影响聊天、使用
-- 卸载其它版的`QQ`，顺序安装
-    ```shell
-    sudo apt-get install wine
-    sudo dpkg -i crossover-15_15.0.3-1_all.deb
-    sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
-    sudo apt-get install libgsm1 libgstreamer0.10-0 libgstreamer-plugins-base0.10-0
-    sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
-    sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
-
-    : 'vim /usr/bin/killqq'
-    ps aux | grep -v grep | grep wine |cut -c 9-15 | xargs kill
-    ps aux | grep -v grep | grep QQ |cut -c 9-15 | xargs kill
-    ps aux | grep -v grep | grep qq |cut -c 9-15 | xargs kill
-    pkill  plugplay.exe
-    pkill  explorer.exe
-    pkill  services.exe
-    ```
-
-###### chorme
-```shell
-sudo apt-get install libindicator7 libappindicator1
-sudo dpkg -i google-chorme-***.deb
-```
-
-##### [electronic wechat](http://github.com/geeeeeeeeek/electronic-wechat)
 ##### GIMP
