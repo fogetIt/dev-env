@@ -7,10 +7,10 @@
 # sudo apt-get upgrade
 
 # function 可以省略
-function exit?() {
-    read -p $* decide
-    [ "$decide" != 'Y' -a "$decide" == 'n' ] && exit 0 || exit? $*
-}
+# function exit?() {
+#     read -p $* decide
+#     [ "$decide" != 'Y' -a "$decide" == 'n' ] && exit 0 || exit? $*
+# }
 
 # $(pwd) 执行 shell 时的当前路径
 # shell 互相调用，不会影响 $(pwd)
