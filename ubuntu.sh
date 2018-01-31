@@ -2,21 +2,25 @@
 # @Date:   2017-07-05 12:34:39
 # @Last Modified time: 2018-01-31 11:18:01
 # 基于 Ubuntu16.04LTS，自动搭建开发环境
-# 设置---软件和更新---下载自---其他站点---中国---http://mirrors.aliyun.com/ubuntu
-# sudo apt-get update
-# sudo apt-get upgrade
-
-# function 可以省略
 : <<'COMMENT'
+# 设置---软件和更新---下载自---其他站点---中国---http://mirrors.aliyun.com/ubuntu
+sudo apt-get update
+sudo apt-get upgrade
+COMMENT
+
+: <<'COMMENT'
+# function 可以省略
 function exit?() {
     read -p $* decide
     [ "$decide" != 'Y' -a "$decide" == 'n' ] && exit 0 || exit? $*
 }
 COMMENT
 
-# $(pwd) 执行 shell 时的当前路径
-# shell 互相调用，不会影响 $(pwd)
-# cd 命令会影响 $(pwd)
+: <<'COMMENT'
+$(pwd) == 执行 shell 时的当前路径
+shell 互相调用，不会影响 $(pwd)
+cd 命令会影响 $(pwd)
+COMMENT
 if [ $1 ]; then
     cd ./Build
     PWD=$(pwd)             # ./Build

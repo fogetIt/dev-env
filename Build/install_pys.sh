@@ -17,8 +17,7 @@ COMMENT
 $ virtualenv --system-site-packages/-no-site-packages
 $ virtualenv -p $(which python)/$(which python3)
 COMMENT
-virtualenv --version \
-|| pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
+virtualenv --version || pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 
 # ipython, powered python shell
@@ -41,8 +40,7 @@ python3 -c "import tkinter; exit()" || sudo apt-fast -y install python3-tk
 
 
 # libmysqlclient-dev，virtualenv的MySQLdb的依赖
-python -c "import MySQLdb;exit()" \
-|| sudo apt-fast -y install libmysqlclient-dev python-mysqldb
+python -c "import MySQLdb;exit()" || sudo apt-fast -y install libmysqlclient-dev python-mysqldb
 
 
 # TA-Lib、QScintilla依赖的.h头文件

@@ -1,22 +1,22 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-01-24 15:49:58
+# @Last Modified time: 2018-01-31 11:49:52
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
     url=$1
     name=$2
     package=$3
-    if [ ! -f "/usr/bin/${name}" ]; then
-        if [ ! -d "/opt/${package}" ]; then
+    if [[ ! -f "/usr/bin/${name}" ]]; then
+        if [[ ! -d "/opt/${package}" ]]; then
             cd ${SOFTWARES}
-            if [ ! -f "${SOFTWARES}/${package}.tar.gz" ]; then
+            if [[ ! -f "${SOFTWARES}/${package}.tar.gz" ]]; then
                 wget -O "${package}.tar.gz" "${url}"
             fi
             sudo mkdir "/opt/${package}" \
             && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1
         fi
-        [ $? = 0 ] \
+        [[ $? == 0 ]] \
         && echo "download and uncompress zip package to /opt successful!" \
         && sudo ln -sf "/opt/${package}/bin/${name}.sh" "/usr/bin/${name}" \
         && "${name}" \
@@ -53,19 +53,19 @@ package="GoLand"
 jetbrains ${url} ${name} ${package}
 # ***************************************************************
 node -v && npm -v || (
-    if [ ! -d /opt/node ]; then
+    if [[ ! -d /opt/node ]]; then
         cd ${SOFTWARES}
-        if [ ! -f "${SOFTWARES}/node.tar"]; then
-            if [ ! -f "${SOFTWARES}/node.tar.xz" ]; then
+        if [[ ! -f "${SOFTWARES}/node.tar" ]]; then
+            if [[ ! -f "${SOFTWARES}/node.tar.xz" ]]; then
                 wget -O "node.tar.xz" \
-                "https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
+                    "https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
             fi
             xz -d node.tar.xz
         fi
         sudo mkdir /opt/node \
         && sudo tar -xvf node.tar -C /opt/node --strip-components 1
     fi
-    [ $? = 0 ] \
+    [[ $? == 0 ]] \
     && echo "download and uncompress zip package to /opt successful!" \
     && sudo ln -sf /opt/node/bin/node /usr/bin/node \
     && sudo ln -sf /opt/node/bin/npm /usr/bin/npm \
@@ -118,7 +118,7 @@ node -v && npm -v || (
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     cd ${SOFTWARES} \
     && axel -n 16 \
-    "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
+        "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \
     && sudo apt-get install libstdc++6 \
     && ./mongobooster*.AppImage

@@ -1,14 +1,12 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-31 10:42:12
+# @Last Modified time: 2018-01-31 11:41:50
 # echo -e '...'
 # 显示颜色、换行
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : "create SOFTWARES"
-if [ ! -d ${SOFTWARES} ]; then
-    mkdir ${SOFTWARES}
-fi
+[[ ! -d ${SOFTWARES} ]] && mkdir ${SOFTWARES}
 # sudo password root
 # su root
 sudo cp -f ${PWD}/50-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/
@@ -28,7 +26,7 @@ git --version || sudo apt-fast -y install git
 git --version && read -p \
     "warning
     generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
-&& [ "${var}" = "Y" ] \
+&& [[ "${var}" == "Y" ]] \
 && (
     git config --global user.name "forgetIt" \
     && git config --global user.email "2271404280@qq.com" \
@@ -44,9 +42,9 @@ git --version && read -p \
 git --version && read -p \
     "warning
     clone repositories? [Y/n]" var \
-&& [ "${var}" = "Y" ] \
+&& [[ "${var}" == "Y" ]] \
 && (
-    if [ ! -d ${HOME}/github ]; then
+    if [[ ! -d ${HOME}/github ]]; then
         mkdir ${HOME}/github
     fi
     cd ${HOME}/github \
@@ -69,7 +67,7 @@ subl -v || (
 
 read -p "warning
     overwrite sublime settings? [Y/n]" var \
-&& [ "${var}" = "Y" ] \
+&& [[ "${var}" == "Y" ]] \
 && cp -rf ${DIR}/sublime/* \
     ${HOME}/.config/sublime-text-3/Packages/ \
 
