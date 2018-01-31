@@ -36,7 +36,7 @@
     + 当n>=10时，需要使用${n}来获取参数
 
 ##### if [ expression ]
-```shell
+```bash
 : "表达式中每个变量、符号之间必须有空格"
 if [ -d ... ]; ...fi      # 判断目录是否存在(相对路径不能加"")
 if [ -f ... ]; ...fi      # 判断文件是否存在(相对路径不能加"")
@@ -50,7 +50,7 @@ fi
 ```
 
 ##### 卸载/安装
-```shell
+```bash
 # apt-get 程序
 # 官方下载源 /etc/apt/sources.list
 # ppa(Personal Package Archives)
@@ -77,7 +77,7 @@ sudo dpkg --purge ***
 ```
 
 ##### 文件操作
-```shell
+```bash
 >    # 从标准输入覆盖写
 >>   # 从标准输入追加写
 tee  # 从标准输入读入
@@ -85,7 +85,7 @@ tee -a  # 追加模式
 ```
 
 ##### 符号
-```shell
+```bash
 []   # bash 的内部命令
      # 和 test 等同
      # [ 调用 test 命令
@@ -94,11 +94,13 @@ tee -a  # 追加模式
 [[]] # 关键字
      # 兼容 &&,||,<,>
      # 双中括号中的表达式看作一个单独的元素，并返回一个退出状态码
+()   # 新开一个子shell顺序执行
+     # 括号中的变量不能够被脚本余下的部分使用
 ```
 http://blog.csdn.net/taiyang1987912/article/details/39551385
 
 ##### 环境变量
-```shell
+```bash
 set    # 显示当前shell的变量，包括当前用户的变量
 env    # 显示当前用户的变量
 export # 显示当前导出成用户变量的shell变量

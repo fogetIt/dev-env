@@ -1,13 +1,13 @@
 ##### ssh clone
 - generate ssh key(id_rsa.pub, id_rsa), default save to ~\.ssh\
-    ```shell
-    ssh-keygen -t rsa -C "...@..."
-    cat ~/.ssh/id_rsa.pub
-    ```
+```bash
+ssh-keygen -t rsa -C "...@..."
+cat ~/.ssh/id_rsa.pub
+```
 - Add ssh key: git site----settings----sshkeys
-    ```shell
-    ssh -T git@github.com # test
-    ```
+```bash
+ssh -T git@github.com # test
+```
 - git clone `<address>`
 
 Git支持https、ssh协议，通过ssh支持的原生git协议速度最快。

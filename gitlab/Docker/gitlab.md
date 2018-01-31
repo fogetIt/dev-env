@@ -1,10 +1,10 @@
 ##### 关闭设置了--restart=always启动的容器
-```shell
+```bash
 sudo docker stop gitlab & sudo docker update --restart=no gitlab
 ```
 
 ##### 管理
-```shell
+```bash
 vim $HOME/USER_SOFTWARES/docker_gitlab/conf/gitlab.rb
 
 # 重启
@@ -23,7 +23,7 @@ sudo docker start gitlab
 ```
 
 ##### 添加/修改端口映射
-```shell
+```bash
 # 提交一个运行中的容器为镜像
 sudo docker commit CONTAINER_ID gitlab:1.0
 sudo docker run ...

@@ -10,7 +10,7 @@
 - ${git}\libexec\git-core;
 
 #### 配置工作环境
-```shell
+```bash
 # 初始化文件夹，生成./.git/
 git init
 # 读取工作环境变量
@@ -36,7 +36,7 @@ git config --global alias.last 'log -1'         # git last显示最后一次提�
 ```
 
 ##### 自定义
-```shell
+```bash
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
 

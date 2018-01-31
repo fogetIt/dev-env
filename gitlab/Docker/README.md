@@ -22,34 +22,34 @@
 
 ##### install docker
 - 安装默认版本 docker
-    ```shell
-    # docker -v
-    sudo apt -y install docker.io
-    ```
+```bash
+# docker -v
+sudo apt -y install docker.io
+```
 - 安装最新版本 docker
-    ```shell
-    sudo apt-fast update
-    # 确保APT能使用https方式工作，并且CA证书已安装了
-    sudo apt-fast -y install curl apt-transport-https ca-certificates
-    # 使用官网脚本/DaoCloud 脚本/阿里云脚本
-    wget -qO- https://get.docker.com/ | sh
-    curl -sSL https://get.daocloud.io/docker | sh
-    curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh
-    ```
+```bash
+sudo apt-fast update
+# 确保APT能使用https方式工作，并且CA证书已安装了
+sudo apt-fast -y install curl apt-transport-https ca-certificates
+# 使用官网脚本/DaoCloud 脚本/阿里云脚本
+wget -qO- https://get.docker.com/ | sh
+curl -sSL https://get.daocloud.io/docker | sh
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh
+```
 
 ##### 使用国内镜像加速
 - [注册阿里云](http://www.cnblogs.com/atuotuo/p/6264800.html)
-    ```shell
-    sudo cp -f ./daemon.json /etc/docker/
-    ```
+```bash
+sudo cp -f ./daemon.json /etc/docker/
+```
 - 重启守护进程
-    ```shell
-    sudo service docker restart
-    ```
+```bash
+sudo service docker restart
+```
 
 
 ##### 搜索
-```shell
+```bash
 # 搜索可用的镜像(宿主、程序)
 sudo docker search <MIRROR_NAME>
 : "参数
@@ -63,14 +63,14 @@ Ubuntu、Alpine Linux、CoreOS、Project Atomic、Ubuntu Snappy、RancherOS、VM
 ```
 
 ##### 下载
-```shell
+```bash
 docker pull <MIRROR_ADDR>  # 拉取镜像
 docker images              # 查看本地下载的镜像
 docker rmi <IMAGE_ID>      # 删除镜像
 ```
 
 ##### 构建
-```shell
+```bash
 docker build -f .
 : '
 -f .                        Dockerfile在当前目录下
@@ -80,7 +80,7 @@ docker build -f .
 ```
 
 ##### 运行
-```shell
+```bash
 # 初始化----生成<CONTAINER_ID>
 docker run [...] <IMAGE_ID>
 : "参数
@@ -97,7 +97,7 @@ IMAGE ID                         放最后
 ```
 
 ##### 管理容器
-```shell
+```bash
 # 查看当前正在运行的容器
 docker ps
 : "参数
@@ -119,7 +119,7 @@ docker rm <NAMES>
 ```
 
 ##### 执行容器内的命令
-```shell
+```bash
 docker exec [OPTIONS] <CONTAINER_ID> COMMAND [ARG...]
 : "example
 docker exec -it <CONTAINER_ID> /opt/gitlab/etc/gitlab.rb.template
