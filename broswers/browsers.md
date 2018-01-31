@@ -29,9 +29,12 @@ ie浏览器还有一种简单方法，即：在当前页面右键→“编码”
 
 5. 也可在console窗口输入“document.charset”或“document.characterSet”查看。
 
-#### WebKit
-WebKit是一个开源的浏览器引擎，与之相对应的引擎有Gecko（Mozilla Firefox 等使用）和Trident（也称MSHTML，IE 使用）。
+##### 浏览器引擎
+- WebKit
+- Gecko(Mozilla Firefox)
+- Trident/MSHTML(IE)
 
+#### WebKit
 WebKit 所包含的 WebCore排版引擎和 JSCore 引擎，均是从KDE的KHTML及KJS引擎衍生而来。它们都是自由软件，在GPL条约下授权，同时支持BSD系统的开发。所以Webkit也是自由软件，同时开放源代码。
 
 WebKit的优势在于高效稳定，兼容性好，且源码结构清晰，易于维护。

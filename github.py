@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2016-09-22 09:31:01
-# @Last Modified time: 2018-01-23 10:45:19
+# @Last Modified time: 2018-01-31 10:30:10
 #
 # PATH:${Git}\cmd;
 import os
@@ -14,10 +14,10 @@ class Git:
         self.parent_path = os.path.abspath("..")
         dir_list = [
             'free-spider',
-            # 'security_door',
+            'smart-sso',
             'nodeSpider',
             'scripts',
-            'simple-chat',
+            'LANchat',
             'tools',
         ]
         if my_dir == '':

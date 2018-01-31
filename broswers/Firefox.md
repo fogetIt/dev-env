@@ -44,14 +44,14 @@ FireBug最吸引人的就是javascript调试功能，使用起来非常方便，
 
 Firebug也是一个除错工具。用户可以利用它除错、编辑、甚至删改任何网站的CSS、HTML、DOM以及JavaScript代码。
 
-|Firebug按钮|作用       |
-|:---------|:---------|
-|CSS       |Css查看器  |
-|Net       |网络状况监视|
-|Script    |脚本调试器 |
-|Console   |控制台     |
-|HTML      |Html查看器 |
-|Dom       |Dom查看器  |
+|Firebug button|usage  |
+|:-------------|:------|
+|CSS           |Css查看器 |
+|Net           |网络状况监视 |
+|Script        |脚本调试器  |
+|Console       |控制台    |
+|HTML          |Html查看器|
+|Dom           |Dom查看器 |
 
 1. CSS调试
 不仅自下向上列出每一个CSS样式表的从属继承关系，还列出了每一个样式在哪个样式文件中定义。你可以在这个查看器中直接添加、修改、删除一些CSS样式表属性，并在当前页面中直接看到修改后的结果。  

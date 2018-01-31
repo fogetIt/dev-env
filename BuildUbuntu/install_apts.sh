@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-24 16:38:56
+# @Last Modified time: 2018-01-31 10:43:18
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
@@ -41,8 +41,8 @@ COMMENT
 # sudo vim /etc/mysql/my.cnf
 mysql --version || sudo apt-fast -y install mysql-server mysql-client
 # **************************************************************
-# wget          单线程下载
-# uget+aria2    多线程下载
+# wget, one thread downloading
+# uget+aria2, multithreading downloading
 # 编辑——>设置——>插件——>aria2
 uget-gtk --version || (
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
@@ -60,7 +60,7 @@ which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
 # ***************************************************************
 zsh --version || sudo apt -y install zsh
 # cat /etc/shells
-# 使用oh-my-zsh配置zsh
+# use oh-my-zsh deploy zsh
 [ ${SHELL} != /usr/bin/zsh ] \
 && echo ${PASSWORD} | chsh -s `which zsh` \
 && curl -L \
@@ -71,7 +71,10 @@ zsh --version || sudo apt -y install zsh
 # chsh -s $(which sh)
 
 # vim ~/.zshrc
-# ZSH_THEME='random' # 每次打开一个终端后随机出现一个主题
+# ZSH_THEME='random'
+# ZSH_THEME='af-magic'
+# ZSH_THEME='intheloop'
 # https://www.zhihu.com/question/21418449
 # 编辑-->配置文件首选项
 # ***************************************************************
+ssh -V || sudo apt-get install openssh-server -y

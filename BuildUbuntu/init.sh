@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-24 15:50:08
+# @Last Modified time: 2018-01-31 10:42:12
 # echo -e '...'
 # 显示颜色、换行
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
@@ -9,10 +9,9 @@ echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 if [ ! -d ${SOFTWARES} ]; then
     mkdir ${SOFTWARES}
 fi
-# 启用root用户
-# 修改root密码：sudo password root
-sudo cp -f ${PWD}/50-ubuntu.conf \
-    /usr/share/lightdm/lightdm.conf.d/
+# sudo password root
+# su root
+sudo cp -f ${PWD}/50-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/
 # ***************************************************************
 # sudo vi /etc/apt-fast.conf
 which apt-fast && apt-fast -v | cat | head -n 2 || (
@@ -21,7 +20,7 @@ which apt-fast && apt-fast -v | cat | head -n 2 || (
     sudo apt-get -y install apt-fast
     )
 # ***************************************************************
-# 多线程的命令行下载工具，替代 wget
+# multithreading terminal downloading tools, replace wget
 which axel && axel -V | cat | head -n 2 || sudo apt install axel
 # ***************************************************************
 git --version || sudo apt-fast -y install git
@@ -57,8 +56,7 @@ git --version && read -p \
     && echo "clone repositories success"
     )
 # ***************************************************************
-# 通过sublime-text-imfix安装sublime、fcitx
-# fcitx：小企鹅输入法框架，支持中文
+# use sublime-text-imfix to install sublime and fcitx(input method framework, support chinese)
 subl -v || (
     cd ${SOFTWARES} \
     && rm -rf sublime-text* \
