@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Date:   2016-09-22 09:31:01
-# @Last Modified time: 2018-01-31 10:30:10
+# @Last Modified time: 2018-01-31 10:52:28
 #
 # PATH:${Git}\cmd;
 import os
@@ -18,7 +18,7 @@ class Git:
             'nodeSpider',
             'scripts',
             'LANchat',
-            'tools',
+            'env',
         ]
         if my_dir == '':
             for i in dir_list:

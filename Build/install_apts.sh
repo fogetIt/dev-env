@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-31 10:43:18
+# @Last Modified time: 2018-01-31 11:15:33
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
@@ -28,14 +28,11 @@ which atom && atom -v | cat | head -n 2 || (
 mongo --version || sudo apt-fast -y install mongodb-server mongodb-clients
 
 : <<'COMMENT'
-vim /etc/mongodb.conf
-bind_ip = 0.0.0.0
-
-sudo service mongodb stop
-sudo service mongodb start
-
+$ vim /etc/mongodb.conf
+    bind_ip = 0.0.0.0
+$ sudo service mongodb stop
+$ sudo service mongodb start
 $ mongo
->>>
 COMMENT
 # **************************************************************
 # sudo vim /etc/mysql/my.cnf

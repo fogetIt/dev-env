@@ -1,25 +1,25 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2018-01-24 14:25:17
+# @Last Modified time: 2018-01-31 11:17:19
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 pip --version || sudo apt-fast -y install python-pip
 pip3 --version || sudo apt-fast -y install python3-pip
-: '
-# 写法2（只能以shell文件执行）
-(
-   echo "123zhang"
-   sleep 1
-   echo -e "\n"
-   ) | sudo -S apt-fast install python-pip
-# 写法3（只能以shell文件执行）
+: <<'COMMENT'
+# 写法2，只能以shell文件执行
+(echo "123zhang"; sleep 1; echo -e "\n") | sudo -S apt-fast install python-pip
+# 写法3，只能以shell文件执行
 echo -e "\n" | (echo $user_password | sudo -S apt-fast install python-pip)
-'
+COMMENT
 
-# 为指定的目录搭建独立的python虚拟环境
-# 让不同的项目处于各自独立Python的环境中
+: <<'COMMENT'
+# build virtual environment for python project
+$ virtualenv --system-site-packages/-no-site-packages
+$ virtualenv -p $(which python)/$(which python3)
+COMMENT
 virtualenv --version \
 || pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 
 # ipython, powered python shell
 # bpython, powered python shell, only support linux
@@ -35,7 +35,7 @@ ipython3 -V || (
 bpython -V || pip install bpython
 
 
-# Tkinter图形库
+# Tkinter GUI lib
 python -c "import Tkinter; exit()" || sudo apt-fast -y install python-tk
 python3 -c "import tkinter; exit()" || sudo apt-fast -y install python3-tk
 

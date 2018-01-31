@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:39:04
-# @Last Modified time: 2017-04-26 13:07:13
+# @Last Modified time: 2018-01-31 10:48:58
 psd="123zhang"
 
 : '
@@ -21,3 +21,11 @@ if [ $I != "installed" ]; then
 fi
 
 # 127.0.0.1，默认端口80
+
+cd /opt/gitlab-8.14.0-0
+
+# 服务端 启动Gitlab
+./ctlscript.sh start
+
+# 查看GUI管理控制台
+./manager-linux-x64.run
