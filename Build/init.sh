@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-31 11:41:50
+# @Last Modified time: 2018-01-31 12:12:59
 # echo -e '...'
 # 显示颜色、换行
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
@@ -44,9 +44,7 @@ git --version && read -p \
     clone repositories? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
 && (
-    if [[ ! -d ${HOME}/github ]]; then
-        mkdir ${HOME}/github
-    fi
+    [[ ! -d ${HOME}/github ]] && mkdir ${HOME}/github
     cd ${HOME}/github \
     && sudo rm -rf ./* \
     && git init \
