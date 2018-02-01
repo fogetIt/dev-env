@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
-# @Last Modified time: 2018-01-31 11:18:32
+# @Last Modified time: 2018-01-31 17:09:36
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # 美化
 # 管理工具
