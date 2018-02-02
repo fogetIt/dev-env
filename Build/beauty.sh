@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
-# @Last Modified time: 2018-01-31 17:09:36
+# @Last Modified time: 2018-02-02 16:43:02
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # 美化
 # 管理工具
@@ -51,12 +51,7 @@ npm run build:win64
 COMMENT
 
 : <<'COMMENT'
-# youdao 1.1.0
-[youdao-dict](http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb)
-
 sudo apt-get install libcwidget3v5 aptitude-common aptitude
-
-sudo dpkg -i youdao-dict*
 COMMENT
 
 # [QQ](http://blog.csdn.net/ysy950803/article/details/52958538)
@@ -104,11 +99,10 @@ sudo ifconfig enp5s0 up
 # UFW     Uncomplicated Firewall（简单的防火墙）————iptables的前端
 # Gufw    UFW的图形界面前端，Gufw自称是世界上最简单的防火墙
 
-sudo ufw version
-if [ $? != 0 ]; then
+sudo ufw version || (
     apt-get install iptables
-    # apt-get remove iptables
-fi
+    )
+# apt-get remove iptables
 
 sudo ufw status
 #
