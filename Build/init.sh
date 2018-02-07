@@ -1,12 +1,12 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-01-31 13:35:43
+# @Last Modified time: 2018-02-07 09:53:49
 # echo -e '...'
 # 显示颜色、换行
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-: "create SOFTWARES"
 [[ ! -d ${SOFTWARES} ]] && mkdir ${SOFTWARES}
+# ***************************************************************
 # sudo password root
 # su root
 sudo cp -f ${PWD}/50-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/
@@ -18,8 +18,22 @@ which apt-fast && apt-fast -v | cat | head -n 2 || (
     sudo apt-get -y install apt-fast
     )
 # ***************************************************************
-# multithreading terminal downloading tools, replace wget
+# wget, single threading downloader
+# axel, multi threading downloader
 which axel && axel -V | cat | head -n 2 || sudo apt install axel
+# ***************************************************************
+which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
+# ***************************************************************
+# uget+aria2/curl, multithreading downloader with GUI
+# 编辑——>设置——>插件——>aria2
+uget-gtk --version || (
+    sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
+    sudo apt-fast update
+    sudo apt-fast -y install uget
+    sudo add-apt-repository -y ppa:t-tujikawa/ppa
+    sudo apt-fast update
+    sudo apt-fast -y install aria2
+    )
 # ***************************************************************
 git --version || sudo apt-fast -y install git
 
@@ -32,16 +46,12 @@ git --version && read -p \
     && git config --global user.email "2271404280@qq.com" \
     && echo -e "\n" | ssh-keygen -t rsa -C "2271404280@qq.com" \
     && cat ${HOME}/.ssh/id_rsa.pub \
-    && read -p \
-        "warning
-        copy and paste this public key to github! [Y/n]" var \
+    && read -p "copy and paste this pub key to github! [Y/n]" var \
     && [ "${var}" != "Y" ] \
     && exit 0
     )
 
-git --version && read -p \
-    "warning
-    clone repositories? [Y/n]" var \
+git --version && read -p "clone repositories? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
 && (
     [[ ! -d ${HOME}/github ]] && mkdir ${HOME}/github
@@ -63,15 +73,11 @@ subl -v || (
     # open sublime to makesure created configuration folder
 )
 
-read -p "warning
-    overwrite sublime settings? [Y/n]" var \
+read -p "overwrite sublime settings? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
-&& cp -rf ${DIR}/sublime/* \
-    ${HOME}/.config/sublime-text-3/Packages/ \
+&& cp -rf ${DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/ \
 
-read -p \
-    "warning
-    please install package control!"
+read -p "please install package control!"
 # ***************************************************************
 # for Windows softwares(e.g. qq)
 wine --version || sudo apt-fast -y install wine

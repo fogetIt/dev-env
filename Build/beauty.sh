@@ -1,20 +1,11 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
-# @Last Modified time: 2018-02-02 16:43:02
+# @Last Modified time: 2018-02-07 09:53:17
 echo $PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
-# 美化
-# 管理工具
-sudo apt install docky -y
-sudo apt-get install unity-tweak-tool -y
 
 # themes/icons
-# sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
 
-sudo add-apt-repository ppa:noobslab/themes
-sudo add-apt-repository ppa:noobslab/icons
-sudo apt-get update
-sudo apt-get install flatabulous-theme -y
-sudo apt-get install ultra-flat-icons -y
+# sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
 
 # sudo add-apt-repository ppa:numix/ppa
 # sudo apt-get update

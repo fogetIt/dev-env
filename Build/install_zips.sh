@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-01-31 11:49:52
+# @Last Modified time: 2018-02-05 11:04:09
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
@@ -28,7 +28,8 @@ function jetbrains() {
         && sudo cp -f "${DIR}/jetBrains/DefaultCustom.xml" ./keymaps/ \
         && echo "copy keymaps settings successful!"
     fi
-    echo "install ${name} successful!"
+    [[ $? == 0 ]] && echo "install ${name} successful!"
+    # nohup pycharm > ~/jetbrains.log 2>&1 &
 }
 
 
@@ -73,13 +74,7 @@ node -v && npm -v || (
     && npm config set prefix /usr/local
     )
 # npm config list
-# 使用npm命令
-# 方案一：创建npm软连接
-# 方案二：使用默认的npm
-
-# 设置prefix
-# (npm全局命令安装目录：${prefix}/bin/)
-# 使npm安装的命令能够生效
+# npm全局命令安装目录：${prefix}/bin/
 # ***************************************************************
 # go version || (
 #     url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"

@@ -1,11 +1,11 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-01-31 13:35:32
+# @Last Modified time: 2018-02-07 09:52:06
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
 # vim        super vi
-# vim-tiny   no GUI,only Terminal,light but speed
+# vim-tiny   no GUI, only Terminal, light but speed
 # vim-gtk    vim with gtk GUI
 # vim-gnome  vim with gnome GUI
 which vim && vim --version | cat | head -n 2 || (
@@ -36,22 +36,17 @@ COMMENT
 # sudo vim /etc/mysql/my.cnf
 mysql --version || sudo apt-fast -y install mysql-server mysql-client
 # **************************************************************
-# wget, one thread downloading
-# uget+aria2, multithreading downloading
-# 编辑——>设置——>插件——>aria2
-uget-gtk --version || (
-    sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
-    sudo apt-fast update
-    sudo apt-fast -y install uget
-    sudo add-apt-repository -y ppa:t-tujikawa/ppa
-    sudo apt-fast update
-    sudo apt-fast -y install aria2
-    )
-# ***************************************************************
 # 处理交互的命令，使之自动化完成
 expect -v || sudo apt -y install expect
 # ***************************************************************
-which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
+# beautify ubuntu
+sudo apt install docky -y
+sudo apt-get install unity-tweak-tool -y
+sudo add-apt-repository ppa:noobslab/themes
+sudo add-apt-repository ppa:noobslab/icons
+sudo apt-get update
+sudo apt-get install flatabulous-theme -y
+sudo apt-get install ultra-flat-icons -y
 # ***************************************************************
 zsh --version || sudo apt -y install zsh
 # cat /etc/shells
@@ -67,9 +62,7 @@ zsh --version || sudo apt -y install zsh
 
 # vim ~/.zshrc
 # ZSH_THEME='random'
-# ZSH_THEME='af-magic'
 # ZSH_THEME='intheloop'
-# https://www.zhihu.com/question/21418449
 # 编辑-->配置文件首选项
 # ***************************************************************
 ssh -V || sudo apt-get install openssh-server -y

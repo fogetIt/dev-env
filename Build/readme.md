@@ -38,21 +38,17 @@
 ##### if [ expression ]
 ```bash
 : "表达式中每个变量、符号之间必须有空格"
-if [ -d ... ]; ...fi      # 判断目录是否存在(相对路径不能加"")
-if [ -f ... ]; ...fi      # 判断文件是否存在(相对路径不能加"")
-if [ a -gt b ]; ...fi     # 比较整数(变量名必须加引号)
-if [ a > b ]; ...fi       # 比较非整数(变量名必须加引号)
-if [ "$1" ... ]; ...fi    # $变量必须加引号(否则传入参数为空时，报错)
-elif [ $1 ... ]; ...fi    # $变量不必加引号
-if [[ expression ]]; then # 支持&&,||,<,>,!=，$!不用加引号
-    ...
-fi
+if [[ -d ... ]]      # 判断目录是否存在(相对路径不能加"")
+if [[ -f ... ]]      # 判断文件是否存在(相对路径不能加"")
+if [[ a -gt b ]]     # 比较整数(变量名必须加引号)
+if [[ a > b ]]       # 比较非整数(变量名必须加引号)
+if [[ "$1" ... ]]    # $变量必须加引号(否则传入参数为空时，报错)
+elif [[ $1 ... ]]    # $变量不必加引号
+if [[ expression ]]  # 支持&&,||,<,>,!=，$!不用加引号
 ```
 
-##### 卸载/安装
+##### [apt-get](/etc/apt/sources.list)
 ```bash
-# apt-get 程序
-# 官方下载源 /etc/apt/sources.list
 # ppa(Personal Package Archives)
 sudo apt-cache search ***           # 搜索ubuntu库
 sudo apt-get update                 # 更新下载源
@@ -64,11 +60,13 @@ sudo apt-get dist-upgrade  # 更新系统版本
 
 sudo apt-get remove ***    # 卸载
 sudo apt-get autoclean
-sudo apt-get autoremove    # 自动卸载依赖（尽量不要用）
+sudo apt-get autoremove    # 自动卸载依赖
 # -y                       自动回车确认
 # --allow-unauthenticated  存在未认证的软件包，同时使用-y选项，必须
+```
 
-# deb 程序
+##### deb
+```bash
 sudo dpkg -i ***           # 安装
 sudo dpkg --configure -a   # 打断安装
 sudo dpkg -l | grep ***    # 查询相关deb包信息
