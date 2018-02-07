@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-02-07 15:36:24
+# @Last Modified time: 2018-02-07 15:49:33
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
@@ -42,10 +42,12 @@ mysql --version || sudo apt-fast -y install mysql-server mysql-client
 expect -v || sudo apt -y install expect
 # ***************************************************************
 : <<"COMMENT"
+conky              show system infomation on desktop
 docky              system initiator
 unity-tweak-tool   system manager
 theme and icons    beautify ubuntu
 COMMENT
+sudo apt-fast install conky -y
 sudo apt install docky -y
 sudo apt-fast install unity-tweak-tool -y
 sudo add-apt-repository ppa:noobslab/themes

@@ -11,12 +11,8 @@
 - [获取注册码](http://idea.lanyus.com/)
 - 或者填入license server
     ```
-    http://mukodik:81
-        50.112.79.106    mukodik
-    https://jetlicense.nss.im/
-    http://intellij.mandroid.cn/
+    http://idea.codebeta.cn
     http://idea.imsxm.com/
-    http://idea.iteblog.com/key.php
     ```
 - 或者
     - [访问网址](http://idea.lanyus.com/)
