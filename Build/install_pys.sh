@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
-# @Last Modified time: 2018-01-31 11:17:19
+# @Last Modified time: 2018-02-07 14:02:36
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 pip --version || sudo apt-fast -y install python-pip
@@ -14,10 +14,10 @@ COMMENT
 
 : <<'COMMENT'
 # build virtual environment for python project
-$ virtualenv --system-site-packages/-no-site-packages
-$ virtualenv -p $(which python)/$(which python3)
+$ virtualenv ./venv --system-site-packages/--no-site-packages
+$ virtualenv ./venv -p $(which python)/$(which python3)
 COMMENT
-virtualenv --version || pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
+virtualenv --version || sudo pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 
 # ipython, powered python shell
