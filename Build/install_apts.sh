@@ -1,13 +1,15 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-02-07 09:52:06
+# @Last Modified time: 2018-02-07 15:36:24
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
-# vim        super vi
-# vim-tiny   no GUI, only Terminal, light but speed
-# vim-gtk    vim with gtk GUI
-# vim-gnome  vim with gnome GUI
+: <<"COMMENT"
+vim         super vi
+vim-tiny    no GUI, only Terminal, light but speed
+vim-gtk     vim with gtk GUI
+vim-gnome   vim with gnome GUI
+COMMENT
 which vim && vim --version | cat | head -n 2 || (
     sudo apt-fast -y install vim \
     && cp -f ${DIR}/vim/.vimrc ${HOME}/
@@ -39,14 +41,25 @@ mysql --version || sudo apt-fast -y install mysql-server mysql-client
 # 处理交互的命令，使之自动化完成
 expect -v || sudo apt -y install expect
 # ***************************************************************
-# beautify ubuntu
+: <<"COMMENT"
+docky              system initiator
+unity-tweak-tool   system manager
+theme and icons    beautify ubuntu
+COMMENT
 sudo apt install docky -y
-sudo apt-get install unity-tweak-tool -y
+sudo apt-fast install unity-tweak-tool -y
 sudo add-apt-repository ppa:noobslab/themes
 sudo add-apt-repository ppa:noobslab/icons
-sudo apt-get update
-sudo apt-get install flatabulous-theme -y
-sudo apt-get install ultra-flat-icons -y
+sudo apt-fast update
+sudo apt-fast install flatabulous-theme ultra-flat-icons -y
+# ***************************************************************
+: <<"COMMENT"
+Ctrl+Shift+O
+Ctrl+Shift+E
+Ctrl+Shift+F
+Ctrl+D
+COMMENT
+terminator --version || sudo apt -y install terminator -y
 # ***************************************************************
 zsh --version || sudo apt -y install zsh
 # cat /etc/shells
@@ -66,3 +79,4 @@ zsh --version || sudo apt -y install zsh
 # 编辑-->配置文件首选项
 # ***************************************************************
 ssh -V || sudo apt-get install openssh-server -y
+# ***************************************************************

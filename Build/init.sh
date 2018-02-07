@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-02-07 09:53:49
+# @Last Modified time: 2018-02-07 15:22:52
 # echo -e '...'
 # 显示颜色、换行
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
@@ -18,14 +18,14 @@ which apt-fast && apt-fast -v | cat | head -n 2 || (
     sudo apt-get -y install apt-fast
     )
 # ***************************************************************
-# wget, single threading downloader
-# axel, multi threading downloader
+: <<"COMMENT"
+wget   single threading downloader
+axel   multithreading downloader
+uget   multithreading downloader with GUI
+    编辑——>设置——>插件——>aria2/curl
+COMMENT
 which axel && axel -V | cat | head -n 2 || sudo apt install axel
-# ***************************************************************
 which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
-# ***************************************************************
-# uget+aria2/curl, multithreading downloader with GUI
-# 编辑——>设置——>插件——>aria2
 uget-gtk --version || (
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
     sudo apt-fast update
@@ -37,9 +37,7 @@ uget-gtk --version || (
 # ***************************************************************
 git --version || sudo apt-fast -y install git
 
-git --version && read -p \
-    "warning
-    generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
+git --version && read -p "generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
 && (
     git config --global user.name "forgetIt" \
