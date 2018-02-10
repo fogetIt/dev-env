@@ -8,13 +8,6 @@ sudo apt-get update
 sudo apt-get upgrade
 COMMENT
 
-: <<'COMMENT'
-exit?() {
-    read -p $* decide
-    [ "$decide" != 'Y' -a "$decide" == 'n' ] && exit 0 || exit? $*
-}
-COMMENT
-
 
 if [ $1 ]; then
     cd ./_u/

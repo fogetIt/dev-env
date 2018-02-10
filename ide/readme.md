@@ -4,39 +4,34 @@
 - 自带Git、SVN等流行的版本控制系统，右键Compare与其他版本对比；
 
 ##### 版本
-- 社区版，Community，没有tomcat配置功能(idea)；
-- 付费版，Ultimate\Professional；
+- 社区版，Community
+- 付费版，Ultimate\Professional
 
 ###### 注册
-- [获取注册码](http://idea.lanyus.com/)
+- [获取](./activation.md)注册码，[或者](http://idea.lanyus.com/)
 - 或者填入license server
     ```
     http://idea.codebeta.cn
     http://idea.imsxm.com/
     ```
 - 或者
-    - [访问网址](http://idea.lanyus.com/)
-    - 无需修改用户名，点击获取注册码
-- 或者
-    + 调整时间到2038年
-    + 申请30天试用
-    + 退出pycharm
+    + 调整系统时间
+    + 申请`30`天试用
+    + 退出`pycharm`
     + 时间调整回来
 
 ##### [配色](http://color-themes.com/?view=index)
-File--->Import Settings...--->重启
-```
-Tangid.jar,
-Visual Studio 2013.jar,
-garden.jar,
-Monokai Sublime Text 3.jar
-```
-##### 汉化
-下载汉化包，替换${IntelliJ IDEA}\lib\resources_cn.jar
+File/Import Settings.../重启
 
-##### 清理缓存
-File--->Invalidate caches
+##### 字体
+```
+Ubuntu Mono
+Noto Sans CJK JP DemiLight
+Monospaced
+```
 
+##### 下载汉化包，替换${IntelliJ IDEA}\lib\resources_cn.jar
+##### 清理缓存: File/Invalidate caches
 ##### 远程
 - sftp连接
     + Tools--->Deployment--->Configuration--->SFTP--->...--->Test SFTP Connection...
@@ -64,33 +59,14 @@ File--->Invalidate caches
 |`CTRL+E`         |窗口面板    |
 |shift shift      |快速查找    |
 
-编辑器右键，local history, show history： 显示本地修改记录
 
-##### plugins
-
-|插件              |功能|
-|:----------------|:--|
-|TranslationPlugin|翻译|
-
-##### File--->Settings
-- 文件类型
-    + Editor--->File Types
-- Install plugin from disk
-    + Plugins--->Install plugin from disk...--->重启
-
-##### indent
-- Settings/Code Style/.../Tabs and Indents
-
-
-##### 字体
-```
-Ubuntu Mono
-Noto Sans CJK JP DemiLight
-Monospaced
-```
-
-##### PyCharm virtualenv
-- File/Settings/Project/Project Interpreter
-
-##### Git
-- Version Control/Git/SSH executable/Native
+##### File/Settings/Editor/`File Types`
+##### File/Settings/Plugins/`Install plugin from disk...`/重启
+##### Settings/Code Style/.../`Tabs and Indents`
+##### 编辑器右键/`Local History`/Show History
+##### PyCharm virtualenv: File/Settings/Project/Project Interpreter
+##### Version Control/`Git`/SSH executable/`Native`
+##### [Android Studio](./AS.md)
+##### [Intellij IDEA](./IDEA.md)
+##### [WebStorm](./WS.md)
+##### [快捷键](./DefaultCustom.xml)

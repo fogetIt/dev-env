@@ -3,55 +3,52 @@
 # @Last Modified time: 2018-02-08 11:15:31
 echo ${_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
+# 递归函数
 function jetbrains() {
-    url=$1
-    name=$2
-    package=$3
+    name=$1
+    package=$2
     if [[ ! -f "/usr/bin/${name}" ]]; then
         if [[ ! -d "/opt/${package}" ]]; then
             cd ${_SOFTWARES}
             if [[ ! -f "./${package}.tar.gz" ]]; then
-                wget -O "${package}.tar.gz" "${url}"
+                echo -e "\033[1;;41m  please download ${name} package! \033[0m"
+            else
+                sudo mkdir "/opt/${package}" \
+                && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1 \
+                && echo "**********uncompress ${name} package successful!**********" \
+                && jetbrains ${name} ${package}
             fi
-            sudo mkdir "/opt/${package}" \
-            && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1
+        else
+            sudo ln -sf "/opt/${package}/bin/${name}.sh" "/usr/bin/${name}" \
+            && echo "**********install ${name} successful!**********" \
+            && jetbrains ${name} ${package}
         fi
-        [[ $? == 0 ]] \
-        && echo "download and uncompress zip package to /opt successful!" \
-        && sudo ln -sf "/opt/${package}/bin/${name}.sh" "/usr/bin/${name}" \
-        && "${name}" \
-        && echo "create soft link successful!" \
+    else
+        "${name}" \
         && cd ${HOME}/.${package}*/config \
         && (
             find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
             ) \
-        && sudo cp -f "${_DIR}/jetBrains/DefaultCustom.xml" ./keymaps/ \
-        && echo "copy keymaps settings successful!"
+        && sudo cp -f "${_DIR}/ide/DefaultCustom.xml" ./keymaps/ \
+        && echo "**********set ${name} keymaps successful!**********"
     fi
-    [[ $? == 0 ]] && echo "install ${name} successful!"
-    # nohup pycharm > ~/jetbrains.log 2>&1 &
 }
-
-
-url="https://download.jetbrains.8686c.com/python/pycharm-professional-2017.3.3.tar.gz"
+# nohup goland > ~/jetbrains.log 2>&1 &
 name="pycharm"
 package="PyCharm"
-jetbrains ${url} ${name} ${package}
+jetbrains ${name} ${package}
 # ***************************************************************
-url="https://download.jetbrains.8686c.com/webstorm/WebStorm-2017.3.3.tar.gz"
 name="webstorm"
 package="WebStorm"
-jetbrains ${url} ${name} ${package}
+jetbrains ${name} ${package}
 # ***************************************************************
-url="https://download.jetbrains.8686c.com/idea/ideaIU-2017.2.2.tar.gz"
 name="idea"
 package="IdeaIU"
-# jetbrains ${url} ${name} ${package}
+# jetbrains ${name} ${package}
 # ***************************************************************
-url="https://download.jetbrains.8686c.com/go/goland-2017.3.1.tar.gz"
 name="goland"
 package="GoLand"
-jetbrains ${url} ${name} ${package}
+jetbrains ${name} ${package}
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then

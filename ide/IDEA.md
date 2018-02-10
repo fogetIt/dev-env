@@ -1,3 +1,6 @@
+
+**社区版没有tomcat配置功能**
+
 ### 配置JDK：
 - File----Project Structure: project SDK---New a jdk.
 
