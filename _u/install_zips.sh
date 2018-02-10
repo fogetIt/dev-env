@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
 # @Last Modified time: 2018-02-08 11:15:31
-echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+echo ${_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
     url=$1
@@ -9,7 +9,7 @@ function jetbrains() {
     package=$3
     if [[ ! -f "/usr/bin/${name}" ]]; then
         if [[ ! -d "/opt/${package}" ]]; then
-            cd ${SOFTWARES}
+            cd ${_SOFTWARES}
             if [[ ! -f "./${package}.tar.gz" ]]; then
                 wget -O "${package}.tar.gz" "${url}"
             fi
@@ -25,7 +25,7 @@ function jetbrains() {
         && (
             find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
             ) \
-        && sudo cp -f "${DIR}/jetBrains/DefaultCustom.xml" ./keymaps/ \
+        && sudo cp -f "${_DIR}/jetBrains/DefaultCustom.xml" ./keymaps/ \
         && echo "copy keymaps settings successful!"
     fi
     [[ $? == 0 ]] && echo "install ${name} successful!"
@@ -55,9 +55,9 @@ jetbrains ${url} ${name} ${package}
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then
-        cd ${SOFTWARES}
-        if [[ ! -f "${SOFTWARES}/node.tar" ]]; then
-            if [[ ! -f "${SOFTWARES}/node.tar.xz" ]]; then
+        cd ${_SOFTWARES}
+        if [[ ! -f "${_SOFTWARES}/node.tar" ]]; then
+            if [[ ! -f "${_SOFTWARES}/node.tar.xz" ]]; then
                 wget -O "node.tar.xz" \
                     "https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
             fi
@@ -111,7 +111,7 @@ node -v && npm -v || (
 # ***************************************************************
 # sudo find / -name mongobooster | grep mongobooster
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
-    cd ${SOFTWARES} \
+    cd ${_SOFTWARES} \
     && axel -n 16 \
         "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \

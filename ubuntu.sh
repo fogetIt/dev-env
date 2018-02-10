@@ -9,30 +9,25 @@ sudo apt-get upgrade
 COMMENT
 
 : <<'COMMENT'
-# function 可以省略
-function exit?() {
+exit?() {
     read -p $* decide
     [ "$decide" != 'Y' -a "$decide" == 'n' ] && exit 0 || exit? $*
 }
 COMMENT
 
-: <<'COMMENT'
-$(pwd) == 执行 shell 时的当前路径
-shell 互相调用，不会影响 $(pwd)
-cd 命令会影响 $(pwd)
-COMMENT
-if [ $1 ]; then
-    cd ./Build
-    PWD=$(pwd)             # ./Build
-    DIR=$(dirname $(pwd))  # ./
-    PASSWORD=$1
-    SOFTWARES=$HOME/softwares
-    export PWD
-    export DIR
-    export PASSWORD
-    export SOFTWARES
 
-    chmod -R u+x $(pwd) \
+if [ $1 ]; then
+    cd ./_u/
+    _PWD=$(pwd)             # ./_u/
+    _DIR=$(dirname $(pwd))  # ./
+    _PASSWORD=$1
+    _SOFTWARES=$HOME/softwares
+    export _PWD
+    export _DIR
+    export _PASSWORD
+    export _SOFTWARES
+
+    chmod -R u+x ${_PWD} \
     && ./init.sh \
     && ./install_apts.sh \
     && ./install_zips.sh \

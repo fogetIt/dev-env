@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
 # @Last Modified time: 2018-02-07 15:49:33
-echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+echo ${_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
 : <<"COMMENT"
@@ -12,12 +12,12 @@ vim-gnome   vim with gnome GUI
 COMMENT
 which vim && vim --version | cat | head -n 2 || (
     sudo apt-fast -y install vim \
-    && cp -f ${DIR}/vim/.vimrc ${HOME}/
+    && cp -f ${_DIR}/vim/.vimrc ${HOME}/
     )
 # sudo apt-fast -y install vim-gtk vim-gnome
-[[ ! -d ${SOFTWARES}/plugins ]] \
-&& mkdir ${SOFTWARES}/plugins \
-&& git clone git@github.com:VundleVim/Vundle.vim.git ${SOFTWARES}/plugins/Vundle
+[[ ! -d ${_SOFTWARES}/plugins ]] \
+&& mkdir ${_SOFTWARES}/plugins \
+&& git clone git@github.com:VundleVim/Vundle.vim.git ${_SOFTWARES}/plugins/Vundle
 # **************************************************************
 which atom && atom -v | cat | head -n 2 || (
     sudo add-apt-repository -y ppa:webupd8team/atom
@@ -67,7 +67,7 @@ zsh --version || sudo apt -y install zsh
 # cat /etc/shells
 # use oh-my-zsh deploy zsh
 [[ ${SHELL} != /usr/bin/zsh ]] \
-&& echo ${PASSWORD} | chsh -s `which zsh` \
+&& echo ${_PASSWORD} | chsh -s `which zsh` \
 && curl -L \
     https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 
