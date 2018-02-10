@@ -1,10 +1,10 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-02-08 11:15:31
+# @Last Modified time: 2018-02-10 18:18:43
 echo ${_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # 递归函数
-function jetbrains() {
+function gz_installer() {
     name=$1
     package=$2
     if [[ ! -f "/usr/bin/${name}" ]]; then
@@ -16,12 +16,12 @@ function jetbrains() {
                 sudo mkdir "/opt/${package}" \
                 && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1 \
                 && echo "**********uncompress ${name} package successful!**********" \
-                && jetbrains ${name} ${package}
+                && gz_installer ${name} ${package}
             fi
         else
             sudo ln -sf "/opt/${package}/bin/${name}.sh" "/usr/bin/${name}" \
             && echo "**********install ${name} successful!**********" \
-            && jetbrains ${name} ${package}
+            && gz_installer ${name} ${package}
         fi
     else
         "${name}" \
@@ -34,21 +34,13 @@ function jetbrains() {
     fi
 }
 # nohup goland > ~/jetbrains.log 2>&1 &
-name="pycharm"
-package="PyCharm"
-jetbrains ${name} ${package}
+gz_installer "pycharm" "PyCharm"
 # ***************************************************************
-name="webstorm"
-package="WebStorm"
-jetbrains ${name} ${package}
+gz_installer "webstorm" "WebStorm"
 # ***************************************************************
-name="idea"
-package="IdeaIU"
-# jetbrains ${name} ${package}
+# gz_installer "idea" "IdeaIU"
 # ***************************************************************
-name="goland"
-package="GoLand"
-jetbrains ${name} ${package}
+gz_installer "goland" "GoLand"
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then
@@ -73,38 +65,31 @@ node -v && npm -v || (
 # npm config list
 # npm全局命令安装目录：${prefix}/bin/
 # ***************************************************************
-# go version || (
-#     url="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz"
-#     name="go"
-#     package="go"
-#     uncompress2opt ${url} ${package} \
-#     && export GOROOT=/opt/go \
-#     && export GOPATH=$HOME/gocode \
-#     && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
-#     && echo -e "please copy and paste the following message \
-#         \033[0;31m \n\n \
-#         export GOROOT=/opt/go \n \
-#         export GOPATH=\$HOME/gocode \n \
-#         export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin \n \
-#         \033[0m" \
-#     && sudo subl /etc/profile
-#     )
-
-# 配置环境变量
-#     GOROOT    go安装的路径
-#     GOPATH    默认安装包的路径
-
-# GOPATH允许多个目录
-#     分隔符
-#         Windows;
-#         Linux:
-#     默认将go get获取的包存放在第一个目录下
-#     约定有三个子目录
-#         src    存放源代码(比如：.go .c .h .s等)
-#         pkg    存放编译时生成的中间文件(比如：.a)
-#         bin    编译后生成的可执行文件
-#             为了方便，可以把此目录加入到 PATH 中
-#             如果有多个目录，那么添加所有的bin目录
+go version || (
+    wget -O "go.tar.gz" "https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz" \
+    && gz_installer "go" "go" \
+    && export GOROOT=/opt/go \
+    && export GOPATH=$HOME/gocode \
+    && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
+    && echo -e "please copy and paste the following message \
+        \033[0;31m \n\n \
+        export GOROOT=/opt/go \n \
+        export GOPATH=\$HOME/gocode \n \
+        export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin \n \
+        \033[0m" \
+    && sudo subl /etc/profile
+    )
+: <<"COMMENT"
+环境变量
+    GOROOT    go安装的路径
+    GOPATH    默认安装包的路径（path1:path2:...）
+        go get获取的包默认存放在 path1 下
+            src    存放源代码(比如：.go .c .h .s等)
+            pkg    存放编译时生成的中间文件(比如：.a)
+            bin    编译后生成的可执行文件
+                   为了方便，可以把此目录加入到 PATH
+                   如果有多个目录，那么添加所有的bin目录
+COMMENT
 # ***************************************************************
 # sudo find / -name mongobooster | grep mongobooster
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
