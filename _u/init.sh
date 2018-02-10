@@ -48,17 +48,6 @@ git --version && read -p "generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
     && [ "${var}" != "Y" ] \
     && exit 0
     )
-
-git --version && read -p "clone repositories? [Y/n]" var \
-&& [[ "${var}" == "Y" ]] \
-&& (
-    [[ ! -d ${HOME}/github ]] && mkdir ${HOME}/github
-    cd ${HOME}/github \
-    && sudo rm -rf ./* \
-    && git init \
-    && git clone git@github.com:forgetIt/tools.git \
-    && echo "clone repositories success"
-    )
 # ***************************************************************
 # use sublime-text-imfix to install sublime and fcitx(input method framework, support chinese)
 subl -v || (

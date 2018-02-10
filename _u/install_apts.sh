@@ -47,13 +47,15 @@ docky              system initiator
 unity-tweak-tool   system manager
 theme and icons    beautify ubuntu
 COMMENT
-sudo apt-fast install conky -y
-sudo apt install docky -y
-sudo apt-fast install unity-tweak-tool -y
-sudo add-apt-repository ppa:noobslab/themes
-sudo add-apt-repository ppa:noobslab/icons
-sudo apt-fast update
-sudo apt-fast install flatabulous-theme ultra-flat-icons -y
+which conky && conky -v | cat | head -n 2 || sudo apt-fast install conky -y
+which docky && docky -v | cat | head -n 2 || sudo apt install docky -y
+which unity-tweak-tool || (
+    sudo apt-fast install unity-tweak-tool -y
+    sudo add-apt-repository ppa:noobslab/themes
+    sudo add-apt-repository ppa:noobslab/icons
+    sudo apt-fast update
+    sudo apt-fast install flatabulous-theme ultra-flat-icons -y
+)
 # ***************************************************************
 : <<"COMMENT"
 Ctrl+Shift+O
