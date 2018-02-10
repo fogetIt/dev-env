@@ -66,7 +66,8 @@ node -v && npm -v || (
 # npm全局命令安装目录：${prefix}/bin/
 # ***************************************************************
 go version || (
-    wget -O "go.tar.gz" "https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz" \
+    cd ${_SOFTWARES} \
+    && wget -O "go.tar.gz" "https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz" \
     && gz_installer "go" "go" \
     && export GOROOT=/opt/go \
     && export GOPATH=$HOME/gocode \
