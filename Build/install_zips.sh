@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-02-05 11:04:09
+# @Last Modified time: 2018-02-08 11:15:31
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
@@ -10,7 +10,7 @@ function jetbrains() {
     if [[ ! -f "/usr/bin/${name}" ]]; then
         if [[ ! -d "/opt/${package}" ]]; then
             cd ${SOFTWARES}
-            if [[ ! -f "${SOFTWARES}/${package}.tar.gz" ]]; then
+            if [[ ! -f "./${package}.tar.gz" ]]; then
                 wget -O "${package}.tar.gz" "${url}"
             fi
             sudo mkdir "/opt/${package}" \

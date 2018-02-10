@@ -75,13 +75,11 @@ File--->Invalidate caches
 ##### File--->Settings
 - 文件类型
     + Editor--->File Types
-- Git
-    + Version Control--->Git--->SSH executable--->choose Native
 - Install plugin from disk
     + Plugins--->Install plugin from disk...--->重启
 
 ##### indent
-Settings--->Code Style--->语言类型--->Tabs and Indents
+- Settings/Code Style/.../Tabs and Indents
 
 
 ##### 字体
@@ -92,4 +90,7 @@ Monospaced
 ```
 
 ##### PyCharm virtualenv
-- File--->Settings--->Project--->Project Interpreter
+- File/Settings/Project/Project Interpreter
+
+##### Git
+- Version Control/Git/SSH executable/Native
