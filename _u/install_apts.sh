@@ -55,7 +55,7 @@ which unity-tweak-tool || (
     sudo add-apt-repository ppa:noobslab/icons     # flat icons
     sudo add-apt-repository ppa:noobslab/macbuntu  # mac themes/icons/points
     sudo apt-fast update
-    sudo apt-fast install flatabulous-theme ultra-flat-icons -y
+    sudo apt-fast install -y flatabulous-theme ultra-flat-icons
     sudo apt-fast install -y macbuntu-os-icons-lts-v7 macbuntu-os-ithemes-lts-v7
 )
 # ***************************************************************
