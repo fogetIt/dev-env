@@ -37,7 +37,7 @@ uget-gtk --version || (
 # ***************************************************************
 git --version || sudo apt-fast -y install git
 
-git --version && read -p "generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
+git --version && read -p ">>>Generate ssh key for github? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
 && (
     git config --global user.name "forgetIt" \
@@ -60,11 +60,11 @@ subl -v || (
     # open sublime to makesure created configuration folder
 )
 
-read -p ">>>overwrite sublime settings? [Y/n]" var \
+read -p ">>>Overwrite sublime settings? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
 && cp -rf ${ENV_DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/ \
 
-read -p ">>>please install package control!"
+read -p ">>>Please install package control!"
 # ***************************************************************
 # for Windows softwares(e.g. qq)
 wine --version || sudo apt-fast -y install wine

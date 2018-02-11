@@ -5,48 +5,45 @@ echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 
 gz_installer() {
-    name=$1;package=$2
+    name=$1;package=$2;starter=$3
     if [[ ! -f "/usr/bin/${name}" ]]; then
         if [[ ! -d "/opt/${package}" ]]; then
             cd ${ENV_SOFTWARES}
             if [[ ! -f "./${package}.tar.gz" ]]; then
-                echo -e "\033[1;;41m**********can't find ${name} package!**********\033[0m"
+                echo -e "\033[1;;41m**********Can't find ${name} package!**********\033[0m"
             else
                 # uncompress *.tar.gz --> /opt/
                 sudo mkdir "/opt/${package}" \
                 && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1 \
-                && gz_installer ${name} ${package}
+                && gz_installer ${name} ${package} ${starter}
             fi
         else
-            sudo ln -sf "/opt/${package}/bin/${name}.sh" "/usr/bin/${name}" \
-            && gz_installer ${name} ${package}
+            sudo ln -sf "/opt/${package}/bin/${starter}" "/usr/bin/${name}" \
+            && gz_installer ${name} ${package} ${starter}
         fi
     else
-        echo "**********install ${name} successful!**********"
+        echo "**********Install ${name} successful!**********"
     fi
 }
 
 function jetbrains() {
-    name=$1;package=$2
-    gz_installer ${name} ${package} \
+    name=$1;package=$2;starter=$3
+    gz_installer ${name} ${package} ${starter} \
     && ${name} && (
         cd ${HOME}/.${package}*/config \
         && (
             find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
             ) \
         && sudo cp -f "${ENV_DIR}/ide/DefaultCustom.xml" ./keymaps/ \
-        && echo "**********set ${name} keymaps successful!**********"
-        ) || echo "**********install ${name} failed!**********"
+        && echo "**********Set ${name} keymaps successful!**********"
+        ) || echo "**********Install ${name} failed!**********"
 }
 
-# nohup goland > ~/jetbrains.log 2>&1 &
-jetbrains "pycharm" "PyCharm"
-# ***************************************************************
-jetbrains "webstorm" "WebStorm"
-# ***************************************************************
-# jetbrains "idea" "IdeaIU"
-# ***************************************************************
-jetbrains "goland" "GoLand"
+#nohup goland > ~/jetbrains.log 2>&1 &
+#jetbrains "pycharm" "PyCharm" "pycharm.sh"
+#jetbrains "webstorm" "WebStorm" "webstorm.sh"
+#jetbrains "idea" "IdeaIU" "idea.sh"
+#jetbrains "goland" "GoLand" "goland.sh"
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then
@@ -73,10 +70,10 @@ node -v && npm -v || (
 # ***************************************************************
 go version || (
     cd ${ENV_SOFTWARES} \
-    && [[ ! -f "./${package}.tar.gz" ]] \
+    && [[ ! -f "./go.tar.gz" ]] \
     && wget -O "go.tar.gz" "https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz"
 
-    gz_installer "go" "go" \
+    gz_installer "go" "go" "go" \
     && export GOROOT=/opt/go \
     && export GOPATH=$HOME/gocode \
     && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
