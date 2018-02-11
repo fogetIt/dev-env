@@ -47,18 +47,18 @@ E36B85CC 84991F19 7575D828 470A92AB
 3. 选择一个会自动打开其所在的目录；
 4. 查看readme.md上面的插件使用方法；
 
-|插件                     |作用                        |
-|:-----------------------|:--------------------------|
-|FixMyJS, Jsfmt          |JS/JSON代码风格格式化        |
-|ConvertChineseCharacters|转换中文字符(unicode)        |
-|SCSS                    |scss的语法高亮、CSS片段       |
-|HTMLAttributes          |html属性补全提示             |
+|插件                      |作用                   |
+|:-----------------------|:--------------------|
+|FixMyJS, Jsfmt          |JS/JSON代码风格格式化       |
+|ConvertChineseCharacters|转换中文字符(unicode)      |
+|SCSS                    |scss的语法高亮、CSS片段      |
+|HTMLAttributes          |html属性补全提示           |
 |html5                   |提供html5相关的标签片段       |
-|Emmet Css Snippets      |CSS自动补全提示              |
-|JS Minifer              |js压缩，快捷键：ctrl+alt+M    |
+|Emmet Css Snippets      |CSS自动补全提示            |
+|JS Minifer              |js压缩，快捷键：ctrl+alt+M  |
 |yui compressor          |yui的压缩工具，可以压缩CSS、JS  |
 |                        |快捷键：CTRL+B(需要安装配置jdk)|
-|Tradsim                 |中文繁字体和简体字转换        |
+|Tradsim                 |中文繁字体和简体字转换          |
 |Hex-to-HSL-Color        |Hex颜色模式转HSL颜色模式      |
 
 [在线编辑主题（只支持Chrome）](http://tmtheme-editor.herokuapp.com/)
@@ -74,21 +74,9 @@ E36B85CC 84991F19 7575D828 470A92AB
     + 如果还不行
         * View----Syntax----Open all with current extension as ...
 
-##### 从指定github仓库安装插件
+##### 从指定`github`仓库安装插件
 - Crtl + Shift + p
     + add repository
     + https://github.com/forgetIt/MarkdownTableFormatter
 - Crtl + Shift + p
     + MarkdownTableFormatter
-
-##### icons
-默认查找 icons/ 文件夹
-
-##### 主题
-- 默认主题配置文件
-    + ${User}/Default.sublime-theme—
-    + 文件图标：${User}/icons/
-- 主题插件的配置文件
-    + ${User}/themeName.sublime-theme
-    + 文件图标：${themeName}/icons/
-- 通过修改主题配置文件就可以使用对应的文件图标，并继承和修改其样式
