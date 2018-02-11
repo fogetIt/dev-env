@@ -51,10 +51,12 @@ which conky && conky -v | cat | head -n 2 || sudo apt-fast install conky -y
 which docky && docky -v | cat | head -n 2 || sudo apt install docky -y
 which unity-tweak-tool || (
     sudo apt-fast install unity-tweak-tool -y
-    sudo add-apt-repository ppa:noobslab/themes
-    sudo add-apt-repository ppa:noobslab/icons
+    sudo add-apt-repository ppa:noobslab/themes    # flat theme
+    sudo add-apt-repository ppa:noobslab/icons     # flat icons
+    sudo add-apt-repository ppa:noobslab/macbuntu  # mac themes/icons/points
     sudo apt-fast update
     sudo apt-fast install flatabulous-theme ultra-flat-icons -y
+    sudo apt-fast install -y macbuntu-os-icons-lts-v7 macbuntu-os-ithemes-lts-v7
 )
 # ***************************************************************
 : <<"COMMENT"

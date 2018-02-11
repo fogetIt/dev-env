@@ -21,13 +21,6 @@ echo $ENV_PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # sudo apt-get install xenlism-wildfire-icon-theme -y
 
 
-# 指针
-sudo add-apt-repository ppa:noobslab/macbuntu
-sudo apt-get update
-sudo apt-get install macbuntu-os-icons-lts-v7
-sudo apt-get install macbuntu-os-ithemes-lts-v7
-
-
 # electronic wechat
 git clone https://github.com/geeeeeeeeek/electronic-wechat.git \
 && cd electronic-wechat \

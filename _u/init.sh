@@ -27,12 +27,10 @@ COMMENT
 which axel && axel -V | cat | head -n 2 || sudo apt install axel
 which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
 uget-gtk --version || (
+    sudo add-apt-repository -y ppa:t-tujikawa/ppa
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
     sudo apt-fast update
-    sudo apt-fast -y install uget
-    sudo add-apt-repository -y ppa:t-tujikawa/ppa
-    sudo apt-fast update
-    sudo apt-fast -y install aria2
+    sudo apt-fast -y install aria2 uget
     )
 # ***************************************************************
 git --version || sudo apt-fast -y install git
