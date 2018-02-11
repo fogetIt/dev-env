@@ -42,10 +42,10 @@ function jetbrains() {
 }
 
 #nohup goland > ~/jetbrains.log 2>&1 &
-#jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
-#jetbrains "webstorm" "WebStorm" "webstorm.sh"
+jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
+jetbrains "webstorm" "WebStorm" "webstorm.sh"
+jetbrains "goland"   "GoLand"   "goland.sh"
 #jetbrains "idea"     "IdeaIU"   "idea.sh"
-#jetbrains "goland"   "GoLand"   "goland.sh"
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then
