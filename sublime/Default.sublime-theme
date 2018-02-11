@@ -1,8 +1,8 @@
 [
     {
         "class": "sidebar_tree",
-        "layer0.tint": [20, 40, 30],
-        "layer0.opacity": 60.0,
+        "layer0.tint": [30, 75, 30],
+        "layer0.opacity": 50.0,
     },
     {
         "class": "sidebar_container",
@@ -16,7 +16,7 @@
     },
     {
         "class": "sidebar_label",
-        "color": [0, 0, 50],
+        "color": [255, 255, 255],
         "font.size": 13,
         "font.bold": true,
         "shadow_color": [0, 0, 0],

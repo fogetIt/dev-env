@@ -95,7 +95,6 @@
 
 
         "Nodejs",
-        "Ethereum",
         "INI",
         "SublimeREPL",
 
@@ -122,28 +121,22 @@
         // 控制侧边栏和上边框
         "ColorSchemeSelector",
         // ubuntu使用sublime-text-imfix安装sublime后，无法选择配色
-        "ayu",
-        "Boxy Theme",
+        "Adaptive",
         "Theme - Piatto",
         "Theme - Glacier",
+        "Theme - Flatland",
 
 
 
         "SFTP",
         // 远程编辑服务器上的文件:文件 -➤ SFTP/FTP -➤ Browse Server
         //
-        // "Material Theme",
-        // "Seti_UI",
-        // "Theme - Primer",
-        // "Theme - Bamboo",
-        //
         // "ChineseTranslator",        // 翻译(调用有道词典api)
         // Ctrl+Shift+C
         //
-        // "Sublimerge Pro",           // 收费，与Sublimerge3不能共存
         // "SublimeTmpl",              // 新建html、css、js等：
         // Ctrl+Alt+H/C/J
-        //（模板、快捷键可改）
+        //
         // "AdvancedNewFile",          // Ctrl+Alt+N新建文件并指定类型
         // "GitGutter",                // 在左侧显示表示修改信息的图标
         // "Local History",            // Ctrl+Shift+P/Tools -➤ local History
