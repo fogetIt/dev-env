@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
 # @Last Modified time: 2018-02-07 09:53:17
-echo $_PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+echo $ENV_PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # themes/icons
 

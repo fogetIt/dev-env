@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Date:   2017-09-06 18:26:32
 # @Last Modified time: 2018-02-07 14:02:36
-echo ${_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 pip --version || sudo apt-fast -y install python-pip
 pip3 --version || sudo apt-fast -y install python3-pip

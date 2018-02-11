@@ -3,13 +3,13 @@
 # @Last Modified time: 2018-02-07 15:22:52
 # echo -e '...'
 # 显示颜色、换行
-echo ${_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-[[ ! -d ${_SOFTWARES} ]] && mkdir ${_SOFTWARES}
+[[ ! -d ${ENV_SOFTWARES} ]] && mkdir ${ENV_SOFTWARES}
 # ***************************************************************
 # sudo password root
 # su root
-sudo cp -f ${_PWD}/50-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/
+sudo cp -f ${ENV_PWD}/50-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/
 # ***************************************************************
 # sudo vi /etc/apt-fast.conf
 which apt-fast && apt-fast -v | cat | head -n 2 || (
@@ -44,14 +44,14 @@ git --version && read -p "generate id_rsa, id_rsa.pub in ~/.ssh? [Y/n]" var \
     && git config --global user.email "2271404280@qq.com" \
     && echo -e "\n" | ssh-keygen -t rsa -C "2271404280@qq.com" \
     && cat ${HOME}/.ssh/id_rsa.pub \
-    && read -p "copy and paste this pub key to github! [Y/n]" var \
+    && read -p ">>>copy and paste this pub key to github! [Y/n]" var \
     && [ "${var}" != "Y" ] \
     && exit 0
     )
 # ***************************************************************
 # use sublime-text-imfix to install sublime and fcitx(input method framework, support chinese)
 subl -v || (
-    cd ${_SOFTWARES} \
+    cd ${ENV_SOFTWARES} \
     && rm -rf sublime-text* \
     && git clone https://github.com/lyfeyaj/sublime-text-imfix.git \
     && cd sublime-text-imfix \
@@ -60,11 +60,11 @@ subl -v || (
     # open sublime to makesure created configuration folder
 )
 
-read -p "overwrite sublime settings? [Y/n]" var \
+read -p ">>>overwrite sublime settings? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
-&& cp -rf ${_DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/ \
+&& cp -rf ${ENV_DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/ \
 
-read -p "please install package control!"
+read -p ">>>please install package control!"
 # ***************************************************************
 # for Windows softwares(e.g. qq)
 wine --version || sudo apt-fast -y install wine

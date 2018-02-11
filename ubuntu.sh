@@ -11,16 +11,16 @@ COMMENT
 
 if [ $1 ]; then
     cd ./_u/
-    _PWD=$(pwd)             # ./_u/
-    _DIR=$(dirname $(pwd))  # ./
-    _PASSWORD=$1
-    _SOFTWARES=$HOME/softwares
-    export _PWD
-    export _DIR
-    export _PASSWORD
-    export _SOFTWARES
+    ENV_PWD=$(pwd)             # ./_u/
+    ENV_DIR=$(dirname $(pwd))  # ./
+    ENV_PASSWORD=$1
+    ENV_SOFTWARES=$HOME/softwares
+    export ENV_PWD
+    export ENV_DIR
+    export ENV_PASSWORD
+    export ENV_SOFTWARES
 
-    chmod -R u+x ${_PWD} \
+    chmod -R u+x ${ENV_PWD} \
     && ./init.sh \
     && ./install_apts.sh \
     && ./install_zips.sh \
