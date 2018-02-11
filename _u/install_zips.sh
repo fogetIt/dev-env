@@ -6,20 +6,22 @@ echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 gz_installer() {
     name=$1;package=$2;starter=$3
+    [[ $4 ]] && DG_NUM=$4 || DG_NUM=0
     if [[ ! -f "/usr/bin/${name}" ]]; then
         if [[ ! -d "/opt/${package}" ]]; then
             cd ${ENV_SOFTWARES}
             if [[ ! -f "./${package}.tar.gz" ]]; then
                 echo -e "\033[1;;41m**********Can't find ${name} package!**********\033[0m"
             else
-                # uncompress *.tar.gz --> /opt/
                 sudo mkdir "/opt/${package}" \
                 && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1 \
-                && gz_installer ${name} ${package} ${starter}
+                && [[ DG_NUM == 0 ]] && let DG_NUM++ \
+                && gz_installer ${name} ${package} ${starter} ${DG_NUM}
             fi
         else
             sudo ln -sf "/opt/${package}/bin/${starter}" "/usr/bin/${name}" \
-            && gz_installer ${name} ${package} ${starter}
+            && [[ DG_NUM == 1 ]] && let DG_NUM++ \
+            && gz_installer ${name} ${package} ${starter} ${DG_NUM}
         fi
     else
         echo "**********Install ${name} successful!**********"
@@ -27,7 +29,7 @@ gz_installer() {
 }
 
 function jetbrains() {
-    name=$1;package=$2;starter=$3
+    name=$1;package=$2;starter=$3;
     gz_installer ${name} ${package} ${starter} \
     && ${name} && (
         cd ${HOME}/.${package}*/config \
@@ -40,10 +42,10 @@ function jetbrains() {
 }
 
 #nohup goland > ~/jetbrains.log 2>&1 &
-#jetbrains "pycharm" "PyCharm" "pycharm.sh"
+#jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 #jetbrains "webstorm" "WebStorm" "webstorm.sh"
-#jetbrains "idea" "IdeaIU" "idea.sh"
-#jetbrains "goland" "GoLand" "goland.sh"
+#jetbrains "idea"     "IdeaIU"   "idea.sh"
+#jetbrains "goland"   "GoLand"   "goland.sh"
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then
