@@ -123,6 +123,8 @@
         "SideBarEnhancements",
         // 侧边栏增强
         "Themr",
+        // 预览配色
+        "ColorSublime",
         // 控制侧边栏和上边框
         "ColorSchemeSelector",
         // ubuntu使用sublime-text-imfix安装sublime后，无法选择配色

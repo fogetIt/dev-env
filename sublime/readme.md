@@ -81,6 +81,8 @@ E36B85CC 84991F19 7575D828 470A92AB
 - Crtl + Shift + p
     + MarkdownTableFormatter
 
+##### icons
+默认查找 icons/ 文件夹
 
 ##### 主题
 - 默认主题配置文件
