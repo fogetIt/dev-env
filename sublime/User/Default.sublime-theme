@@ -1,154 +1,70 @@
 [
-/*
-目录树
- */
     {
-    "class": "sidebar_tree",
-        // "row_padding": [20, 6],        // 间距
-        // "indent": 15,
-        // "indent_offset": 10,
-        "indent_top_level": true,
-        "layer0.tint": [150, 150, 150],
-        "layer0.opacity": 100.0,         // 颜色亮度
-        // "dark_content": false          // 黑暗度
+        "class": "sidebar_tree",
+        "layer0.tint": [150, 150, 50],
+        "layer0.opacity": 100.0,
     },
-/*
-文件夹样式
- */
-// sidebar folder closed
+    {
+        "class": "sidebar_container",
+        "content_margin": [0, -10, 0, -10]
+    },
     {
         "class": "icon_folder",
-        "content_margin": [10, 8],    // 尺寸
-        // "layer0.tint": [0, 0, 225],   // 颜色
-        // "layer0.opacity": 1.2,        // 亮度
-        // "parents": [{ "class": "tree_row", "attributes": ["expanded"]}],
-        // "layer1.opacity": 1,
+        "content_margin": [11, 9],
     },
-// sidebar folder opened
     {
-        "class": "icon_folder",
-    },
-/**
- * 目录/文件名
- */
-   {
         "class": "sidebar_label",
-        // "color": [225, 225, 225],
-        "font.size": 12,
+        "color": [0, 100, 150],
+        "font.size": 14,
         "font.bold": true,
-        // "shadow_color": [0, 0, 0],
+        "shadow_color": [0, 0, 0],
         "shadow_offset": [0, 0]
     },
-/*
-标题栏
- */
+
+
+
     {
         "class": "tab_label",
         "fade": true,
-        // "fg": [225,225,0],
-        "font.size" : 12,
+        "fg": [50, 200, 50],
+        "font.size": 14,
         "font.bold": true,
     },
     {
         "class": "tabset_control",
         "layer0.opacity": 1,
-        "layer1.opacity": 0.2,           // 亮度
-        "tint_index": 0,
-        "layer1.inner_margin": [2, 6],
-        // "content_margin": [0, 0, 0, 0],
-        "mouse_wheel_switch": true,      // 鼠标滚动切换
-        "tab_overlap": -1,               // 重合度
-        "tab_width": 150,
-        "tab_height": 35,
-        "tab_min_width": 50,
+        "layer1.opacity": 0.5,
+        "content_margin": [0, 0, 0, 1],
+        "mouse_wheel_switch": true,
+        "tab_height": 37,
     },
     {
         "class": "tab_control",
-        "tint_modifier": [143, 0, 0], // 颜色
+        "tint_modifier": [0, 10, 0],
     },
-/**
- * 状态栏
- */
+
+
+
     {
         "class": "status_bar",
-        // "layer0.tint": [0, 197, 205],
-        "layer0.opacity": 2.0,          // 颜色亮度
+        "layer0.tint": [0, 10, 0],
+        "layer0.opacity": 2.0,
+        "content_margin": [0, 5, 0, 10]
     },
     {
         "class": "label_control",
-        "parents": [{"class": "status_bar"}],
-        "shadow_offset": [0, 0],
-        "font.size": 16.0,
+        "parents": [
+        {
+            "class": "status_bar"
+        }],
+        "font.size": 15,
         "font.bold": true,
-        "color": [0, 150, 0]
+        "color": [50, 200, 50],
     },
-/* --------------------滚动条--------------------
-    // 侧边栏与主文件区分割线
-    {
-        "class": "sidebar_container",
-        "layer0.tint": [255, 100, 100],
-        "layer0.opacity": 50.0,
-        "layer0.draw_center": true,
-        // 左、上、右、下
-        "layer0.inner_margin": [0, 0, 0, 0],
-        "content_margin": [0, 0, 3, 0]
-    },
-    // 滚动条背景
+
+
     {
         "class": "scroll_bar_control",
-        "layer0.tint": [255, 100, 0],
-        "layer0.opacity": 1,
-        "layer0.inner_margin": 0,
-        "blur": true
+        "content_margin": [0, 0],
     },
-    // 垂直滚动条前景
-    {
-        "class": "puck_control",
-        "layer0.tint":[0,225,255,255],
-        "layer0.opacity": 1,
-        // 宽度、长度
-        "content_margin": [10,30],
-        "blur": true
-    },
-    // 水平滚动条前景
-    {
-        "class": "puck_control",
-        "attributes": ["horizontal"],
-        "layer0.tint":[0,225,255,255],
-        "content_margin": [10,8],
-        "blur": true
-    },
-*/
-/* --------------------命令面板--------------------
-    {
-        "class": "quick_panel",
-        "row_padding": [5, 2],
-        "layer0.tint": [33, 33, 33],
-        "layer0.opacity": 1.0,
-        "dark_content": true
-    },
-    {
-        "class": "quick_panel_label",
-        "fg": [205,205,205],               // 前景色
-        "selected_fg": [255,255,255],
-        "match_fg": [102,217,239],
-        "selected_match_fg": [249,38,114]
-    },
-    {
-        "class": "mini_quick_panel_row",
-        "layer0.inner_margin": [2, 2, 2, 2],
-        "layer0.opacity": 1.0
-    },
-    {
-        "class": "mini_quick_panel_row",
-        "layer0.tint": [223, 220, 217],    // 背景色
-        "layer0.opacity": 1
-    },
-    {
-        "class": "mini_quick_panel_row",
-        "attributes": ["selected"],
-        "layer0.texture": "",
-        "layer0.tint": [194, 83, 78]       // 背景色
-    },
-*/
 ]
