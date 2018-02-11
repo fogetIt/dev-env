@@ -16,7 +16,7 @@
     },
     {
         "class": "sidebar_label",
-        "color": [100, 150, 150],
+        "color": [0, 0, 50],
         "font.size": 13,
         "font.bold": true,
         "shadow_color": [0, 0, 0],
