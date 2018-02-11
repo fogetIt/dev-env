@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-02-07 15:22:52
+# @Last Modified time: 2018-02-11 15:45:58
 # echo -e '...'
 # 显示颜色、换行
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
@@ -60,7 +60,7 @@ subl -v || (
 
 read -p ">>>Overwrite sublime settings? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
-&& cp -rf ${ENV_DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/ \
+&& cp -rf ${ENV_DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/User/ \
 
 read -p ">>>Please install package control!"
 # ***************************************************************
