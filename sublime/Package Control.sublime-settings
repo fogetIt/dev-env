@@ -108,20 +108,23 @@
         "MarkdownEditing",
         // 支持markdown语法，并附带主题
         "Markdown Table Formatter",
-        // 格式化markdown table：Ctrl+S
+        // Ctrl+S
 
 
-        "SideBarEnhancements",
+        "OmniMarkupPreviewer",
+        // Ctrl+Alt+O
+
+
         // 侧边栏增强
+        "SideBarEnhancements",
         "Themr",
         // 预览配色
-        "ColorSublime",
+        "Colorsublime",
         // 给没有文件图标的主题添加图标
         "A File Icon",
         // 控制侧边栏和上边框
         "ColorSchemeSelector",
         // ubuntu使用sublime-text-imfix安装sublime后，无法选择配色
-        "Adaptive",
         "Theme - Piatto",
         "Theme - Glacier",
         "Theme - Flatland",
@@ -149,8 +152,6 @@
         // "MarkdownHighlighting",     // 支持markdown语法
         // "Evernote",                 // 同步文件到印象笔记
         // "Table Editor",             // 格式化markdown table：tab
-        // "OmniMarkupPreviewer",      // 浏览器同步渲染：
-        // Ctrl+B（默认Ctrl+Alt+O）
         // 不支持脚注、删除线
         // Ctrl+Alt+X: Export Markup as HTML.
         // Ctrl+Alt+C: Copy Markup as HTML.
