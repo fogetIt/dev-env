@@ -125,5 +125,6 @@
     // ChineseTranslator
     // { "keys": ["ctrl+shift+c"], "command": "translate" },
     // Ctranslator tool
-    { "keys": ["ctrl+shift+c"], "command": "auto_translate" }
+    { "keys": ["ctrl+shift+c"], "command": "auto_translate" },
+    { "keys": ["shift+tab"], "command": "unindent", "args": {"characters": "\t"} },
 ]
