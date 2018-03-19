@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
-# @Last Modified time: 2018-02-07 09:53:17
+# @Last Modified time: 2018-03-15 12:37:54
 echo $ENV_PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # themes/icons
@@ -117,3 +117,7 @@ sudo ufw status
 # *****************************************************************
 svn --version --quiet; [ $? != 0 ] \
 && sudo apt-fast -y install subversion
+
+
+# 流程图
+# draw.io Desktop

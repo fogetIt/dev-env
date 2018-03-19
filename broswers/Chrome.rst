@@ -82,7 +82,3 @@ sudo apt install rar
 
 ##### flash
 chrome://flags/#run-all-flash-in-allow-mode
-
-
-流程图
-draw.io Desktop
