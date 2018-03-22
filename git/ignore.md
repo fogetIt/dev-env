@@ -49,5 +49,5 @@ build
 - 无效原因
     + 对应的目录或者文件已经被git跟踪，此时再加入.gitignore后就无效了
 - 解决办法
-    + 先执行 git rm -r --cached ***
+    + 先执行 git rm -r --cached xxx
     + 再重新加入.gitignore文件

@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-02-07 15:49:33
+# @Last Modified time: 2018-03-22 15:52:58
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # **************************************************************
@@ -37,6 +37,11 @@ COMMENT
 # **************************************************************
 # sudo vim /etc/mysql/my.cnf
 mysql --version || sudo apt-fast -y install mysql-server mysql-client
+# **************************************************************
+redis-cli -v || sudo apt-fast -y install redis-server \
+&& echo "Please download FastoRedis and install"
+# **************************************************************
+nginx -v || sudo apt-fast install nginx -y
 # **************************************************************
 # 处理交互的命令，使之自动化完成
 expect -v || sudo apt -y install expect

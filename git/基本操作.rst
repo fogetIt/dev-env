@@ -1,0 +1,52 @@
+创建版本库
+=========
+    :``git init``: 在当前目录下生成 **.git/** （跟踪管理版本库）
+    :``git add xxx``:
+        - 把文件修改添加到 **暂存区** （添加文件跟踪）
+        - 自动创建 **master** 分支，及其指针 **HEAD**
+        :``git add file``: 添加某个文件
+        :``git add --all``: 添加所有文件
+        :``git add .``: 添加所有文件
+    :``git commit -m "xxx"``: 把暂存区的所有内容提交到当前分支
+
+
+**需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改**
+
+
+git status
+-----------
+    :可能的分支状态:
+        - 修改但没有 **add**
+        - **add** 但没有 **commit**
+        - **commit** 之后，修改之前
+            - nothing to commit
+
+
+:查看不同: ``git diff xxx``
+
+
+删除
+----
+    :``git rm xxx``:          删除文件
+    :``git checkout -- xxx``: 恢复误删
+
+        - 工作区的修改全部撤销
+        - 让文件回到最近一次 ``git commit/git add`` 时的状态
+
+
+历史
+----
+    :``git log``:                  查看提交历史（近->远）
+    :``git log --pretty=oneline``: 一行显示
+    :``git reflog``:               查看命令历史
+    :``git log --graph``:          查看分支合并情况
+
+    ``git log --graph --pretty=oneline --abbrev-commit``
+
+
+回退
+----
+    :``git reset``:              回退
+    :``git reset --hard HEAD^``: 回退到上一个
+    :``git reset --hard xxx``:   回退到 ``commit id`` (git log)
+    :``git reset HEAD xxx``:     把暂存区的修改撤销掉，重新放回工作区
