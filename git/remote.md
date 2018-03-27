@@ -34,14 +34,14 @@ git push --all origin
 #### 远程仓库
 
 |git remote                     |不带参数，列出远程分支                |
-|:------------------------------|:--------------------------|
+|:------------------------------|:---------------------------------|
 |git remote -v(--verbose)       |列出远程分支详细信息：[shortname][url]|
-|git remote show origin         |显示远程信息                     |
-|gitremoterm`<主机名>`             |删除远程主机                     |
-|git remote add origin [xxx.git]|本地仓库对应一个远程仓库               |
-|                               |                           |
-|git branch -a                  |查看远程分支                     |
-|git push origin --delete ...   |删除远程分支                     |
+|git remote show origin         |显示远程信息                        |
+|gitremoterm`<主机名>`           |删除远程主机                        |
+|git remote add origin [xxx.git]|本地仓库对应一个远程仓库              |
+|                               |                                  |
+|git branch -a                  |查看远程分支                        |
+|git push origin --delete ...   |删除远程分支                        |
 
 
 ##### 从远程仓库抓取数据到本地

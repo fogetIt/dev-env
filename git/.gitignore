@@ -1,0 +1,22 @@
+.idea/
+
+
+*.[oa]
+!test.a
+
+# Windows 自动在有图片的目录下生成隐藏的缩略图文件
+Thumbs.db
+ehthumbs.db
+
+# Windows 自定义目录下生成的文件
+Desktop.ini
+
+# 除 test.pyo 以外的 .pyc/.pyo 文件
+*.py[cod]
+!test.pyo
+
+*.so
+*.egg
+*.egg-info
+dist/
+build/

@@ -1,4 +1,4 @@
-# ～/.ssh/config
+# ~/.ssh/config
 
 Host github.com
 User forgetIt
