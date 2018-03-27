@@ -1,5 +1,6 @@
 :接收邮件: ``Settings-->emails-->Primary email address``
 :修改密码: ``Settings-->emails-->Backup email address``
+:添加公钥: ``Settings-->SSH and GPG keys``
 
 
 多套远程地址
