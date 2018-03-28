@@ -1,3 +1,4 @@
+# /etc/network/interfaces
 # interfaces(5) file used by ifup(8) and ifdown(8)
 auto lo
 iface lo inet loopback
@@ -17,4 +18,4 @@ gateway 10.168.120.254 # must 254
 netmask 255.255.255.0
 
 broadcast 10.168.120.255
-dns-nameservers 219.141.140.10 219.141.136.10
+dns-nameservers 202.106.0.20 8.8.8.8 219.141.140.10 219.141.136.10
