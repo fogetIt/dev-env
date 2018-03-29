@@ -7,7 +7,7 @@ mongodb
 -------
     :配置文件: /etc/mongodb.conf
 
-        .. code-block:: bash
+        .. code-block:: ini
 
             bind_ip = 0.0.0.0  # 允许外部访问
     :命令:
@@ -34,7 +34,7 @@ shells
     - zsh
         :配置文件: ~/.zshrc
 
-            .. code-block:: bash
+            .. code-block:: ini
 
                 ZSH_THEME='random'    # 主题
 

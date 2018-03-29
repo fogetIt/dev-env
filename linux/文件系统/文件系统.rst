@@ -12,8 +12,50 @@ filesystem
         :``etc/``:  配置文件目录
 
             :``passwd``: 用户信息文件
-            :``group``:  组信息文件
+
+                .. code-block:: ini
+
+                    user:password:uid:gid:info:home:shell
+                ========  ==========
+                user        用户登录名
+                password    x 代表密码转移
+                uid         系统内部用户标识，标识相同，视为同一用户
+                gid         组标识
+                info        全称、备注、描述
+                home        用户家目录
+                shell       登录系统后的 shell
+                 -          :/usr/sbin/nologin: 禁止用户登录
+                ========  ==========
             :``shadow``: 用户密码文件
+
+                .. code-block:: ini
+
+                    user:password:time1:time2:time3:time4:time5:time6:other
+                ========  ===========
+                user        用户登录名
+                password    加密后的密码
+                 -          :``*``:  密码被锁
+                 -          :``!!``: 密码已过期
+                 -          :`` ``:  没有密码（不是空）
+                 -          :$1$...: MD5 加密
+                 -          :$6$...: SHA-512 加密
+                 -          :$5$...: SHA-256 加密
+                 -          :$2$...: Blowfish 加密
+                time1       密码改动时间（时间戳）
+                time2       两次修改密码的最小时间间隔
+                 -          :``1``: >=1 天
+                 -          :``0``: 不限制
+                time3       两次修改密码的最大时间间隔（密码有效期）
+                time4       密码到期前几天提醒
+                time5       密码到期后几天可修改
+                time6       账号失效时间（时间戳）
+                other       保留字段
+                ========  ===========
+            :``group``:  组信息文件
+
+                .. code-block:: ini
+
+                    group:password:gid:user,user,...
         :``root/``: 家目录（超级用户）
         :``home/``: 家目录（普通用户）
         :``proc/``: 缓存文件目录
