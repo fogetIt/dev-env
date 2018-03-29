@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
-# @Last Modified time: 2018-03-15 12:37:54
+# @Last Modified time: 2018-03-28 18:57:50
 echo $ENV_PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # themes/icons
@@ -121,3 +121,8 @@ svn --version --quiet; [ $? != 0 ] \
 
 # 流程图
 # draw.io Desktop
+#
+
+# kde, xface
+sudo apt-get install kubuntu-desktop -y
+sudo apt-get install xubuntu-desktop -y

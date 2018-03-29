@@ -1,55 +1,13 @@
 *.db
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-# Windows shortcuts
-*.lnk
 
-#ideaUI
+# ideaUI
 .idea/
 
-# Python
+# python
 __pycache__/
 *.py[cod]
 *$py.class
-# PyBuilder
-target/
-# py2exe
-build/
-dist/
-# Installer logs
-*.log
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Java
-*.jar
-*.war
-*.ear
-.metadata/
-.classpath
-.project
-*.class
-bin/
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-
-# C
-*.c
-*.exe
-# C extensions
-*.so
-
-# gradle
-.gradle/
-
-# OSX
-*.DS_Store
-.AppleDouble
-.LSOverride
-
+*.log

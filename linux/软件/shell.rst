@@ -1,21 +1,9 @@
-##### 装win、ubuntu双系统：
-- 安装win7、win8、win10，分盘给ubuntu(/, swapn, /home)
-- 使用ultraISO、ubuntu镜像制作启动盘
-- 进bios改启动项，选择u盘启动
-- 安装ubuntu，选择其它选项安装，ubuntu启动项与/目录的挂载盘一致，完成后重启
-- win10直接有启动选项，win7、win8安装easyBCD，添加ubuntu启动项
-- ubuntu崩溃处理：
-    + 用启动盘进入安装系统，选择试用，进硬盘拷贝需要的文件到其它盘
-    + 重装系统
+wget
+----
+    -O xxx  save with file name
 
----
-##### sudo
-- -S,  read password from stdout
 
-##### wget
-- -O ***, save with file name
-
-##### $
+$
 - $!
     + Shell最后运行的后台Process的PID
 - $?
@@ -35,6 +23,8 @@
     + 传递参数给函数
     + 当n>=10时，需要使用${n}来获取参数
 
+
+
 ##### if [ expression ]
 ```bash
 : "表达式中每个变量、符号之间必须有空格"
@@ -47,40 +37,6 @@ elif [[ $1 ... ]]    # $变量不必加引号
 if [[ expression ]]  # 支持&&,||,<,>,!=，$!不用加引号
 ```
 
-##### [apt-get](/etc/apt/sources.list)
-```bash
-# ppa(Personal Package Archives)
-sudo apt-cache search ***           # 搜索ubuntu库
-sudo apt-get update                 # 更新下载源
-sudo add-apt-repository -y ppa:***  # 添加个人软件包集
-
-sudo apt-get install ***   # 安装
-sudo apt-get upgrade       # 更新已安装软件
-sudo apt-get dist-upgrade  # 更新系统版本
-
-sudo apt-get remove ***    # 卸载
-sudo apt-get autoclean
-sudo apt-get autoremove    # 自动卸载依赖
-# -y                       自动回车确认
-# --allow-unauthenticated  存在未认证的软件包，同时使用-y选项，必须
-```
-
-##### deb
-```bash
-sudo dpkg -i ***           # 安装
-sudo dpkg --configure -a   # 打断安装
-sudo dpkg -l | grep ***    # 查询相关deb包信息
-sudo dpkg -P ***           # 彻底卸载
-sudo dpkg --purge ***
-```
-
-##### 文件操作
-```bash
->    # 从标准输入覆盖写
->>   # 从标准输入追加写
-tee  # 从标准输入读入
-tee -a  # 追加模式
-```
 
 ##### 符号
 ```bash
@@ -96,6 +52,7 @@ tee -a  # 追加模式
      # 括号中的变量不能够被脚本余下的部分使用
 ```
 http://blog.csdn.net/taiyang1987912/article/details/39551385
+
 
 ##### 环境变量
 ```bash
@@ -119,9 +76,8 @@ command1 && command2 && ... # 顺序执行，后面的命令依赖前面命令�
 command1 || command2 || ... # 顺序执行，后面的命令依赖前面命令的失败
 ```
 
-##### 搜索无效的图标
-find ~/.local/ |xargs grep -ri "图标名"
-find ~/.local/ |xargs grep -ri "图标名" -l
-find ~/.local/ -name "图标名"
-
 ##### GIMP
+
+
+# echo -e '...'
+# 显示颜色、换行

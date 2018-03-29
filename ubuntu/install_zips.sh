@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-03-19 08:27:11
+# @Last Modified time: 2018-03-29 14:17:02
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 
@@ -41,7 +41,6 @@ function jetbrains() {
         ) || echo "**********Install ${name} failed!**********"
 }
 
-#goland > ~/jetbrains.log 2>&1 &
 jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 jetbrains "webstorm" "WebStorm" "webstorm.sh"
 jetbrains "goland"   "GoLand"   "goland.sh"

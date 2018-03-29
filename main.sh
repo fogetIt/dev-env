@@ -11,8 +11,8 @@ COMMENT
 
 if [ $1 ]; then
     cd ./ubuntu/
-    ENV_PWD=$(pwd)             # ./ubuntu/
-    ENV_DIR=$(dirname $(pwd))  # ./
+    ENV_PWD=$(pwd)
+    ENV_DIR=$(dirname $(pwd))
     ENV_PASSWORD=$1
     ENV_SOFTWARES=$HOME/softwares
     export ENV_PWD

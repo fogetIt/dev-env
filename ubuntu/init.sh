@@ -1,8 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-24 18:50:16
-# @Last Modified time: 2018-02-11 15:45:58
-# echo -e '...'
-# 显示颜色、换行
+# @Last Modified time: 2018-03-28 19:09:26
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 [[ ! -d ${ENV_SOFTWARES} ]] && mkdir ${ENV_SOFTWARES}
@@ -11,19 +9,12 @@ echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 # su root
 sudo cp -f ${ENV_PWD}/50-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/
 # ***************************************************************
-# sudo vi /etc/apt-fast.conf
 which apt-fast && apt-fast -v | cat | head -n 2 || (
     sudo add-apt-repository -y ppa:saiarcot895/myppa
     sudo apt-get update
     sudo apt-get -y install apt-fast
     )
 # ***************************************************************
-: <<"COMMENT"
-wget   single threading downloader
-axel   multithreading downloader
-uget   multithreading downloader with GUI
-    编辑——>设置——>插件——>aria2/curl
-COMMENT
 which axel && axel -V | cat | head -n 2 || sudo apt install axel
 which curl && curl --version | cat | head -n 1 || sudo apt-fast install curl -y
 uget-gtk --version || (
