@@ -1,8 +1,3 @@
-mysql
------
-    :配置文件: /etc/mysql/my.cnf
-
-
 mongodb
 -------
     :配置文件: /etc/mongodb.conf
@@ -18,11 +13,6 @@ mongodb
             sudo service mongodb start
 
 
-apt-fast
---------
-    :配置文件: /etc/apt-fast.conf
-
-
 shells
 ------
     :配置文件: /etc/shells
@@ -31,31 +21,29 @@ shells
 
             chsh -s $(which bash)
             chsh -s $(which sh)
-    - zsh
-        :配置文件: ~/.zshrc
-
-            .. code-block:: ini
-
-                ZSH_THEME='random'    # 主题
 
 
 系统管理
 -------
-    ================  ================
-    conky               在桌面显示系统信息
-    docky               系统启动器
-    unity-tweak-tool    系统管理工具
-    ================  ================
+    :conky:            在桌面显示系统信息
+    :docky:            系统启动器
+    :unity-tweak-tool: 系统管理工具
+
+
+配置
+----
+    :zsh:      :~/.zshrc: ``ZSH_THEME='random'``
+    :mysql:    :/etc/mysql/my.cnf:
+    :apt-fast: :/etc/apt-fast.conf:
 
 
 下载
----
-    ====  =======
-    wget    单线程
-    axel    多线程
-    uget    多线程 + GUI
-     -      编辑-->设置-->插件-->aria2/curl
-    ====  =======
+----
+    :wget: 单线程
+    :axel: 多线程
+    :uget: 多线程 + GUI
+
+        - 编辑-->设置-->插件-->aria2/curl
 
 
 jetbrains

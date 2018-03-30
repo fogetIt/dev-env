@@ -7,8 +7,6 @@ sudo mkdir /var/opt/gitlab/gitlab-rails/shared/registry
 sudo chown git /var/opt/gitlab/gitlab-rails/shared/registry
 ```
 
-scp [可选参数] file_source file_target
-
 ##### 停止相关数据连接服务
 sudo gitlab-ctl stop unicorn
 sudo gitlab-ctl stop sidekiq

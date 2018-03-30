@@ -1,0 +1,59 @@
+openssh
+=======
+
+远程连接
+--------
+    - ``service ssh xxx``
+    :ssh localhost: 测试 ssh
+    :ssh xxx@xxx:
+        - 远程连接
+            - 客户端接收 **服务端公钥** ，存放在 ``~/.ssh/known_host``
+            - 客户端用 **服务端公钥** 加密密码，发送给服务端
+            - 服务端用 **服务端私钥** 解密，验证密码
+        -T  测试
+        -l  指定用户名
+        -p  指定端口号
+    :ssh xxx@xxx xxx: 远程执行命令
+    :ssh-keygen:
+        - 生成密钥文件
+            :~/.ssh/id_rsa:     私钥
+            :~/.ssh/id_rsa.pub: 公钥（传给对方）
+        -t rsa  指定加密方式
+        -f xxx  指定加密文件存放地址
+    :ssh-copy-id xxx@xxx:
+        - 配置免密码登录
+            - 远程连接服务端
+                - 获取 **服务端公钥**
+                - 通过密码验证后
+                    - 把 **客户端公钥** 追加到服务端 ``~/.ssh/authorize_keys``
+                    - 修改服务端 ``~/.ssh/, ~/.ssh/authorize_keys`` 权限
+            - 下次登录
+                - 验证 **客户端公钥** 是否添加过
+                    - 客户端发送 **客户端公钥** 给服务器
+                    - 服务端验证 **客户端公钥** 与 ``~/.ssh/authorize_keys`` 是否匹配
+                - 验证 **客户端私钥** 是否匹配
+                    - 服务端用 **客户端公钥** 加密一段信息发给客户端
+                    - 客户端用 **客户端私钥** 解密信息，再返回给服务端
+                    - 服务端验证返回的解密信息
+        -i xxx  指定公钥文件
+    :配置文件:
+        :/etc/ssh/ssh_config:   客户端配置信息
+        :/etc/ssh/sshd_config:  服务端配置信息
+        :~/.ssh/authorize_keys: 客户端公钥记录文件
+        :~/.ssh/known_host:     服务端公钥记录文件
+
+
+远程复制
+-------
+    :远程->本地: ``scp xxx@xxx:xxx/xxx xxx/xxx``
+    :本地->远程: ``scp xxx/xxx xxx@xxx:xxx/xxx``
+
+
+who
+---
+    查看电脑是否被远程连接
+
+
+在服务端广播
+----------
+    wall xxx
