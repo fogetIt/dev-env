@@ -4,3 +4,4 @@
 yum install gcc g++ libxslt-devel python-devel
 yum install gcc-c++
 yum install MySQL-python
+yum -y install tree

@@ -36,10 +36,3 @@
     .. code-block:: bash
 
         ntpdate us.pool.ntp.org
-
-
-别名
-----
-    :alias: 用来改命令（关机之后恢复默认）
-
-        - 文件名有$等关键字，加""
