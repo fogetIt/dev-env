@@ -1,12 +1,12 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-03-29 14:17:02
+# @Last Modified time: 2018-03-30 14:21:39
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 
 gz_installer() {
     name=$1;package=$2;starter=$3
-    [[ $4 ]] && DG_NUM=$4 || DG_NUM=0
+    [[ $4 ]] && DG_COUNT=$4 || DG_COUNT=0
     if [[ ! -f "/usr/bin/${name}" ]]; then
         if [[ ! -d "/opt/${package}" ]]; then
             cd ${ENV_SOFTWARES}
@@ -15,13 +15,13 @@ gz_installer() {
             else
                 sudo mkdir "/opt/${package}" \
                 && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1 \
-                && [[ DG_NUM == 0 ]] && let DG_NUM++ \
-                && gz_installer ${name} ${package} ${starter} ${DG_NUM}
+                && [[ ${DG_COUNT} == 0 ]] && let DG_COUNT++ \
+                && gz_installer ${name} ${package} ${starter} ${DG_COUNT}
             fi
         else
             sudo ln -sf "/opt/${package}/bin/${starter}" "/usr/bin/${name}" \
-            && [[ DG_NUM == 1 ]] && let DG_NUM++ \
-            && gz_installer ${name} ${package} ${starter} ${DG_NUM}
+            && [[ ${DG_COUNT} == 1 ]] && let DG_COUNT++ \
+            && gz_installer ${name} ${package} ${starter} ${DG_COUNT}
         fi
     else
         echo "**********Install ${name} successful!**********"
@@ -76,27 +76,24 @@ go version || (
 
     gz_installer "go" "go" "go" \
     && export GOROOT=/opt/go \
-    && export GOPATH=$HOME/gocode \
-    && export PATH=$PATH:$GOROOT/bin:$GOPATH/bin \
-    && echo -e "please copy and paste the following message \
-        \033[0;31m \n\n \
-        export GOROOT=/opt/go \n \
-        export GOPATH=\$HOME/gocode \n \
-        export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin \n \
-        \033[0m" \
-    && sudo subl /etc/profile
-    )
-: <<"COMMENT"
-环境变量
-    GOROOT    go安装的路径
-    GOPATH    默认安装包的路径（path1:path2:...）
-        go get获取的包默认存放在 path1 下
-            src    存放源代码(比如：.go .c .h .s等)
-            pkg    存放编译时生成的中间文件(比如：.a)
-            bin    编译后生成的可执行文件
-                   为了方便，可以把此目录加入到 PATH
-                   如果有多个目录，那么添加所有的bin目录
-COMMENT
+    && export GOPATH=${HOME}/gocode \
+    && export PATH=$PATH:${GOROOT}/bin:${GOPATH}/bin
+
+    # go 语言安装的路径
+    GOROOT='export GOROOT=/opt/go'
+    # go 包安装路径（可以指定多个）
+    #     src 存放源代码（比如：.go .c .h .s等）
+    #     pkg 存放编译时生成的中间文件（比如：.a）
+    #     bin 存放编译后生成的可执行文件
+    #         为了方便，可以把此目录加入到 PATH
+    #         如果有多个目录，那么添加所有的bin目录
+    GOPATH='export GOPATH=${HOME}/gocode'
+    PATH='export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin'
+
+    grep ${GOROOT} /etc/profile || tee -e ${GOROOT} \
+    && grep ${GOPATH} /etc/profile || tee -e ${GOPATH} \
+    && grep ${PATH} /etc/profile || tee -e ${PATH}
+)
 # ***************************************************************
 # sudo find / -name mongobooster | grep mongobooster
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
