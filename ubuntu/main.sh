@@ -10,7 +10,6 @@ COMMENT
 
 
 if [ $1 ]; then
-    cd ./ubuntu/
     ENV_PWD=$(pwd)
     ENV_DIR=$(dirname $(pwd))
     ENV_PASSWORD=$1
@@ -21,10 +20,10 @@ if [ $1 ]; then
     export ENV_SOFTWARES
 
     chmod -R u+x ${ENV_PWD} \
-    && ./init.sh \
-    && ./install_apts.sh \
-    && ./install_zips.sh \
-    && ./install_pys.sh
+    && _init.sh \
+    && _apts.sh \
+    && _zips.sh \
+    && _pys.sh
 else
     echo "need password"
 fi
