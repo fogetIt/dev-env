@@ -7,8 +7,12 @@
     :关闭标签: Ctrl+Shift+D
     :清空: clear
     :命令记录: history
-    :Terminator:
+    :Terminator: 多窗口终端工具（Ctrl+Alt+E/O/I）
+    :切换 shell:
+        .. code-block:: bash
 
+            chsh -s `which bash`
+            chsh -s $(which sh)
 
 
 图形界面

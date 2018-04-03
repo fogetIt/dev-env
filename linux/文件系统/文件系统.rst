@@ -56,6 +56,7 @@ filesystem
                 .. code-block:: ini
 
                     group:password:gid:user,user,...
+            :``shells``: **shell** 配置文件
         :``root/``: 家目录（超级用户）
         :``home/``: 家目录（普通用户）
         :``proc/``: 缓存文件目录
