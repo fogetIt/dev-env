@@ -1,9 +1,9 @@
 #!/bin/bash
 # @Date:   2017-07-05 12:34:39
-# @Last Modified time: 2018-03-27 13:49:14
-# 基于 Ubuntu16.04LTS，自动搭建开发环境
+# @Last Modified time: 2018-04-03 16:54:14
 : <<'COMMENT'
-# 设置---软件和更新---下载自---其他站点---中国---http://mirrors.aliyun.com/ubuntu
+基于 Ubuntu16.04LTS，自动搭建开发环境
+设置---软件和更新---下载自
 sudo apt-get update
 sudo apt-get upgrade
 COMMENT
@@ -20,10 +20,10 @@ if [ $1 ]; then
     export ENV_SOFTWARES
 
     chmod -R u+x ${ENV_PWD} \
-    && _init.sh \
-    && _apts.sh \
-    && _zips.sh \
-    && _pys.sh
+    && apt-get.sh \
+    && unpack.sh \
+    && py.sh
 else
     echo "need password"
+    exit 0
 fi

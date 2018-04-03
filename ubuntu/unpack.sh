@@ -95,11 +95,9 @@ go version || (
     && grep ${PATH} /etc/profile || tee -e ${PATH}
 )
 # ***************************************************************
-# sudo find / -name mongobooster | grep mongobooster
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     cd ${ENV_SOFTWARES} \
-    && axel -n 16 \
-        "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
+    && axel -n 16 "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \
     && sudo apt-get install libstdc++6 \
     && ./mongobooster*.AppImage

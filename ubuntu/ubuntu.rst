@@ -41,3 +41,8 @@ dpkg
         find ~/.local/ | xargs grep -ri "xxx"
         find ~/.local/ | xargs grep -ri "xxx" -l
         find ~/.local/ -name "xxx"
+
+
+软件
+----
+    :流程图: draw.io Desktop

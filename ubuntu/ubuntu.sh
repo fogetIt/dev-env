@@ -1,24 +1,24 @@
 #!/bin/bash
 # @Date:   2018-01-24 16:09:38
-# @Last Modified time: 2018-03-28 18:57:50
-echo $ENV_PASSWORD | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2018-04-03 17:00:37
 
 # themes/icons
-
-# sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
-
-# sudo add-apt-repository ppa:numix/ppa
-# sudo apt-get update
-# sudo apt-get install numix-gtk-theme numix-icon-theme-circle -y
-
-# sudo add-apt-repository ppa:snwh/pulp
-# sudo apt-get update
-# sudo apt-get install paper-icon-theme -y
-
-# sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 90127F5B
-# echo "deb http://downloads.sourceforge.net/project/xenlism-wildfire/repo deb/" | sudo tee -a /etc/apt/sources.list
-# sudo apt-get update
-# sudo apt-get install xenlism-wildfire-icon-theme -y
+# ************************************************************
+sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
+# ************************************************************
+sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install numix-gtk-theme numix-icon-theme-circle -y
+# ************************************************************
+sudo add-apt-repository ppa:snwh/pulp
+sudo apt-get update
+sudo apt-get install paper-icon-theme -y
+# ************************************************************
+sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 90127F5B
+echo "deb http://downloads.sourceforge.net/project/xenlism-wildfire/repo deb/" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install xenlism-wildfire-icon-theme -y
+# ************************************************************
 
 
 # electronic wechat
@@ -75,7 +75,7 @@ if [ $? != 0 ]; then
 fi
 
 # ************************************************************
-# ubuntu16.04LTS重启网卡
+# 重启网卡
 sudo ifconfig enp5s0 down
 sudo ifconfig enp5s0 up
 
@@ -115,14 +115,14 @@ sudo ufw status
 # sudo apt-get install gufw
 
 # *****************************************************************
-svn --version --quiet; [ $? != 0 ] \
-&& sudo apt-fast -y install subversion
+svn --version --quiet || sudo apt-fast -y install subversion
 
-
-# 流程图
-# draw.io Desktop
-#
-
-# kde, xface
+# *****************************************************************
+sudo add-apt-repository ppa:kubuntu-ppa/backports
+sudo add-apt-repository ppa:kubuntu-ppa/ppa
+sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install kubuntu-desktop -y
+# *****************************************************************
+
 sudo apt-get install xubuntu-desktop -y

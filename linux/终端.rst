@@ -1,0 +1,39 @@
+虚拟终端
+-------
+    :进入: Ctrl+Alt+F1~F6/右键
+    :复制: Ctrl+Shift+C
+    :粘贴: Ctrl+Shift+V
+    :新标签: Ctrl+Shift+T
+    :关闭标签: Ctrl+Shift+D
+    :清空: clear
+    :命令记录: history
+    :Terminator:
+
+
+
+图形界面
+-------
+    :进入: Ctrl+Alt+F7/startx &
+    :linux 桌面环境:
+        ==============  ========  =====  =========
+         -                RAM       CPU
+        ==============  ========  =====  =========
+        KDE 4.6           363 MB    4%     Desktop
+        Unity             271 MB    14%    Desktop(shell)
+        GNOME 3           193 MB    10%    Desktop
+        GNOME 2.x         191 MB    1%     Desktop
+        XFCE 4.8          144 MB    10%    Desktop
+        LXDE              85 MB     10%    Desktop
+        IceWM             85 MB     2%     Window Manager
+        Enlightenment     72 MB     1%     Window Manager
+        (E17 Standard)
+        Fluxbox           69 MB     1%     Window Manager
+        OpenBox           60 MB     1%     Window Manager
+        JWM               58 MB     1%     Window Manager
+        ==============  ========  =====  =========
+
+
+开关
+----
+    :关机: shut down
+    :重启: reboot

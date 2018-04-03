@@ -31,8 +31,8 @@ w(ho is doing what?)
 s(witch )u(ser)
 ---------------
     - 切换用户
-        :``#``: root
-        :``$``: 普通用户
+        :``[user@host]#``: root
+        :``[user@host]$``: 普通用户
         -l  完全切换
 
 
