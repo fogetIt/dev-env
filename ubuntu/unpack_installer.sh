@@ -1,56 +1,69 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-04-10 18:49:26
-echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+# @Last Modified time: 2018-04-11 14:16:56
+source config
+echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+
+
+function tar2opt() {
+    package=${1}
+    unpackage_path="/opt/${package}"
+    package_file="${PATH_SOFTWARES}/${package}.tar.gz"
+
+    if [[ ! -f ${package_file} ]]; then
+        echo "Can't find ${package} package!"
+        return
+    fi
+
+    [[ -d ${unpackage_path} ]] || (
+        sudo mkdir ${unpackage_path} \
+        && sudo tar \
+            -zxvf ${package_file} \
+            -C ${unpackage_path} \
+            --strip-components 1 \
+    )
+    echo "**********Unpackage ${package} successfully!**********"
+}
 
 
 gz_installer() {
-    name=$1;package=$2;starter=$3
-    [[ $4 ]] && DG_COUNT=$4 || DG_COUNT=0
-    if [[ ! -f "/usr/bin/${name}" ]]; then
-        if [[ ! -d "/opt/${package}" ]]; then
-            cd ${ENV_SOFTWARES}
-            if [[ ! -f "./${package}.tar.gz" ]]; then
-                echo -e "\033[1;;41m**********Can't find ${name} package!**********\033[0m"
-            else
-                sudo mkdir "/opt/${package}" \
-                && sudo tar -zxvf "${package}.tar.gz" -C "/opt/${package}" --strip-components 1 \
-                && [[ ${DG_COUNT} == 0 ]] && let DG_COUNT++ \
-                && gz_installer ${name} ${package} ${starter} ${DG_COUNT}
-            fi
-        else
-            sudo ln -sf "/opt/${package}/bin/${starter}" "/usr/bin/${name}" \
-            && [[ ${DG_COUNT} == 1 ]] && let DG_COUNT++ \
-            && gz_installer ${name} ${package} ${starter} ${DG_COUNT}
-        fi
-    else
-        echo "**********Install ${name} successful!**********"
-    fi
+    name=${1};package=${2};starter=${3}
+
+    shortcut="/usr/bin/${name}"
+    entry="/opt/${package}/bin/${starter}"
+    [[ -f ${shortcut} ]] || (
+        tar2opt ${package} \
+        && sudo ln -sf ${entry} ${shortcut}
+    )
+
+    echo "**********Install ${name} successfully!**********"
 }
 
+
 function jetbrains() {
-    name=$1;package=$2;starter=$3;
-    gz_installer ${name} ${package} ${starter} \
-    && ${name} && (
+    name=${1};package=${2};starter=${3}
+    gz_installer ${name} ${package} ${starter}
+    ${name} && (
         cd ${HOME}/.${package}*/config \
         && (
             find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
             ) \
-        && sudo cp -f "${ENV_DIR}/edit/JetBrains.xml" ./keymaps/ \
-        && echo "**********Set ${name} keymaps successful!**********"
-        ) || echo "**********Install ${name} failed!**********"
+        && sudo cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/ \
+        && echo "**********Set ${name} keymaps successfully!**********"
+    ) || echo "**********Failed!**********"
 }
+
 
 jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 jetbrains "webstorm" "WebStorm" "webstorm.sh"
-jetbrains "goland"   "GoLand"   "goland.sh"
-#jetbrains "idea"     "IdeaIU"   "idea.sh"
+# jetbrains "goland"   "GoLand"   "goland.sh"
+# jetbrains "idea"     "IdeaIU"   "idea.sh"
 # ***************************************************************
 node -v && npm -v || (
     if [[ ! -d /opt/node ]]; then
-        cd ${ENV_SOFTWARES}
-        if [[ ! -f "${ENV_SOFTWARES}/node.tar" ]]; then
-            if [[ ! -f "${ENV_SOFTWARES}/node.tar.xz" ]]; then
+        cd ${PATH_SOFTWARES}
+        if [[ ! -f "${PATH_SOFTWARES}/node.tar" ]]; then
+            if [[ ! -f "${PATH_SOFTWARES}/node.tar.xz" ]]; then
                 wget -O "node.tar.xz" \
                     "https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz"
             fi
@@ -70,7 +83,7 @@ node -v && npm -v || (
 # npm全局命令安装目录：${prefix}/bin/
 # ***************************************************************
 go version || (
-    cd ${ENV_SOFTWARES} \
+    cd ${PATH_SOFTWARES} \
     && [[ ! -f "./go.tar.gz" ]] \
     && wget -O "go.tar.gz" "https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz"
 
@@ -90,13 +103,13 @@ go version || (
     GOPATH='export GOPATH=${HOME}/gocode'
     PATH='export PATH=${PATH}:${GOROOT}/bin:${GOPATH}/bin'
 
-    grep ${GOROOT} /etc/profile || tee -e ${GOROOT} \
-    && grep ${GOPATH} /etc/profile || tee -e ${GOPATH} \
-    && grep ${PATH} /etc/profile || tee -e ${PATH}
+    grep ${PATH}   /etc/profile || tee -e ${PATH}
+    grep ${GOROOT} /etc/profile || tee -e ${GOROOT}
+    grep ${GOPATH} /etc/profile || tee -e ${GOPATH}
 )
 # ***************************************************************
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
-    cd ${ENV_SOFTWARES} \
+    cd ${PATH_SOFTWARES} \
     && axel -n 16 "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \
     && sudo apt-get install libstdc++6 \

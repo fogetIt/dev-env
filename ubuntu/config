@@ -16,4 +16,8 @@ greeter-show-manual-login=true
 "
 
 
+GIT_NAME="forgetIt"
+GIT_EMAIL="2271404280@qq.com"
+
+
 PIP_SOURCE=https://pypi.tuna.tsinghua.edu.cn/simple

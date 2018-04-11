@@ -1,11 +1,12 @@
 #!/usr/bin/expect
 # @Date:   2018-03-30 13:42:38
-# @Last Modified time: 2018-04-11 10:59:24
-if [ ! $1 ]; then
-    echo "need password"
-    exit 0
-fi
+# @Last Modified time: 2018-04-11 11:28:20
+# if [ $1 ]; then
+# else
+#     echo "need password"
+#     exit 0
+# fi
 # set timeout 20
 spawn /etc/init.d/nginx restart
-expect "Password:" {send "$1"}
+expect "Password:" {send "123zhang"}
 interact
