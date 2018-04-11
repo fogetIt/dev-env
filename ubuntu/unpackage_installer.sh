@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-04-11 14:16:56
+# @Last Modified time: 2018-04-11 15:22:05
 source config
 echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
@@ -26,7 +26,7 @@ function tar2opt() {
 }
 
 
-gz_installer() {
+installer() {
     name=${1};package=${2};starter=${3}
 
     shortcut="/usr/bin/${name}"
@@ -42,20 +42,19 @@ gz_installer() {
 
 function jetbrains() {
     name=${1};package=${2};starter=${3}
-    gz_installer ${name} ${package} ${starter}
-    ${name} && (
-        cd ${HOME}/.${package}*/config \
-        && (
-            find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
-            ) \
-        && sudo cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/ \
-        && echo "**********Set ${name} keymaps successfully!**********"
-    ) || echo "**********Failed!**********"
+    installer ${name} ${package} ${starter}
+    ${name} || echo "**********Failed!**********"
+
+    cd ${HOME}/.${package}*/config && (
+        find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
+    ) \
+    && cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/JetBrains.xml \
+    && echo "**********Set ${name} keymaps successfully!**********"
 }
 
 
 jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
-jetbrains "webstorm" "WebStorm" "webstorm.sh"
+# jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # jetbrains "goland"   "GoLand"   "goland.sh"
 # jetbrains "idea"     "IdeaIU"   "idea.sh"
 # ***************************************************************
@@ -87,7 +86,7 @@ go version || (
     && [[ ! -f "./go.tar.gz" ]] \
     && wget -O "go.tar.gz" "https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz"
 
-    gz_installer "go" "go" "go" \
+    installer "go" "go" "go" \
     && export GOROOT=/opt/go \
     && export GOPATH=${HOME}/gocode \
     && export PATH=$PATH:${GOROOT}/bin:${GOPATH}/bin
