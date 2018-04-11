@@ -98,50 +98,27 @@ jetbrains
 
 其它
 ----
-    :gedit: GNOME 桌面环境下的文本编辑器
-    :draw.io: 流程图编辑器
-    :VMTools: 支持与实体机之间文件拖动
-    :FastoRedis: redis GUI
-    :typora: `markdown 编辑器 <https://www.typora.io/#linux>`_
+    :gedit:             GNOME 桌面环境下的文本编辑器
+    :draw.io:           流程图编辑器
+    :VMTools:           支持与实体机之间文件拖动
+    :FastoRedis:        redis GUI
+    :typora:            `markdown 编辑器 <https://www.typora.io/#linux>`_
     :electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
     :系统管理:
+
         :conky:            在桌面显示系统信息
         :docky:            系统启动器
         :unity-tweak-tool: 系统管理工具
+
     :下载:
         :wget: 单线程
         :axel: 多线程
         :uget: 多线程 + GUI （编辑-->设置-->插件-->aria2/curl）
-    :桌面:
-        :xubuntu-desktop:
-        :kubuntu-desktop:
-            .. code-block:: bash
 
-                sudo add-apt-repository ppa:kubuntu-ppa/backports
-                sudo add-apt-repository ppa:kubuntu-ppa/ppa
-                sudo apt-get update
-                sudo apt-get upgrade
-                sudo apt-get install kubuntu-desktop -y
-                sudo apt-get install language-pack-zh-hans-base language-pack-zh-hans
-                sudo apt-get install qtcurve gtk-chtheme -y
-    :themes/icons:
-        .. code-block:: bash
+    :zsh:
+        :~/.zshrc: ``ZSH_THEME='random'``
 
-            sudo apt-get install gtk2-engines-pixbuf gnome-themes-standard
-            # ************************************************************
-            sudo add-apt-repository ppa:numix/ppa
-            sudo apt-get update
-            sudo apt-get install numix-gtk-theme numix-icon-theme-circle -y
-            # ************************************************************
-            sudo add-apt-repository ppa:snwh/pulp
-            sudo apt-get update
-            sudo apt-get install paper-icon-theme -y
-            # ************************************************************
-            sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 90127F5B
-            echo "deb http://downloads.sourceforge.net/project/xenlism-wildfire/repo deb/" | sudo tee -a /etc/apt/sources.list
-            sudo apt-get update
-            sudo apt-get install xenlism-wildfire-icon-theme -y
-    :zsh:      :~/.zshrc: ``ZSH_THEME='random'``
+        - ``编辑 -> 配置文件首选项``
     :mysql:    ``/etc/mysql/my.cnf``
     :apt-fast: ``/etc/apt-fast.conf``
 

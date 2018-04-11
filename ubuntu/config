@@ -1,0 +1,19 @@
+PASSWORD=123zhang
+
+
+PATH_UBUNTU=$(pwd)
+PATH_DEVENV=$(dirname $(pwd))
+PATH_SOFTWARES=$HOME/softwares
+
+
+ROOT_CONFIG_FILE=/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+ROOT_CONFIG="
+# sudo password root
+# su root
+[Seat:*]
+user-session=ubuntu
+greeter-show-manual-login=true
+"
+
+
+PIP_SOURCE=https://pypi.tuna.tsinghua.edu.cn/simple
