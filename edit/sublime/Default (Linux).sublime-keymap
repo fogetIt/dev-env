@@ -18,29 +18,11 @@
     //ctrl shift -
     { "keys": ["ctrl+shift+-"], "command": "fold_all" },
     { "keys": ["ctrl+shift+keypad_minus"], "command": "fold_all" },
-    //书签
-    { "keys": ["ctrl+f11"], "command": "toggle_bookmark" },
-    { "keys": ["alt+f11"], "command": "select_all_bookmarks" },
-    //
-    // Themr，控制侧边栏和上边框
-    // "command": "themr_cycle_themes", "args": {"direction": "prev"}
+    // Themr
     { "keys": ["ctrl+shift+a"], "command": "themr_list_themes" },
-    // Color Scheme Select，控制配色方案
-    // "command": "select_color_scheme", "args": {"direction": "previous"}
+    // Colorsublime
     { "keys": ["ctrl+shift+x"], "command": "select_color_scheme"},
-    // ConvertToUTF8，设置UTF-8的快捷方式
-    {
-        "keys": ["ctrl+shift+alt+c"], "command": "convert_to_utf8",
-            "args":
-            {
-                "encoding": "UTF-8",
-                "stamp": "0"
-            }
-    },
-    /**
-     * SublimeREPL
-     * 参考<<\Data\Packages\SublimeREPL\config\***\Default.sublime-commands
-     */
+
     // repl_python_run
     {
         "keys":["f5"], "caption": "SublimeREPL: Python - RUN current file",
@@ -72,13 +54,6 @@
             "file": "config/Python/Main.sublime-menu"
         }
     },
-    // sublimeTmpl
-    // {
-    //     "keys": ["ctrl+alt+p"],
-    //     "caption": "Tmpl: Create python",
-    //     "command": "sublime_tmpl",
-    //     "args": {"type": "python"}
-    // },
     // OmniMarkupPreviewer
     {
         "keys": ["ctrl+b"], "command": "omni_markup_preview",
@@ -86,16 +61,6 @@
     },
     // Alignment
     {"keys": ["super+a"], "command": "alignment"},
-    // Markdown Preview
-    {
-        "keys": ["alt+m"],
-        "command": "markdown_preview",
-        "args":
-        {
-            "target": "browser",
-            "parser":"markdown"
-        }
-    },
     // Color Highlighter
     {
         "keys": ["ctrl+alt+p"],
@@ -111,20 +76,12 @@
         "keys": ["ctrl+super+c"],
         "command": "clipboard_manager_show"
     },
-    // sublimerge
-    { "keys": ["ctrl+alt+d"], "command": "sublimerge"},
-    // plainTasks
-    { "keys": ["ctrl+shift+b"], "command": "plain_tasks_archive","context": [{ "key": "selector", "operator": "equal", "operand": "text.todo" }] },
-    // sftp
-    // { "keys": ["ctrl+super+v"], "command": "sftp_browse_server" },
-    //
-    // 向下、向上选中多行，默认alt+shift+up/down
+    // 向下、向上选中多行
+    // alt+shift+up/alt+shift+down
     { "keys": ["ctrl+up"], "command": "select_lines", "args": {"forward": false} },
     { "keys": ["ctrl+down"], "command": "select_lines", "args": {"forward": true} },
-    //
-    // ChineseTranslator
-    // { "keys": ["ctrl+shift+c"], "command": "translate" },
     // Ctranslator tool
     { "keys": ["ctrl+shift+c"], "command": "auto_translate" },
+    // 反缩进
     { "keys": ["shift+tab"], "command": "unindent", "args": {"characters": "\t"} },
 ]

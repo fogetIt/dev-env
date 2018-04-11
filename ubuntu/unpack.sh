@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-03 21:04:01s
-# @Last Modified time: 2018-03-30 14:21:39
+# @Last Modified time: 2018-04-10 18:49:26
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 
@@ -36,7 +36,7 @@ function jetbrains() {
         && (
             find ./ -name "keymaps" -type d | grep "keymaps" || mkdir keymaps
             ) \
-        && sudo cp -f "${ENV_DIR}/ide/DefaultCustom.xml" ./keymaps/ \
+        && sudo cp -f "${ENV_DIR}/edit/JetBrains.xml" ./keymaps/ \
         && echo "**********Set ${name} keymaps successful!**********"
         ) || echo "**********Install ${name} failed!**********"
 }

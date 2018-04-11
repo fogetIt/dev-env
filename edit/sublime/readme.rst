@@ -12,6 +12,7 @@ package control
 Ctrl+`/View-->Show Console
 ---------------------------
 
+
 配置文件
 -------
     :替换: ``${sublime}\Data\Packages\User\*``
@@ -49,20 +50,26 @@ Ctrl+`/View-->Show Console
         1. ctrl+shift+p-->list package
         #. 选择一个会自动打开其所在的目录
         #. 查看 readme.md
-    ========================  ========
-    插件                         作用
-    ========================  ========
-    ConvertChineseCharacters  转换中文字符
-    FixMyJS, Jsfmt            格式化 JS/JSON
-    SCSS                      scss 语法高亮、补全 CSS
-    HTMLAttributes            html 属性补全
-    html5                     html5 补全
-    Emmet Css Snippets        CSS 补全
-    JS Minifer                js 压缩：ctrl+alt+M
-    yui compressor            yui 的压缩工具，可以压缩 CSS、JS：CTRL+B（需要 jdk ）
-    Tradsim                   中文繁简字转换
-    Hex-to-HSL-Color          Hex 颜色模式转 HSL 颜色模式
-    ========================  ========
+
+    ==========================  ========
+    FixMyJS, jsfmt
+    Minifier, YUI Compressor
+    CSS Unminifier
+    Anaconda
+    MarkdownHighlighting
+    Markdown Preview
+    AutoFileName                  补全：src/href
+    Autoprefixer                  浏览器前缀：Ctrl+Alt+X
+    SublimeTmpl                   新建文件：Ctrl+Alt+H/C/J
+    AdvancedNewFile               新建文件：Ctrl+Alt+N
+    ConvertChineseCharacters      转换中文字符
+    Tradsim                       转换中文繁简字
+    GitGutter,Modific             左侧显示修改信息图标
+    Local History                 历史记录
+    Colorcoder                    高亮所有变量
+    SublimeCodeIntel              多语言补全
+    All Autocomplete              搜索打开的标签页进行补全
+    ==========================  ========
 
 
 `在线编辑主题（只支持Chrome） <http://tmtheme-editor.herokuapp.com/>`_

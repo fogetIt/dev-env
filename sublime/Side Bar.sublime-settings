@@ -1,7 +1,0 @@
-{
-    // 状态栏显示修改时间
-    "statusbar_modified_time": false,
-    "statusbar_modified_time_format": "%Y-%m-%d %H:%M:%S",
-    // 状态栏显示文件大小
-    "statusbar_file_size": true
-}

@@ -1,5 +1,0 @@
-{
-	// 自动补全注释时输出自定义作者和当前时间等信息
-	// "jsdocs_extra_tags":["@Author ZDD","@DateTime {{datetime}}"]
-	"jsdocs_extra_tags":["@DateTime {{datetime}}"]
-}

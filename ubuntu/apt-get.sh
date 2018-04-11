@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-04-03 16:47:12
+# @Last Modified time: 2018-04-10 16:43:15
 echo ${ENV_PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 # ***************************************************************
@@ -49,8 +49,9 @@ subl -v || (
 
 read -p "overwrite sublime settings? [Y/n]" var \
 && [[ "${var}" == "Y" ]] \
-&& cp -rf ${ENV_DIR}/sublime/* ${HOME}/.config/sublime-text-3/Packages/User/ \
-&& read -p "please install package control!"
+&& cp -rf \
+    ${ENV_DIR}/edit/sublime/* \
+    ${HOME}/.config/sublime-text-3/Packages/User/
 # ***************************************************************
 wine --version || sudo apt-fast -y install wine  # run windows softwares
 ssh -V || sudo apt-get install openssh-server -y

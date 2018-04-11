@@ -1,0 +1,6 @@
+{
+    /*SideBarEnhancements*/
+    "statusbar_modified_time": true,
+    "statusbar_modified_time_format": "%Y-%m-%d %H:%M:%S",
+    "statusbar_file_size": true
+}
