@@ -43,15 +43,17 @@
     <keyboard-shortcut first-keystroke="control D"/>
     <!-- <keyboard-shortcut first-keystroke="alt J"/> -->
   </action>
-  <action id="EditorDuplicate">
-    <keyboard-shortcut first-keystroke="control shift D"/>
-    <!-- <keyboard-shortcut first-keystroke="control D"/> -->
-  </action>
-  <!-- 取消 -->
+  <!-- 取消 control D -->
   <action id="CompareTwoFiles" />
   <action id="Diff.ShowDiff" />
   <action id="SendEOF" />
   <action id="FileChooser.GotoDesktop" />
+  <action id="EditorDuplicate">
+    <keyboard-shortcut first-keystroke="control shift D"/>
+    <!-- <keyboard-shortcut first-keystroke="control D"/> -->
+  </action>
+  <!-- 取消 control shift D -->
+  <action id="Diff.ShowSettingsPopup" />
 
 
   <action id="CloseContent">
@@ -64,17 +66,12 @@
   </action>
 
 
-  <action id="PreviousEditorTab">
-    <keyboard-shortcut first-keystroke="control LEFT"/>
-    <!-- <keyboard-shortcut first-keystroke="alt shift LEFT"/> -->
-  </action>
+  <!-- 关联鼠标，无法修改 -->
   <action id="EditorPreviousWord">
-    <keyboard-shortcut first-keystroke="alt LEFT"/>
-    <!-- <keyboard-shortcut first-keystroke="control LEFT"/> -->
+    <keyboard-shortcut first-keystroke="control LEFT"/>
   </action>
-  <action id="PreviousTab">
+  <action id="PreviousEditorTab">
     <keyboard-shortcut first-keystroke="alt shift LEFT"/>
-    <!-- <keyboard-shortcut first-keystroke="alt LEFT"/> -->
   </action>
 
 
@@ -532,9 +529,6 @@
   <action id="FindPrevious">
     <keyboard-shortcut first-keystroke="shift F3"/>
     <keyboard-shortcut first-keystroke="control shift L"/>
-  </action>
-  <action id="Diff.ShowSettingsPopup">
-    <keyboard-shortcut first-keystroke="control shift D"/>
   </action>
   <action id="EditorToggleCase">
     <keyboard-shortcut first-keystroke="control shift U"/>
