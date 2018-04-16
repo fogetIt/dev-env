@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-04-11 13:30:36
+# @Last Modified time: 2018-04-12 15:39:32
 : <<'COMMENT'
 自动搭建 Ubuntu16.04LTS 开发环境
 设置 -> 软件和更新 -> 下载自
@@ -62,7 +62,7 @@ which vim   || sudo apt-fast -y install vim
 which axel  || sudo apt-fast -y install axel
 which curl  || sudo apt-fast -y install curl
 which atom  || sudo apt-fast -y install atom
-which unrar || sudo apt-fast -y install unrar
+which unrar || sudo apt-fast -y install unrar  # unrar e xxx
 which conky || sudo apt-fast -y install conky
 which docky || sudo apt-fast -y install docky
 zsh        --version || sudo apt-fast -y install zsh
