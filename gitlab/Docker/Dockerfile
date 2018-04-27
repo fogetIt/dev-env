@@ -1,4 +1,4 @@
-# 根据Dockerfile自动安装gitlab8.8.6
+# 自动安装gitlab8.8.6
 : "
 # 生成一个TAG为8.8.6-ce.1的image
 # 生成一个TAG为<none>的image
