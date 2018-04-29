@@ -30,10 +30,9 @@ dpkg
 
         sudo dpkg -i xxx           # 安装
         sudo dpkg --configure -a   # 打断安装
-        sudo dpkg -l | grep xxx    # 查询相关deb包信息
+        sudo dpkg -l | grep xxx    # 查询相关包信息
         sudo dpkg -P xxx           # 彻底卸载
         sudo dpkg --purge xxx
-
 
 QQ
 --
@@ -46,7 +45,6 @@ QQ
         sudo apt-get install wine
         sudo dpkg -i crossover-15_15.0.3-1_all.deb
         sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
-        sudo apt-get install libgsm1 libgstreamer0.10-0 libgstreamer-plugins-base0.10-0
         sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
         sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
         : 'vim /usr/bin/killqq'
@@ -83,44 +81,47 @@ jetbrains
 
 搜索无效的图标
 ------------
-    .. code-block:: bash
+.. code-block:: bash
 
-        find ~/.local/ | xargs grep -ri "xxx"
-        find ~/.local/ | xargs grep -ri "xxx" -l
-        find ~/.local/ -name "xxx"
+    find ~/.local/ | xargs grep -ri "xxx"
+    find ~/.local/ | xargs grep -ri "xxx" -l
+    find ~/.local/ -name "xxx"
 
 
 重启网卡
 -------
+.. code-block:: bash
+
     sudo ifconfig enp5s0 down
     sudo ifconfig enp5s0 up
 
 
 其它
 ----
-    :gedit:             GNOME 桌面环境下的文本编辑器
-    :draw.io:           流程图编辑器
-    :VMTools:           支持与实体机之间文件拖动
-    :FastoRedis:        redis GUI
-    :typora:            `markdown 编辑器 <https://www.typora.io/#linux>`_
-    :electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
-    :系统管理:
 
-        :conky:            在桌面显示系统信息
-        :docky:            系统启动器
-        :unity-tweak-tool: 系统管理工具
+:gedit:             文本编辑器
+:draw.io:           流程图编辑器
+:VMTools:           虚拟机与实体机之间文件拖动
+:FastoRedis:        redis GUI
+:typora:            `markdown 编辑器 <https://www.typora.io/#linux>`_
+:electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
+:系统管理:
 
-    :下载:
-        :wget: 单线程
-        :axel: 多线程
-        :uget: 多线程 + GUI （编辑-->设置-->插件-->aria2/curl）
+    :conky:            在桌面显示系统信息
+    :docky:            系统启动器
+    :unity-tweak-tool: 系统管理工具
 
-    :zsh:
-        :~/.zshrc: ``ZSH_THEME='random'``
+:下载:
+    :wget: 单线程
+    :axel: 多线程
+    :uget: 多线程 + GUI （编辑-->设置-->插件-->aria2/curl）
 
-        - ``编辑 -> 配置文件首选项``
-    :mysql:    ``/etc/mysql/my.cnf``
-    :apt-fast: ``/etc/apt-fast.conf``
+:zsh:
+    :~/.zshrc: ``ZSH_THEME='random'``
+
+    - ``编辑 -> 配置文件首选项``
+:mysql:    ``/etc/mysql/my.cnf``
+:apt-fast: ``/etc/apt-fast.conf``
 
 
 .. code-block:: bash
@@ -154,3 +155,41 @@ jetbrains
 
     # 安装gufw
     # sudo apt-get install gufw
+
+
+themes&icons
+-------------
+.. code-block:: bash
+
+    # 系统管理工具
+    # sudo apt-fast install unity-tweak-tool -y
+    sudo apt-fast install gnome-tweak-tool -y
+    sudo apt-cache search icon-theme
+
+    # ************************************************************
+    sudo apt-fast install gtk2-engines-pixbuf gnome-themes-standard
+    # ************************************************************
+    sudo add-apt-repository ppa:numix/ppa
+    sudo apt-fast update
+    sudo apt-fast install numix-gtk-theme numix-icon-theme-circle -y
+    # ************************************************************
+    sudo add-apt-repository ppa:snwh/pulp
+    sudo apt-fast update
+    sudo apt-fast install paper-icon-theme -y
+
+
+桌面
+--------
+
+:xubuntu-desktop:
+:kubuntu-desktop:
+
+    .. code-block:: bash
+
+        sudo add-apt-repository ppa:kubuntu-ppa/backports
+        sudo add-apt-repository ppa:kubuntu-ppa/ppa
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install kubuntu-desktop -y
+        sudo apt-get install language-pack-zh-hans-base language-pack-zh-hans
+        sudo apt-get install qtcurve gtk-chtheme -y

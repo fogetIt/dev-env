@@ -1,17 +1,15 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-04-27 18:54:32
+# @Last Modified time: 2018-04-27 22:33:45
 : <<'COMMENT'
-自动搭建 Ubuntu16.04LTS 开发环境
+自动搭建 Ubuntu18.04LTS 开发环境
 设置 -> 软件和更新 -> 下载自
 sudo apt-get update
 sudo apt-get upgrade
 chmod -R u+x $(pwd)
 COMMENT
 # 将配置信息加载到 session 的环境变量中
-source config
-
-echo ${PASSWORD} | sudo -S echo "start"
+source config && echo ${PASSWORD} | sudo -S echo "start"
 
 [[ -d ${PATH_SOFTWARES} ]] || mkdir ${PATH_SOFTWARES}
 
@@ -57,7 +55,6 @@ git --version  || sudo apt-fast -y install git
 # ***************************************************************
 ssh -V      || sudo apt-fast -y install openssh-server
 nginx -v    || sudo apt-fast -y install nginx
-expect -v   || sudo apt-fast -y install expect  # 自动交互
 which vim   || sudo apt-fast -y install vim
 which axel  || sudo apt-fast -y install axel
 which curl  || sudo apt-fast -y install curl
@@ -67,7 +64,6 @@ which conky || sudo apt-fast -y install conky
 which docky || sudo apt-fast -y install docky
 zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
-wine       --version || sudo apt-fast -y install wine-stable
 mysql      --version || sudo apt-fast -y install mysql-server mysql-client
 mongo      --version || sudo apt-fast -y install mongodb-server mongodb-clients
 uget-gtk   --version || sudo apt-fast -y install aria2 uget
