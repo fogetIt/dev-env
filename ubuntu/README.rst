@@ -38,7 +38,6 @@ QQ
 --
     - `参考 <http://blog.csdn.net/ysy950803/article/details/52958538>`_
     - `下载 <https://pan.baidu.com/s/1kV0u7Nh>`_ ，密码: 7vit
-        - 有可能部分中文乱码，但是不影响聊天、使用
     - 卸载其它版的 ``QQ`` ，按顺序安装
     .. code-block:: bash
 
@@ -103,23 +102,31 @@ jetbrains
 :draw.io:           流程图编辑器
 :VMTools:           虚拟机与实体机之间文件拖动
 :FastoRedis:        redis GUI
-:typora:            `markdown 编辑器 <https://www.typora.io/#linux>`_
 :electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
+
 :系统管理:
 
     :conky:            在桌面显示系统信息
     :docky:            系统启动器
     :unity-tweak-tool: 系统管理工具
 
+:桌面:
+
+    :xubuntu-desktop:
+    :kubuntu-desktop:
+
 :下载:
+
     :wget: 单线程
     :axel: 多线程
     :uget: 多线程 + GUI （编辑-->设置-->插件-->aria2/curl）
 
 :zsh:
+
     :~/.zshrc: ``ZSH_THEME='random'``
 
     - ``编辑 -> 配置文件首选项``
+
 :mysql:    ``/etc/mysql/my.cnf``
 :apt-fast: ``/etc/apt-fast.conf``
 
@@ -155,41 +162,3 @@ jetbrains
 
     # 安装gufw
     # sudo apt-get install gufw
-
-
-themes&icons
--------------
-.. code-block:: bash
-
-    # 系统管理工具
-    # sudo apt-fast install unity-tweak-tool -y
-    sudo apt-fast install gnome-tweak-tool -y
-    sudo apt-cache search icon-theme
-
-    # ************************************************************
-    sudo apt-fast install gtk2-engines-pixbuf gnome-themes-standard
-    # ************************************************************
-    sudo add-apt-repository ppa:numix/ppa
-    sudo apt-fast update
-    sudo apt-fast install numix-gtk-theme numix-icon-theme-circle -y
-    # ************************************************************
-    sudo add-apt-repository ppa:snwh/pulp
-    sudo apt-fast update
-    sudo apt-fast install paper-icon-theme -y
-
-
-桌面
---------
-
-:xubuntu-desktop:
-:kubuntu-desktop:
-
-    .. code-block:: bash
-
-        sudo add-apt-repository ppa:kubuntu-ppa/backports
-        sudo add-apt-repository ppa:kubuntu-ppa/ppa
-        sudo apt-get update
-        sudo apt-get upgrade
-        sudo apt-get install kubuntu-desktop -y
-        sudo apt-get install language-pack-zh-hans-base language-pack-zh-hans
-        sudo apt-get install qtcurve gtk-chtheme -y

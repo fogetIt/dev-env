@@ -1,9 +1,7 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
-# @Last Modified time: 2018-04-27 22:33:45
+# @Last Modified time: 2018-04-30 00:00:38
 : <<'COMMENT'
-自动搭建 Ubuntu18.04LTS 开发环境
-设置 -> 软件和更新 -> 下载自
 sudo apt-get update
 sudo apt-get upgrade
 chmod -R u+x $(pwd)
@@ -16,20 +14,6 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 (
     [[ -f ${ROOT_CONFIG_FILE} ]] || touch ${ROOT_CONFIG_FILE}
     ) && echo "${ROOT_CONFIG}" | sudo tee ${ROOT_CONFIG_FILE}
-
-subl -v || (
-    cd ${PATH_SOFTWARES} \
-    && rm -rf sublime-text* \
-    && git clone https://github.com/lyfeyaj/sublime-text-imfix.git \
-    && cd sublime-text-imfix \
-    && echo "Y" | ./sublime-imfix \
-    && subl
-)
-sublime_conf_path="${HOME}/.config/sublime-text-3/Packages/User/"
-read -p "Rewrite sublime settings? [Y/n]" var && (
-    [[ "${var}" == "Y" ]] \
-    && cp -rf ${PATH_DEVENV}/editor/sublime/* ${sublime_conf_path}
-)
 # ***************************************************************
 # ppa
 source_count=1
@@ -46,19 +30,17 @@ uget-gtk --version || (
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
     let source_count++
     )
-
 [[ ${source_count} == 1 ]] || sudo apt-get update
-which apt-fast || sudo apt-get -y install apt-fast
-apt-fast --version | cat | head -n 2
+# ***************************************************************
+which apt-fast || sudo apt-get -y install apt-fast && apt-fast --version | cat | head -n 2
+which atom     || sudo apt-fast -y install atom
 git --version  || sudo apt-fast -y install git
-
 # ***************************************************************
 ssh -V      || sudo apt-fast -y install openssh-server
 nginx -v    || sudo apt-fast -y install nginx
 which vim   || sudo apt-fast -y install vim
 which axel  || sudo apt-fast -y install axel
 which curl  || sudo apt-fast -y install curl
-which atom  || sudo apt-fast -y install atom
 which unrar || sudo apt-fast -y install unrar  # unrar e xxx
 which conky || sudo apt-fast -y install conky
 which docky || sudo apt-fast -y install docky
