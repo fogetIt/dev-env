@@ -16,11 +16,10 @@ function jetbrains() {
         find ./ -name keymaps -type d | grep "keymaps" || mkdir keymaps
     ) \
     && cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/JetBrains.xml
-    exit 0
 }
 
 # jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
-jetbrains "webstorm" "WebStorm" "webstorm.sh"
+# jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # jetbrains "goland"   "GoLand"   "goland.sh"
 # jetbrains "idea"     "IdeaIU"   "idea.sh"
 
@@ -29,20 +28,27 @@ jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz
 node -v && npm -v || (
     cd ${PATH_SOFTWARES} \
-    && xz -kd node*.tar.xz \
-    && [[ -d node ]] || mkdir node \
-    && tar -xvf node*.tar -C node --strip-components 1
+    && (
+        [[ -f node*.tar ]] || xz -kfd node*.tar.xz
+    ) \
+    && (
+        [[ -d node ]] || mkdir node
+    ) \
+    && tar -xvf node*.tar -C node --strip-components 1 \
     && sudo ln -sf "${PATH_SOFTWARES}/node/bin/node" /usr/bin/node \
     && sudo ln -sf "${PATH_SOFTWARES}/node/bin/npm" /usr/bin/npm \
     && npm config set prefix /usr/local
 )
+exit 0
 # npm config list
 # npm全局命令安装目录：${prefix}/bin/
 # ***************************************************************
 # https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz
-go version && (
+go version || (
     cd ${PATH_SOFTWARES} \
-    && [[ -d go ]] || mkdir go \
+    && (
+        [[ -d go ]] || mkdir go
+    ) \
     && tar -zxvf go*.tar.gz -C go --strip-components 1 \
     && sudo ln -sf "${PATH_SOFTWARES}/go/bin/go" /usr/bin/go
     && export GOROOT=${HOME}/softwares/go \
@@ -65,7 +71,7 @@ go version && (
     grep ${GOPATH} /etc/profile || tee -e ${GOPATH}
 )
 # ***************************************************************
-sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster && (
+sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     cd ${PATH_SOFTWARES} \
     && axel -n 16 "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \

@@ -45,10 +45,10 @@
 
     "word_separators": "./\\()\"':,，—.;<>~!@#$%^&*|+=[]{}`~?", // 字符分隔符
     "auto_complete": true,       // 自动补全
-    "spell_check": false,        // 关闭英文拼写检查
+    "spell_check": false,        // 英文拼写检查
     "auto_complete_cycle": true, // 自动补全循环
-    "auto_close_tags": true,     // 自动补全HTML/XML标签
-    "find_selected_text": true,  // 打开搜索时自动粘贴剪贴板内容
+    "auto_close_tags": true,     // 自动补全标签
+    "find_selected_text": true,  // 自动粘贴搜索剪贴板内容
     "trim_trailing_white_space_on_save": true, // 保存时自动删除行末多余空格
 
 
@@ -62,15 +62,9 @@
     // "ensure_newline_at_eof_on_save": true,   // 保存时文件末尾加一行
 
 
-    // 侧边栏隐藏特定目录
     "folder_exclude_patterns": [".svn", ".git", ".idea", "venv"],
-    // 侧边栏隐藏特定文件
     "file_exclude_patterns": ["*.pyc", "*.class", "*.xls", "*.xlsx"],
-    // 忽略 vim 插件包
     "ignored_packages": ["Vintage", "GitGutter"],
-    // 自定义文件自动补全
-
-
 
     "auto_complete_triggers": [
     {
@@ -81,10 +75,8 @@
         "selector": "text.plain",
         "characters": "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.<>"
     }],
-    // 使用tab/enter补全
     "auto_complete_commit_on_tab": false,
     "auto_complete_with_fields": false,
-    //自动补全标签循环展示
     "auto_complete_cycle": true,
 
 

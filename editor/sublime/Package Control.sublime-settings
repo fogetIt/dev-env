@@ -4,44 +4,40 @@
     "installed_packages": [
         "PackageResourceViewer",
         "Terminal",          // Ctrl+Shift+T
-        "DocBlockr",         // /**-->Tab
-        "FileHeader",        // Ctrl+Alt+N/Right-->File Header
+        "DocBlockr",         // /** -> Tab
+        "FileHeader",        // Ctrl+Alt+N/Right -> File Header
 /*
 .+\s@Last Modified by:\s.+\n
 .+\s@Author:\s.+\n
  */
         "Alignment",         // 多行选择和对齐
         "Clipboard Manager", // 超级剪贴板
-        // "TrailingSpaces", // 高亮多余的空格和 Tab
 
 
-        "Sublimerge 3", // Right-->sublimerge
-        "StyleToken",   // Right-->Style Token
+        "Sublimerge 3", // Right -> sublimerge
+        "StyleToken",   // Right -> Style Token
         "GitStatusBar", // 状态栏显示分支信息
         "GitGutter",
         "Local History",
 
         "BracketHighlighter",   // 高亮匹配标签、括号、引号
-        "Color Highlighter",    // Right-->Insert color...
-        // "Gutter Color",      // 行前高亮颜色值，需要安装 ImageMagick
-        // "CSScomb",           // CSS 属性排序（自定义规则）
+        "Color Highlighter",    // Right -> Insert color...
         "Emmet",                // 快速生成 html/css 结构
         "HTML-CSS-JS Prettify", // Ctrl+Shift+H(require nodejs)
 
 
-        "CSS Format",             // Right-->CSS Format...
+        "CSS Format",             // Right -> CSS Format...
         "SublimeAStyleFormatter", // C/C++/C#/Java: Ctrl+Alt+F
         "JsFormat",               // Ctrl+Alt+F
         "Python PEP8 Autoformat",
 
 
         "Jedi - Python autocompletion",
-        // "JavaScript Completions",
         "jQuery",
 
 
         "ChineseLocalizations",     // 汉化
-        "Codecs33",                 // 解决text3内嵌Python限制ConvertToUTF8
+        "Codecs33",                 // 解决 st3 内嵌 Python 限制 ConvertToUTF8
         "ConvertToUTF8",            // 转码
         "Ctranslator tool",         // 翻译
 

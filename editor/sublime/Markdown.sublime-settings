@@ -1,9 +1,6 @@
 {
     "enable_table_editor": true,
     "color_scheme": "Packages/Color Scheme - Default/Cobalt.tmTheme",
-    // "color_scheme": "Packages/Theme - Primer/primer.dark.tmTheme",
-    // "color_scheme": "Packages/Color Scheme - Default/MagicWB (Amiga).tmTheme",
-    // 关闭自动折行
     "word_wrap": false,
     "extensions":
     [

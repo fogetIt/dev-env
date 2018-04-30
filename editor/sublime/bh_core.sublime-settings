@@ -1,20 +1,18 @@
 // BracketHighlighter
-// 高亮匹配标签、括号、引号等。需要设置主题，修改高亮方式。
+// 高亮匹配标签、括号、引号等
 {
     "bracket_styles": {
-        // use the color from the "default" style.
         "default": {
             "icon": "dot",
             "color": "bracketsolider.default",
-            // - bracketsolider.default
-            // - entity.name.class
+            // "color": "entity.name.class"
             "style": "solid"
-            // - thin_underline
-            // - underline
-            // - solid
-            // - outline
-            // - squiggly
-            // - stippled
+            // "style": "thin_underline"
+            // "style": "underline"
+            // "style": "solid"
+            // "style": "outline"
+            // "style": "squiggly"
+            // "style": "stippled"
         },
         "unmatched": {
             "icon": "question",
