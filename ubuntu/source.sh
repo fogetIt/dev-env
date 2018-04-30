@@ -13,23 +13,26 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 
 (
     [[ -f ${ROOT_CONFIG_FILE} ]] || touch ${ROOT_CONFIG_FILE}
-    ) && echo "${ROOT_CONFIG}" | sudo tee ${ROOT_CONFIG_FILE}
+) && echo "${ROOT_CONFIG}" | sudo tee ${ROOT_CONFIG_FILE}
 # ***************************************************************
 # ppa
 source_count=1
 which apt-fast || (
     sudo add-apt-repository -y ppa:apt-fast/stable
     let source_count++
-    )
+)
 uget-gtk --version || (
     sudo add-apt-repository -y ppa:t-tujikawa/ppa
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
     let source_count++
-    )
+)
 [[ ${source_count} == 1 ]] || sudo apt-get update
 # ***************************************************************
 which apt-fast || sudo apt-get -y install apt-fast && apt-fast --version | cat | head -n 2
-which vim      || sudo apt-fast -y install vim
+which vim      || (
+    sudo apt-fast -y install vim
+    curl -sLf https://spacevim.org/install.sh | bash
+)
 git --version  || sudo apt-fast -y install git
 # ***************************************************************
 ssh -V      || sudo apt-fast -y install openssh-server
@@ -73,17 +76,7 @@ read -p "To configure ssh key? [Y/n]" var && (
     && read -p "add public key to github!"
 )
 
-vim_plugins_path="${PATH_SOFTWARES}/plugins"
-vim_vundle_repository=git@github.com:VundleVim/Vundle.vim.git
-read -p "To configure vim? [Y/n]" var && (
-    [[ "${var}" == "Y" ]] \
-    && cp -f ${PATH_DEVENV}/editor/vim/.vimrc ${HOME}/ \
-    && [[ ! -d ${vim_plugins_path} ]] \
-    && mkdir ${vim_plugins_path} \
-    && git clone ${vim_vundle_repository} "${vim_plugins_path}/Vundle"
-)
-
 # oh-my-zsh
 [[ ${SHELL} != /usr/bin/zsh ]] \
-&& echo ${PASSWORD} | chsh -s `which zsh` \
-&& curl -L "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
+&& curl -L "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh \
+&& echo ${PASSWORD} | chsh -s `which zsh`

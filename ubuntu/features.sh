@@ -40,9 +40,10 @@ cp -rf ${PATH_DEVENV}/editor/sublime/* "${HOME}/.config/sublime-text-3/Packages/
 
 
 # themes&icons
-sudo apt-fast install gnome-tweak-tool -y
-sudo apt-fast install gnome-shell-extensions
-sudo apt-fast install gnome-shell-extension-dashtodock
+sudo apt-fast install -y gnome-tweak-tool
+sudo apt-fast install -y gnome-shell-extensions
+sudo apt-fast install -y gnome-shell-extension-dashtodock
+sudo apt-fast install -y gnome-shell-extension-hide-activities
 : <<'COMMENT'
 设置 -> Dock
 tweak -> 主题、图标
@@ -57,3 +58,14 @@ sudo apt-fast install -y gtk2-engines-pixbuf gnome-themes-standard
 sudo add-apt-repository ppa:snwh/pulp
 sudo apt-fast update
 sudo apt-fast install -y paper-icon-theme
+
+
+vim_plugins_path="${PATH_SOFTWARES}/plugins"
+vim_vundle_repository=git@github.com:VundleVim/Vundle.vim.git
+read -p "To configure vim? [Y/n]" var && (
+    [[ "${var}" == "Y" ]] \
+    && cp -f ${PATH_DEVENV}/editor/vim/.vimrc ${HOME}/ \
+    && [[ ! -d ${vim_plugins_path} ]] \
+    && mkdir ${vim_plugins_path} \
+    && git clone ${vim_vundle_repository} "${vim_plugins_path}/Vundle"
+)

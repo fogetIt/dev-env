@@ -19,7 +19,7 @@ which atom || (
     sudo add-apt-repository -y ppa:webupd8team/atom
     sudo apt-fast update
     sudo apt-fast -y install atom
-    )
+)
 
 
 : <<'COMMENT'
