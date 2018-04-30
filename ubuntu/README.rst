@@ -1,52 +1,56 @@
 sudo
 ----
-    -S  read password from stdout
+-S  read password from stdout
 
 
 apt
 ----
-    - `默认安装源 </etc/apt/sources.list>`_
-    :个人软件包: P(ersonal )P(ackage )A(rchives)
+- `默认安装源 </etc/apt/sources.list>`_
+
+:个人软件包: P(ersonal )P(ackage )A(rchives)
+
     -y                       自动回车确认
     --allow-unauthenticated  允许未认证的包
-    .. code-block:: bash
 
-        sudo apt-cache search xxx           # 搜索包
-        sudo apt-get update                 # 更新下载源
-        sudo add-apt-repository -y ppa:xxx  # 添加个人软件包集
+.. code-block:: bash
 
-        sudo apt-get install xxx   # 安装
-        sudo apt-get upgrade       # 更新已安装软件
-        sudo apt-get dist-upgrade  # 更新系统版本
+    sudo apt-cache search xxx           # 搜索包
+    sudo apt-get update                 # 更新下载源
+    sudo add-apt-repository -y ppa:xxx  # 添加个人软件包集
 
-        sudo apt-get remove xxx    # 卸载
-        sudo apt-get autoclean
-        sudo apt-get autoremove    # 自动卸载依赖
+    sudo apt-get install xxx   # 安装
+    sudo apt-get upgrade       # 更新已安装软件
+    sudo apt-get dist-upgrade  # 更新系统版本
+
+    sudo apt-get remove xxx    # 卸载
+    sudo apt-get autoclean
+    sudo apt-get autoremove    # 自动卸载依赖
 
 dpkg
 ----
-    - 手动安装 .deb 包，根据反馈，解决依赖
-    .. code-block:: bash
+- 手动安装 .deb 包，根据反馈，解决依赖
+.. code-block:: bash
 
-        sudo dpkg -i xxx           # 安装
-        sudo dpkg --configure -a   # 打断安装
-        sudo dpkg -l | grep xxx    # 查询相关包信息
-        sudo dpkg -P xxx           # 彻底卸载
-        sudo dpkg --purge xxx
+    sudo dpkg -i xxx           # 安装
+    sudo dpkg --configure -a   # 打断安装
+    sudo dpkg -l | grep xxx    # 查询相关包信息
+    sudo dpkg -P xxx           # 彻底卸载
+    sudo dpkg --purge xxx
 
 mongodb
 -------
-    :配置文件: /etc/mongodb.conf
 
-        .. code-block:: ini
+:配置文件: /etc/mongodb.conf
 
-            bind_ip = 0.0.0.0  # 允许外部访问
-    :命令:
-        .. code-block:: bash
+    .. code-block:: ini
 
-            mongo                       #: 交互式
-            sudo service mongodb stop   #: 重启
-            sudo service mongodb start
+        bind_ip = 0.0.0.0  # 允许外部访问
+:命令:
+    .. code-block:: bash
+
+        mongo                       #: 交互式
+        sudo service mongodb stop   #: 重启
+        sudo service mongodb start
 
 
 搜索无效的图标
@@ -74,6 +78,7 @@ mongodb
 :VMTools:           虚拟机与实体机之间文件拖动
 :FastoRedis:        redis GUI
 :electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
+
 :桌面:
 
     :xubuntu-desktop:

@@ -21,10 +21,6 @@ which apt-fast || (
     sudo add-apt-repository -y ppa:apt-fast/stable
     let source_count++
     )
-which atom || (
-    sudo add-apt-repository -y ppa:webupd8team/atom
-    let source_count++
-    )
 uget-gtk --version || (
     sudo add-apt-repository -y ppa:t-tujikawa/ppa
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
@@ -33,12 +29,11 @@ uget-gtk --version || (
 [[ ${source_count} == 1 ]] || sudo apt-get update
 # ***************************************************************
 which apt-fast || sudo apt-get -y install apt-fast && apt-fast --version | cat | head -n 2
-which atom     || sudo apt-fast -y install atom
+which vim      || sudo apt-fast -y install vim
 git --version  || sudo apt-fast -y install git
 # ***************************************************************
 ssh -V      || sudo apt-fast -y install openssh-server
 nginx -v    || sudo apt-fast -y install nginx
-which vim   || sudo apt-fast -y install vim
 which axel  || sudo apt-fast -y install axel
 which curl  || sudo apt-fast -y install curl
 which unrar || sudo apt-fast -y install unrar  # unrar e xxx

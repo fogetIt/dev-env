@@ -15,6 +15,13 @@ which conky || sudo apt-fast -y install conky
 sudo apt-fast -y install unity-tweak-tool
 
 
+which atom || (
+    sudo add-apt-repository -y ppa:webupd8team/atom
+    sudo apt-fast update
+    sudo apt-fast -y install atom
+    )
+
+
 : <<'COMMENT'
 ubuntu16.04 QQ
 - `参考 <http://blog.csdn.net/ysy950803/article/details/52958538>`_
