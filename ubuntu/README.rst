@@ -34,27 +34,6 @@ dpkg
         sudo dpkg -P xxx           # 彻底卸载
         sudo dpkg --purge xxx
 
-QQ
---
-    - `参考 <http://blog.csdn.net/ysy950803/article/details/52958538>`_
-    - `下载 <https://pan.baidu.com/s/1kV0u7Nh>`_ ，密码: 7vit
-    - 卸载其它版的 ``QQ`` ，按顺序安装
-    .. code-block:: bash
-
-        sudo apt-get install wine
-        sudo dpkg -i crossover-15_15.0.3-1_all.deb
-        sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
-        sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
-        sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
-        : 'vim /usr/bin/killqq'
-        ps aux | grep -v grep | grep wine |cut -c 9-15 | xargs kill
-        ps aux | grep -v grep | grep QQ |cut -c 9-15 | xargs kill
-        ps aux | grep -v grep | grep qq |cut -c 9-15 | xargs kill
-        pkill  plugplay.exe
-        pkill  explorer.exe
-        pkill  services.exe
-
-
 mongodb
 -------
     :配置文件: /etc/mongodb.conf
@@ -68,14 +47,6 @@ mongodb
             mongo                       #: 交互式
             sudo service mongodb stop   #: 重启
             sudo service mongodb start
-
-
-
-jetbrains
----------
-    .. code-block:: bash
-
-        nohup pycharm>~/jetbrains.log 2>&1 &
 
 
 搜索无效的图标
@@ -103,13 +74,6 @@ jetbrains
 :VMTools:           虚拟机与实体机之间文件拖动
 :FastoRedis:        redis GUI
 :electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
-
-:系统管理:
-
-    :conky:            在桌面显示系统信息
-    :docky:            系统启动器
-    :unity-tweak-tool: 系统管理工具
-
 :桌面:
 
     :xubuntu-desktop:

@@ -42,8 +42,6 @@ which vim   || sudo apt-fast -y install vim
 which axel  || sudo apt-fast -y install axel
 which curl  || sudo apt-fast -y install curl
 which unrar || sudo apt-fast -y install unrar  # unrar e xxx
-which conky || sudo apt-fast -y install conky
-which docky || sudo apt-fast -y install docky
 zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
 mysql      --version || sudo apt-fast -y install mysql-server mysql-client

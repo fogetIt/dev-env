@@ -5,19 +5,26 @@ source config && echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 function jetbrains() {
     name=${1};package=${2};entry=${3}
+
     cd ${PATH_SOFTWARES} && (
         [[ -d ${package} ]] || mkdir ${package}
-    ) && tar -zxvf "${package}.tar.gz" -C ${package} --strip-components 1 \
-    && sudo ln -sf "${package}/bin/${entry}" "/usr/bin/${name}" \
+    ) \
+    && tar -zxvf "${package}.tar.gz" -C ${package} --strip-components 1 \
+    && sudo ln -sf "${PATH_SOFTWARES}/${package}/bin/${entry}" "/usr/bin/${name}" \
+    && ${name} \
     && cd ${HOME}/.${package}*/config && (
         find ./ -name keymaps -type d | grep "keymaps" || mkdir keymaps
-    ) && cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/JetBrains.xml
+    ) \
+    && cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/JetBrains.xml
+    exit 0
 }
 
-jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
-# jetbrains "webstorm" "WebStorm" "webstorm.sh"
+# jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
+jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # jetbrains "goland"   "GoLand"   "goland.sh"
 # jetbrains "idea"     "IdeaIU"   "idea.sh"
+
+# nohup pycharm>~/jetbrains.log 2>&1 &
 # ***************************************************************
 # https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz
 node -v && npm -v || (
@@ -25,8 +32,8 @@ node -v && npm -v || (
     && xz -kd node*.tar.xz \
     && [[ -d node ]] || mkdir node \
     && tar -xvf node*.tar -C node --strip-components 1
-    && sudo ln -sf node/bin/node /usr/bin/node \
-    && sudo ln -sf node/bin/npm /usr/bin/npm \
+    && sudo ln -sf "${PATH_SOFTWARES}/node/bin/node" /usr/bin/node \
+    && sudo ln -sf "${PATH_SOFTWARES}/node/bin/npm" /usr/bin/npm \
     && npm config set prefix /usr/local
 )
 # npm config list
@@ -37,7 +44,7 @@ go version && (
     cd ${PATH_SOFTWARES} \
     && [[ -d go ]] || mkdir go \
     && tar -zxvf go*.tar.gz -C go --strip-components 1 \
-    && sudo ln -sf go/bin/go /usr/bin/go
+    && sudo ln -sf "${PATH_SOFTWARES}/go/bin/go" /usr/bin/go
     && export GOROOT=${HOME}/softwares/go \
     && export GOPATH=${HOME}/gocode \
     && export PATH=$PATH:${GOROOT}/bin:${GOPATH}/bin

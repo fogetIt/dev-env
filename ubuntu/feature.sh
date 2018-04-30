@@ -40,19 +40,20 @@ cp -rf ${PATH_DEVENV}/editor/sublime/* "${HOME}/.config/sublime-text-3/Packages/
 
 
 # themes&icons
-# 系统管理工具
-# sudo apt-fast install unity-tweak-tool -y
 sudo apt-fast install gnome-tweak-tool -y
-sudo apt-cache search icon-theme
+sudo apt-fast install gnome-shell-extensions
+sudo apt-fast install gnome-shell-extension-dashtodock
+: <<'COMMENT'
+设置 -> Dock
+tweak -> 主题、图标
+重启 gnome -> tweak -> 扩展 -> Dash to dock
+COMMENT
 # ************************************************************
-sudo apt-fast install papirus-icon-theme
-# ************************************************************
-sudo apt-fast install gtk2-engines-pixbuf gnome-themes-standard
-# ************************************************************
-sudo add-apt-repository ppa:numix/ppa
-sudo apt-fast update
-sudo apt-fast install numix-gtk-theme numix-icon-theme-circle -y
+sudo apt-fast install -y papirus-icon-theme
+sudo apt-fast install -y numix-gtk-theme numix-icon-theme-circle
+sudo apt-fast install -y arc-theme
+sudo apt-fast install -y gtk2-engines-pixbuf gnome-themes-standard
 # ************************************************************
 sudo add-apt-repository ppa:snwh/pulp
 sudo apt-fast update
-sudo apt-fast install paper-icon-theme -y
+sudo apt-fast install -y paper-icon-theme
