@@ -58,11 +58,6 @@ set matchtime=5             " 括号高亮时间(单位:0.1s)
 set fillchars=vert:\, stl:\,stlnc:\
 
 
-set laststatus=2            " 0，不显示；1，窗口数大于1显示；2，总是显示
-set ru
-set ruler                   " 标尺（光标位置）
-set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)
-
 if has("autocmd")
     autocmd InsertLeave * se nocul                " 用浅色高亮当前行
     autocmd InsertEnter * se cul                  " 用浅色高亮当前行
@@ -73,5 +68,32 @@ if has("autocmd")
     augroup END
 endif
 
-call plug#begin('~/softwares/vimrcs')
+
+set rtp+=~/softwares/vimrcs
+call plug#begin('~/softwares/vimrcs/plugins')
+" ------
+" 文件树
+" ------
+Plug 'scrooloose/nerdtree'
+let g:NERDTree_title='NERDTree'
+let g:NERDTreeWinPos='left'
+let g:NERDTreeWinSize=25
+let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeQuitOnOpen=1   " 打开文件时不关闭树
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+function! NERDTree_Start()   " 执行一个退出命令，关闭自动出现的窗口
+    exe 'q'
+    exe 'NERDTree'
+endfunction
+function! NERDTree_IsValid()
+    return 1
+endfunction
+map <F6> :NERDTreeToggle<CR>
+map <F7> :NERDTreeMirror<CR>
+" ------
+" 状态栏
+" ------
+Plug 'Lokaltog/vim-powerline'
+let g:Powline_symbols='fancy'
 call plug#end()
