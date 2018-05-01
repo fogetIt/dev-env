@@ -26,8 +26,7 @@ which atom || (
 ubuntu16.04 QQ
 - `参考 <http://blog.csdn.net/ysy950803/article/details/52958538>`_
 - `下载 <https://pan.baidu.com/s/1kV0u7Nh>`_ ，密码: 7vit
-
-按顺序安装
+- 按顺序安装
 COMMENT
 
 sudo apt-get install wine

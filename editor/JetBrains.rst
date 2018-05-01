@@ -4,8 +4,9 @@ JetBrains
 
 版本
 -------
-- 社区版，Community
-- 付费版，Ultimate/Professional
+
+:社区版: Community
+:付费版: Ultimate/Professional
 
 
 注册
@@ -59,8 +60,6 @@ activation:
         - upload/download/sync
     :远程解析器:  File -> Settings -> Project: -> Project Interpreter
     :远程调试:  Run -> Edit Configurations -> ...
-
-:PyCharm virtualenv: File -> Settings -> Project -> Project Interpreter
 :其它:
 
     - File -> Settings
@@ -83,6 +82,11 @@ activation:
 :CTRL-E:           窗口面板
 :shift-shift:      快速查找
 
+
+PyCharm
+========
+
+:virtualenv: File -> Settings -> Project -> Project Interpreter
 
 
 WebStorm

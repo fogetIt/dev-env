@@ -16,13 +16,8 @@ wine --version || (
     winetricks wenquanyi
 
     sudo apt-fast -y install \
-        winbind \
-        playonlinux \
-        wine-binfmt \
-        dosbox \
-        wine32-preloader:i386 \
-        wine64-preloader \
-        tor
+        winbind playonlinux wine-binfmt dosbox \
+        wine32-preloader:i386  wine64-preloader tor
 )
 
 # wine QQ
@@ -34,20 +29,24 @@ winecfg -> Library
 COMMENT
 
 
+: <<'COMMENT'
 # sublime
 # https://github.com/lyfeyaj/sublime-text-imfix.git
-cp -rf ${PATH_DEVENV}/editor/sublime/* "${HOME}/.config/sublime-text-3/Packages/User/"
+cp -rf ../editor/sublime/* "${HOME}/.config/sublime-text-3/Packages/User/"
+COMMENT
 
 
 # themes&icons
 sudo apt-fast install -y gnome-tweak-tool
-sudo apt-fast install -y gnome-shell-extensions
+# sudo apt-fast install -y gnome-shell-extensions
 sudo apt-fast install -y gnome-shell-extension-dashtodock
-sudo apt-fast install -y gnome-shell-extension-hide-activities
+sudo apt-fast install -y gnome-shell-extension-autohidetopbar
 : <<'COMMENT'
 设置 -> Dock
 tweak -> 主题、图标
-重启 gnome -> tweak -> 扩展 -> Dash to dock
+重启 gnome
+    tweak -> 扩展 -> Dash to dock
+    tweak -> 扩展 -> Hide top bar
 COMMENT
 # ************************************************************
 sudo apt-fast install -y papirus-icon-theme
@@ -60,12 +59,10 @@ sudo apt-fast update
 sudo apt-fast install -y paper-icon-theme
 
 
-vim_plugins_path="${PATH_SOFTWARES}/plugins"
-vim_vundle_repository=git@github.com:VundleVim/Vundle.vim.git
-read -p "To configure vim? [Y/n]" var && (
-    [[ "${var}" == "Y" ]] \
-    && cp -f ${PATH_DEVENV}/editor/vim/.vimrc ${HOME}/ \
-    && [[ ! -d ${vim_plugins_path} ]] \
-    && mkdir ${vim_plugins_path} \
-    && git clone ${vim_vundle_repository} "${vim_plugins_path}/Vundle"
-)
+: <<'COMMENT'
+# spacevim
+curl -sLf https://spacevim.org/install.sh | bash
+COMMENT
+cp -f ../editor/vim/.vimrc ${HOME}
+curl -fLo ~/softwares/vimrcs/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

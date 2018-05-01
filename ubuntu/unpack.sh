@@ -43,6 +43,7 @@ exit 0
 # npm config list
 # npm全局命令安装目录：${prefix}/bin/
 # ***************************************************************
+# curl -fLo "${PATH_SOFTWARES}/go.tar.gz" --create-dirs \
 # https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz
 go version || (
     cd ${PATH_SOFTWARES} \
@@ -77,4 +78,4 @@ sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     && chmod +x ./mongobooster*.AppImage \
     && sudo apt-get install libstdc++6 \
     && ./mongobooster*.AppImage
-    )
+)

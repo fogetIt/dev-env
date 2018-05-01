@@ -31,7 +31,6 @@ uget-gtk --version || (
 which apt-fast || sudo apt-get -y install apt-fast && apt-fast --version | cat | head -n 2
 which vim      || (
     sudo apt-fast -y install vim
-    curl -sLf https://spacevim.org/install.sh | bash
 )
 git --version  || sudo apt-fast -y install git
 # ***************************************************************
@@ -40,6 +39,7 @@ nginx -v    || sudo apt-fast -y install nginx
 which axel  || sudo apt-fast -y install axel
 which curl  || sudo apt-fast -y install curl
 which unrar || sudo apt-fast -y install unrar  # unrar e xxx
+which dconf || sudo apt-fast -y install dconf-tools
 zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
 mysql      --version || sudo apt-fast -y install mysql-server mysql-client
@@ -47,6 +47,7 @@ mongo      --version || sudo apt-fast -y install mongodb-server mongodb-clients
 uget-gtk   --version || sudo apt-fast -y install aria2 uget
 redis-cli  --version || sudo apt-fast -y install redis-server
 terminator --version || sudo apt-fast -y install terminator
+# dconf-tools: org -> gnome -> applications -> desktop -> terminal 
 # ***************************************************************
 pip      --version || sudo apt-fast -y install python-pip
 pip3     --version || sudo apt-fast -y install python3-pip

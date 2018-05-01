@@ -2,7 +2,6 @@
     "bootstrapped": true,
     "in_process_packages": [],
     "installed_packages": [
-        "PackageResourceViewer",
         "Terminal",          // Ctrl+Shift+T
         "DocBlockr",         // /** -> Tab
         "FileHeader",        // Ctrl+Alt+N/Right -> File Header
@@ -10,30 +9,25 @@
 .+\s@Last Modified by:\s.+\n
 .+\s@Author:\s.+\n
  */
-        "Alignment",         // 多行选择和对齐
-        "Clipboard Manager", // 超级剪贴板
-
-
-        "Sublimerge 3", // Right -> sublimerge
-        "StyleToken",   // Right -> Style Token
-        "GitStatusBar", // 状态栏显示分支信息
         "GitGutter",
         "Local History",
+        "Clipboard Manager", // 超级剪贴板
+        "Sublimerge 3",      // Right -> sublimerge
+
+
+        "StyleToken",   // Right -> Style Token
+        "GitStatusBar", // 状态栏显示分支信息
 
         "BracketHighlighter",   // 高亮匹配标签、括号、引号
         "Color Highlighter",    // Right -> Insert color...
-        "Emmet",                // 快速生成 html/css 结构
+        "Emmet",
+
         "HTML-CSS-JS Prettify", // Ctrl+Shift+H(require nodejs)
-
-
-        "CSS Format",             // Right -> CSS Format...
         "SublimeAStyleFormatter", // C/C++/C#/Java: Ctrl+Alt+F
-        "JsFormat",               // Ctrl+Alt+F
         "Python PEP8 Autoformat",
 
 
         "Jedi - Python autocompletion",
-        "jQuery",
 
 
         "ChineseLocalizations",     // 汉化
@@ -57,13 +51,6 @@
         "Colorsublime",
         "A File Icon",         // 默认文件图标
         "ColorSchemeSelector", // 预览配色
-        "Theme - Piatto",
-        "Theme - Glacier",
-        "Theme - Flatland",
-
         "SFTP", // 文件 -> SFTP/FTP -> Browse Server
-    ],
-    // "repositories": [
-    //     "https://github.com/FengZhiMo/MarkdownTableFormatter"
-    // ]
+    ]
 }

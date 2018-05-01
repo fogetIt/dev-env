@@ -1,12 +1,12 @@
 package control
 ===============
 - 安装
-    - Ctrl+Shift+P
-        - `Install Package Control`
+    - Ctrl+Shift+P -> `Install Package Control`
 - 使用
-    - Ctrl+Shift+P(Tools-->Command Palette)
-        - `install package`
-        - `remove package`
+    - Ctrl+Shift+P(Tools -> Command Palette)
+        - ``install package``
+        - ``remove package``
+        - ``list package``
 - View -> Show Console
     - ``Ctrl + ```
 
@@ -44,33 +44,40 @@ package control
 
 
 插件
-----
-- Ctrl + Shift + P -> list package
+------
 
-==========================  ========
-FixMyJS, jsfmt
-Minifier, YUI Compressor
-CSS Unminifier
-JavaScript Completions
-Anaconda
-MarkdownHighlighting
-Markdown Preview
-CSScomb                       CSS 属性排序（自定义规则）
-AutoFileName                  补全：src/href
-Autoprefixer                  浏览器前缀：Ctrl+Alt+X
-SublimeTmpl                   新建文件：Ctrl+Alt+H/C/J
-AdvancedNewFile               新建文件：Ctrl+Alt+N
-ConvertChineseCharacters      转换中文字符
-Tradsim                       转换中文繁简字
-GitGutter,Modific             左侧显示修改信息图标
-Local History                 历史记录
-Colorcoder                    高亮所有变量
-SublimeCodeIntel              多语言补全
-All Autocomplete              搜索打开的标签页进行补全
-TrailingSpaces                高亮多余的空格和 Tab
-==========================  ========
+:主题:
+    - ``Theme - Piatto``
+    - ``Theme - Glacier``
+    - ``Theme - Flatland``
+:格式化:
+    - FixMyJS, jsfmt, JsFormat(Ctrl+Alt+F)
+    - ``CSS Format``(Right -> CSS Format...)
+:压缩:
+    - Minifier, ``YUI Compressor``
+    - CSS Unminifier
+:补全: jQuery, ``JavaScript Completions``
+:语法: Anaconda, ``MarkdownHighlighting``, ``Markdown Preview``
+:左侧显示修改信息图标: GitGutter, Modific
+:其它:
 
-emmet
+    ==========================  ========
+    CSScomb                       CSS 属性排序（自定义规则）
+    Alignment                     多行选择和对齐
+    AutoFileName                  补全文件名：src/href
+    Autoprefixer                  补全浏览器前缀：Ctrl+Alt+X
+    SublimeTmpl                   新建文件：Ctrl+Alt+H/C/J
+    AdvancedNewFile               新建文件：Ctrl+Alt+N
+    ConvertChineseCharacters      转换中文字符
+    Tradsim                       转换中文繁简字
+    Local History                 历史记录
+    Colorcoder                    高亮所有变量
+    SublimeCodeIntel              多语言补全
+    All Autocomplete              搜索打开的标签页进行补全
+    TrailingSpaces                高亮多余的空格和 Tab
+    ==========================  ========
+
+Emmet
 ::::::
 
 :tab: 生成代码
