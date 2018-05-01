@@ -21,15 +21,6 @@ Plugin 'grep.vim'
 nnoremap <silent> <F3> :Grep<CR>
 " 光标定位到要查找的内容上，F3
 
-"---------
-" 多窗口管理
-"---------
-Plugin 'winmanager'
-"let g:winManagerWindowLayout='FileExplorer|TagList'
-let g:winManagerWindowLayout='NERDTree|FileExplorer'
-let g:winManagerWidth=30
-nmap wm :WMToggle<CR>
-" wm，出现窗口
 " --------
 " 主题插件
 " --------
@@ -44,6 +35,19 @@ set background=dark       " 背景色方案：light/dark
 "----------------
 Plugin 'tpope/vim-fugitive'
 set statusline+=%{fugitive#statusline()}
+
+" -------------
+" 多文件自动分屏
+" -------------
+Plugin 'minibufexpl.vim'
+let g:miniBufExplMapWindowNavVim=1          " 鼠标双击，切换文件
+let g:miniBufExplMapWindowNavArrow =1
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplModSelTarget=1
+map <C-Tab> :MBEbn<cr>                      " ctrl+Tab         打开前一个buffer
+map <C-S-Tab> :MBEbp<cr>                    " ctrl+shift+Tab   打开后一个buffer
+" ctrl+箭头键————切换到上下左右窗口中
+" ctrl+h,j,k,l————切换到上下左右的窗口中
 
 
 " ========================================================================

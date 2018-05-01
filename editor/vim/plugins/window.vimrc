@@ -30,15 +30,3 @@ let MRU_Window_Height=10                    " MRU窗口的高度，默认8
 let MRU_Use_Current_Window=1
 " 在本窗口打开最近文件列表，而不是新的窗口
 let MRU_Auto_Close=1                        " 选择文件后，关闭MRU窗口(0/1)
-"-------------
-" 多文件自动分屏
-"-------------
-Plugin 'minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim=1          " 鼠标双击，切换文件
-let g:miniBufExplMapWindowNavArrow =1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-map <C-Tab> :MBEbn<cr>                      " ctrl+Tab————打开前一个buffer
-map <C-S-Tab> :MBEbp<cr>                    " ctrl+shift+Tab————打开后一个buffer
-" ctrl+箭头键————切换到上下左右窗口中
-" ctrl+h,j,k,l————切换到上下左右的窗口中
