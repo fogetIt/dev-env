@@ -131,3 +131,25 @@ mongodb
 
     # 安装gufw
     # sudo apt-get install gufw
+
+
+python tools
+-------------
+
+:virtualenv:
+    :virtualenv xxx/xxx:
+        :``--system-site-packages``: 继承系统包目录
+        :``--no-site-packages``:     不继承系统包目录
+        :``-p $(which python3)``:    指定 python 版本
+:ipython: powered python shell
+
+    :ipython-notebook: ipython broswer tool
+:bpython: powered python shell(only linux)
+
+
+terminator
+----------
+- Ctrl+Shift+O
+- Ctrl+Shift+E
+- Ctrl+Shift+F
+- Ctrl+D

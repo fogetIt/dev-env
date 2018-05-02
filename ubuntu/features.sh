@@ -38,6 +38,7 @@ COMMENT
 
 # themes&icons
 sudo apt-fast install -y gnome-tweak-tool
+sudo apt-fast install -y screenfetch
 # sudo apt-fast install -y gnome-shell-extensions
 sudo apt-fast install -y gnome-shell-extension-dashtodock
 sudo apt-fast install -y gnome-shell-extension-autohidetopbar

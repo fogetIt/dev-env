@@ -1,3 +1,13 @@
+vim
+====
+=========  ==========
+vim          super vi
+vim-tiny     only Terminal, light but speed
+vim-gtk      vim with gtk GUI
+vim-gnome    vim with gnome GUI
+=========  ==========
+
+
 配置文件
 ----------------
 

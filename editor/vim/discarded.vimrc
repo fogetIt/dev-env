@@ -21,20 +21,6 @@ Plugin 'grep.vim'
 nnoremap <silent> <F3> :Grep<CR>
 " 光标定位到要查找的内容上，F3
 
-" --------
-" 主题插件
-" --------
-Plugin 'tomasr/molokai'
-Plugin 'jpo/vim-railscasts-theme'
-colorscheme railscasts    " 配色方案（colo）
-set background=dark       " 背景色方案：light/dark
-
-
-"----------------
-" 状态栏显示Git分支
-"----------------
-Plugin 'tpope/vim-fugitive'
-set statusline+=%{fugitive#statusline()}
 
 " -------------
 " 多文件自动分屏
@@ -44,10 +30,10 @@ let g:miniBufExplMapWindowNavVim=1          " 鼠标双击，切换文件
 let g:miniBufExplMapWindowNavArrow =1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1
-map <C-Tab> :MBEbn<cr>                      " ctrl+Tab         打开前一个buffer
-map <C-S-Tab> :MBEbp<cr>                    " ctrl+shift+Tab   打开后一个buffer
-" ctrl+箭头键————切换到上下左右窗口中
-" ctrl+h,j,k,l————切换到上下左右的窗口中
+" MBEbn  打开前一个buffer
+" MBEbp  打开后一个buffer
+" ctrl+箭头键    切换到上下左右窗口中
+" ctrl+h,j,k,l  切换到上下左右的窗口中
 
 
 " ========================================================================

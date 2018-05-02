@@ -63,8 +63,6 @@ if has("autocmd")
     autocmd InsertEnter * se cul                  " 用浅色高亮当前行
     augroup vimrcEx
     au BufRead,BufNewFile *.{md,mkd} set ft=mkd   " markdown配置
-    au BufRead,BufNewFile *.conf set ft=nginx     " nginx文件配置
-    "复制${nginx}\contrib\vim\*到${Vim}\vimfiles下
     augroup END
 endif
 
@@ -78,15 +76,7 @@ call plug#begin('~/softwares/vimrcs/plugins')
 Plug 'scrooloose/nerdtree'
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-function! NERDTree_Start()   " 执行一个退出命令，关闭自动出现的窗口
-    exe 'q'
-    exe 'NERDTree'
-endfunction
-function! NERDTree_IsValid()
-    return 1
-endfunction
 map <F6> :NERDTreeToggle<CR>
-map <F7> :NERDTreeMirror<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -105,24 +95,37 @@ let g:NERDTreeIndicatorMapCustom = {
 " 状态栏
 " ------
 Plug 'vim-airline/vim-airline'
-" tabline 显示 buffer
+" tabline
+let g:airline_extensions = ['branch', 'tabline']
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-" 切换 Buffer
-map <C-Tab> :bn<cr>
-map <C-S-Tab> :bp<cr>
+noremap <s-x> :bn<CR>
+" git branch
+Plug 'tpope/vim-fugitive'
+set statusline+=%{fugitive#statusline()}
 
 " --------
 " 窗口管理
 " --------
 Plug 'vim-scripts/winmanager'
-"let g:winManagerWindowLayout='FileExplorer|TagList'
-" let g:winManagerWindowLayout='NERDTree|FileExplorer'
 let g:winManagerWidth=30
 nmap wm :WMToggle<CR>
-" let g:NERDTreeTitle='[NERDTree]'
-" let g:NERDTreeWinPos='left'
-" let g:NERDTreeWinSize=25
-" let g:NERDTreeShowLineNumbers=1
-" let g:NERDTreeQuitOnOpen=0   " 打开文件时不关闭树/
+nmap <c-x> :FirstExplorerWindow<CR>
+let g:NERDTree_title='[NERDTree]'
+" 执行一个退出命令，关闭自动出现的窗口
+function! NERDTree_Start()
+    exe 'q'
+    exe 'NERDTree'
+endfunction
+function! NERDTree_IsValid()
+    return 1
+endfunction
+
+" --------
+" 主题插件
+" --------
+Plug 'tomasr/molokai'
+Plug 'jpo/vim-railscasts-theme'
+colorscheme railscasts    " 配色方案
+set background=dark       " 背景色方案
+" set background=light
 call plug#end()
