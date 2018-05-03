@@ -65,9 +65,12 @@
     // 选中多行
     { "keys": ["alt+shift+up"], "command": "select_lines", "args": {"forward": false} },
     { "keys": ["alt+shift+down"], "command": "select_lines", "args": {"forward": true} },
+    // 滚动行
+    { "keys": ["alt+up"], "command": "scroll_lines", "args": {"amount": 1.0 } },
+	{ "keys": ["alt+down"], "command": "scroll_lines", "args": {"amount": -1.0 } },
     // 移动行
-    { "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 1.0 } },
-	{ "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -1.0 } },
+    { "keys": ["alt+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+down"], "command": "swap_line_down" },
     // 反缩进
     { "keys": ["shift+tab"], "command": "unindent", "args": {"characters": "\t"} },
     //书签

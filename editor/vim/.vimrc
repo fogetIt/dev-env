@@ -62,7 +62,7 @@ if has("autocmd")
     autocmd InsertLeave * se nocul                " 用浅色高亮当前行
     autocmd InsertEnter * se cul                  " 用浅色高亮当前行
     augroup vimrcEx
-    au BufRead,BufNewFile *.{md,mkd} set ft=mkd   " markdown配置
+    au BufRead,BufNewFile *.{md,mkd} set ft=mkd
     augroup END
 endif
 
@@ -70,9 +70,7 @@ endif
 set rtp+=~/softwares/vimrcs
 call plug#begin('~/softwares/vimrcs/plugins')
 
-" ------
-" 文件树
-" ------
+
 Plug 'scrooloose/nerdtree'
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -91,15 +89,14 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" ------
-" 状态栏
-" ------
+
+" statusline
 Plug 'vim-airline/vim-airline'
 " tabline
 let g:airline_extensions = ['branch', 'tabline']
 let g:airline#extensions#tabline#enabled = 1
 noremap <s-x> :bn<CR>
-" git branch
+" statusline git branch
 Plug 'tpope/vim-fugitive'
 set statusline+=%{fugitive#statusline()}
 
@@ -120,12 +117,10 @@ function! NERDTree_IsValid()
     return 1
 endfunction
 
-" --------
-" 主题插件
-" --------
+
 Plug 'tomasr/molokai'
-Plug 'jpo/vim-railscasts-theme'
-colorscheme railscasts    " 配色方案
-set background=dark       " 背景色方案
+let g:molokai_original = 1
+let g:rehash256 = 1
+set background=dark
 " set background=light
 call plug#end()

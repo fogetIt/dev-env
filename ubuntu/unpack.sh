@@ -18,7 +18,7 @@ function jetbrains() {
     && cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/JetBrains.xml
 }
 
-# jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
+jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 # jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # jetbrains "goland"   "GoLand"   "goland.sh"
 # jetbrains "idea"     "IdeaIU"   "idea.sh"

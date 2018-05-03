@@ -6,26 +6,67 @@
 
 <keymap version="1" name="JetBrains" parent="$default" disable-mnemonic="false">
 
+<!-- 搜索 -->
   <action id="Find">
     <keyboard-shortcut first-keystroke="control F"/>
   </action>
   <action id="Replace">
     <keyboard-shortcut first-keystroke="control H"/>
   </action>
+  <action id="DebugClass"/>
+  <action id="IntroduceField">
+    <!-- <keyboard-shortcut first-keystroke="control alt F"/> -->
+    <keyboard-shortcut first-keystroke="control shift R"/>
+  </action>
+  <action id="ReplaceInPath">
+    <!-- <keyboard-shortcut first-keystroke="control shift R"/> -->
+    <keyboard-shortcut first-keystroke="control alt F"/>
+  </action>
 
 
-  <action id="MoveStatementDown">
-    <keyboard-shortcut first-keystroke="control shift DOWN"/>
+<!-- 关闭窗口 -->
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="control W"/>
+    <!-- <keyboard-shortcut first-keystroke="control F4"/> -->
+  </action>
+<!-- 逐词选中 -->
+  <action id="EditorSelectWord">
+    <keyboard-shortcut first-keystroke="control F4"/>
+    <!-- <keyboard-shortcut first-keystroke="control W"/> -->
+  </action>
+  <action id="ResizeToolWindowLeft">
+    <keyboard-shortcut first-keystroke="control shift LEFT"/>
+  </action>
+  <action id="ResizeToolWindowRight">
+    <keyboard-shortcut first-keystroke="control shift RIGHT"/>
+  </action>
+  <action id="EditorPreviousWordWithSelection">
+    <keyboard-shortcut first-keystroke="control shift LEFT"/>
+  </action>
+  <action id="EditorNextWordWithSelection">
+    <keyboard-shortcut first-keystroke="control shift RIGHT"/>
+  </action>
+
+
+<!-- 移动行 -->
+  <action id="MethodUp">
+    <!-- <keyboard-shortcut first-keystroke="alt UP"/> -->
+    <keyboard-shortcut first-keystroke="control shif UP"/>
   </action>
   <action id="MoveStatementUp">
-    <keyboard-shortcut first-keystroke="control shift UP"/>
+    <!-- <keyboard-shortcut first-keystroke="control shift UP"/> -->
+    <keyboard-shortcut first-keystroke="alt UP"/>
   </action>
-
-
-  <!-- 重新绑定 -->
-  <action id="ReplaceInPath">
-    <keyboard-shortcut first-keystroke="control alt F"/>
-    <!-- <keyboard-shortcut first-keystroke="control shift R"/> -->
+  <action id="ShowContent">
+    <!-- <keyboard-shortcut first-keystroke="alt DOWN"/> -->
+    <keyboard-shortcut first-keystroke="control shift DOWN"/>
+  </action>
+  <action id="MethodDown">
+    <!-- <keyboard-shortcut first-keystroke="alt DOWN"/> -->
+    <keyboard-shortcut first-keystroke="control shift DOWN"/>
+  </action>
+  <action id="MoveStatementDown">
+    <keyboard-shortcut first-keystroke="alt DOWN"/>
   </action>
 
 
@@ -56,25 +97,6 @@
   <action id="Diff.ShowSettingsPopup" />
 
 
-  <action id="CloseContent">
-    <keyboard-shortcut first-keystroke="control W"/>
-    <!-- <keyboard-shortcut first-keystroke="control F4"/> -->
-  </action>
-  <action id="EditorSelectWord">
-    <keyboard-shortcut first-keystroke="control F4"/>
-    <!-- <keyboard-shortcut first-keystroke="control W"/> -->
-  </action>
-
-
-  <!-- 关联鼠标，无法修改 -->
-  <action id="EditorPreviousWord">
-    <keyboard-shortcut first-keystroke="control LEFT"/>
-  </action>
-  <action id="PreviousEditorTab">
-    <keyboard-shortcut first-keystroke="alt shift LEFT"/>
-  </action>
-
-
   <action id="$Redo">
     <keyboard-shortcut first-keystroke="control Y"/>
     <keyboard-shortcut first-keystroke="alt shift BACK_SPACE"/>
@@ -87,6 +109,13 @@
 
 
   <!-- 默认设置 -->
+  <!-- 关联鼠标，无法修改 -->
+  <action id="EditorPreviousWord">
+    <keyboard-shortcut first-keystroke="control LEFT"/>
+  </action>
+  <action id="PreviousEditorTab">
+    <keyboard-shortcut first-keystroke="alt shift LEFT"/>
+  </action>
   <action id="UnselectPreviousOccurrence">
     <keyboard-shortcut first-keystroke="alt shift J"/>
   </action>
@@ -111,9 +140,9 @@
   <action id="FullyExpandTreeNode">
     <keyboard-shortcut first-keystroke="MULTIPLY"/>
   </action>
-  <!--<action id="TextComponent.ClearAction">
+  <!-- <action id="TextComponent.ClearAction">
     <keyboard-shortcut first-keystroke="ESCAPE"/>
-  </action>-->
+  </action> -->
   <action id="ExpandTreeNode">
     <keyboard-shortcut first-keystroke="ADD"/>
   </action>
@@ -503,10 +532,6 @@
   <action id="ChangeTypeSignature">
     <keyboard-shortcut first-keystroke="control shift F6"/>
   </action>
-  <action id="DebugClass"/>
-  <action id="IntroduceField">
-    <keyboard-shortcut first-keystroke="control alt F"/>
-  </action>
   <action id="ShowIntentionActions">
     <keyboard-shortcut first-keystroke="alt ENTER"/>
   </action>
@@ -607,9 +632,6 @@
   <action id="Move">
     <keyboard-shortcut first-keystroke="F6"/>
   </action>
-  <action id="MethodDown">
-    <keyboard-shortcut first-keystroke="alt DOWN"/>
-  </action>
   <action id="$Paste">
     <keyboard-shortcut first-keystroke="control V"/>
     <keyboard-shortcut first-keystroke="shift INSERT"/>
@@ -643,9 +665,6 @@
   </action>
   <action id="Synchronize">
     <keyboard-shortcut first-keystroke="control alt Y"/>
-  </action>
-  <action id="EditorPreviousWordWithSelection">
-    <keyboard-shortcut first-keystroke="control shift LEFT"/>
   </action>
   <action id="EditorDownWithSelection">
     <keyboard-shortcut first-keystroke="shift DOWN"/>
@@ -682,14 +701,8 @@
   <action id="ImplementMethods">
     <keyboard-shortcut first-keystroke="control I"/>
   </action>
-  <action id="MethodUp">
-    <keyboard-shortcut first-keystroke="alt UP"/>
-  </action>
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="alt RIGHT"/>
-  </action>
-  <action id="ShowContent">
-    <keyboard-shortcut first-keystroke="alt DOWN"/>
   </action>
   <action id="NextEditorTab">
     <keyboard-shortcut first-keystroke="alt shift RIGHT"/>
@@ -710,9 +723,6 @@
     <keyboard-shortcut first-keystroke="alt shift SLASH"/>
   </action>
   <action id="TogglePopupHints"/>
-  <action id="EditorNextWordWithSelection">
-    <keyboard-shortcut first-keystroke="control shift RIGHT"/>
-  </action>
   <action id="JumpToLastChange">
     <keyboard-shortcut first-keystroke="control shift BACK_SPACE"/>
   </action>
@@ -810,12 +820,6 @@
   </action>
   <action id="HideAllWindows">
     <keyboard-shortcut first-keystroke="control shift F12"/>
-  </action>
-  <action id="ResizeToolWindowLeft">
-    <keyboard-shortcut first-keystroke="control shift LEFT"/>
-  </action>
-  <action id="ResizeToolWindowRight">
-    <keyboard-shortcut first-keystroke="control shift RIGHT"/>
   </action>
   <action id="ResizeToolWindowUp">
     <keyboard-shortcut first-keystroke="control shift UP"/>
