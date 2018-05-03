@@ -7,15 +7,26 @@ package control
         - ``install package``
         - ``remove package``
         - ``list package``
-- View -> Show Console
+- Console
+    - View -> Show Console
     - ``Ctrl + ```
+- subl xxx/xxx
+    - PATH:...
+    - ln -sf ...
+
+
+分屏
+-------
+- ``View -> Layout``
+- ``View -> Side Bar -> Show Open Files``
+- Alt+Shift+1~9
 
 
 配置文件
--------
+-------------
 
-:替换: ``${sublime}\Data\Packages\User\*``
-:替换: ``${sublime}\Data\Packages\Theme - Default\*``
+:替换: ``Packages\User\*``
+:替换: ``Packages\Theme - Default\*``
 :修改:
 
     - 找到配置文件所在的压缩包，用winrar工具编辑，或者复制出来编辑再替换
@@ -101,8 +112,7 @@ Emmet
     - 打开文件
     - 首选项 -> 设置 -> 特定语法
     - 添加 "extensions": [...]
-    - 如果还不行
-        - View -> Syntax -> Open all with current extension as ...
+    - View -> Syntax -> Open all with current extension as ...
 
 
 从指定 ``github`` 仓库安装插件

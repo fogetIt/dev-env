@@ -7,8 +7,10 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 
 
 # fonts
-sudo apt-fast -y install fonts-wqy-microhei
-sudo apt-fast -y install ttf-mscorefonts-installer
+sudo apt-fast -y install \
+    fonts-mononoki \
+    fonts-wqy-microhei \
+    ttf-mscorefonts-installer
 
 # wine3.0
 wine --version || (
@@ -39,7 +41,6 @@ COMMENT
 # themes&icons
 sudo apt-fast install -y gnome-tweak-tool
 sudo apt-fast install -y screenfetch
-# sudo apt-fast install -y gnome-shell-extensions
 sudo apt-fast install -y gnome-shell-extension-dashtodock
 sudo apt-fast install -y gnome-shell-extension-autohidetopbar
 : <<'COMMENT'

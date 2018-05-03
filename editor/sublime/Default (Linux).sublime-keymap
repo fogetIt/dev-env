@@ -1,28 +1,20 @@
 [
-    //查找替换
+    // 查找替换
     { "keys": ["ctrl+alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
-    { "keys": ["ctrl+f12"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
-    //ctrl +
-    { "keys": ["ctrl++"], "command": "unfold" },
-    { "keys": ["ctrl+="], "command": "unfold" },
-    { "keys": ["ctrl+equals"], "command": "unfold" },
-    { "keys": ["ctrl+keypad_plus"], "command": "unfold" },
-    //ctrl -
-    { "keys": ["ctrl+-"], "command": "fold" },
-    { "keys": ["ctrl+keypad_minus"], "command": "fold" },
-    //ctrl shift +
-    { "keys": ["ctrl+shift++"], "command": "unfold_all" },
-    { "keys": ["ctrl+shift+="], "command": "unfold_all" },
-    { "keys": ["ctrl+shift+equals"], "command": "unfold_all" },
-    { "keys": ["ctrl+shift+keypad_plus"], "command": "unfold_all" },
-    //ctrl shift -
-    { "keys": ["ctrl+shift+-"], "command": "fold_all" },
-    { "keys": ["ctrl+shift+keypad_minus"], "command": "fold_all" },
+    { "keys": ["ctrl+r"], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
+    // 折叠
+    { "keys": ["ctrl+["], "command": "fold" },
+    { "keys": ["ctrl+]"], "command": "unfold" },
+    { "keys": ["ctrl+shift+["], "command": "fold_all" },
+    { "keys": ["ctrl+shift+]"], "command": "unfold_all" },
     // Themr
     { "keys": ["ctrl+shift+a"], "command": "themr_list_themes" },
     // Colorsublime
     { "keys": ["ctrl+shift+x"], "command": "select_color_scheme"},
 
+    /*
+    SublimeREPL/config/xxx/Default.sublime-commands
+    */
     // repl_python_run
     {
         "keys":["f5"], "caption": "SublimeREPL: Python - RUN current file",
@@ -57,31 +49,28 @@
     // OmniMarkupPreviewer
     {
         "keys": ["ctrl+b"], "command": "omni_markup_preview",
-        "context": [{"key": "omnimarkup_is_enabled", "operator": "equal", "operand": ""}]
+        "context": [{ "key": "omnimarkup_is_enabled", "operator": "equal", "operand": "" }]
     },
     // Alignment
     {"keys": ["super+a"], "command": "alignment"},
     // Color Highlighter
     {
-        "keys": ["ctrl+alt+p"],
-        "command": "color_picker",
-        "context": [
-            {
-                "key": "color_highlighter.color_picker"
-            }
-        ]
+        "keys": ["ctrl+alt+p"], "command": "color_picker",
+        "context": [{ "key": "color_highlighter.color_picker" }]
     },
     // Clipboard Manager
-    {
-        "keys": ["ctrl+super+c"],
-        "command": "clipboard_manager_show"
-    },
-    // 向下、向上选中多行
-    // alt+shift+up/alt+shift+down
-    { "keys": ["ctrl+up"], "command": "select_lines", "args": {"forward": false} },
-    { "keys": ["ctrl+down"], "command": "select_lines", "args": {"forward": true} },
+    { "keys": ["ctrl+super+c"], "command": "clipboard_manager_show" },
     // Ctranslator tool
     { "keys": ["ctrl+shift+c"], "command": "auto_translate" },
+    // 选中多行
+    { "keys": ["alt+shift+up"], "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["alt+shift+down"], "command": "select_lines", "args": {"forward": true} },
+    // 移动行
+    { "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 1.0 } },
+	{ "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -1.0 } },
     // 反缩进
     { "keys": ["shift+tab"], "command": "unindent", "args": {"characters": "\t"} },
+    //书签
+    { "keys": ["ctrl+f11"], "command": "toggle_bookmark" },
+    { "keys": ["alt+f11"], "command": "select_all_bookmarks" },
 ]
