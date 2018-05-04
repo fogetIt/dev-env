@@ -30,10 +30,8 @@ let g:miniBufExplMapWindowNavVim=1          " 鼠标双击，切换文件
 let g:miniBufExplMapWindowNavArrow =1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1
-" MBEbn  打开前一个buffer
-" MBEbp  打开后一个buffer
-" ctrl+箭头键    切换到上下左右窗口中
-" ctrl+h,j,k,l  切换到上下左右的窗口中
+" :MBEbn/:MBEbp          前/后一个buffer
+" Ctrl+↑/↓/←/→(H/J/K/L)  切换到上下左右窗口中
 " -------
 " python
 " -------

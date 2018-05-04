@@ -60,8 +60,8 @@ set fillchars=vert:\, stl:\,stlnc:\
 syntax enable
 
 if has("autocmd")
-    autocmd InsertLeave * se nocul                " 用浅色高亮当前行
-    autocmd InsertEnter * se cul                  " 用浅色高亮当前行
+    autocmd InsertLeave * se nocul  " 用浅色高亮当前行
+    autocmd InsertEnter * se cul    " 用浅色高亮当前行
     augroup vimrcEx
     au BufRead,BufNewFile *.{md,mkd} set ft=mkd
     augroup END
@@ -113,6 +113,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tell-k/vim-autopep8'
 Plug 'jiangmiao/auto-pairs'
+
 " --------
 " 窗口管理
 " --------
@@ -120,12 +121,10 @@ Plug 'vim-scripts/winmanager'
 let g:winManagerWidth=30
 let g:NERDTree_title='[NERDTree]'
 " let g:winManagerWindowLayout = "NERDTree"
+
 nmap wm :WMToggle<CR>
-" --------
-" 窗口切换
-" Ctrl+W+W
-" Ctrl+W+↑/↓/←/→(Ctrl+W+H/J/K/L)
-" --------
+" Ctrl+W+W  窗口切换
+
 " 执行一个退出命令，关闭自动出现的窗口
 function! NERDTree_Start()
     exe 'q'
@@ -139,8 +138,8 @@ endfunction
 Plug 'tomasr/molokai'
 let g:molokai_original = 1
 let g:rehash256 = 1
-set background=dark
-" set background=light
+" set background=dark
+set background=light
 
 
 call plug#end()
