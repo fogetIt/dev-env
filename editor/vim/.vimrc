@@ -57,6 +57,7 @@ set matchtime=5             " 括号高亮时间(单位:0.1s)
 " 在被分割的窗口间显示空白，便于阅读
 set fillchars=vert:\, stl:\,stlnc:\
 
+syntax enable
 
 if has("autocmd")
     autocmd InsertLeave * se nocul                " 用浅色高亮当前行
@@ -89,6 +90,8 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+Plug 'kien/ctrlp.vim'
+
 
 " statusline
 Plug 'vim-airline/vim-airline'
@@ -97,12 +100,19 @@ let g:airline_extensions = ['branch', 'tabline']
 let g:airline#extensions#tabline#enabled = 1
 noremap <s-x> :bn<CR>
 
-" statusline git branch
+
+" show git branch on statusline
 Plug 'tpope/vim-fugitive'
 set statusline+=%{fugitive#statusline()}
-" 显示行修改信息
+" show git diff before line number
 Plug 'airblade/vim-gitgutter'
 
+" -------
+" python
+" -------
+Plug 'Yggdroot/indentLine'
+Plug 'tell-k/vim-autopep8'
+Plug 'jiangmiao/auto-pairs'
 " --------
 " 窗口管理
 " --------

@@ -329,7 +329,7 @@ filetype indent on                        "针对不同的文件采用不同的�
 "==========
 filetype plugin on                " 载入文件类型插件
 filetype on                       " 检测文件类型
-syntax enable
+
 syntax on                         " 语法高亮
 " 高亮字符
 highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white

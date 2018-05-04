@@ -1,5 +1,4 @@
-=============================  ======
-command                          todo
+
 =============================  ======
 ``git branch``                   列出所有分支
 ``git branch xxx``               创建分支
@@ -13,73 +12,80 @@ command                          todo
 
 
 合并到当前分支
-------------
-    :默认 Fastforward 模式: 删除分支后，会丢掉分支信息
-    :--no-ff: 禁用 Fastforward 模式
-    .. code-block:: bash
+----------------------
 
-        git merge --no-ff -m "xxx" xxx
+:Fastforward: 删除分支后，会丢掉分支信息
+:--no-ff: 禁用 Fastforward 模式
+.. code-block:: bash
+
+    git merge --no-ff -m "xxx" xxx
 
 
 分支管理策略
------------
-    :master: 稳定、生产环境
-    :dev: 不稳定、测试环境
-    - 开发到某个时候，再合并 **dev** 到 **master**
-    - 每个 **bug** 都新建一个临时分支来修复，修复后，合并到主分支，删除临时分支
+--------------------
+
+:master: 稳定、生产环境
+:dev: 不稳定、测试环境
+
+- 开发到某个时候，再合并 **dev** 到 **master**
+- 每个 **bug** 都新建一个临时分支来修复，修复后，合并到主分支，删除临时分支
 
 
 推送分支
--------
-    :``git push origin ×××``:
-        :simple: 默认，把当前分支上的所有本地提交推送到指定的远程分支上
-        :matching: 推送所有有对应远程分支的本地分支
+----------------
 
-            .. code-block:: bash
-                git config --global push.default matching
-                # git config --global push.default simple
-        :``git push --all origin``: 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机
-        :推送失败: 小伙伴的最新提交和试图推送的提交有冲突
-            - 先 ``git pull`` 把最新的提交抓下来
-            - 然后，在本地合并，解决冲突，再推送
+:``git push origin ×××``:
+    :simple: 默认，把当前分支上的所有本地提交推送到指定的远程分支上
+    :matching: 推送所有有对应远程分支的本地分支
+
+        .. code-block:: bash
+            git config --global push.default matching
+            # git config --global push.default simple
+    :``git push --all origin``: 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机
+    :推送失败: 小伙伴的最新提交和试图推送的提交有冲突
+        - 先 ``git pull`` 把最新的提交抓下来
+        - 然后，在本地合并，解决冲突，再推送
 
 
 ssh clone
 ----------
-    - 通过 ssh 支持的原生 git 协议速度比 http 快
-        :生成公私钥:
-            .. code-block:: bash
 
-                ssh-keygen -t rsa -C "xxx"
-                # ~/.ssh/id_rsa
-                # ~/.ssh/id_rsa.pub
-        :去远程仓库添加公钥:
-        :测试公钥是否有效:
-            .. code-block:: bash
+- 通过 ssh 支持的原生 git 协议速度比 http 快
+    :生成公私钥:
+        .. code-block:: bash
 
-                ssh -T git@github.com
-        :克隆:
-            .. code-block:: bash
+            ssh-keygen -t rsa -C "xxx"
+            # ~/.ssh/id_rsa
+            # ~/.ssh/id_rsa.pub
+    :去远程仓库添加公钥:
+    :测试公钥是否有效:
+        .. code-block:: bash
 
-                git clone git@github.com:fogetIt/devenv.git
-    - 自动创建版本库，并把本地和远程的 ``master`` 分支对应起来
-git
+            ssh -T git@github.com
+    :克隆:
+        .. code-block:: bash
+
+            git clone git@github.com:fogetIt/devenv.git
+- 自动创建版本库，并把本地和远程的 ``master`` 分支对应起来
+
 
 远程仓库
--------
-    :``git remote``:                    列出远程分支
-    :``git remote -v/--verbose``:       列出远程分支详细信息
-    :``git remote show origin``:        显示远程信息
-    :``git remote rm `<主机名>```:       删除远程主机
-    :``git remote add origin xxx.git``: 本地仓库对应远程仓库
-    :``git branch -a``:                 查看远程分支
-    :``git push origin --delete ...``:  删除远程分支
+---------------
+
+:``git remote``:                    列出远程分支
+:``git remote -v/--verbose``:       列出远程分支详细信息
+:``git remote show origin``:        显示远程信息
+:``git remote rm `<主机名>```:       删除远程主机
+:``git remote add origin xxx.git``: 本地仓库对应远程仓库
+:``git branch -a``:                 查看远程分支
+:``git push origin --delete ...``:  删除远程分支
 
 
 从远程仓库抓取数据到本地
----------------------
-    :``git fetch [remote-name]``:
-        - 到远程仓库中拉取所有本地仓库中还没有的数据
-        - 运行完成后，就可以在本地访问该远程仓库中的所有分支
-        - 现在可以用字串 pb 指代对应的仓库地址了
-        - 比如说,要抓取所有 Paul 有的,但本地仓库没有的信息,可以运行git fetch pb
+--------------------------------------
+
+:``git fetch [remote-name]``:
+    - 到远程仓库中拉取所有本地仓库中还没有的数据
+    - 运行完成后，就可以在本地访问该远程仓库中的所有分支
+    - 现在可以用字串 pb 指代对应的仓库地址了
+    - 比如说,要抓取所有 Paul 有的,但本地仓库没有的信息,可以运行git fetch pb

@@ -1,62 +1,64 @@
 版本控制系统
-===========
-    - 跟踪、记录文本文件的改动
-        :文本文件: *.txt、网页、程序代码等
-        :二进制文件: 图片、视频、Microsoft Word
+==================
+- 跟踪、记录文本文件的改动
 
-    - 对二进制文件不知道每次改动（比如图片，100KB~120KB）到底改了什么，没法跟踪
-    :PATH: ``${git}\cmd;${git}\bin;${git}\libexec\git-core;``
+    :文本文件: *.txt、网页、程序代码等
+    :二进制文件: 图片、视频、Microsoft Word
+
+- 对二进制文件不知道每次改动（比如图片，100KB~120KB）到底改了什么，没法跟踪
+:PATH: ``${git}\cmd;${git}\bin;${git}\libexec\git-core;``
 
 
 配置工作环境
------------
-    ================  ============================  =============
-    ``git config``      todo                          config file
-    ================  ============================  =============
-    ``--list/-l``       读取工作环境变量
-    ``...``             设置 **当前项目** 工作环境       ``./.git/config``
-    ``--system ...``    设置 **系统** 工作环境          ``~/.gitconfig``
-    ``--global ...``    设置 **用户全局** 工作环境       ``/etc/.gitconfig``
-    ================  ============================  =============
-    .. code-block:: bash
+-------------------
+================  ============================  =============
+``git config``      todo                          config file
+================  ============================  =============
+``--list/-l``       读取工作环境变量
+``...``             设置 **当前项目** 工作环境       ``./.git/config``
+``--system ...``    设置 **系统** 工作环境          ``~/.gitconfig``
+``--global ...``    设置 **用户全局** 工作环境       ``/etc/.gitconfig``
+================  ============================  =============
+.. code-block:: bash
 
-        # 配置账号
-        git config --global user.name "forgetIt"
-        git config --global user.email "2271404280@qq.com"
+    # 配置账号
+    git config --global user.name "forgetIt"
+    git config --global user.email "2271404280@qq.com"
 
-        # 取消全局设置
-        git config --global --unset user.name
-        git config --global --unset user.email
+    # 取消全局设置
+    git config --global --unset user.name
+    git config --global --unset user.email
 
-        # 忽略文件权限
-        # Linux, Windows 默认文件权限不一样
-        git config --global core.filemode false
+    # 忽略文件权限
+    # Linux, Windows 默认文件权限不一样
+    git config --global core.filemode false
 
-        # 设置编辑器
-        git config --global core.editor vim
+    # 设置编辑器
+    git config --global core.editor vim
 
-        # 显示颜色
-        git config --global color.ui true
+    # 显示颜色
+    git config --global color.ui true
 
-        # 配置别名 ~/.gitconfig [alias]...
-        git config --global alias.st status             # git st
-        git config --global alias.unstage 'reset HEAD'  # git unstage ...
-        git config --global alias.last 'log -1'         # git last 显示最后一次提交信息
+    # 配置别名 ~/.gitconfig [alias]...
+    git config --global alias.st status             # git st
+    git config --global alias.unstage 'reset HEAD'  # git unstage ...
+    git config --global alias.last 'log -1'         # git last 显示最后一次提交信息
 
-        git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 
 创建版本库
----------
-    :``git init``: 跟踪、管理版本库
+-----------------
 
-        - 在当前目录下生成 **.git/**
-        - 自动创建 **master** 分支，及其指针 **HEAD**
-    :``git add xxx``: 添加文件跟踪（把文件修改添加到 **暂存区**）
+:``git init``: 跟踪、管理版本库
 
-        :``git add file``: 添加某个文件
-        :``git add --all``: 添加所有文件
-        :``git add .``: 添加所有文件
-    :``git commit -m "xxx"``: 把 **暂存区** 所有内容提交到当前分支
+    - 在当前目录下生成 **.git/**
+    - 自动创建 **master** 分支，及其指针 **HEAD**
+:``git add xxx``: 添加文件跟踪（把文件修改添加到 **暂存区**）
+
+    :``git add file``: 添加某个文件
+    :``git add --all``: 添加所有文件
+    :``git add .``: 添加所有文件
+:``git commit -m "xxx"``: 把 **暂存区** 所有内容提交到当前分支
 
 **需要提交的文件修改统统放到暂存区，然后，一次性提交暂存区的所有修改**
