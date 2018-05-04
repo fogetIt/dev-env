@@ -14,12 +14,10 @@ sudo apt-fast -y install \
 
 # wine3.0
 wine --version || (
-    sudo apt-fast -y install wine-stable winetricks
-    winetricks wenquanyi
-
-    sudo apt-fast -y install \
-        winbind playonlinux wine-binfmt dosbox \
-        wine32-preloader:i386  wine64-preloader tor
+    sudo apt-fast -y install wine-stable playonlinux
+    # sudo apt-fast -y install winetricks
+    # sudo apt-fast -y install winbind wine-binfmt dosbox
+    # sudo apt-fast -y install wine32-preloader:i386  wine64-preloader tor
 )
 
 # wine QQ

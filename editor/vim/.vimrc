@@ -27,7 +27,7 @@ set noswapfile              " 不产生临时文件（xxx.swap）
 set nu!                     " 显示行号
 " set nonu!
 set cursorline              " 突出当前行
-set cursorcolumn            " 突出当前列
+" set cursorcolumn            " 突出当前列
 set cmdheight=2             " 命令行高度
 set showcmd                 " 在命令行显示正在输入的命令
 set history=50              " 命令行历史记录条
@@ -96,18 +96,26 @@ Plug 'vim-airline/vim-airline'
 let g:airline_extensions = ['branch', 'tabline']
 let g:airline#extensions#tabline#enabled = 1
 noremap <s-x> :bn<CR>
+
 " statusline git branch
 Plug 'tpope/vim-fugitive'
 set statusline+=%{fugitive#statusline()}
+" 显示行修改信息
+Plug 'airblade/vim-gitgutter'
 
 " --------
 " 窗口管理
 " --------
 Plug 'vim-scripts/winmanager'
 let g:winManagerWidth=30
-nmap wm :WMToggle<CR>
-nmap <c-x> :FirstExplorerWindow<CR>
 let g:NERDTree_title='[NERDTree]'
+" let g:winManagerWindowLayout = "NERDTree"
+nmap wm :WMToggle<CR>
+" --------
+" 窗口切换
+" Ctrl+W+W
+" Ctrl+W+↑/↓/←/→(Ctrl+W+H/J/K/L)
+" --------
 " 执行一个退出命令，关闭自动出现的窗口
 function! NERDTree_Start()
     exe 'q'
@@ -123,4 +131,6 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
 " set background=light
+
+
 call plug#end()
