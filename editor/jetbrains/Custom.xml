@@ -1,10 +1,10 @@
 <!--
   ${IntelliJ IDEA}\lib\resources.jar\keymaps\***.xml
   ~\.IntelliJIdea**\config\keymaps\***.xml
-  settings -> Keymap -> JetBrains
+  settings -> Keymap -> Custom
 -->
 
-<keymap version="1" name="JetBrains" parent="$default" disable-mnemonic="false">
+<keymap version="1" name="Custom" parent="$default" disable-mnemonic="false">
 
 <!-- 搜索 -->
   <action id="Find">

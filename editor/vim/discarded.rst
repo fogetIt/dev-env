@@ -22,6 +22,7 @@ cscope
 
 :taglist.vim:     依赖 ctags ，列出当前文件所有宏、全局变量、函数名等
 :tagbar:          依赖 ctags ，taglist 的替代品，函数能够按类区分、折叠显示
+:OmniCppComplete: 依赖 ctags ,补全 C/C++ ,替代品: YouCompleteMe
 :cscope.vim:      依赖 cscope ，快速跳转
 :cscope_maps.vim: cscope.vim 的快捷键
 :genutils:        提供了一些通用的函数，供其它脚本使用

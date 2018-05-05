@@ -15,7 +15,7 @@ function jetbrains() {
     && cd ${HOME}/.${package}*/config && (
         find ./ -name keymaps -type d | grep "keymaps" || mkdir keymaps
     ) \
-    && cp -f "${PATH_DEVENV}/editor/JetBrains.xml" ./keymaps/JetBrains.xml
+    && cp -f "${PATH_DEVENV}/editor/jetbrains/Custom.xml" ./keymaps/Custom.xml
 }
 
 jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
