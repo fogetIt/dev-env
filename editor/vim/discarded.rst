@@ -18,7 +18,7 @@ cscope
 
 
 插件
----------    
+---------
 
 :taglist.vim:     依赖 ctags ，列出当前文件所有宏、全局变量、函数名等
 :tagbar:          依赖 ctags ，taglist 的替代品，函数能够按类区分、折叠显示
@@ -26,6 +26,9 @@ cscope
 :cscope_maps.vim: cscope.vim 的快捷键
 :genutils:        提供了一些通用的函数，供其它脚本使用
 :lookupfile:      依赖 ctags、genutils ，查找文件、缓冲区中、目录
+
 :minibufexpl.vim: 打开多个文件时，显示、切换标签栏
+:mru.vim:         最近访问的文件窗口
+
 :Vundle.vim:      插件管理器
 :neobundle.vim:   基于 vundle 的不稳定开发版，异步、支持 ``svn`` ，已停更
