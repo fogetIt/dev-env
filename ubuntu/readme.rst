@@ -28,10 +28,9 @@ apt
 
 dpkg
 ----
-- 手动安装 .deb 包，根据反馈，解决依赖
 .. code-block:: bash
 
-    sudo dpkg -i xxx           # 安装
+    sudo dpkg -i xxx           # 安装 .deb 包
     sudo dpkg --configure -a   # 打断安装
     sudo dpkg -l | grep xxx    # 查询相关包信息
     sudo dpkg -P xxx           # 彻底卸载
@@ -73,12 +72,12 @@ mongodb
 其它
 ----
 
-:gedit:             文本编辑器
-:draw.io:           流程图编辑器
-:VMTools:           虚拟机与实体机之间文件拖动
-:FastoRedis:        redis GUI
-:electronic wechat: `微信 <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
-
+:gedit:      文本编辑器
+:VLC:        多媒体播放器
+:draw.io:    流程图编辑器
+:VMTools:    虚拟机与实体机之间文件拖动
+:FastoRedis: redis GUI
+:wechat:     `electronic wechat <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
 :桌面:
 
     :xubuntu-desktop:

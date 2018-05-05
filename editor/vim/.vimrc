@@ -54,10 +54,11 @@ set incsearch               " 搜索时逐字高亮
 set showmatch               " 高亮显示匹配的括号
 set matchtime=5             " 括号高亮时间(单位:0.1s)
 
-" 在被分割的窗口间显示空白，便于阅读
-set fillchars=vert:\, stl:\,stlnc:\
+" set fillchars=vert:\, stl:\,stlnc:\           " 在被分割的窗口间显示空白，便于阅读
+autocmd! bufwritepost .vimrc source ~/.vimrc  " 修改配置文件后，无需重启
 
 syntax enable
+syntax on
 
 if has("autocmd")
     autocmd InsertLeave * se nocul  " 用浅色高亮当前行
