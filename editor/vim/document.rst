@@ -26,7 +26,6 @@ vim-gnome    vim with gnome GUI
 - 安装在 $VIM/vimfiles
 
 
-
 插件
 -------
 
@@ -40,4 +39,7 @@ vim-gnome    vim with gnome GUI
 :ctrlp.vim:
     - 实现了 sublime Ctrl+P 的功能
     - 纯 vimscript 实现，没有外部依赖
-        - 可以取代 lookupfile
+        - 可以取代 lookupfile, mru
+    
+    :Ctrl+P: 文件搜索
+    :Ctrl+F: 内容搜索

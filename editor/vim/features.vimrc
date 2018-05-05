@@ -111,22 +111,6 @@ highlight Pmenu guibg=darkgrey  guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
 "选中项的配色
 
-"-----------------
-" 最近访问的文件列表
-"-----------------
-Plugin 'mru.vim'
-nmap m :MRU<CR>                             " :m==:MRU
-"let MRU_File=$VIM.'\Data\mru_files.txt'"   " 记录历史文件的位置
-let MRU_Exclude_Files='^/test/.*|^/.pyc'    " 设置默认不包含哪些文件，默认空
-"let MRU_Include_Files='.c$|.h$'"           " 设置默认只包含哪些文件，默认空
-let MRU_Max_Entries=50                      " 记录的条数，默认100
-let MRU_Max_Submenu_Entries=15
-" MRU窗口默认子菜单显示多少条记录，默认10
-let MRU_Window_Height=10                    " MRU窗口的高度，默认8
-let MRU_Use_Current_Window=1
-" 在本窗口打开最近文件列表，而不是新的窗口
-let MRU_Auto_Close=1                        " 选择文件后，关闭MRU窗口(0/1)
-
 " ========================================================================
 
 if has("gui_running")
