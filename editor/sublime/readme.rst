@@ -55,7 +55,7 @@ package control
 
 
 插件
-------
+-------
 
 :主题:
     - ``Theme - Piatto``

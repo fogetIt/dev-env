@@ -27,3 +27,5 @@ cscope
 :genutils:        提供了一些通用的函数，供其它脚本使用
 :lookupfile:      依赖 ctags、genutils ，查找文件、缓冲区中、目录
 :minibufexpl.vim: 打开多个文件时，显示、切换标签栏
+:Vundle.vim:      插件管理器
+:neobundle.vim:   基于 vundle 的不稳定开发版，异步、支持 ``svn`` ，已停更
