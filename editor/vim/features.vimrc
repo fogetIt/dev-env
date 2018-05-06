@@ -36,10 +36,9 @@ if &bg == "dark"
 else
     highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
 endif
-" ----------
-" 自动补全
-" ----------
-" 普通文件
+" --------------
+" 自动补全普通文件
+" --------------
 Plugin 'AutoComplPop'
 let g:AutoComplPop_Behavior = {'c': [{'command' : "\\",'pattern' : ".",'repeat' : 0}]}
 " html,css,javascript
