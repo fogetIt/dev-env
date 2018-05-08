@@ -38,3 +38,18 @@ ubuntu16.04 QQ
         pkill  plugplay.exe
         pkill  explorer.exe
         pkill  services.exe
+
+
+themes&icons
+------------
+.. code-block:: bash
+
+    sudo add-apt-repository ppa:papirus/papirus
+    sudo apt-fast update
+    sudo apt-fast install papirus-icon-theme
+
+    sudo apt-fast install -y gtk2-engines-pixbuf gnome-themes-standard
+
+    sudo add-apt-repository ppa:numix/ppa
+    sudo apt-fast update
+    sudo apt-fast install numix-icon-theme

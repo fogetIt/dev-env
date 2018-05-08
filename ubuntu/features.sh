@@ -52,7 +52,6 @@ COMMENT
 sudo apt-fast install -y papirus-icon-theme
 sudo apt-fast install -y numix-gtk-theme numix-icon-theme-circle
 sudo apt-fast install -y arc-theme
-sudo apt-fast install -y gtk2-engines-pixbuf gnome-themes-standard
 # ************************************************************
 sudo add-apt-repository ppa:snwh/pulp
 sudo apt-fast update
