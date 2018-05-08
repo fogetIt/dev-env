@@ -16,17 +16,12 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 ) && echo "${ROOT_CONFIG}" | sudo tee ${ROOT_CONFIG_FILE}
 # ***************************************************************
 # ppa
-source_count=1
-which apt-fast || (
-    sudo add-apt-repository -y ppa:apt-fast/stable
-    let source_count++
-)
+which apt-fast || sudo add-apt-repository -y ppa:apt-fast/stable
 uget-gtk --version || (
     sudo add-apt-repository -y ppa:t-tujikawa/ppa
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
-    let source_count++
 )
-[[ ${source_count} == 1 ]] || sudo apt-get update
+sudo apt-get update
 # ***************************************************************
 which apt-fast || sudo apt-get -y install apt-fast && apt-fast --version | cat | head -n 2
 which vim      || (
