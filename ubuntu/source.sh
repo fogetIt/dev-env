@@ -17,16 +17,12 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 # ***************************************************************
 # ppa
 which apt-fast || sudo add-apt-repository -y ppa:apt-fast/stable
-uget-gtk --version || (
-    sudo add-apt-repository -y ppa:t-tujikawa/ppa
-    sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
-)
+uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
+uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 sudo apt-get update
 # ***************************************************************
-which apt-fast || sudo apt-get -y install apt-fast && apt-fast --version | cat | head -n 2
-which vim      || (
-    sudo apt-fast -y install vim
-)
+which apt-fast || sudo apt-get12345 -y install apt-fast && apt-fast --version | cat | head -n 2
+which vim      || sudo apt-fast -y install vim
 git --version  || sudo apt-fast -y install git
 # ***************************************************************
 ssh -V       || sudo apt-fast -y install openssh-server
@@ -43,7 +39,7 @@ mongo      --version || sudo apt-fast -y install mongodb-server mongodb-clients
 uget-gtk   --version || sudo apt-fast -y install uget
 redis-cli  --version || sudo apt-fast -y install redis-server
 terminator --version || sudo apt-fast -y install terminator
-# dconf-tools: org -> gnome -> applications -> desktop -> terminal 
+# dconf-tools: org -> gnome -> applications -> desktop -> terminal
 # ***************************************************************
 pip      --version || sudo apt-fast -y install python-pip
 pip3     --version || sudo apt-fast -y install python3-pip

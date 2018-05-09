@@ -7,15 +7,8 @@ ubuntu16.04 unity 桌面美化
     sudo apt-fast -y install unity-tweak-tool      # 系统管理工具
 
 
-atom
------
-.. code-block:: bash
-
-    which atom || (
-        sudo add-apt-repository -y ppa:webupd8team/atom
-        sudo apt-fast update
-        sudo apt-fast -y install atom
-    )
+ppa:webupd8team/atom
+--------------------
 
 
 ubuntu16.04 QQ
@@ -66,3 +59,12 @@ node
     && npm config set prefix /usr/local
     # npm config list
     # npm全局命令安装目录：${prefix}/bin/
+
+
+动态壁纸包
+----------------
+.. code-block:: bash
+
+    sudo add-apt-repository ppa:fyrmir/livewallpaper-daily
+    sudo apt-fast update
+    sudo apt-fast install livewallpaper livewallpaper-config livewallpaper-indicator
