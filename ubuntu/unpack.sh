@@ -24,27 +24,10 @@ jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 # jetbrains "idea"     "IdeaIU"   "idea.sh"
 
 # nohup pycharm>~/jetbrains.log 2>&1 &
-# ***************************************************************
-# https://npm.taobao.org/mirrors/node/v8.9.3/node-v8.9.3-linux-x64.tar.xz
-node -v && npm -v || (
-    cd ${PATH_SOFTWARES} \
-    && (
-        [[ -f node*.tar ]] || xz -kfd node*.tar.xz
-    ) \
-    && (
-        [[ -d node ]] || mkdir node
-    ) \
-    && tar -xvf node*.tar -C node --strip-components 1 \
-    && sudo ln -sf "${PATH_SOFTWARES}/node/bin/node" /usr/bin/node \
-    && sudo ln -sf "${PATH_SOFTWARES}/node/bin/npm" /usr/bin/npm \
-    && npm config set prefix /usr/local
-)
 exit 0
-# npm config list
-# npm全局命令安装目录：${prefix}/bin/
+
 # ***************************************************************
-# curl -fLo "${PATH_SOFTWARES}/go.tar.gz" --create-dirs \
-# https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz
+# curl -fLo "./go.tar.gz" https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz
 go version || (
     cd ${PATH_SOFTWARES} \
     && (

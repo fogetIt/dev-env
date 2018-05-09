@@ -36,7 +36,7 @@ cp -rf ../editor/sublime/* "${HOME}/.config/sublime-text-3/Packages/User/"
 COMMENT
 
 
-# themes&icons
+# icons-themes
 sudo apt-fast install -y gnome-tweak-tool
 sudo apt-fast install -y screenfetch
 sudo apt-fast install -y gnome-shell-extension-dashtodock

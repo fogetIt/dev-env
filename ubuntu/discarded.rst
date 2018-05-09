@@ -40,7 +40,7 @@ ubuntu16.04 QQ
         pkill  services.exe
 
 
-themes&icons
+icons-themes
 ------------
 .. code-block:: bash
 
@@ -53,3 +53,16 @@ themes&icons
     sudo add-apt-repository ppa:numix/ppa
     sudo apt-fast update
     sudo apt-fast install numix-icon-theme
+
+
+node
+-----
+.. code-block:: bash
+
+    xz -kfd node*.tar.xz \
+    && (mkdir node;tar -xvf node*.tar -C node --strip-components 1) \
+    && sudo ln -sf "./node/bin/node" /usr/bin/node \
+    && sudo ln -sf "./node/bin/npm" /usr/bin/npm \
+    && npm config set prefix /usr/local
+    # npm config list
+    # npm全局命令安装目录：${prefix}/bin/
