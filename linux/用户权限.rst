@@ -1,85 +1,93 @@
 修改用户密码
------------
-    :passwd user xxx:
-        -d  删除密码
-        -f  强制
-        -l  锁定（用户不能更改）
-        -u  解锁
-        -S  查看密码状态
-    *普通用户只能更改自己的用户密码，前提是没有被 root 用户锁定*
+--------------------
+
+:passwd user xxx:
+    -d  删除密码
+    -f  强制
+    -l  锁定（用户不能更改）
+    -u  解锁
+    -S  查看密码状态
+*普通用户只能更改自己的用户密码，前提是没有被 root 用户锁定*
 
 
 管理用户组
----------
-    :gpasswd:
-        -a  :--add user group:                 添加用户
-        -d  :--delete user group:              删除用户
-        -A  :--administrators user,user group: 指定管理员
-        -M  :--members user,user:              设置用户列表（覆盖）
-        -r  :--remove-password group:          删除密码
-        -R  :--restrict group:                 限制用户登入组
+-----------------
+
+:gpasswd:
+    -a  :--add user group:                 添加用户
+    -d  :--delete user group:              删除用户
+    -A  :--administrators user,user group: 指定管理员
+    -M  :--members user,user:              设置用户列表（覆盖）
+    -r  :--remove-password group:          删除密码
+    -R  :--restrict group:                 限制用户登入组
 
 
 创建新用户
----------
-    :useradd xxx:
-        -c  :--comment xxx:         添加备注
-        -d  :--home-dir xxx/xxx:    指定家目录
-        -m  :--create-home xxx/xxx: 创建家目录
-        -M  :--no-create-home:      不创建家目录
-        -D  :--defaults:            变更系统默认预设值
-        -e  :--expiredate xxx:      指定帐号的有效期限
-        -f  :--inactive xxx:        指定密码过期后几天关闭
-        -g  :--gid xxx:             指定用户所属主组（唯一）
-        -G  :--groups xxx:          指定用户所属附加组
-        -U  :--user-group:          创建同名的组
-        -N  :--no-user-group:       不创建同名的组
-        -r  :--system:              创建一个系统账户
-        -s  :--shell xxx:           指定登录后所用 shell
-        -u  :--uid xxx:             指定用户 id(>=1000)
+---------------
+
+:useradd xxx:
+    -c  :--comment xxx:         添加备注
+    -d  :--home-dir xxx/xxx:    指定家目录
+    -m  :--create-home xxx/xxx: 创建家目录
+    -M  :--no-create-home:      不创建家目录
+    -D  :--defaults:            变更系统默认预设值
+    -e  :--expiredate xxx:      指定帐号的有效期限
+    -f  :--inactive xxx:        指定密码过期后几天关闭
+    -g  :--gid xxx:             指定用户所属主组（唯一）
+    -G  :--groups xxx:          指定用户所属附加组
+    -U  :--user-group:          创建同名的组
+    -N  :--no-user-group:       不创建同名的组
+    -r  :--system:              创建一个系统账户
+    -s  :--shell xxx:           指定登录后所用 shell
+    -u  :--uid xxx:             指定用户 id(>=1000)
 
 
 修改用户
--------
-    :usermod xxx:
-        -c xxx  修改备注
-        -d xxx  修改家目录
-        -M      没有家目录
-        -e xxx  修改帐号的有效期限
-        -f xxx  修改在密码过期后多少天关闭
-        -g xxx  修改用户所属主组（唯一）
-        -G xxx  修改用户所属附加组
-        -l xxx  修改用户帐号名称
-        -L      锁定用户密码，使密码无效
-        -s xxx  修改用户登入后所用 shell
-        -u xxx  修改用户 ID
-        -U      解除密码锁定
+-------------
+
+:usermod xxx:
+    -c xxx  修改备注
+    -d xxx  修改家目录
+    -M      没有家目录
+    -e xxx  修改帐号的有效期限
+    -f xxx  修改在密码过期后多少天关闭
+    -g xxx  修改用户所属主组（唯一）
+    -G xxx  修改用户所属附加组
+    -l xxx  修改用户帐号名称
+    -L      锁定用户密码，使密码无效
+    -s xxx  修改用户登入后所用 shell
+    -u xxx  修改用户 ID
+    -U      解除密码锁定
 
 
 删除用户
--------
-    :userdel xxx:
-        -f  强制删除用户，即使用户当前已登录
-        -r  同时删除所有相关文件（家目录、邮件）
+-------------
+
+:userdel xxx:
+    -f  强制删除用户，即使用户当前已登录
+    -r  同时删除所有相关文件（家目录、邮件）
 
 
 创建组
-------
-    :groupadd xxx:
-        -g xxx  指定组 ID
-        -o      允许组 ID 不唯一
-        -r      创建系统工作组 (ID<500)
-        -f      强制覆盖
+---------
+
+:groupadd xxx:
+    -g xxx  指定组 ID
+    -o      允许组 ID 不唯一
+    -r      创建系统工作组 (ID<500)
+    -f      强制覆盖
 
 
 修改组
-------
-    :groupmod xxx:
-        -g xxx  修改组 ID
-        -o      重复使用组 ID
-        -n xxx  修改组名称
+---------
+
+:groupmod xxx:
+    -g xxx  修改组 ID
+    -o      重复使用组 ID
+    -n xxx  修改组名称
 
 
 删除组
-------
-    :groupdel xxx:
+----------
+
+:groupdel xxx:
