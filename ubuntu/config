@@ -1,6 +1,5 @@
 PASSWORD=12345
 
-PATH_UBUNTU=$(pwd)
 PATH_SOFTWARES=$HOME/softwares
 
 GITHUB_NAME="forgetIt"

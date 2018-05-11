@@ -35,9 +35,9 @@ ubuntu16.04 QQ
         sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
         sudo dpkg -i apps.com.qq.im_8.1.17255deepin11_i386.deb
         # vim /usr/bin/killqq
-        ps aux | grep -v grep | grep wine |cut -c 9-15 | xargs kill
-        ps aux | grep -v grep | grep QQ |cut -c 9-15 | xargs kill
-        ps aux | grep -v grep | grep qq |cut -c 9-15 | xargs kill
+        ps aux | grep -v grep | grep wine | cut -c 9-15 | xargs kill
+        ps aux | grep -v grep | grep QQ | cut -c 9-15 | xargs kill
+        ps aux | grep -v grep | grep qq | cut -c 9-15 | xargs kill
         pkill  plugplay.exe
         pkill  explorer.exe
         pkill  services.exe
