@@ -6,9 +6,9 @@
 [阿里云镜像库](https://dev.aliyun.com/search.html)
     lab99/gitlab-ce-zh
 "
-sudo docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
-# sudo docker run --name gitlab -p 6608:80 -it $IMAGE_ID
-sudo docker run \
+docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
+# docker run --name gitlab -p 6608:80 -it $IMAGE_ID
+docker run \
     --detach \
     --name gitlab \
     --publish 8001:80 \  # must

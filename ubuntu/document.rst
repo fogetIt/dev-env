@@ -134,16 +134,15 @@ mongodb
 
 python tools
 -------------
+.. code-block:: bash
 
-:virtualenv:
-    :virtualenv xxx/xxx:
-        :``--system-site-packages``: 继承系统包目录
-        :``--no-site-packages``:     不继承系统包目录
-        :``-p $(which python3)``:    指定 python 版本
-:ipython: powered python shell
+    # --system-site-packages 继承系统包目录
+    # --no-site-packages     不继承系统包目录
+    virtualenv xxx/xxx --no-site-packages -p $(which python3)
 
-    :ipython-notebook: ipython broswer tool
-:bpython: powered python shell(only linux)
+    # ipython broswer tool
+    sudo apt-fast install -y ipython-notebook
+    sudo apt-fast install -y ipython3-notebook
 
 
 terminator

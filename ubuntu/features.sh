@@ -56,12 +56,3 @@ sudo apt-fast install -y arc-theme
 sudo add-apt-repository ppa:snwh/pulp
 sudo apt-fast update
 sudo apt-fast install -y paper-icon-theme
-
-
-: <<'COMMENT'
-# spacevim
-curl -sLf https://spacevim.org/install.sh | bash
-COMMENT
-cp -f ../editor/vim/.vimrc ${HOME}
-curl -fLo ~/softwares/vimrcs/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

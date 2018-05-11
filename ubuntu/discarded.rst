@@ -6,14 +6,24 @@ ubuntu16.04 unity 桌面美化
     which conky || sudo apt-fast -y install conky  # 显示系统信息
     sudo apt-fast -y install unity-tweak-tool      # 系统管理工具
 
+    # 动态壁纸包
+    sudo add-apt-repository ppa:fyrmir/livewallpaper-daily
+    sudo apt-fast update
+    sudo apt-fast install livewallpaper livewallpaper-config livewallpaper-indicator
+
 
 ppa:webupd8team/atom
 --------------------
 
 
+spacevim
+--------
+.. code-block:: bash
+
+    curl -sLf https://spacevim.org/install.sh | bash
+
 ubuntu16.04 QQ
 ----------------
-- `参考 <http://blog.csdn.net/ysy950803/article/details/52958538>`_
 - `下载 <https://pan.baidu.com/s/1kV0u7Nh>`_ ，密码: 7vit
 - 按顺序安装
 
@@ -53,18 +63,9 @@ node
 .. code-block:: bash
 
     xz -kfd node*.tar.xz \
-    && (mkdir node;tar -xvf node*.tar -C node --strip-components 1) \
+    && mkdir node;tar -xvf node*.tar -C node --strip-components 1 \
     && sudo ln -sf "./node/bin/node" /usr/bin/node \
     && sudo ln -sf "./node/bin/npm" /usr/bin/npm \
     && npm config set prefix /usr/local
     # npm config list
     # npm全局命令安装目录：${prefix}/bin/
-
-
-动态壁纸包
-----------------
-.. code-block:: bash
-
-    sudo add-apt-repository ppa:fyrmir/livewallpaper-daily
-    sudo apt-fast update
-    sudo apt-fast install livewallpaper livewallpaper-config livewallpaper-indicator

@@ -125,3 +125,6 @@ docker exec [OPTIONS] <CONTAINER_ID> COMMAND [ARG...]
 docker exec -it <CONTAINER_ID> /opt/gitlab/etc/gitlab.rb.template
 "
 ```
+
+
+##### [阿里云镜像库](https://dev.aliyun.com/search.html)

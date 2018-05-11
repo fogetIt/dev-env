@@ -1,23 +1,12 @@
 PASSWORD=12345
 
-
 PATH_UBUNTU=$(pwd)
-PATH_DEVENV=$(dirname $(pwd))
 PATH_SOFTWARES=$HOME/softwares
 
+GITHUB_NAME="forgetIt"
+GITHUB_EMAIL="2271404280@qq.com"
+GITHUB_DOWNLOAD_PREFIX="https://raw.githubusercontent.com"
 
 ROOT_CONFIG_FILE=/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
-ROOT_CONFIG="
-# sudo passwd root
-# su root
-[Seat:*]
-user-session=ubuntu
-greeter-show-manual-login=true
-"
 
-
-GIT_NAME="forgetIt"
-GIT_EMAIL="2271404280@qq.com"
-
-
-PIP_SOURCE=https://pypi.tuna.tsinghua.edu.cn/simple
+PYPI=https://pypi.tuna.tsinghua.edu.cn/simple
