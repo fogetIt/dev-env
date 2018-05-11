@@ -32,7 +32,6 @@ docker-compose --version
 
 : <<'COMMENT'
 注册阿里云，使用国内镜像加速
-http://www.cnblogs.com/atuotuo/p/6264800.html
 {
     "registry-mirrors": [
         "https://e92apzsu.mirror.aliyuncs.com",
