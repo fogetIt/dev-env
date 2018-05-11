@@ -34,7 +34,8 @@ ssh -V       || sudo apt-fast -y install openssh-server
 which axel   || sudo apt-fast -y install axel
 which curl   || sudo apt-fast -y install curl
 which aria2c || sudo apt-fast -y install aria2
-which unrar  || sudo apt-fast -y install unrar  # unrar e xxx
+which unzip  || sudo apt-fast -y install unzip  # unzip xxx.zip -d xxx
+which unrar  || sudo apt-fast -y install unrar  # unrar e xxx.rar
 which dconf  || sudo apt-fast -y install dconf-tools
 zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
@@ -43,18 +44,34 @@ terminator --version || sudo apt-fast -y install terminator
 # dconf-tools: org -> gnome -> applications -> desktop -> terminal
 # ***************************************************************
 which vim || sudo apt-fast -y install vim
-read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -fLo ${HOME}/.vimrc \
         "${GITHUB_DOWNLOAD_PREFIX}/fogetIt/devenv/master/editor/vim/.vimrc"
     curl -fLo ~/softwares/vimrcs/autoload/plug.vim --create-dirs \
         "${GITHUB_DOWNLOAD_PREFIX}/junegunn/vim-plug/master/plug.vim"
 )
+# ***************************************************************
+read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    && git config --global user.name ${GITHUB_NAME} \
+    && git config --global user.email ${GITHUB_EMAIL} \
+    && echo -e "\n" | ssh-keygen -t rsa -C ${GITHUB_EMAIL} \
+    && cat ${HOME}/.ssh/id_rsa.pub \
+    && read -p "add public key to github!"
+)
+# ***************************************************************
+read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    [[ ${SHELL} != /usr/bin/zsh ]] \
+    && curl -L "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh \
+    && echo ${PASSWORD} | chsh -s `which zsh`
+)
+# ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     nginx -v || sudo apt-fast -y install nginx
     mysql     --version || sudo apt-fast -y install mysql-server mysql-client
     mongo     --version || sudo apt-fast -y install mongodb-server mongodb-clients
     redis-cli --version || sudo apt-fast -y install redis-server
 )
+# ***************************************************************
 pip  --version || sudo apt-fast -y install python-pip
 pip3 --version || sudo apt-fast -y install python3-pip
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -75,15 +92,18 @@ read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt-fast -y install python-pyqt5
 )
-read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    && git config --global user.name ${GITHUB_NAME} \
-    && git config --global user.email ${GITHUB_EMAIL} \
-    && echo -e "\n" | ssh-keygen -t rsa -C ${GITHUB_EMAIL} \
-    && cat ${HOME}/.ssh/id_rsa.pub \
-    && read -p "add public key to github!"
-)
-read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    [[ ${SHELL} != /usr/bin/zsh ]] \
-    && curl -L "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh \
-    && echo ${PASSWORD} | chsh -s `which zsh`
+# ***************************************************************
+read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    if nvm --version; then
+        sudo apt-fast -y install build-essential libssl-dev
+        curl -o- "${GITHUB_DOWNLOAD_PREFIX}/creationix/nvm/v0.33.2/install.sh" | bash
+    fi
+
+    export NVM_DIR="${HOME}/.nvm"
+    [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
+    [ -s "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
+
+    node -v || nvm install --lts
+    nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
+    # sudo chmod -R 777 ${HOME}/.npm
 )
