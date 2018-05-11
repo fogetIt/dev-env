@@ -37,17 +37,6 @@ curl -sSL https://get.daocloud.io/docker | sh
 curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh
 ```
 
-##### 使用国内镜像加速
-- [注册阿里云](http://www.cnblogs.com/atuotuo/p/6264800.html)
-```bash
-sudo cp -f ./daemon.json /etc/docker/
-```
-- 重启守护进程
-```bash
-sudo service docker restart
-```
-
-
 ##### 搜索
 ```bash
 # 搜索可用的镜像(宿主、程序)
