@@ -62,7 +62,7 @@ mongodb
 
 
 重启网卡
--------
+-------------
 .. code-block:: bash
 
     sudo ifconfig enp5s0 down
@@ -99,6 +99,29 @@ mongodb
 :apt-fast: ``/etc/apt-fast.conf``
 
 
+python tools
+-------------
+.. code-block:: bash
+
+    # --system-site-packages 继承系统包目录
+    # --no-site-packages     不继承系统包目录
+    virtualenv xxx/xxx --no-site-packages -p $(which python3)
+
+    # ipython broswer tool
+    sudo apt-fast install -y ipython-notebook
+    sudo apt-fast install -y ipython3-notebook
+
+
+terminator
+----------
+- Ctrl+Shift+O
+- Ctrl+Shift+E
+- Ctrl+Shift+F
+- Ctrl+D
+
+
+网络
+------
 .. code-block:: bash
 
     # UFW     Uncomplicated Firewall（简单的防火墙）————iptables的前端
@@ -132,22 +155,30 @@ mongodb
     # sudo apt-get install gufw
 
 
-python tools
--------------
-.. code-block:: bash
 
-    # --system-site-packages 继承系统包目录
-    # --no-site-packages     不继承系统包目录
-    virtualenv xxx/xxx --no-site-packages -p $(which python3)
+interfaces
+-----------
+::
 
-    # ipython broswer tool
-    sudo apt-fast install -y ipython-notebook
-    sudo apt-fast install -y ipython3-notebook
+    # /etc/network/interfaces
+    # interfaces(5) file used by ifup(8) and ifdown(8)
+    auto lo
+    iface lo inet loopback
 
+    # set static IP
+    auto enp5s0
+    iface enp5s0 inet static
+    address 10.168.120.121
+    gateway 10.168.120.254 # must 254
+    netmask 255.255.255.0
 
-terminator
-----------
-- Ctrl+Shift+O
-- Ctrl+Shift+E
-- Ctrl+Shift+F
-- Ctrl+D
+    # set second static IP(virtual IP)
+    auto enp5s0:1
+    iface enp5s0:1 inet static
+    address 10.168.120.122
+    gateway 10.168.120.254 # must 254
+    netmask 255.255.255.0
+
+    broadcast 10.168.120.255
+    dns-nameservers 202.106.0.20 8.8.8.8 219.141.140.10 219.141.136.10
+
