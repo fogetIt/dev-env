@@ -94,7 +94,7 @@ read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    if nvm --version; then; else;
+    if ! nvm --version; then
         sudo apt-fast -y install build-essential libssl-dev
         curl -o- "${GITHUB_DOWNLOAD_PREFIX}/creationix/nvm/v0.33.2/install.sh" | bash
     fi
