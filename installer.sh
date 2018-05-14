@@ -66,7 +66,7 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 )
 # ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    nginx -v || sudo apt-fast -y install nginx
+    nginx -v            || sudo apt-fast -y install nginx
     mysql     --version || sudo apt-fast -y install mysql-server mysql-client
     mongo     --version || sudo apt-fast -y install mongodb-server mongodb-clients
     redis-cli --version || sudo apt-fast -y install redis-server
