@@ -5,7 +5,8 @@
 
         {
             "files.autoSave": "onFocusChange",
-            "files.trimTrailingWhitespace": true
+            "files.trimTrailingWhitespace": true,
+            "editor.wordWrap": "on",
         }
 
 快捷键
