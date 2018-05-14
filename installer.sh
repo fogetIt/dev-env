@@ -52,7 +52,7 @@ read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 )
 # ***************************************************************
 read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    && git config --global user.name ${GITHUB_NAME} \
+    git config --global user.name ${GITHUB_NAME} \
     && git config --global user.email ${GITHUB_EMAIL} \
     && echo -e "\n" | ssh-keygen -t rsa -C ${GITHUB_EMAIL} \
     && cat ${HOME}/.ssh/id_rsa.pub \
