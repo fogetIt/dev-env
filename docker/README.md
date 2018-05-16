@@ -18,13 +18,6 @@
 - docker 守护进程都是以 root 运行的，其他用户要访问 docker 都需要用 sudo
 
 
-##### 运行
-```bash
-: "参数
-
-"
-```
-
 ##### 执行容器内的命令
 ```bash
 docker exec [OPTIONS] <CONTAINER_ID> COMMAND [ARG...]
