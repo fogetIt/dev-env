@@ -1,15 +1,16 @@
 #!/bin/bash
 if ! docker -v; then
-    # 安装默认版本 docker
+    # 默认版本 docker
     # sudo apt -y install docker.io
 
     # Add Docker repository key to APT keychain
+    # curl -O https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     cat gpg | sudo apt-key add -
     # Update where APT will search for Docker Packages
     echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${CODENAME} stable" | \
         sudo tee /etc/apt/sources.list.d/docker.list
 
-    # 确保APT能使用 https 方式，安装证书
+    # 确保 APT 能使用 https 方式，安装证书
     # Ensure that CA certificates are installed
     sudo apt-fast -y install apt-transport-https ca-certificates
     # Verifies APT is pulling from the correct Repository
