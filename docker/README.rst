@@ -1,0 +1,38 @@
+Docker
+=======
+- 一个很小的虚拟机
+- 简化了安装、配置：复制----运行
+
+:快照: 记录原始镜像的修改，只能本地运行
+:镜像: 打包后的快照，可以发给别人
+
+- :docker 服务端: 一个服务进程，管理着所有的容器
+- :docker 客户端: 服务端的远程控制器，可以用来控制 docker 的服务端进程
+
+
+
+docker 守护进程
+-----------------
+- 每个 docker 实例占用一个进程，每个实例里安装一个服务
+    - 通过 nginx 启动 django 算一个服务
+- docker 守护进程绑定到一个 Unix socket，默认由 root 所有
+    - 其他用户要访问 docker 都需要用 sudo
+
+
+`阿里云镜像库 <https://dev.aliyun.com/search.html>`_
+
+
+Linux 宿主镜像
+-------------------
+- 专门为容器设计的 Linux 发行版(轻量、可移植):
+
+.. code-block:: bash
+
+    docker search linux
+    #: Ubuntu
+    #: Alpine
+    #: CoreOS
+    #: Project Atomic
+    #: Ubuntu Snappy
+    #: RancherOS
+    #: VMware-Photon

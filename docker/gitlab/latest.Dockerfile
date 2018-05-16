@@ -1,8 +1,10 @@
 # gitlab 汉化版
 #
 # docker build --build-arg -f .  #: image TAG -> 8.8.6-ce.1
-# docker images
-FROM gitlab/gitlab-ce:8.8.6-ce.1
+#
+# FROM gitlab/gitlab-ce:8.8.6-ce.1
+# docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
+FROM twang2218/gitlab-ce-zh:latest
 MAINTAINER Tao Wang <twang2218@gmail.com>
 
 RUN echo "" \
@@ -19,9 +21,7 @@ RUN echo "" \
     && rm *.diff
 
 
-# gitlab latest
-FROM twang2218/gitlab-ce-zh:latest
-# docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
+CMD ''
 # docker run \
 #     --detach \
 #     --name gitlab-latest \

@@ -1,36 +1,26 @@
-Linux 宿主镜像
--------------------
-专门为容器设计的 Linux 发行版(轻量、可移植):
-
-.. code-block:: bash
-
-    docker search linux
-
-::
-
-    Ubuntu、Alpine、CoreOS、Project Atomic、Ubuntu Snappy、RancherOS、VMware-Photon
-
-
 命令
 --------
-.. code-block:: bash
-    
-    docker search <MIRROR_NAME>  #: 搜索可用镜像
-    docker pull <MIRROR_ADDR>    #: 拉取镜像
-    docker build <PATH>          #: 构建镜像
-    # . 代表当前目录下
+::
 
-    docker images                #: 查看本地镜像
-    docker rmi <I_NAME/I_ID>     #: 删除本地镜像
-    docker run <I_NAME/I_ID>     #: 初始化运行容器
-    # IMAGE ID 放最后，运行结果是生成 CONTAINER
+    docker search [OPTIONS] TERM             #: 搜索可用镜像
+    docker pull [OPTIONS] NAME[:TAG|@DIGEST] #: 拉取镜像
+    docker build [OPTIONS] PATH | URL | -    #: 构建镜像
+                                             # . 代表当前目录下
 
-    docker ps                    #: 查看容器（正在运行）
-    docker stop <C_NAME/C_ID>    #: 关闭容器
-    docker start <C_NAME/C_ID>   #: 启动容器
-    docker logs <C_NAME/C_ID>    #: 查看容器日志
-    docker rm <C_NAME/C_ID>      #: 删除容器
-    docker kill <C_NAME/C_ID>    #: 强制关闭容器
+    # IMAGE == IMAGE ID
+    docker images [OPTIONS] [REPOSITORY[:TAG]]    #: 查看镜像
+    docker rmi [OPTIONS] IMAGE [IMAGE...]         #: 删除本地镜像
+    docker run [OPTIONS] IMAGE [COMMAND] [ARG...] #: 初始化运行容器，生成 CONTAINER
+
+    # CONTAINER == CONTAINER NAME/CONTAINER ID
+    docker ps [OPTIONS]       #: 查看容器（正在运行）
+    docker stop [OPTIONS] CONTAINER [CONTAINER...]    #: 关闭容器
+    docker kill [OPTIONS] CONTAINER [CONTAINER...]    #: 强制关闭容器
+    docker start [OPTIONS] CONTAINER [CONTAINER...]   #: 启动容器
+    docker restart [OPTIONS] CONTAINER [CONTAINER...] #: 重启容器
+    docker rm [OPTIONS] CONTAINER [CONTAINER...]      #: 删除容器
+    docker logs [OPTIONS] CONTAINER                   #: 查看容器日志
+    docker exec [OPTIONS] CONTAINER COMMAND [ARG...]  #: 执行容器内的命令
 
 
 images
@@ -68,3 +58,19 @@ build
 """"""
 -f <FILE_NAME>  指定文件名，默认 Dockerfile （--file）
 -t <NAME:TAG>   指定镜像的名字及 tag （--tag）
+
+
+
+清除所有容器
+=====================
+.. code-block:: bash
+
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+
+
+清除所有镜像
+===============
+.. code-block:: bash
+
+    docker rmi $(docker images -q)
