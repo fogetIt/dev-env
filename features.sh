@@ -67,7 +67,7 @@ function jetbrains() {
     ) \
     && cp -f "${PATH_DEVENV}/editor/jetbrains/Custom.xml" ./keymaps/Custom.xml
 }
-
+sudo apt-fast -y install libcanberra-gtk-module
 jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 # jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # jetbrains "goland"   "GoLand"   "goland.sh"
