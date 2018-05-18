@@ -30,14 +30,15 @@ images
 
 run
 """"
--p <PORT:C_PORT>  端口映射（--publish）
--v <DIR:C_DIR>    目录映射（--volume）
--d                守护进程（--detach）
--i                标准输入给容器（--interactive）
--t                分配一个虚拟终端（--tty）
---name <C_NAME>   指定容器名称
---rm              退出时删除容器
---restart=always  自动重启（always/no）
+-p <OUT_PORT:PORT>  端口映射（--publish）
+-v <OUT_DIR:DIR>    目录映射（--volume）
+-d                  守护进程（--detach）
+-i                  标准输入给容器（--interactive）
+-t                  分配一个虚拟终端（--tty）
+--name <NAME>       指定容器名称
+--user <USER>       指定运行容器的用户
+--rm                退出时删除容器
+--restart=always    自动重启（always/no）
 
 
 

@@ -6,11 +6,8 @@ docker
 
 :快照: 记录原始镜像的修改，只能本地运行
 :镜像: 打包后的快照，可以发给别人
-
-- :docker 服务端: 一个服务进程，管理着所有的容器
-- :docker 客户端: 服务端的远程控制器，可以用来控制 docker 的服务端进程
-
-
+:client: 控制器，转发用户命令（docker pull, docker run）给守护进程
+:demaon: 守护进程，接收执行命令，返回命令执行结果，管理宿机上所有的容器
 
 docker 守护进程
 -----------------
@@ -37,3 +34,7 @@ Linux 宿主镜像
     #: Ubuntu Snappy
     #: RancherOS
     #: VMware-Photon
+
+
+docker-machine
+===============
