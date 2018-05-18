@@ -30,6 +30,7 @@ which apt-fast || sudo apt-get -y install apt-fast
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 git --version  || sudo apt-fast -y install git
 # ***************************************************************
+# sudo apt install rar
 ssh -V       || sudo apt-fast -y install openssh-server
 which axel   || sudo apt-fast -y install axel
 which curl   || sudo apt-fast -y install curl

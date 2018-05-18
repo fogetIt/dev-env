@@ -42,6 +42,8 @@
 
     ImTranslator
 
+    tampermonkey                       EX-百度云盘
+    baiduexporter
     Postman
     Postman Interceptor
     Request Maker
@@ -59,27 +61,18 @@
     ===============================  ======
 
 
-进程管理
---------
-    Shift+Esc
 
-- 打开文件夹
-    ```
-    file:///home/zdd/github/
-    ```
-- 修改页面
-    + console----document.body.contentEditable=true
-- 编辑文件
-    + data:text/html,<html contenteditable>
+:进程管理: Shift+Esc
+:打开文件夹: file:///xxx/xxx
+:修改页面: console -> document.body.contentEditable=true
+:编辑文件: data:text/html,<html contenteditable>
+:手动安装插件: 进入扩展程序，拖拽 cxr 文件
+
 - 地址栏计算器
 - 断网小恐龙
-- F12--->右键刷新--->选择加载方式、清空缓存
-- 手动安装插件：进入扩展程序，拖拽 cxr 文件
+- F12 --> 右键刷新 --> 选择加载方式、清空缓存
 
 http://www.tuicool.com/articles/ER32Y3
 
-sudo apt install rar
 
-flash
-------
-chrome://flags/#run-all-flash-in-allow-mode
+:flash: chrome://flags/#run-all-flash-in-allow-mode
