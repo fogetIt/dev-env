@@ -40,6 +40,7 @@ which unrar  || sudo apt-fast -y install unrar  # unrar e xxx.rar
 which dconf  || sudo apt-fast -y install dconf-tools
 zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
+ifconfig   --version || sudo apt-fast -y install net-tools
 uget-gtk   --version || sudo apt-fast -y install uget
 terminator --version || sudo apt-fast -y install terminator
 # dconf-tools: org -> gnome -> applications -> desktop -> terminal
