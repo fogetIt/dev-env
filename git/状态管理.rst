@@ -1,7 +1,7 @@
 分支状态
 ------------
 
-:``git status``:
+:git status:
 :可能的状态:
     - 修改但没有 **add**
     - **add** 但没有 **commit**
@@ -12,7 +12,7 @@
 比较
 -------
 
-:``git diff``: 比较工作区与暂存区
+:git diff: 比较工作区与暂存区
 
 
 
@@ -26,11 +26,12 @@
     - 带有敏感信息（口令、数据库密码等）的配置文件
 - `示范 <https://github.com/github/gitignore>`_
 - `示例 <.gitignore>`_
+
 :格式规范:
-    :``#``:           注释
-    :``shell regex``: 模式匹配
-    :``xxx/``:        忽略目录
-    :``!xxx``:        不忽略
+    :#:           注释
+    :shell regex: 模式匹配
+    :xxx/:        忽略目录
+    :!xxx:        不忽略
 :``.gitignore`` 无效:
     :原因: 目录/文件加入 ``.gitignore`` 之前已经添加跟踪
     :解决办法: `删除追踪记录`_
@@ -49,21 +50,21 @@
 历史
 --------
 
-:``git log``:                  查看提交历史（近->远）
-:``git log --pretty=oneline``: 一行显示
-:``git reflog``:               查看命令历史
-:``git log --graph``:          查看分支合并情况
+:git log: 查看提交历史（近 -> 远）
 
-``git log --graph --pretty=oneline --abbrev-commit``
+    --graph           查看分支合并情况
+    --pretty=oneline  一行显示
+    --abbrev-commit   <COMMIT ID> 仅显示前几个字符
+:git reflog: 查看命令历史
 
 
 回退
 --------
 
-:``git reset``:              回退
-:``git reset --hard HEAD^``: 回退到上一个
-:``git reset --hard xxx``:   回退到 ``commit id`` ( ``git log`` )
-:``git reset HEAD xxx``:     把暂存区的修改撤销掉，重新放回工作区
+:git reset: 回退
+
+    --hard xxx  回退到<COMMIT ID>（HEAD^，上一个）
+:git reset HEAD xxx: 把暂存区的修改撤销掉，重新放回工作区
 
 
 暂存
@@ -71,11 +72,11 @@
 
 - 用于临时切换分支或者 pull ，但不想 commit
 
-:``git stash``:                 暂存当前工作状态
-:``git stash list``:            查看暂存的工作状态
-:``git stash apply stash@{0}``: 恢复暂存的工作状态，不删除暂存内容
-:``git stash drop stash@{0}``:  删除暂存内容
-:``git stash pop``:             恢复暂存的工作状态，同时删除暂存内容
+:git stash:                 暂存当前工作状态
+:git stash list:            查看暂存的工作状态
+:git stash apply stash@{0}: 恢复暂存的工作状态，不删除暂存内容
+:git stash drop stash@{0}:  删除暂存内容
+:git stash pop:             恢复暂存的工作状态，同时删除暂存内容
 
 
 标签
@@ -87,11 +88,12 @@
 
 :发布一个版本: 在版本库中打一个标签，就唯一确定了打标签时刻的版本
 
-    :``git tag``:              查看所有标签
-    :``git tag xxx``:          添加标签，命名
-    :``git tag -d xxx``:       删除标签
-    :``git show``:             查看标签信息
-    :``git push origin xxx``:  推送标签到远程
+    :git tag:      查看所有标签
+    :git tag xxx:  添加标签，命名
+
+        -d xxx  删除标签
+    :git show:             查看标签信息
+    :git push origin xxx:  推送标签到远程
     :删除远程标签:
         :从本地删除: ``git tag -d xxx``
         :从远程删除: ``git push origin xxx``
