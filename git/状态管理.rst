@@ -39,9 +39,10 @@
 
 删除
 --------
-:删除文件:        ``git rm xxx``:
-:_`删除追踪记录`: ``git rm xxx --cached``
-:恢复误删:        ``git checkout -- xxx``
+:git rm xxx: 删除文件
+
+    --cached 删除追踪记录
+:git checkout -- xxx: 恢复误删
 
     - 工作区的修改全部撤销
     - 让文件回到最近一次 ``git add/commit``
