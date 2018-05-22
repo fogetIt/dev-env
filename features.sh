@@ -26,10 +26,11 @@ COMMENT
 sudo apt-fast install -y gnome-tweak-tool
 sudo apt-fast install -y screenfetch
 : <<'COMMENT'
-天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
+回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
 alt+F2，输入 r ，重启 gnome-shell
 COMMENT
 sudo apt-fast install -y \
+    gnome-shell-extension-trash \
     gnome-shell-extension-weather \
     gnome-shell-extension-redshift \
     gnome-shell-extension-dashtodock \
