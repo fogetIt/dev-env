@@ -13,11 +13,7 @@ sudo apt-fast -y install \
     ttf-mscorefonts-installer
 
 # wine3.0
-wine --version || (
-    sudo apt-fast -y install wine-stable playonlinux
-    # sudo apt-fast -y install winetricks
-)
-
+wine --version || sudo apt-fast -y install wine-stable playonlinux winetricks
 
 : <<'COMMENT'
 # sublime
@@ -29,8 +25,17 @@ COMMENT
 # icons-themes
 sudo apt-fast install -y gnome-tweak-tool
 sudo apt-fast install -y screenfetch
-sudo apt-fast install -y gnome-shell-extension-dashtodock
-sudo apt-fast install -y gnome-shell-extension-autohidetopbar
+: <<'COMMENT'
+天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
+alt+F2，输入 r ，重启 gnome-shell
+COMMENT
+sudo apt-fast install -y \
+    gnome-shell-extension-weather \
+    gnome-shell-extension-redshift \
+    gnome-shell-extension-dashtodock \
+    gnome-shell-extension-autohidetopbar \
+    gnome-shell-extension-top-icons-plus \
+    gnome-shell-extension-disconnect-wifi
 : <<'COMMENT'
 设置 -> Dock
 tweak -> 主题、图标
@@ -62,18 +67,22 @@ function jetbrains() {
     && tar -zxvf "${package}.tar.gz" -C ${package} --strip-components 1 \
     && sudo ln -sf "${PATH_SOFTWARES}/${package}/bin/${entry}" "/usr/bin/${name}" \
     && ${name} \
-    && cd ${HOME}/.${package}*/config && (
-        find ./ -name keymaps -type d | grep "keymaps" || mkdir keymaps
-    ) \
-    && cp -f "${PATH_DEVENV}/editor/jetbrains/Custom.xml" ./keymaps/Custom.xml
+    && cd ${HOME}/.${package}* \
+    && curl -fLo ./config/keymaps/Custom.xml --create-dirs \
+        https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
 }
+: <<'COMMENT'
+cd ${HOME}/.PyCharm*
+curl -fLo ./config/keymaps/Custom.xml --create-dirs \
+    https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
+nohup pycharm>~/jetbrains.log 2>&1 &
+COMMENT
 sudo apt-fast -y install libcanberra-gtk-module
 jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
 # jetbrains "webstorm" "WebStorm" "webstorm.sh"
 # jetbrains "goland"   "GoLand"   "goland.sh"
 # jetbrains "idea"     "IdeaIU"   "idea.sh"
 
-# nohup pycharm>~/jetbrains.log 2>&1 &
 exit 0
 
 # ***************************************************************

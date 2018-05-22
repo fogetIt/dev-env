@@ -4,31 +4,34 @@
 
 touch
 -----
-    :touch xxx/xxx:     创建空文件
-    :touch xxx xxx:     创建多个文件
-    :touch xxx{1..100}: 创建多个文件
-    :touch "x x":       创建一个文件
+
+:touch xxx/xxx:     创建空文件
+:touch xxx xxx:     创建多个文件
+:touch xxx{1..100}: 创建多个文件
+:touch "x x":       创建一个文件
 
 
 file
 -----
-    查看文件、目录类型
+查看文件、目录类型
 
 
 c(o)p(y)
 --------
-    :cp xxx/xxx xxx/xxx:
-        - 复制/重命名文件/目录
-            -r  递归
-            -p  保留权限
+
+:cp xxx/xxx xxx/xxx: 复制/重命名 文件/目录
+
+    -r  递归
+    -p  保留权限
 
 
 r(e)m(ove)
 ----------
-    :rm xxx/xxx:
-        - 删除（支持正则）
-            -f  强制（不询问）
-            -r  递归
+
+:rm xxx/xxx: 删除（支持正则）
+
+    -f  强制（不询问）
+    -r  递归
 
 
 m(o)v(e)
@@ -38,31 +41,33 @@ m(o)v(e)
 
 find
 ----
-    :find xxx/xxx:
-        - 查找文件
-            -name   ``xxx`` 根据文件名查找
-            -iname  ``xxx`` 根据文件名查找，忽略大小写
-            -type   ``f/d`` 根据类型查找
-            -user   ``xxx`` 根据属主来查找文件
-            -group  ``xxx`` 根据属组来查找文件
-            -uid    ``xxx`` 根据 uid 查找
-            -gid    ``xxx`` 根据 gid 查找
-            -a              and
-            -o              or
-            -not            not
-            -print          打印查找结果
-            -ls             用 ls 显示查找结果
-            -ok     ``xxx`` 查找后询问用户，决定是否执行命令
-            -exec   ``xxx`` 查找后不询问用户，直接执行命令
+
+:find xxx/xxx: 查找文件
+
+    -name   xxx 根据文件名查找
+    -iname  xxx 根据文件名查找，忽略大小写
+    -type   f/d 根据类型查找
+    -user   xxx 根据属主来查找文件
+    -group  xxx 根据属组来查找文件
+    -uid    xxx 根据 uid 查找
+    -gid    xxx 根据 gid 查找
+    -a          and
+    -o          or
+    -not        not
+    -print      打印查找结果
+    -ls         用 ls 显示查找结果
+    -ok     xxx 查找后询问用户，决定是否执行命令
+    -exec   xxx 查找后不询问用户，直接执行命令
 
 
 l(i)n(k)
 --------
-    :ln xxx/xxx xxx/xxx:
-        - 创建硬链接（源文件删除后，仍可以访问）
-            -s  软链接（源文件删除后，无法访问）
-    - 硬盘上只有数据 1/0
-        :删除硬盘数据: 删除索引，再写时覆盖
-        :软链接: 在索引上建索引
-        :硬链接: 在数据上建索引
-        :复制:   再写一遍数据（剪切再粘贴比复制再粘贴快）
+
+:ln xxx/xxx xxx/xxx: 创建（硬）链接（源文件删除后，仍可以访问）
+
+    -s  软链接（源文件删除后，无法访问）
+- 硬盘上只有数据 1/0
+    :删除硬盘数据: 删除索引，再写时覆盖
+    :软链接: 在索引上建索引
+    :硬链接: 在数据上建索引
+    :复制:   再写一遍数据（剪切再粘贴比复制再粘贴快）

@@ -47,9 +47,9 @@ terminator --version || sudo apt-fast -y install terminator
 # ***************************************************************
 which vim || sudo apt-fast -y install vim
 read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    curl -fLo ${HOME}/.vimrc \
-        "${GITHUB_DOWNLOAD_PREFIX}/fogetIt/devenv/master/editor/vim/.vimrc"
-    curl -fLo ~/softwares/vimrcs/autoload/plug.vim --create-dirs \
+    curl -fLo "${HOME}/.vimrc" \
+        "${GITHUB_DOWNLOAD_PREFIX}/fogetIt/dev-env/master/editor/vim/.vimrc"
+    curl -fLo "${HOME}/softwares/vimrcs/autoload/plug.vim" --create-dirs \
         "${GITHUB_DOWNLOAD_PREFIX}/junegunn/vim-plug/master/plug.vim"
 )
 # ***************************************************************
