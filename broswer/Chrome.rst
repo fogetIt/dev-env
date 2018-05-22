@@ -61,6 +61,13 @@
     ===============================  ======
 
 
+百度云下载
+---------------
+.. code-block:: bash
+
+    # aria2 + chorme baiduexporter
+    curl -o aria2.conf https://raw.githubusercontent.com/fogetIt/devenv/master/broswer/aria2.conf
+    aria2c --conf-path="$(pwd)/aria2.conf"
 
 :进程管理: Shift+Esc
 :打开文件夹: file:///xxx/xxx

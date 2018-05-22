@@ -112,7 +112,3 @@ sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     && sudo apt-get install libstdc++6 \
     && ./mongobooster*.AppImage
 )
-
-# 配合 chorme baiduexporter ，百度云下载
-curl -o aria2.conf https://raw.githubusercontent.com/fogetIt/devenv/master/broswer/aria2.conf
-aria2c --conf-path="$(pwd)/aria2.conf"
