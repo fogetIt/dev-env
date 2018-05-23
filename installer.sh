@@ -31,13 +31,14 @@ which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 git --version  || sudo apt-fast -y install git
 # ***************************************************************
 # sudo apt install rar
-ssh -V       || sudo apt-fast -y install openssh-server
-which axel   || sudo apt-fast -y install axel
-which curl   || sudo apt-fast -y install curl
-which aria2c || sudo apt-fast -y install aria2
-which unzip  || sudo apt-fast -y install unzip  # unzip xxx.zip -d xxx
-which unrar  || sudo apt-fast -y install unrar  # unrar e xxx.rar
-which dconf  || sudo apt-fast -y install dconf-tools
+ssh -V        || sudo apt-fast -y install openssh-server
+which axel    || sudo apt-fast -y install axel
+which curl    || sudo apt-fast -y install curl
+which aria2c  || sudo apt-fast -y install aria2
+which unzip   || sudo apt-fast -y install unzip   # unzip xxx.zip -d xxx
+which unrar   || sudo apt-fast -y install unrar   # unrar e xxx.rar
+which shutter || sudo apt-fast -y install shutter # 截屏
+which dconf   || sudo apt-fast -y install dconf-tools
 zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
 ifconfig   --version || sudo apt-fast -y install net-tools
