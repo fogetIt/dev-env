@@ -1,0 +1,38 @@
+防火墙
+=============
+
+:iptables: Linux 下功能强大的应用层防火墙工具
+:Netfilter: Linux 内核的一个数据包拦截和转发模块（iptables 的核心）
+:ufw: Uncomplicated Firewall（简单的防火墙， iptables 的前端）
+:gufw: ufw 的图形界面前端
+
+
+ufw
+----
+.. code-block:: bash
+
+    sudo ufw enable        #: 启动（开机启动）
+    sudo ufw disable       #: 关闭防火墙
+    sudo ufw default deny  #: 禁止所有外部访问
+    sudo ufw status        #: 查看防火墙状态
+    #: 开放/禁用端口
+    sudo ufw allow 80/tcp
+    sudo ufw allow from 192.168.1.1
+    sudo ufw deny smtp
+    sudo ufw delete allow
+    sudo ufw delete allow smtp
+    sudo ufw deny proto tcp from 10.0.0.0/8 to 192.168.0.1 port 22
+
+
+iptables
+--------
+.. code-block:: bash
+
+    sudo iptables -P INPUT ACCEPT
+    sudo iptables -P FORWARD ACCEPT
+    sudo iptables -P OUTPUT ACCEPT
+    sudo iptables -F
+    sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT  #: 开放端口
+    #: 持久化端口信息
+    sudo apt-get install iptables-persistent
+    service iptables-persistent save

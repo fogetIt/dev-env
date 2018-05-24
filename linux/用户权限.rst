@@ -7,39 +7,40 @@
     -l  锁定（用户不能更改）
     -u  解锁
     -S  查看密码状态
-*普通用户只能更改自己的用户密码，前提是没有被 root 用户锁定*
+
+**普通用户只能更改自己的用户密码，前提是没有被 root 用户锁定**
 
 
 管理用户组
 -----------------
 
 :gpasswd:
-    -a  :--add user group:                 添加用户
-    -d  :--delete user group:              删除用户
-    -A  :--administrators user,user group: 指定管理员
-    -M  :--members user,user:              设置用户列表（覆盖）
-    -r  :--remove-password group:          删除密码
-    -R  :--restrict group:                 限制用户登入组
+    -a  添加用户（--add user group）
+    -d  删除用户（--delete user group）
+    -A  指定管理员（--administrators user,... group）
+    -M  指定用户列表（覆盖）（--members user,... group）
+    -r  删除密码（--remove-password group）
+    -R  限制用户登入组（--restrict group）
 
 
 创建新用户
 ---------------
 
 :useradd xxx:
-    -c  :--comment xxx:         添加备注
-    -d  :--home-dir xxx/xxx:    指定家目录
-    -m  :--create-home xxx/xxx: 创建家目录
-    -M  :--no-create-home:      不创建家目录
-    -D  :--defaults:            变更系统默认预设值
-    -e  :--expiredate xxx:      指定帐号的有效期限
-    -f  :--inactive xxx:        指定密码过期后几天关闭
-    -g  :--gid xxx:             指定用户所属主组（唯一）
-    -G  :--groups xxx:          指定用户所属附加组
-    -U  :--user-group:          创建同名的组
-    -N  :--no-user-group:       不创建同名的组
-    -r  :--system:              创建一个系统账户
-    -s  :--shell xxx:           指定登录后所用 shell
-    -u  :--uid xxx:             指定用户 id(>=1000)
+    -c  添加备注（--comment xxx）
+    -d  指定家目录（--home-dir xxx/xxx）
+    -m  创建家目录（--create-home xxx/xxx）
+    -M  不创建家目录（--no-create-home）
+    -D  变更系统默认预设值（--defaults）
+    -e  指定帐号的有效期限（--expiredate xxx）
+    -f  指定密码过期后几天关闭（--inactive xxx）
+    -g  指定用户所属主组（唯一）（--gid xxx）
+    -G  指定用户所属附加组（--groups xxx）
+    -U  创建同名的组（--user-group）
+    -N  不创建同名的组（--no-user-group）
+    -r  创建一个系统账户（--system）
+    -s  指定登录后所用 shell（--shell xxx）
+    -u  指定用户 id(>=1000)（--uid xxx）
 
 
 修改用户

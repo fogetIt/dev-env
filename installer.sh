@@ -4,7 +4,7 @@
 : <<'COMMENT'
 sudo apt-get update
 sudo apt-get upgrade
-chmod -R u+x $(pwd)
+chmod -R u+x "$(pwd)/*.sh"
 COMMENT
 # 将配置信息加载到 session 的环境变量中
 source config && echo ${PASSWORD} | sudo -S echo "start"
@@ -13,8 +13,7 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 
 [[ -f ${ROOT_CONFIG_FILE} ]] || touch ${ROOT_CONFIG_FILE} \
 && sudo tee ${ROOT_CONFIG_FILE} <<-'EOF'
-# sudo passwd root
-# su root
+# sudo passwd root; su root
 [Seat:*]
 user-session=ubuntu
 greeter-show-manual-login=true
@@ -35,11 +34,10 @@ ssh -V        || sudo apt-fast -y install openssh-server
 which axel    || sudo apt-fast -y install axel
 which curl    || sudo apt-fast -y install curl
 which aria2c  || sudo apt-fast -y install aria2
-which unzip   || sudo apt-fast -y install unzip   # unzip xxx.zip -d xxx
-which unrar   || sudo apt-fast -y install unrar   # unrar e xxx.rar
-which shutter || sudo apt-fast -y install shutter # 截屏
+which unzip   || sudo apt-fast -y install unzip   #: unzip xxx.zip -d xxx
+which unrar   || sudo apt-fast -y install unrar   #: unrar e xxx.rar
+which shutter || sudo apt-fast -y install shutter #: 截屏
 which dconf   || sudo apt-fast -y install dconf-tools
-zsh        --version || sudo apt-fast -y install zsh
 tree       --version || sudo apt-fast -y install tree
 ifconfig   --version || sudo apt-fast -y install net-tools
 uget-gtk   --version || sudo apt-fast -y install uget
@@ -49,9 +47,9 @@ terminator --version || sudo apt-fast -y install terminator
 which vim || sudo apt-fast -y install vim
 read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -fLo "${HOME}/.vimrc" \
-        "${GITHUB_DOWNLOAD_PREFIX}/fogetIt/dev-env/master/editor/vim/.vimrc"
+        "${GITHUB_PREFIX}/fogetIt/dev-env/master/editor/vim/.vimrc"
     curl -fLo "${HOME}/softwares/vimrcs/autoload/plug.vim" --create-dirs \
-        "${GITHUB_DOWNLOAD_PREFIX}/junegunn/vim-plug/master/plug.vim"
+        "${GITHUB_PREFIX}/junegunn/vim-plug/master/plug.vim"
 )
 # ***************************************************************
 read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -62,10 +60,17 @@ read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     && read -p "add public key to github!"
 )
 # ***************************************************************
+zsh --version || sudo apt-fast -y install zsh
 read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    [[ ${SHELL} != /usr/bin/zsh ]] \
-    && curl -L "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh \
-    && echo ${PASSWORD} | chsh -s `which zsh`
+    curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
+    [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
+)
+# ***************************************************************
+iptables --version || sudo apt-fast -y install iptables
+ufw --version      || sudo apt-fast -y install ufw
+gufw --version     || sudo apt-fast -y install gufw
+read -p "Configure firewall tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    sudo ufw enable && sudo ufw default deny
 )
 # ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -99,7 +104,7 @@ read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     if ! nvm --version; then
         sudo apt-fast -y install build-essential libssl-dev
-        curl -o- "${GITHUB_DOWNLOAD_PREFIX}/creationix/nvm/v0.33.2/install.sh" | bash
+        curl -o- "${GITHUB_PREFIX}/creationix/nvm/v0.33.2/install.sh" | bash
     fi
 
     export NVM_DIR="${HOME}/.nvm"

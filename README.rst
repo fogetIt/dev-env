@@ -112,50 +112,6 @@ python tools
     sudo apt-fast install -y ipython3-notebook
 
 
-terminator
-----------
-- Ctrl+Shift+O
-- Ctrl+Shift+E
-- Ctrl+Shift+F
-- Ctrl+D
-
-
-网络
-------
-.. code-block:: bash
-
-    # UFW     Uncomplicated Firewall（简单的防火墙）————iptables的前端
-    # Gufw    UFW的图形界面前端，Gufw自称是世界上最简单的防火墙
-
-    sudo ufw version || apt-get install iptables
-    sudo ufw status
-    #
-    # 关闭/开启防火墙
-    # ufw disable
-    # ufw enable
-    #
-    # 系统启动时自动开启。关闭所有外部对本机的访问，但本机访问外部正常
-    # ufw default deny
-    #
-    # 关闭 ubuntu 防火墙的其余命令
-    # iptables -P INPUT ACCEPT
-    # iptables -P FORWARD ACCEPT
-    # iptables -P OUTPUT ACCEPT
-    # iptables -F
-    #
-    # 开放端口
-    # sudo ufw allow 80/tcp
-    #
-    # iptables -I INPUT -p tcp --dport 80 -j ACCEPT
-    # iptables-persistent————持久化端口信息
-    # apt-get install iptables-persistent
-    # service iptables-persistent save
-
-    # 安装gufw
-    # sudo apt-get install gufw
-
-
-
 interfaces
 -----------
 ::
@@ -181,4 +137,3 @@ interfaces
 
     broadcast 10.168.120.255
     dns-nameservers 202.106.0.20 8.8.8.8 219.141.140.10 219.141.136.10
-
