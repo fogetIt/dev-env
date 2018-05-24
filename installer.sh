@@ -7,7 +7,7 @@ sudo apt-get upgrade
 chmod -R u+x "$(pwd)/*.sh"
 COMMENT
 # 将配置信息加载到 session 的环境变量中
-source config && echo ${PASSWORD} | sudo -S echo "start"
+source config && echo ${PASSWORD} | sudo -S echo "start" || exit 1
 
 [[ -d ${PATH_SOFTWARES} ]] || mkdir ${PATH_SOFTWARES}
 
@@ -68,9 +68,9 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 # ***************************************************************
 iptables --version || sudo apt-fast -y install iptables
 ufw --version      || sudo apt-fast -y install ufw
-gufw --version     || sudo apt-fast -y install gufw
 read -p "Configure firewall tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     sudo ufw enable && sudo ufw default deny
+    sudo apt-fast -y install gufw
 )
 # ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (

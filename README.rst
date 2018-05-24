@@ -43,13 +43,15 @@ mongodb
 
     .. code-block:: ini
 
-        bind_ip = 0.0.0.0  # 允许外部访问
+        # 允许外部访问
+        bind_ip = 0.0.0.0
 :命令:
     .. code-block:: bash
 
-        mongo                       #: 交互式
-        sudo service mongodb stop   #: 重启
+        sudo service mongodb stop
         sudo service mongodb start
+        sudo service mongodb restart
+        mongo #: 交互式
 
 
 搜索无效的图标

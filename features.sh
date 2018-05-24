@@ -7,6 +7,7 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 
 
 # fonts
+# Noto Sans Mono CJK KR Regular
 sudo apt-fast -y install \
     fonts-mononoki \
     fonts-wqy-microhei \
