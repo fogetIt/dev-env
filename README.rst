@@ -93,7 +93,12 @@ mongodb
 
 :zsh:
 
-    :~/.zshrc: ``ZSH_THEME='random'``
+    :~/.zshrc:
+
+        .. code-block:: bash
+
+            # ZSH_THEME='random'
+            ZSH_THEME='arrow'
 
     - ``编辑 -> 配置文件首选项``
 

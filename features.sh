@@ -60,31 +60,17 @@ unpack and install
 COMMENT
 source config && echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
-function jetbrains() {
-    name=${1};package=${2};entry=${3}
-
-    cd ${PATH_SOFTWARES} && (
-        [[ -d ${package} ]] || mkdir ${package}
-    ) \
-    && tar -zxvf "${package}.tar.gz" -C ${package} --strip-components 1 \
-    && sudo ln -sf "${PATH_SOFTWARES}/${package}/bin/${entry}" "/usr/bin/${name}" \
-    && ${name} \
-    && cd ${HOME}/.${package}* \
-    && curl -fLo ./config/keymaps/Custom.xml --create-dirs \
-        https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
-}
 : <<'COMMENT'
-cd ${HOME}/.PyCharm*
-curl -fLo ./config/keymaps/Custom.xml --create-dirs \
+# sudo apt-fast -y install libcanberra-gtk-module
+tar -zxvf "PyCharm.tar.gz" -C PyCharm --strip-components 1
+PyCharm/bin/pycharm.sh # 生成配置文件目录
+# sudo ln -sf "$(pwd)/PyCharm/bin/pycharm.sh" "/usr/bin/pycharm"
+cd ${HOME}/.PyCharm*/config
+curl -fLo ./keymaps/Custom.xml --create-dirs \
     https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
+
 nohup pycharm>~/jetbrains.log 2>&1 &
 COMMENT
-sudo apt-fast -y install libcanberra-gtk-module
-jetbrains "pycharm"  "PyCharm"  "pycharm.sh"
-# jetbrains "webstorm" "WebStorm" "webstorm.sh"
-# jetbrains "goland"   "GoLand"   "goland.sh"
-# jetbrains "idea"     "IdeaIU"   "idea.sh"
-
 exit 0
 
 # ***************************************************************

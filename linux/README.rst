@@ -23,14 +23,18 @@
 
 启动盘制作工具
 ----------------
-- 适合 Windows 单系统（无法进入 PE 或系统预览）
-    - Windows USB/DVD Download Tool
-    - MediaCreationTool
-- 适合 Linux(Ubuntu) 单系统
+- Windows 单系统
+    - Windows USB/DVD Download Tool（无 PE）
+    - MediaCreationTool（无 PE）
+    - WinPE（微 PE 、金狐 PE ）
+- Linux 单系统
     - Universal USB Installer
-- 适合 Windows&Linux 单系统
-    - ultraISO(only MBR)
-- 适合 Windows&Linux 多系统，但每种系统不能有多个版本
-    - WinSetupFromUSB, YUMI， XBoot, SARDU
+- Windows&Linux 单系统
+    - ultraISO(MBR)
+- Windows&Linux 多系统，但每种系统不能有多个版本
+    - WinSetupFromUSB
+    - YUMI
+    - XBoot
+    - SARDU
 - 多系统，多版本，UEFI&MBR
     - Easy2Boot

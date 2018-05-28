@@ -49,7 +49,7 @@ activation:
 :清理缓存: File -> Invalidate caches
 :远程:
 
-    :sftp: Tools -> Deployment -> Configuration -> SFTP -> ... 
+    :sftp: Tools -> Deployment -> Configuration -> SFTP -> ...
     :临时关联:
         - Tools -> Deployment -> browse remote host
         - 打开文件， pycharm 会在本地先生成一份，编辑完需要更新上去
@@ -96,7 +96,7 @@ WebStorm
 :Node Interpreter: /usr/bin/node
 :Npm package:      xxx/node/lib/node_modules/npm
 :Database Navigator:
-    
+
     :安装: File -> Settings -> Plugins
     :使用: DB Navigator -> Settings -> Connection -> Driver source
 
@@ -123,6 +123,9 @@ IDEA
     3. Deployment目录选择要部署的web应用`注意：此处一定要选到WebContent文件夹，即WEB-INF上的上一级目录` -> 点击OK，并配置应用的上下文路径。
     4. 修改编译输出路径：工程 -> 右键 -> Open Module Settings -> 选择Paths tab页，将output path:配置到WEB-INF\classes中，否则会找不到类。
     5. 启动tomcat。
+
+- `资料 <https://blog.csdn.net/qq_35246620/article/details/65448689>`_
+- `文档 <http://how2j.cn/k/idea/idea-download-install/1348.html?tid=95>`_
 
 
 建立web项目

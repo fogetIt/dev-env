@@ -35,17 +35,21 @@ git rebase xxx                   拉取分支最新信息，解决冲突，合�
 推送分支
 ----------------
 
-:``git push origin ×××``:
-    :simple: 默认，把当前分支上的所有本地提交推送到指定的远程分支上
-    :matching: 推送所有有对应远程分支的本地分支
+:git push:
+    :origin ×××:
 
-        .. code-block:: bash
-            git config --global push.default matching
-            # git config --global push.default simple
-    :git push --all origin: 不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机
-    :推送失败: 小伙伴的最新提交和试图推送的提交有冲突
-        - 先 ``git pull`` 把最新的提交抓下来
-        - 然后，在本地合并，解决冲突，再推送
+        :simple: 默认，把当前分支上的所有本地提交推送到指定的远程分支上
+        :matching: 推送所有有对应远程分支的本地分支
+
+            .. code-block:: bash
+                git config --global push.default matching
+                # git config --global push.default simple
+    --all origin  不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机
+
+:推送失败: 小伙伴的最新提交和试图推送的提交有冲突
+
+    - 先 ``git pull`` 把最新的提交抓下来
+    - 然后，在本地合并，解决冲突，再推送
 
 
 ssh clone
@@ -73,11 +77,12 @@ ssh clone
 远程仓库
 ---------------
 
-:git remote:                    列出远程分支
-:git remote -v/--verbose:       列出远程分支详细信息
-:git remote show origin:        显示远程信息
-:git remote rm <HOSTNAME>:      删除远程主机
-:git remote add origin xxx.git: 本地仓库对应远程仓库
+:git remote: 列出远程分支
+
+    -v 列出详细信息（--verbose）
+:git remote rm origin:   删除远程仓库
+:git remote show origin: 显示远程信息
+:git remote add origin xxx.git: 本地对应到远程仓库
 :git branch -a:                 查看远程分支
 :git push origin --delete ...:  删除远程分支
 
