@@ -26,7 +26,7 @@
 - Windows 单系统
     - Windows USB/DVD Download Tool（无 PE）
     - MediaCreationTool（无 PE）
-    - WinPE（微 PE 、金狐 PE ）
+    - WinPE（ `微 PE<www.wepe.com.cn>`_  、金狐 PE ）
 - Linux 单系统
     - Universal USB Installer
 - Windows&Linux 单系统
