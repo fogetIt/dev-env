@@ -109,3 +109,5 @@ sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     && sudo apt-get install libstdc++6 \
     && ./mongobooster*.AppImage
 )
+# ***************************************************************
+perl -version || sudo apt-get install perl
