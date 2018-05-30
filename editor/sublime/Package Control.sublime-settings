@@ -47,6 +47,7 @@
         "Colorsublime",        // 预览配色
         "ColorSchemeSelector", // 预览配色
         "A File Icon",         // 默认文件图标
+        "Boxy Theme Addon - Font Face",
         "SFTP", // 文件 -> SFTP/FTP -> Browse Server
     ]
 }
