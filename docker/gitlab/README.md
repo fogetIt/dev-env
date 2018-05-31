@@ -1,15 +1,17 @@
 gitlab 汉化版
 =============
-- [github][address]
+- [github][github]
+- [gitlab-ce-zh][gitlab-ce-zh]
 
-[address]: https://github.com/twang2218/gitlab-ce-zh
+[github]: https://github.com/twang2218/gitlab-ce-zh
+[gitlab-ce-zh]: https://hub.docker.com/r/twang2218/gitlab-ce-zh/tags/
 - latest
 ```bash
 docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
 # 关闭设置了 --restart=always 启动的容器
 docker stop gitlab & docker update --restart=no gitlab
 # 添加/修改端口映射
-docker commit CONTAINER_ID gitlab:1.0 # 提交一个运行中的容器为镜像
+docker commit gitlab gitlab:1.0 # 提交一个运行中的容器为镜像
 docker run ...
 
 docker-compose -f "$(pwd)/gitlab.yml" down
@@ -20,7 +22,7 @@ docker-compose -f "$(pwd)/gitlab.yml" up -d
 -----------------
 ```bash
 : <<'COMMIT'
-docker exec -it CONTAINER_ID ...
+docker exec -it gitlab ...
 COMMIT
 # 查看服务状态
 gitlab-ctl status

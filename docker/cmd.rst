@@ -67,7 +67,7 @@ build
 .. code-block:: bash
 
     # 清除所有容器
-    docker stop $(docker ps -a -q)
+    docker stop $(docker ps -q)
     docker rm $(docker ps -a -q)
     # 清除所有镜像
     docker rmi $(docker images -q)

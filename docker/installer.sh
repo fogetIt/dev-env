@@ -15,19 +15,23 @@ else
 fi
 
 if ! docker -v; then
-    # curl -O https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-    # Add Docker repository key to APT keychain
-    cat gpg | sudo apt-key add -
-    # Update where APT will search for Docker Packages
-    echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${CODENAME} stable" | \
-        sudo tee /etc/apt/sources.list.d/docker.list
-    sudo apt-fast -y install ca-certificates      #: 安装证书
-    sudo apt-fast -y install apt-transport-https  #: 确保 apt 能使用 https
-    # Verifies APT is pulling from the correct Repository
-    sudo apt-cache policy docker-ce
-    # Install kernel packages which allows us to use aufs storage driver if V14 (trusty/utopic)
-    sudo apt-fast -y install docker-ce
+    if [[ ${CODENAME} == "bionic" ]]; then
+        sudo apt-fast install docker.io -y
+        pip install backports.ssl_match_hostname
+    else
+        # curl -O https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        # Add Docker repository key to APT keychain
+        cat gpg | sudo apt-key add -
+        # Update where APT will search for Docker Packages
+        echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${CODENAME} stable" | \
+            sudo tee /etc/apt/sources.list.d/docker.list
+        sudo apt-fast -y install ca-certificates      #: 安装证书
+        sudo apt-fast -y install apt-transport-https  #: 确保 apt 能使用 https
+        # Verifies APT is pulling from the correct Repository
+        sudo apt-cache policy docker-ce
+        # Install kernel packages which allows us to use aufs storage driver if V14 (trusty/utopic)
+        sudo apt-fast -y install docker-ce
+    fi
 fi
 
 docker-compose --version || sudo pip install docker-compose==1.13.0
