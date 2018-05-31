@@ -7,10 +7,8 @@ services:
       environment:
         GITLAB_OMNIBUS_CONFIG: |
           # sudo -e /etc/gitlab/gitlab.rb
-          # Add any other gitlab.rb configuration here, each on its own line
           # 域名
           external_url 'http://gitlab.xxx.com'
-
           # 邮件服务器
           # gitlab_rails['smtp_enable'] = true
           # gitlab_rails['smtp_address'] = "smtp.163.com"
@@ -22,7 +20,6 @@ services:
           # gitlab_rails['smtp_enable_starttls_auto'] = true
           # gitlab_rails['gitlab_email_from'] = "xxx@163.com"
           # user["git_user_email"] = "xxx@163.com"
-
           # 定时备份
           gitlab_rails['backup_path'] = "/var/opt/gitlab/backups"
           # 备份保存时间，默认 604800 （1 week）
@@ -30,8 +27,9 @@ services:
           gitlab_rails['backup_archive_permissions'] = 0644
           # sudo gitlab-ctl reconfigure
       ports:
-        - '8001:80'
+        - '8000:80'
         - '4433:443'
+        # 需要配置 .ssh/config
         - '2222:22'
       volumes:
         - $HOME/softwares/gitlab/conf:/etc/gitlab

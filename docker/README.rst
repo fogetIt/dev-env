@@ -30,6 +30,9 @@ docker
 
 - `阿里云镜像库 <https://dev.aliyun.com/search.html>`_
 
+:Dockerfile:
+    :CMD: 只能有一条 CMD 命令，如果指定了多条命令，只有最后一条会被执行
+
 
 docker-composer
 ================

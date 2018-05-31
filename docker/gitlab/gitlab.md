@@ -1,4 +1,14 @@
-##### 关闭设置了--restart=always启动的容器
+gitlab 汉化版
+=============
+- [github][address]
+
+[address]: https://github.com/twang2218/gitlab-ce-zh
+- latest
+```bash
+docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
+```
+
+##### 关闭设置了 `--restart=always` 启动的容器
 ```bash
 docker stop gitlab & docker update --restart=no gitlab
 ```
@@ -28,5 +38,3 @@ docker start gitlab
 docker commit CONTAINER_ID gitlab:1.0
 docker run ...
 ```
-
-##### [lab99/gitlab-ce-zh](https://github.com/twang2218/gitlab-ce-zh)

@@ -32,7 +32,7 @@ run
 """"
 -p <OUT_PORT:PORT>  端口映射（--publish）
 -v <OUT_DIR:DIR>    目录映射（--volume）
--d                  守护进程（--detach）
+-d                  后台运行，并守护进程（--detach）
 -i                  标准输入给容器（--interactive）
 -t                  分配一个虚拟终端（--tty）
 --name <NAME>       指定容器名称

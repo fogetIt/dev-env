@@ -1,6 +1,3 @@
-# gitlab 汉化版
-# image TAG -> 8.8.6-ce.1
-# docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
 FROM gitlab/gitlab-ce:8.8.6-ce.1
 MAINTAINER Tao Wang <twang2218@gmail.com>
 
@@ -16,6 +13,3 @@ RUN echo "" \
     && cd .. \
     && rm -rf gitlab \
     && rm *.diff
-
-# Dockerfile 只能有一条 CMD 命令
-# 如果指定了多条命令，只有最后一条会被执行
