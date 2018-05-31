@@ -27,29 +27,11 @@ if ! docker -v; then
     # Verifies APT is pulling from the correct Repository
     sudo apt-cache policy docker-ce
     # Install kernel packages which allows us to use aufs storage driver if V14 (trusty/utopic)
-    if [ "${CODENAME}" == "trusty" ]; then
-        sudo apt-fast -y install linux-image-extra-$(uname -r) linux-image-extra-virtual
-    fi
-    if [[ "${CODENAME}" == "bionic" ]]; then
-        # ubuntu18.04 暂时（2018.5.24）无法安装最新版
-        sudo apt-fast update
-        sudo apt-fast -y install docker.io
-    else
-        sudo apt-fast -y install docker-ce
-    fi
+    sudo apt-fast -y install docker-ce
 fi
 
+docker-compose --version || sudo pip install docker-compose==1.13.0
 
-if [[ "${CODENAME}" == "bionic" ]]; then
-    curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` \
-    -o /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
-else
-    docker-compose --version || sudo pip install docker-compose==1.13.0
-fi
-
-echo 'Installation completed, versions installed are:'
-echo ''
 echo -n 'Docker:         '
 docker --version
 echo -n 'Docker Compose: '
