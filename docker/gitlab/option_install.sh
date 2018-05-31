@@ -25,8 +25,7 @@ sudo apt-fast -y install gitlab-ce=8.8.0-ce.0 --allow-unauthenticated
 sudo gitlab-ctl reconfigure
 
 # gitlab版本号　≈　汉化包版本号
-hanization=$1
-if [ $hanization == "zh" ]
+if [ ${1} == "zh" ]; then
     sudo gitlab-ctl stop
 
     GITLAB=/tmp/gitlab
@@ -40,4 +39,21 @@ if [ $hanization == "zh" ]
     && cd .. && rm -rf ${GITLAB} zh_CN.diff
 
     sudo gitlab-ctl start
+fi
+
+if [ ${1} == "del" ]; then
+    sudo gitlab-ctl stop
+    sudo gitlab-ctl uninstall
+    # uninstall
+    sudo dpkg -r gitlab-ce
+    sudo apt-get remove gitlab
+    sudo apt-get remove gitlab-ce
+    sudo apt-get purge gitlab
+    sudo apt-get purge --auto-remove gitlab
+    sudo apt-get remove --auto-remove gitlab
+    echo "Y" | sudo apt autoremove gitlab-ce
+    # clean
+    sudo rm -rf /etc/gitlab
+    sudo rm -rf /opt/gitlab
+    sudo rm -rf /etc/apt/sources.list.d/gitlab*
 fi
