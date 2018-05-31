@@ -1,83 +1,90 @@
 filesystem
 ===========
-    - 使用路径，实现层次化管理机制的文件系统
-        :路径: 从指定起始点到目的地所经过的位置
-    :``/``: 根目录
 
-        :``dev/``:  硬件设备信息目录
-        :``lib/``:  开机启动库文件目录
-        :``boot/``: 开机启动配置文件目录
-        :``bin/``:  可执行文件目录
-        :``sbin/``: 系统可执行文件目录
-        :``etc/``:  配置文件目录
+- 使用路径，实现层次化管理机制的文件系统
 
-            :``passwd``: 用户信息文件
+    :路径: 从指定起始点到目的地所经过的位置
 
-                .. code-block:: ini
+:/: 根目录
 
-                    user:password:uid:gid:info:home:shell
-                ========  ==========
-                user        用户登录名
-                password    x 代表密码转移
-                uid         系统内部用户标识，标识相同，视为同一用户
-                gid         组标识
-                info        全称、备注、描述
-                home        用户家目录
-                shell       登录系统后的 shell
-                 -          :/usr/sbin/nologin: 禁止用户登录
-                ========  ==========
-            :``shadow``: 用户密码文件
+    :dev/:  硬件设备信息目录
+    :lib/:  开机启动库文件目录
+    :boot/: 开机启动配置文件目录
+    :bin/:  可执行文件目录
+    :sbin/: 系统可执行文件目录
+    :etc/:  配置文件目录
 
-                .. code-block:: ini
+        :passwd: 用户信息文件
 
-                    user:password:time1:time2:time3:time4:time5:time6:other
-                ========  ===========
-                user        用户登录名
-                password    加密后的密码
-                 -          :``*``:  密码被锁
-                 -          :``!!``: 密码已过期
-                 -          :`` ``:  没有密码（不是空）
-                 -          :$1$...: MD5 加密
-                 -          :$6$...: SHA-512 加密
-                 -          :$5$...: SHA-256 加密
-                 -          :$2$...: Blowfish 加密
-                time1       密码改动时间（时间戳）
-                time2       两次修改密码的最小时间间隔
-                 -          :``1``: >=1 天
-                 -          :``0``: 不限制
-                time3       两次修改密码的最大时间间隔（密码有效期）
-                time4       密码到期前几天提醒
-                time5       密码到期后几天可修改
-                time6       账号失效时间（时间戳）
-                other       保留字段
-                ========  ===========
-            :``group``:  组信息文件
+            .. code-block:: ini
 
-                .. code-block:: ini
+                user:password:uid:gid:info:home:shell
 
-                    group:password:gid:user,user,...
-            :``shells``: **shell** 配置文件
-        :``root/``: 家目录（超级用户）
-        :``home/``: 家目录（普通用户）
-        :``proc/``: 缓存文件目录
-        :``tmp/``:  临时文件目录，关机自动清理
-        :``var/``:  系统变量文件目录
+            ========  ==========
+            user        用户登录名
+            password    x 代表密码转移
+            uid         系统内部用户标识，标识相同，视为同一用户
+            gid         组标识
+            info        全称、备注、描述
+            home        用户家目录
+            shell       登录系统后的 shell
+                -          :/usr/sbin/nologin: 禁止用户登录
+            ========  ==========
 
-            :``mail/``: 邮件目录
-            :``log/``:  日志目录
+        :shadow: 用户密码文件
 
-                :``boot.log``:   系统启动日志
-                :``message``:    系统启动期间日志
-                :``auth.log``:   系统授权日志
-                :``secure``:     验证和授权日志
-                :``wtmp``:       当前登录日志
-                :``lastlog``:    所有用户最近信息日志
-                :``daemon.log``: 后台守护进程日志
-                :``maillog``:    邮件服务器日志
-                :``cron``:       定时任务日志
-                :``dmesg``:      内核缓冲信息
-                :``yum.log``:    yum 安装日志
-        :``usr/``: 不需要修改的应用程序、可执行文件、程序库、手册等目录
+            .. code-block:: ini
 
-            :``local/``: 用户级应用程序安装目录
-        :``opt/``: 可选的应用程序安装目录
+                user:password:time1:time2:time3:time4:time5:time6:other
+
+            ========  ===========
+            user        用户登录名
+            password    加密后的密码
+                -          :\*: 密码被锁
+                -          :!!: 密码已过期
+                -          : :  没有密码（不是空）
+                -          :$1$...: MD5 加密
+                -          :$6$...: SHA-512 加密
+                -          :$5$...: SHA-256 加密
+                -          :$2$...: Blowfish 加密
+            time1       密码改动时间（时间戳）
+            time2       两次修改密码的最小时间间隔
+                -          :1: >=1 天
+                -          :0: 不限制
+            time3       两次修改密码的最大时间间隔（密码有效期）
+            time4       密码到期前几天提醒
+            time5       密码到期后几天可修改
+            time6       账号失效时间（时间戳）
+            other       保留字段
+            ========  ===========
+
+        :group:  组信息文件
+
+            .. code-block:: ini
+
+                group:password:gid:user,user,...
+        :shells: **shell** 配置文件
+    :root/: 家目录（超级用户）
+    :home/: 家目录（普通用户）
+    :proc/: 缓存文件目录
+    :tmp/:  临时文件目录，关机自动清理
+    :var/:  系统变量文件目录
+
+        :mail/: 邮件目录
+        :log/:  日志目录
+
+            :boot.log:   系统启动日志
+            :message:    系统启动期间日志
+            :auth.log:   系统授权日志
+            :secure:     验证和授权日志
+            :wtmp:       当前登录日志
+            :lastlog:    所有用户最近信息日志
+            :daemon.log: 后台守护进程日志
+            :maillog:    邮件服务器日志
+            :cron:       定时任务日志
+            :dmesg:      内核缓冲信息
+            :yum.log:    yum 安装日志
+    :usr/: 不需要修改的应用程序、可执行文件、程序库、手册等目录
+
+        :local/: 用户级应用程序安装目录
+    :opt/: 可选的应用程序安装目录

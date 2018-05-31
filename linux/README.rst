@@ -26,7 +26,10 @@
 - Windows 单系统
     - Windows USB/DVD Download Tool（无 PE）
     - MediaCreationTool（无 PE）
-    - WinPE（金狐 PE ，微 PE ）
+    - WinPE
+        - 老毛桃（引导项修复、DiskGenius、系统还原）
+        - 金狐 PE（DiskGenius）
+        - 微 PE （DiskGenius 不完整）
 - Linux 单系统
     - Universal USB Installer
 - Windows&Linux 单系统
