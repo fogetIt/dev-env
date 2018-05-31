@@ -11,6 +11,9 @@ docker stop gitlab & docker update --restart=no gitlab
 # 添加/修改端口映射
 docker commit CONTAINER_ID gitlab:1.0 # 提交一个运行中的容器为镜像
 docker run ...
+
+docker-compose -f "$(pwd)/gitlab.yml" down
+docker-compose -f "$(pwd)/gitlab.yml" up -d
 ```
 
 管理
@@ -21,7 +24,7 @@ docker exec -it CONTAINER_ID ...
 COMMIT
 # 查看服务状态
 gitlab-ctl status
-# 检查
+# 检查应用
 gitlab-rake gitlab:check
 gitlab-rake gitlab:env:info
 # 重新加载配置
@@ -36,6 +39,12 @@ systemctl disable gitlab-runsvdir.service
 # 生成备份数据
 gitlab:backup:create --trace
 ```
+
+##### ssh 端口占用
+- gitlab 程序运行在实体机上
+    - 对端口的使用是基于 openssh-server ，不会一直占用着端口
+- gitlab 程序运行在 docker 里
+    - 对端口的使用是基于 docker 监听端口，会一直占用着端口，与实体机的 openssh-server 抢夺端口占用
 
 ##### useage
 - 管理员权限
