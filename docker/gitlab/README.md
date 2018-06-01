@@ -4,8 +4,7 @@ gitlab 汉化版
 - [gitlab-ce-zh][gitlab-ce-zh]
 
 [github]: https://github.com/twang2218/gitlab-ce-zh
-[gitlab-ce-zh]: https://hub.docker.com/r/twang2218/gitlab-ce-zh/tags/
-- latest
+[gitlab-ce-zh]: https://hub.docker.com/r/twang2218/gitlab-ce-zh/
 ```bash
 docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
 # 关闭设置了 --restart=always 启动的容器
@@ -16,6 +15,9 @@ docker run ...
 
 docker-compose -f "$(pwd)/gitlab.yml" down
 docker-compose -f "$(pwd)/gitlab.yml" up -d
+
+# 停止、删除容器，并清除数据
+docker rm -fv gitlab
 ```
 
 管理
@@ -30,6 +32,7 @@ gitlab-ctl status
 gitlab-rake gitlab:check
 gitlab-rake gitlab:env:info
 # 重新加载配置
+# gitlab-rake cache:clear
 gitlab-ctl reconfigure
 # 启动/关闭/重启服务
 gitlab-ctl start
