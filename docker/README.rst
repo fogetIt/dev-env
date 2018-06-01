@@ -53,12 +53,12 @@ docker-machine
 
     # 查看支持的虚拟机驱动
     docker-machine create --driver
-    # 使用驱动创建虚拟机（本机/远程）
+    # 使用驱动创建虚拟主机（本机/远程）并安装 docker
     docker-machine create --driver virtualbox default
 
-    docker-machine env [xxx]           # 查看虚拟机环境变量
-    eval "$(docker-machine env [xxx])" # 本机 Docker 客户端与虚拟机通信
-    docker-machine ssh [xxx]           # 进入虚拟机
+    docker-machine env [xxx]           # 查看虚拟主机环境变量
+    eval "$(docker-machine env [xxx])" # 本机 docker 客户端与虚拟主机通信
+    docker-machine ssh [xxx]           # 进入虚拟主机
 
     docker-machine stop [xxx]
     docker-machine start [xxx]
