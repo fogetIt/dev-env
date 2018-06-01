@@ -6,6 +6,9 @@ gitlab 汉化版
 [github]: https://github.com/twang2218/gitlab-ce-zh
 [gitlab-ce-zh]: https://hub.docker.com/r/twang2218/gitlab-ce-zh/
 ```bash
+docker-compose -f "$(pwd)/gitlab.yml" down
+docker-compose -f "$(pwd)/gitlab.yml" up -d
+
 docker pull registry.cn-hangzhou.aliyuncs.com/lab99/gitlab-ce-zh
 # 关闭设置了 --restart=always 启动的容器
 docker stop gitlab & docker update --restart=no gitlab
@@ -13,10 +16,7 @@ docker stop gitlab & docker update --restart=no gitlab
 docker commit gitlab gitlab:1.0 # 提交一个运行中的容器为镜像
 docker run ...
 
-docker-compose -f "$(pwd)/gitlab.yml" down
-docker-compose -f "$(pwd)/gitlab.yml" up -d
-
-# 停止、删除容器，并清除数据
+# 停止、删除 gitlab 容器，并清除数据
 docker rm -fv gitlab
 ```
 

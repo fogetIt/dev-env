@@ -17,7 +17,6 @@ fi
 if ! docker -v; then
     if [[ ${CODENAME} == "bionic" ]]; then
         sudo apt-fast install docker.io -y
-        pip install backports.ssl_match_hostname
     else
         # curl -O https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
         # Add Docker repository key to APT keychain
@@ -34,12 +33,25 @@ if ! docker -v; then
     fi
 fi
 
-docker-compose --version || sudo pip install docker-compose==1.13.0
+if ! docker-compose --version; then
+    if [[ ${CODENAME} == "bionic" ]]; then
+        pip install backports.ssl_match_hostname
+    fi
+    sudo pip install docker-compose==1.21.2
+fi
+
+if ! docker-machine --version; then
+    base=https://github.com/docker/machine/releases/download/v0.14.0 \
+    && curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine \
+    && sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+fi
 
 echo -n 'Docker:         '
 docker --version
 echo -n 'Docker Compose: '
 docker-compose --version
+echo -n 'Docker Machine: '
+docker-machine --version
 
 
 : <<'COMMENT'

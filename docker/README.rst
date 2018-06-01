@@ -47,3 +47,28 @@ docker-composer
 
 docker-machine
 ===============
+.. code-block:: bash
+
+    docker-machine ls
+
+    # 查看支持的虚拟机驱动
+    docker-machine create --driver
+    # 使用驱动创建虚拟机（本机/远程）
+    docker-machine create --driver virtualbox default
+
+    docker-machine env [xxx]           # 查看虚拟机环境变量
+    eval "$(docker-machine env [xxx])" # 本机 Docker 客户端与虚拟机通信
+    docker-machine ssh [xxx]           # 进入虚拟机
+
+    docker-machine stop [xxx]
+    docker-machine start [xxx]
+    docker-machine restart [xxx]
+    docker-machine config [xxx]
+    docker-machine inspect [xxx]
+    docker-machine ip [xxx]
+    docker-machine kill [xxx]
+    docker-machine provision [xxx]
+    docker-machine regenerate-certs [xxx]
+    docker-machine status [xxx]
+    docker-machine upgrade [xxx]
+    docker-machine url [xxx]
