@@ -22,33 +22,36 @@
 
 
 启动盘制作工具
-----------------
+-------------------
 - Windows 单系统
     - Windows USB/DVD Download Tool（无 PE）
     - MediaCreationTool（无 PE）
-    - WinPE
-        - 老毛桃（引导项修复、DiskGenius、系统还原）
-        - 金狐 PE（DiskGenius）
-        - 微 PE （DiskGenius 不完整）
+    - WinPE（金狐、微 PE）
 - Linux 单系统
     - Universal USB Installer
 - Windows&Linux 单系统
     - ultraISO(MBR)
-- Windows&Linux 多系统，但每种系统不能有多个版本
+- Windows+Linux 多系统，但每种系统不能有多个版本
     - WinSetupFromUSB
     - YUMI
     - XBoot
     - SARDU
-- 多系统，多版本，UEFI&MBR
+- 多系统，多版本，UEFI+MBR
     - Easy2Boot
 
 
 windows 启动方式
 ----------------
 
-:legency: 从 bios 检查硬盘，寻找引导程序，启动（对应 MBR 分区模式）
-:uefi: 把引导权限交给硬盘上的 efi 分区（对应 GPT 分区模式）
-
-    - 拓展了 bios 功能
-    - 开机更快
-    - 支持超大硬盘
+:legency:
+    - 对应 MBR 分区模式
+    - 从 bios 检查硬盘，寻找引导程序，启动
+:uefi:
+    - 对应 GPT 分区模式
+    - 把引导权限交给硬盘上的 ESP(EFI System Partition)
+        - 拓展了 bios 功能
+        - 开机更快
+        - 支持超大硬盘
+    - 装机选项
+        - 引导驱动器 -> ESP
+        - 安装驱动器 -> 系统盘
