@@ -99,9 +99,19 @@ zsh --version || sudo apt-fast -y install zsh
 read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
     [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
-    pip install powerline-shell \
-    && cat "${HOME}/.zshrc" | grep 'install_powerline_precmd()' \
-    || tee -a "${HOME}/.zshrc" <<-'EOF'
+    pip install powerline-shell
+    # git clone --recurse-submodules https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" ]] || (
+        git clone \
+            https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
+            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" \
+        && git clone \
+            https://github.com/powerline/fonts.git \
+            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" \
+        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
+        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
+    )
+    cat "${HOME}/.zshrc" | grep 'install_powerline_precmd()' || tee -a "${HOME}/.zshrc" <<-'EOF'
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
 }
@@ -116,18 +126,9 @@ precmd_functions+=(powerline_precmd)
 if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
+ZSH_THEME='powerline'
 EOF
-    # git clone --recurse-submodules https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
-    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" ]] || (
-        git clone \
-            https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
-            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" \
-        && git clone \
-            https://github.com/powerline/fonts.git \
-            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" \
-        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
-        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
-    )
+# 打开终端，选择 powerline/fonts 包含的字体
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
