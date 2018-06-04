@@ -100,8 +100,7 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
     [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
     pip install powerline-shell
-    cat "${HOME}/.zshrc" | grep 'function install_powerline_precmd()' \
-        || tee -a "${HOME}/.zshrc" <<-'EOF'
+    cat "${HOME}/.zshrc" | grep 'install_powerline_precmd()' || tee -a "${HOME}/.zshrc" <<-'EOF'
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
 }
