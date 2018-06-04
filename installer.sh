@@ -117,10 +117,17 @@ if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
 EOF
-    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" ]] || git clone --recursive \
-        git@github.com:jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
-        "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"
-    cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
+    # git clone --recurse-submodules https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" ]] || (
+        git clone \
+            https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
+            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" \
+        && git clone \
+            https://github.com/powerline/fonts.git \
+            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" \
+        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
+        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
+    )
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
