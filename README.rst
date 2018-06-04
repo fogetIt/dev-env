@@ -98,7 +98,7 @@ mongodb
         .. code-block:: bash
 
             # ZSH_THEME='random'
-            ZSH_THEME='arrow'
+            ZSH_THEME='af-magic'
 
     - ``编辑 -> 配置文件首选项``
 

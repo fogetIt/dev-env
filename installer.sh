@@ -60,12 +60,6 @@ read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     && read -p "add public key to github!"
 )
 # ***************************************************************
-zsh --version || sudo apt-fast -y install zsh
-read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
-    [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
-)
-# ***************************************************************
 iptables --version || sudo apt-fast -y install iptables
 ufw --version      || sudo apt-fast -y install ufw
 read -p "Configure firewall tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -99,6 +93,30 @@ read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     dpkg-query -S python3-dev || sudo apt-fast -y install python3-dev
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt-fast -y install python-pyqt5
+)
+# ***************************************************************
+zsh --version || sudo apt-fast -y install zsh
+read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
+    [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
+    pip install powerline-shell
+    cat "${HOME}/.zshrc" | grep 'function install_powerline_precmd()' \
+        || tee -a "${HOME}/.zshrc" <<-'EOF'
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+function install_powerline_precmd() {
+for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+    return
+    fi
+done
+precmd_functions+=(powerline_precmd)
+}
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+EOF
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
