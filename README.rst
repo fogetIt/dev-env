@@ -99,6 +99,7 @@ mongodb
 
             # ZSH_THEME='random'
             ZSH_THEME='af-magic'
+            ZSH_THEME='powerline'
 
     - ``编辑 -> 配置文件首选项``
 
