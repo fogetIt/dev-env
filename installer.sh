@@ -132,16 +132,19 @@ EOF
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    if ! nvm --version; then
-        sudo apt-fast -y install build-essential libssl-dev
-        curl -o- "${GITHUB_PREFIX}/creationix/nvm/v0.33.2/install.sh" | bash
-    fi
-
+    # sudo apt-get -y install language-pack-zh-hans
     export NVM_DIR="${HOME}/.nvm"
+    if ! nvm --version; then
+        if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
+            sudo apt-get -y install build-essential libssl-dev
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+        fi
+    fi
     [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
     [ -s "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
 
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
+    node-gyp -v || sudo apt-fast install -y node-gyp
     # sudo chmod -R 777 ${HOME}/.npm
 )
