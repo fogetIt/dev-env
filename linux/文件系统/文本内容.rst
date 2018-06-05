@@ -36,6 +36,23 @@
     -v  取反
     -i  忽略大小写
 
+    :正则: grep 'OAR = OraclizeAddrResolverI(\S\{42\});' xxx/xxx
+
+
+截取文档内容
+------------------
+.. code-block:: bash
+
+    awk -F '\(' '{print $2}' xxx/xxx
+
+
+替换文档内容
+------------------
+.. code-block:: bash
+
+    OAR=xxx
+    sed -i s/'${OAR}'/"${OAR}"/ xxx/xxx
+
 
 文档内容排序
 -------------------
