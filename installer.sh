@@ -121,7 +121,7 @@ fi
 ZSH_THEME='powerline'
 EOF
     # 打开终端，选择 powerline 字体
-    [[ $(grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc")]] \
+    [[ $(grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc") ]] \
     || sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc" \
     || echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
 
