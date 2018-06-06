@@ -11,7 +11,7 @@ cscope
     .. code-block:: bash
 
         # 下载 -> 解压 -> 添加环境变量 -> 安装 ctags/cscope
-        sudo apt-get install exuberant-ctags
+        sudo apt install exuberant-ctags
         # 在当前工作目录生成 tags 索引文件
         ctags -R
         cscope -Rbkq

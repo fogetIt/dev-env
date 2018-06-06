@@ -8,13 +8,13 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 
 # fonts
 # Noto Sans Mono CJK KR Regular
-sudo apt-fast -y install \
+sudo apt -y install \
     fonts-mononoki \
     fonts-wqy-microhei \
     ttf-mscorefonts-installer
 
 # wine3.0
-wine --version || sudo apt-fast -y install wine-stable playonlinux winetricks
+wine --version || sudo apt -y install wine-stable playonlinux winetricks
 
 : <<'COMMENT'
 # sublime
@@ -24,13 +24,13 @@ COMMENT
 
 
 # icons-themes
-sudo apt-fast install -y gnome-tweak-tool
-sudo apt-fast install -y screenfetch
+sudo apt install -y gnome-tweak-tool
+sudo apt install -y screenfetch
 : <<'COMMENT'
 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
 alt+F2，输入 r ，重启 gnome-shell
 COMMENT
-sudo apt-fast install -y \
+sudo apt install -y \
     gnome-shell-extension-trash \
     gnome-shell-extension-weather \
     gnome-shell-extension-redshift \
@@ -46,13 +46,13 @@ tweak -> 主题、图标
     tweak -> 扩展 -> Hide top bar
 COMMENT
 # ************************************************************
-sudo apt-fast install -y papirus-icon-theme
-sudo apt-fast install -y numix-gtk-theme numix-icon-theme-circle
-sudo apt-fast install -y arc-theme
+sudo apt install -y papirus-icon-theme
+sudo apt install -y numix-gtk-theme numix-icon-theme-circle
+sudo apt install -y arc-theme
 # ************************************************************
 sudo add-apt-repository ppa:snwh/pulp
-sudo apt-fast update
-sudo apt-fast install -y paper-icon-theme
+sudo apt update
+sudo apt install -y paper-icon-theme
 
 
 : <<'COMMENT'
@@ -61,7 +61,7 @@ COMMENT
 source config && echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
 
 : <<'COMMENT'
-# sudo apt-fast -y install libcanberra-gtk-module
+# sudo apt -y install libcanberra-gtk-module
 tar -zxvf "PyCharm.tar.gz" -C PyCharm --strip-components 1
 PyCharm/bin/pycharm.sh # 生成配置文件目录
 # sudo ln -sf "$(pwd)/PyCharm/bin/pycharm.sh" "/usr/bin/pycharm"
@@ -106,9 +106,9 @@ sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     cd ${PATH_SOFTWARES} \
     && axel -n 16 "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
     && chmod +x ./mongobooster*.AppImage \
-    && sudo apt-get install libstdc++6 \
+    && sudo apt install libstdc++6 \
     && ./mongobooster*.AppImage
 )
 # ***************************************************************
-perl -version || sudo apt-get install perl
+perl -version || sudo apt install perl
 # ***************************************************************

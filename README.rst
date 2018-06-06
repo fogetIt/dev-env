@@ -2,30 +2,6 @@ sudo
 ----
 -S  read password from stdout
 
-
-apt
-----
-- `默认安装源 </etc/apt/sources.list>`_
-
-:个人软件包: P(ersonal )P(ackage )A(rchives)
-
-    -y                       自动回车确认
-    --allow-unauthenticated  允许未认证的包
-
-.. code-block:: bash
-
-    sudo apt-cache search xxx           # 搜索包
-    sudo apt-get update                 # 更新下载源
-    sudo add-apt-repository -y ppa:xxx  # 添加个人软件包集
-
-    sudo apt-get install xxx   # 安装
-    sudo apt-get upgrade       # 更新已安装软件
-    sudo apt-get dist-upgrade  # 更新系统版本
-
-    sudo apt-get remove xxx    # 卸载
-    sudo apt-get autoclean
-    sudo apt-get autoremove    # 自动卸载依赖
-
 dpkg
 ----
 .. code-block:: bash
@@ -116,8 +92,8 @@ python tools
     virtualenv xxx/xxx --no-site-packages -p $(which python3)
 
     # ipython broswer tool
-    sudo apt-fast install -y ipython-notebook
-    sudo apt-fast install -y ipython3-notebook
+    sudo apt install -y ipython-notebook
+    sudo apt install -y ipython3-notebook
 
 
 interfaces

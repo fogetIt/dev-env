@@ -2,14 +2,14 @@ ubuntu16.04 unity 桌面美化
 -----------------------------
 .. code-block:: bash
 
-    which docky || sudo apt-fast -y install docky  # 系统启动器
-    which conky || sudo apt-fast -y install conky  # 显示系统信息
-    sudo apt-fast -y install unity-tweak-tool      # 系统管理工具
+    which docky || sudo apt -y install docky  # 系统启动器
+    which conky || sudo apt -y install conky  # 显示系统信息
+    sudo apt -y install unity-tweak-tool      # 系统管理工具
 
     # 动态壁纸包
     sudo add-apt-repository ppa:fyrmir/livewallpaper-daily
-    sudo apt-fast update
-    sudo apt-fast install livewallpaper livewallpaper-config livewallpaper-indicator
+    sudo apt update
+    sudo apt install livewallpaper livewallpaper-config livewallpaper-indicator
 
 
 ppa:webupd8team/atom
@@ -29,7 +29,7 @@ ubuntu16.04 QQ
 
     .. code-block:: bash
 
-        sudo apt-get install wine
+        sudo apt install wine
         sudo dpkg -i crossover-15_15.0.3-1_all.deb
         sudo dpkg -i crossover-15_15.0.3-1_all-free.deb
         sudo dpkg -i deepin-crossover-helper_1.0deepin0_all.deb
@@ -48,14 +48,14 @@ icons-themes
 .. code-block:: bash
 
     sudo add-apt-repository ppa:papirus/papirus
-    sudo apt-fast update
-    sudo apt-fast install papirus-icon-theme
+    sudo apt update
+    sudo apt install papirus-icon-theme
 
-    sudo apt-fast install -y gtk2-engines-pixbuf gnome-themes-standard
+    sudo apt install -y gtk2-engines-pixbuf gnome-themes-standard
 
     sudo add-apt-repository ppa:numix/ppa
-    sudo apt-fast update
-    sudo apt-fast install numix-icon-theme
+    sudo apt update
+    sudo apt install numix-icon-theme
 
 
 node

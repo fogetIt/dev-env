@@ -7,7 +7,7 @@
 #     echo "need password"
 #     exit 0
 # fi
-expect -v || sudo apt-fast -y install expect
+expect -v || sudo apt -y install expect
 # set timeout 20
 spawn /etc/init.d/nginx restart
 expect "Password:" {send "123zhang"}

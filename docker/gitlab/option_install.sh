@@ -8,7 +8,7 @@ echo "123" || sudo -S echo "start"
 # https://bitnami.com/redirect/to/87432/bitnami-gitlab-8.2.3-4-linux-installer.run
 # https://bitnami.com/redirect/to/137156/bitnami-gitlab-8.14.0-0-linux-x64-installer.run
 
-sudo apt-fast -y install openssh-server
+sudo apt -y install openssh-server
 chmod +x ./bitnami-gitlab-8.14.0-0-linux-x64-installer.run
 # 默认端口80
 ./bitnami-gitlab-8.14.0-0-linux-x64-installer.run
@@ -17,11 +17,11 @@ chmod +x ./bitnami-gitlab-8.14.0-0-linux-x64-installer.run
 COMMIT
 
 # 安装依赖
-sudo apt-fast install curl openssh-server ca-certificates postfix
+sudo apt install curl openssh-server ca-certificates postfix
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/ubuntu xenial main" | \
     sudo tee /etc/apt/sources.list.d/gitlab-ce.list
-sudo apt-fast update
-sudo apt-fast -y install gitlab-ce=8.8.0-ce.0 --allow-unauthenticated
+sudo apt update
+sudo apt -y install gitlab-ce=8.8.0-ce.0 --allow-unauthenticated
 sudo gitlab-ctl reconfigure
 
 # gitlab版本号　≈　汉化包版本号
@@ -46,11 +46,11 @@ if [ ${1} == "del" ]; then
     sudo gitlab-ctl uninstall
     # uninstall
     sudo dpkg -r gitlab-ce
-    sudo apt-get remove gitlab
-    sudo apt-get remove gitlab-ce
-    sudo apt-get purge gitlab
-    sudo apt-get purge --auto-remove gitlab
-    sudo apt-get remove --auto-remove gitlab
+    sudo apt remove gitlab
+    sudo apt remove gitlab-ce
+    sudo apt purge gitlab
+    sudo apt purge --auto-remove gitlab
+    sudo apt remove --auto-remove gitlab
     echo "Y" | sudo apt autoremove gitlab-ce
     # clean
     sudo rm -rf /etc/gitlab
