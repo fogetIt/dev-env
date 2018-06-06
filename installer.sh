@@ -2,6 +2,7 @@
 # @Date:   2017-04-01 14:27:49
 # @Last Modified time: 2018-04-30 00:00:38
 # 将配置信息加载到 session 的环境变量中
+# sudo apt -y install language-pack-zh-hans
 source config && echo ${PASSWORD} | sudo -S echo "start" || exit 1
 
 [[ -d ${PATH_SOFTWARES} ]] || mkdir ${PATH_SOFTWARES}
@@ -131,7 +132,6 @@ EOF
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    # sudo apt -y install language-pack-zh-hans
     export NVM_DIR="${HOME}/.nvm"
     if ! nvm --version; then
         if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then

@@ -12,10 +12,6 @@ ubuntu16.04 unity 桌面美化
     sudo apt install livewallpaper livewallpaper-config livewallpaper-indicator
 
 
-ppa:webupd8team/atom
---------------------
-
-
 spacevim
 --------
 .. code-block:: bash
