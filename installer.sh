@@ -24,7 +24,7 @@ uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
 uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 sudo apt update
 # ***************************************************************
-which apt-fast || sudo apt -y install apt-fast  # 加速 apt-get, apt
+which apt-fast || sudo apt -y install apt-fast
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 git --version  || sudo apt -y install git
 # ***************************************************************
