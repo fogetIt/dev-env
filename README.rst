@@ -67,20 +67,8 @@ mongodb
     :axel: 多线程
     :uget: 多线程 + GUI （编辑-->设置-->插件-->aria2/curl）
 
-:zsh:
-
-    :~/.zshrc:
-
-        .. code-block:: bash
-
-            # ZSH_THEME='random'
-            ZSH_THEME='af-magic'
-            ZSH_THEME='powerline'
-
-    - ``编辑 -> 配置文件首选项``
-
+:zsh: 编辑 -> 配置文件首选项
 :mysql:    ``/etc/mysql/my.cnf``
-:apt-fast: ``/etc/apt-fast.conf``
 
 
 python tools
@@ -121,3 +109,13 @@ interfaces
 
     broadcast 10.168.120.255
     dns-nameservers 202.106.0.20 8.8.8.8 219.141.140.10 219.141.136.10
+
+
+usage
+------
+.. code-block:: bash
+
+    sudo apt update
+    sudo apt upgrade
+    chmod -R u+x "$(pwd)/*.sh"
+    ./install.sh

@@ -1,11 +1,6 @@
 #!/bin/bash
 # @Date:   2017-04-01 14:27:49
 # @Last Modified time: 2018-04-30 00:00:38
-: <<'COMMENT'
-sudo apt update
-sudo apt upgrade
-chmod -R u+x "$(pwd)/*.sh"
-COMMENT
 # 将配置信息加载到 session 的环境变量中
 source config && echo ${PASSWORD} | sudo -S echo "start" || exit 1
 
@@ -28,13 +23,13 @@ which apt-fast || sudo apt -y install apt-fast
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 git --version  || sudo apt -y install git
 # ***************************************************************
-# sudo apt install rar
 ssh -V        || sudo apt -y install openssh-server
 which axel    || sudo apt -y install axel
 which curl    || sudo apt -y install curl
 which aria2c  || sudo apt -y install aria2
-which unzip   || sudo apt -y install unzip   #: unzip xxx.zip -d xxx
+which rar     || sudo apt -y install rar
 which unrar   || sudo apt -y install unrar   #: unrar e xxx.rar
+which unzip   || sudo apt -y install unzip   #: unzip xxx.zip -d xxx
 which shutter || sudo apt -y install shutter #: 截屏
 which dconf   || sudo apt -y install dconf-tools
 tree       --version || sudo apt -y install tree
@@ -76,7 +71,6 @@ read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 pip  --version || sudo apt -y install python-pip
 pip3 --version || sudo apt -y install python3-pip
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    # powered python shell
     ipython  --version || sudo apt -y install ipython
     ipython3 --version || sudo apt -y install ipython3
     bpython  --version || sudo apt -y install bpython
@@ -99,7 +93,6 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
     [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
     pip install powerline-shell
-    # git clone --recurse-submodules https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
     [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" ]] || (
         git clone \
             https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
@@ -127,7 +120,14 @@ if [ "$TERM" != "linux" ]; then
 fi
 ZSH_THEME='powerline'
 EOF
-# 打开终端，选择 powerline/fonts 包含的字体
+    # 打开终端，选择 powerline 字体
+    [[ $(grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc")]] \
+    || sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc" \
+    || echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
+
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    # plugins=(... zsh-syntax-highlighting)
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -145,5 +145,4 @@ read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
     node-gyp -v || sudo apt install -y node-gyp
-    # sudo chmod -R 777 ${HOME}/.npm
 )
