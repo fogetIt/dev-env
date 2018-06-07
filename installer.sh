@@ -15,7 +15,7 @@ user-session=ubuntu
 greeter-show-manual-login=true
 EOF
 # ***************************************************************
-which apt-fast     || sudo add-apt-repository -y ppa:apt/stable
+which apt-fast     || sudo add-apt-repository -y ppa:apt-fast/stable
 uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
 uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 sudo apt update
