@@ -139,8 +139,8 @@ read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
         fi
     fi
-    [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"
-    [ -s "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
+    [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
+    [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"
 
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
