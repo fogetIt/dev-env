@@ -104,7 +104,7 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
         && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
         && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
     )
-    cat "${HOME}/.zshrc" | grep 'install_powerline_precmd()' || tee -a "${HOME}/.zshrc" <<-'EOF'
+    grep 'install_powerline_precmd()' "${HOME}/.zshrc" || tee -a "${HOME}/.zshrc" <<-'EOF'
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
 }
@@ -122,7 +122,7 @@ fi
 ZSH_THEME='powerline'
 EOF
     # 打开终端，选择 powerline 字体
-    [[ $(grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc") ]] \
+    grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc" \
     || sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc" \
     || echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
 
