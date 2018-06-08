@@ -70,6 +70,13 @@ mongodb
 :zsh: 编辑 -> 配置文件首选项
 :mysql:    ``/etc/mysql/my.cnf``
 
+:shutter: 截屏
+:net-tools: ifconfig --version
+:dconf-tools: org -> gnome -> applications -> desktop -> terminal
+
+- unrar e xxx.rar
+- unzip xxx.zip -d xxx
+
 
 python tools
 -------------

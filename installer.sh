@@ -20,26 +20,16 @@ uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
 uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 sudo apt update
 # ***************************************************************
-which apt-fast || sudo apt -y install apt-fast
+sudo apt -y install apt-fast git \
+                    openssh-server sshpass \
+                    axel curl aria2 uget \
+                    rar unrar unzip \
+                    shutter dconf-tools \
+                    tree terminator vim zsh \
+                    net-tools iptables ufw gufw
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
-git --version  || sudo apt -y install git
+sudo ufw enable && sudo ufw default deny
 # ***************************************************************
-ssh -V        || sudo apt -y install openssh-server
-which axel    || sudo apt -y install axel
-which curl    || sudo apt -y install curl
-which aria2c  || sudo apt -y install aria2
-which rar     || sudo apt -y install rar
-which unrar   || sudo apt -y install unrar   #: unrar e xxx.rar
-which unzip   || sudo apt -y install unzip   #: unzip xxx.zip -d xxx
-which shutter || sudo apt -y install shutter #: 截屏
-which dconf   || sudo apt -y install dconf-tools
-tree       --version || sudo apt -y install tree
-ifconfig   --version || sudo apt -y install net-tools
-uget-gtk   --version || sudo apt -y install uget
-terminator --version || sudo apt -y install terminator
-# dconf-tools: org -> gnome -> applications -> desktop -> terminal
-# ***************************************************************
-which vim || sudo apt -y install vim
 read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -fLo "${HOME}/.vimrc" \
         "${GITHUB_PREFIX}/fogetIt/dev-env/master/editor/vim/.vimrc"
@@ -55,55 +45,37 @@ read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     && read -p "add public key to github!"
 )
 # ***************************************************************
-iptables --version || sudo apt -y install iptables
-ufw --version      || sudo apt -y install ufw
-read -p "Configure firewall tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    sudo ufw enable && sudo ufw default deny
-    sudo apt -y install gufw
-)
-# ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    nginx -v            || sudo apt -y install nginx
-    mysql     --version || sudo apt -y install mysql-server mysql-client
-    mongo     --version || sudo apt -y install mongodb-server mongodb-clients
-    redis-cli --version || sudo apt -y install redis-server
+    sudo apt -y install nginx redis-server \
+                        mysql-server mysql-client \
+                        mongodb-server mongodb-clients
 )
 # ***************************************************************
 pip  --version || sudo apt -y install python-pip
 pip3 --version || sudo apt -y install python3-pip
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    ipython  --version || sudo apt -y install ipython
-    ipython3 --version || sudo apt -y install ipython3
-    bpython  --version || sudo apt -y install bpython
-    bpython3 --version || sudo apt -y install bpython3
-
+    sudo apt -y install ipython ipython3 bpython bpython3 \
+                        python-tk python3-tk \
+                        libmysqlclient-dev python-mysqldb
     virtualenv --version || sudo pip install virtualenv -i ${PYPI}
-
-    python  -c "import Tkinter;exit()" || sudo apt -y install python-tk
-    python3 -c "import tkinter;exit()" || sudo apt -y install python3-tk
-    python  -c "import MySQLdb;exit()" || sudo apt -y install libmysqlclient-dev python-mysqldb
-
-    dpkg-query -S python-dev || sudo apt -y install python-dev
-    dpkg-query -S python3-dev || sudo apt -y install python3-dev
+    dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
 )
 # ***************************************************************
-zsh --version || sudo apt -y install zsh
 read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
     [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
     pip install powerline-shell
-    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" ]] || (
-        git clone \
-            https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
-            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" \
-        && git clone \
-            https://github.com/powerline/fonts.git \
+    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" \
+    && `ls -A "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"` != "" ]] || \
+        git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
+            "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"
+    [[ `ls -A "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts"` != "" ]] || \
+        git clone https://github.com/powerline/fonts.git \
             "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" \
-        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
-        && cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
-    )
+    cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
+    cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
     grep 'install_powerline_precmd()' "${HOME}/.zshrc" || tee -a "${HOME}/.zshrc" <<-'EOF'
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
@@ -126,8 +98,10 @@ EOF
     || sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc" \
     || echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
 
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    [[ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" && \
+    `ls -A "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"` !="" ]] || \
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+            ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     # plugins=(... zsh-syntax-highlighting)
 )
 # ***************************************************************
