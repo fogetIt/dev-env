@@ -36,3 +36,17 @@ iptables
     #: 持久化端口信息
     sudo apt-get install iptables-persistent
     service iptables-persistent save
+
+
+查看端口是否开放
+-----------------------------
+.. code-block:: bash
+
+    netstat -anpt | grep 22000
+
+
+查看端口是否被占用
+------------------------
+.. code-block:: bash
+
+    lsof -i:22000
