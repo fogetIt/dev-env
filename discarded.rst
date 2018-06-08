@@ -1,10 +1,9 @@
 ubuntu16.04 unity 桌面美化
 -----------------------------
+:docky: 系统启动器
+:conky: 显示系统信息
+:unity-tweak-tool: 系统管理工具
 .. code-block:: bash
-
-    which docky || sudo apt -y install docky  # 系统启动器
-    which conky || sudo apt -y install conky  # 显示系统信息
-    sudo apt -y install unity-tweak-tool      # 系统管理工具
 
     # 动态壁纸包
     sudo add-apt-repository ppa:fyrmir/livewallpaper-daily
@@ -42,10 +41,6 @@ ubuntu16.04 QQ
 icons-themes
 ------------
 .. code-block:: bash
-
-    sudo add-apt-repository ppa:papirus/papirus
-    sudo apt update
-    sudo apt install papirus-icon-theme
 
     sudo apt install -y gtk2-engines-pixbuf gnome-themes-standard
 

@@ -8,10 +8,7 @@ source config && echo ${PASSWORD} | sudo -S echo "start"
 
 # fonts
 # Noto Sans Mono CJK KR Regular
-sudo apt -y install \
-    fonts-mononoki \
-    fonts-wqy-microhei \
-    ttf-mscorefonts-installer
+sudo apt -y install fonts-mononoki fonts-wqy-microhei ttf-mscorefonts-installer
 
 # wine3.0
 wine --version || sudo apt -y install wine-stable playonlinux winetricks
@@ -23,21 +20,7 @@ cp -rf ../editor/sublime/* "${HOME}/.config/sublime-text-3/Packages/User/"
 COMMENT
 
 
-# icons-themes
-sudo apt install -y gnome-tweak-tool
-sudo apt install -y screenfetch
-: <<'COMMENT'
-回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
-alt+F2，输入 r ，重启 gnome-shell
-COMMENT
-sudo apt install -y \
-    gnome-shell-extension-trash \
-    gnome-shell-extension-weather \
-    gnome-shell-extension-redshift \
-    gnome-shell-extension-dashtodock \
-    gnome-shell-extension-autohidetopbar \
-    gnome-shell-extension-top-icons-plus \
-    gnome-shell-extension-disconnect-wifi
+
 : <<'COMMENT'
 设置 -> Dock
 tweak -> 主题、图标
@@ -45,8 +28,6 @@ tweak -> 主题、图标
     tweak -> 扩展 -> Dash to dock
     tweak -> 扩展 -> Hide top bar
 COMMENT
-# ************************************************************
-sudo apt install -y papirus-icon-theme
 sudo apt install -y numix-gtk-theme numix-icon-theme-circle
 sudo apt install -y arc-theme
 # ************************************************************
@@ -110,5 +91,4 @@ sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     && ./mongobooster*.AppImage
 )
 # ***************************************************************
-perl -version || sudo apt install perl
-# ***************************************************************
+sudo apt install perl

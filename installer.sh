@@ -2,11 +2,9 @@
 # @Date:   2017-04-01 14:27:49
 # @Last Modified time: 2018-04-30 00:00:38
 # 将配置信息加载到 session 的环境变量中
-# sudo apt -y install language-pack-zh-hans
 source config && echo ${PASSWORD} | sudo -S echo "start" || exit 1
 
 [[ -d ${PATH_SOFTWARES} ]] || mkdir ${PATH_SOFTWARES}
-
 [[ -f ${ROOT_CONFIG_FILE} ]] || touch ${ROOT_CONFIG_FILE} \
 && sudo tee ${ROOT_CONFIG_FILE} <<-'EOF'
 # sudo passwd root; su root
@@ -20,7 +18,8 @@ uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
 uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 sudo apt update
 # ***************************************************************
-sudo apt -y install apt-fast git \
+sudo apt -y install language-pack-zh-hans \
+                    apt-fast git \
                     openssh-server sshpass \
                     axel curl aria2 uget \
                     rar unrar unzip \
@@ -51,14 +50,14 @@ read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
                         mongodb-server mongodb-clients
 )
 # ***************************************************************
-pip  --version || sudo apt -y install python-pip
-pip3 --version || sudo apt -y install python3-pip
+sudo apt -y install python-pip python3-pip \
+                    ipython ipython3 \
+                    bpython bpython3
+virtualenv --version || sudo pip install virtualenv -i ${PYPI}
+dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    sudo apt -y install ipython ipython3 bpython bpython3 \
-                        python-tk python3-tk \
+    sudo apt -y install python-tk python3-tk \
                         libmysqlclient-dev python-mysqldb
-    virtualenv --version || sudo pip install virtualenv -i ${PYPI}
-    dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
 )
@@ -105,14 +104,35 @@ EOF
     # plugins=(... zsh-syntax-highlighting)
 )
 # ***************************************************************
-read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
-        sudo apt -y install build-essential libssl-dev
-        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-        export NVM_DIR="${HOME}/.nvm"
-        [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
-        [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"
-        node -v || nvm install --lts
-        nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
-    fi
-)
+if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
+    sudo apt -y install build-essential libssl-dev
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+    export NVM_DIR="${HOME}/.nvm"
+    [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
+    [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"
+    node -v || nvm install --lts
+    nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
+fi
+sudo apt install -y node-gyp
+# ***************************************************************
+sudo apt install -y screenfetch
+if env | grep unity; then
+    sudo apt install -y docky conky unity-tweak-tool
+    sudo add-apt-repository ppa:papirus/papirus
+    sudo apt update
+else
+    sudo apt install -y gnome-tweak-tool
+: <<'COMMENT'
+回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
+alt+F2，输入 r ，重启 gnome-shell
+COMMENT
+    sudo apt install -y \
+        gnome-shell-extension-trash \
+        gnome-shell-extension-weather \
+        gnome-shell-extension-redshift \
+        gnome-shell-extension-dashtodock \
+        gnome-shell-extension-autohidetopbar \
+        gnome-shell-extension-top-icons-plus \
+        gnome-shell-extension-disconnect-wifi
+fi
+sudo apt install papirus-icon-theme -y
