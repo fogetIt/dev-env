@@ -106,17 +106,13 @@ EOF
 )
 # ***************************************************************
 read -p "Configure nodejs tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    export NVM_DIR="${HOME}/.nvm"
-    if ! nvm --version; then
-        if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
-            sudo apt -y install build-essential libssl-dev
-            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-        fi
+    if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
+        sudo apt -y install build-essential libssl-dev
+        curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+        export NVM_DIR="${HOME}/.nvm"
+        [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
+        [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"
+        node -v || nvm install --lts
+        nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
     fi
-    [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
-    [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"
-
-    node -v || nvm install --lts
-    nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
-    node-gyp -v || sudo apt install -y node-gyp
 )
