@@ -23,21 +23,21 @@
 
 启动盘制作工具
 -------------------
-- Windows 单系统
+- Windows---单系统
     - Windows USB/DVD Download Tool
     - MediaCreationTool
     - WinPE（金狐、微 PE）
-- Linux 单系统
+- Linux---单系统
     - Universal USB Installer
     - UNetbootin(PE)
-- Windows/Linux 单系统
+- Windows/Linux---单系统
     - ultraISO(MBR)
-- Windows/Linux 多系统/单版本
+- Windows/Linux---多系统/单版本
     - WinSetupFromUSB
     - YUMI
     - XBoot
     - SARDU
-- Windows/Linux 多系统/多版本 UEFI/MBR
+- Windows/Linux---多系统/多版本---UEFI/MBR
     - Easy2Boot
 
 
