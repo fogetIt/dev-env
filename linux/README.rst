@@ -28,10 +28,11 @@
     - MediaCreationTool
     - WinPE（金狐、微 PE）
 - Linux---单系统
-    - Universal USB Installer
-    - UNetbootin(PE)
+    - UNetbootin
 - Windows/Linux---单系统
-    - ultraISO(MBR)
+    - Universal USB Installer
+    - UltraISO(MBR)
+    - PowerISO
 - Windows/Linux---多系统/单版本
     - WinSetupFromUSB
     - YUMI
