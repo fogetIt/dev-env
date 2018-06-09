@@ -18,14 +18,12 @@ uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
 uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 sudo apt update
 # ***************************************************************
-sudo apt -y install language-pack-zh-hans \
-                    apt-fast git \
-                    openssh-server sshpass \
-                    axel curl aria2 uget \
-                    rar unrar unzip \
-                    shutter dconf-tools \
-                    tree terminator vim zsh \
-                    net-tools iptables ufw gufw
+sudo apt-cache policy apt-fast || exit 0
+sudo apt -y install apt-fast git language-pack-zh-hans \
+    openssh-server sshpass axel curl aria2 uget \
+    rar unrar unzip net-tools iptables ufw gufw \
+    tree terminator vim zsh screenfetch shutter dconf-tools \
+    python-pip python3-pip ipython ipython3 bpython bpython3
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 sudo ufw enable && sudo ufw default deny
 # ***************************************************************
@@ -50,9 +48,6 @@ read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
                         mongodb-server mongodb-clients
 )
 # ***************************************************************
-sudo apt -y install python-pip python3-pip \
-                    ipython ipython3 \
-                    bpython bpython3
 virtualenv --version || sudo pip install virtualenv -i ${PYPI}
 dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -115,24 +110,17 @@ if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_compl
 fi
 sudo apt install -y node-gyp
 # ***************************************************************
-sudo apt install -y screenfetch
 if env | grep unity; then
     sudo apt install -y docky conky unity-tweak-tool
     sudo add-apt-repository ppa:papirus/papirus
     sudo apt update
 else
     sudo apt install -y gnome-tweak-tool
-: <<'COMMENT'
-回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
-alt+F2，输入 r ，重启 gnome-shell
-COMMENT
+    # 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
+    # alt+F2 --> r ，重启 gnome-shell
+    GSE=gnome-shell-extension
     sudo apt install -y \
-        gnome-shell-extension-trash \
-        gnome-shell-extension-weather \
-        gnome-shell-extension-redshift \
-        gnome-shell-extension-dashtodock \
-        gnome-shell-extension-autohidetopbar \
-        gnome-shell-extension-top-icons-plus \
-        gnome-shell-extension-disconnect-wifi
+        "$GSE-trash" "$GSE-weather" "$GSE-redshift" "$GSE-dashtodock" \
+        "$GSE-autohidetopbar" "$GSE-top-icons-plus" "$GSE-disconnect-wifi"
 fi
 sudo apt install papirus-icon-theme -y
