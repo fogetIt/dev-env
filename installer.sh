@@ -14,7 +14,7 @@ greeter-show-manual-login=true
 EOF
 # ***************************************************************
 sudo apt-cache policy apt-fast || sudo add-apt-repository -y ppa:apt-fast/stable
-if ! sudo apt-cache policy uget; then
+if ! sudo apt policy uget; then
     sudo add-apt-repository -y ppa:t-tujikawa/ppa
     sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
 fi
