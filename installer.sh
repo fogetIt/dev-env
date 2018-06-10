@@ -13,18 +13,19 @@ user-session=ubuntu
 greeter-show-manual-login=true
 EOF
 # ***************************************************************
-which apt-fast     || sudo add-apt-repository -y ppa:apt-fast/stable
-uget-gtk --version || sudo add-apt-repository -y ppa:t-tujikawa/ppa
-uget-gtk --version || sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
+sudo apt-cache policy apt-fast || sudo add-apt-repository -y ppa:apt-fast/stable
+if ! sudo apt-cache policy uget; then
+    sudo add-apt-repository -y ppa:t-tujikawa/ppa
+    sudo add-apt-repository -y ppa:plushuang-tw/uget-stable
+fi
 sudo apt update
-# ***************************************************************
-sudo apt-cache policy apt-fast || exit 0
-sudo apt -y install apt-fast git language-pack-zh-hans \
+sudo apt -y install apt-fast || exit 0
+which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
+sudo apt -y install git language-pack-zh-hans \
     openssh-server sshpass axel curl aria2 uget \
     rar unrar unzip net-tools iptables ufw gufw \
     tree terminator vim zsh screenfetch shutter dconf-tools \
     python-pip python3-pip ipython ipython3 bpython bpython3
-which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 sudo ufw enable && sudo ufw default deny
 # ***************************************************************
 read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -44,15 +45,15 @@ read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 # ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     sudo apt -y install nginx redis-server \
-                        mysql-server mysql-client \
-                        mongodb-server mongodb-clients
+        mysql-server mysql-client \
+        mongodb-server mongodb-clients
 )
 # ***************************************************************
 virtualenv --version || sudo pip install virtualenv -i ${PYPI}
 dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     sudo apt -y install python-tk python3-tk \
-                        libmysqlclient-dev python-mysqldb
+        libmysqlclient-dev python-mysqldb
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
 )
@@ -93,7 +94,7 @@ EOF
     || echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
 
     [[ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" && \
-    `ls -A "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"` !="" ]] || \
+    `ls -A "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"` != "" ]] || \
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
             ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     # plugins=(... zsh-syntax-highlighting)
@@ -112,7 +113,7 @@ sudo apt install -y node-gyp
 # ***************************************************************
 if env | grep unity; then
     sudo apt install -y docky conky unity-tweak-tool
-    sudo add-apt-repository ppa:papirus/papirus
+    sudo add-apt-repository ppa:papirus/papirus -y
     sudo apt update
 else
     sudo apt install -y gnome-tweak-tool
@@ -124,3 +125,6 @@ else
         "$GSE-autohidetopbar" "$GSE-top-icons-plus" "$GSE-disconnect-wifi"
 fi
 sudo apt install papirus-icon-theme -y
+read -p "Configure console setup ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    sudo dpkg-reconfigure console-setup
+)
