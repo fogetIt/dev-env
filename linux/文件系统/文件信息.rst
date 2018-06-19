@@ -22,6 +22,7 @@ c(hange )d(irectory)
 
 l(i)s(t)
 --------
+
 :ls: 列出目录内容
 
     :蓝色:    目录
@@ -73,6 +74,7 @@ l(s -)l
 
 m(a)k(e )d(irectory)
 --------------------
+
 :mkdir xxx/xxx: 创建目录
 
     -p  嵌套
@@ -80,6 +82,7 @@ m(a)k(e )d(irectory)
 
 du
 ---
+
 :du: 显示目录或者文件所占空间
 
     -s  汇总
@@ -89,3 +92,9 @@ du
 tree
 -----
 安装 tree 包，把指定文件夹的所有文件用树状罗列出来
+
+
+md5sum
+-------
+
+:md5sum xxx/xxx: 校验文件信息是否符合给定值

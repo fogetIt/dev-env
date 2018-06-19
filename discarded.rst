@@ -46,7 +46,7 @@ icons-themes
 
     sudo add-apt-repository ppa:numix/ppa
     sudo apt update
-    sudo apt install numix-icon-theme
+    sudo apt install numix-icon-theme*
 
 
 node

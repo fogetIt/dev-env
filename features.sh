@@ -28,7 +28,7 @@ tweak -> 主题、图标
     tweak -> 扩展 -> Dash to dock
     tweak -> 扩展 -> Hide top bar
 COMMENT
-sudo apt install -y numix-gtk-theme numix-icon-theme-circle
+sudo apt install -y numix-gtk-theme numix-icon-theme*
 sudo apt install -y arc-theme
 # ************************************************************
 sudo add-apt-repository ppa:snwh/pulp
