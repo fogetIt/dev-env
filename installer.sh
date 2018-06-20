@@ -69,8 +69,12 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     [[ `ls -A "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts"` != "" ]] || \
         git clone https://github.com/powerline/fonts.git \
             "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" \
-    cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts" && ./install.sh \
-    cd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && ./install_in_omz.sh
+    pushd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts"
+        ./install.sh
+    popd
+    pushd "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"
+        ./install_in_omz.sh
+    popd
     grep 'install_powerline_precmd()' "${HOME}/.zshrc" || tee -a "${HOME}/.zshrc" <<-'EOF'
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
