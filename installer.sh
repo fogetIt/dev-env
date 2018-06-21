@@ -21,11 +21,11 @@ fi
 sudo apt update
 sudo apt -y install apt-fast || exit 0
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
-sudo apt -y install git language-pack-zh-hans \
-    openssh-server sshpass axel curl aria2 uget \
-    rar unrar unzip net-tools iptables ufw gufw \
-    tree terminator vim zsh screenfetch shutter dconf-tools \
-    python-pip python3-pip ipython ipython3 bpython bpython3
+sudo apt -y install \
+    git language-pack-zh-hans openssh-server sshpass net-tools iptables ufw gufw \
+    python-pip python3-pip ipython ipython3 bpython bpython3 \
+    tree terminator vim zsh screenfetch \
+    axel curl aria2 uget rar unrar unzip shutter dconf-tools
 sudo ufw enable && sudo ufw default deny
 # ***************************************************************
 read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -115,20 +115,23 @@ if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_compl
 fi
 sudo apt install -y node-gyp
 # ***************************************************************
-if env | grep unity; then
-    sudo apt install -y docky conky unity-tweak-tool
-    sudo add-apt-repository ppa:papirus/papirus -y
-    sudo apt update
-else
-    sudo apt install -y gnome-tweak-tool
-    # 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
-    # alt+F2 --> r ，重启 gnome-shell
-    GSE=gnome-shell-extension
-    sudo apt install -y \
-        "$GSE-trash" "$GSE-weather" "$GSE-redshift" "$GSE-dashtodock" \
-        "$GSE-autohidetopbar" "$GSE-top-icons-plus" "$GSE-disconnect-wifi"
+read -p "Configure desktop environment ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
+    if env | grep unity; then
+        sudo apt install -y docky conky unity-tweak-tool
+        sudo add-apt-repository ppa:papirus/papirus -y
+        sudo apt update
+    else
+        sudo apt install -y gnome-tweak-tool
+        # 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
+        # alt+F2 --> r ，重启 gnome-shell
+        GSE=gnome-shell-extension
+        sudo apt install -y \
+            "${GSE}-trash" "${GSE}-weather" "${GSE}-redshift" \
+            "${GSE}-dashtodock" "${GSE}-autohidetopbar" \
+            "${GSE}-top-icons-plus" "${GSE}-disconnect-wifi"
+    fi
+    sudo apt install papirus-icon-theme -y
 fi
-sudo apt install papirus-icon-theme -y
 read -p "Configure console setup ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     sudo dpkg-reconfigure console-setup
 )

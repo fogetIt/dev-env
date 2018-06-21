@@ -34,17 +34,17 @@ terminator
     ==============  ========  =====  =================  ===============================
     NAME              RAM       CPU    TYPE               对应的 ubuntu 桌面版本
     ==============  ========  =====  =================  ===============================
-    Unity             271 MB    14%    Desktop            Ubuntu16.04
-    Gnome3            193 MB    10%    Desktop            Ubuntu18.04
-    Xfce4.8           144 MB    10%    Desktop            Xubuntu
-    Lxde              85 MB     10%    Desktop            Lubuntu
-    Kde4.6            363 MB    4%     Desktop            Kubuntu
-    Gnome2.x          191 MB    1%     Desktop
-    IceWM             85 MB     2%     Window Manager
-    Enlightenment     72 MB     1%     Window Manager
-    Fluxbox           69 MB     1%     Window Manager
-    OpenBox           60 MB     1%     Window Manager
-    JWM               58 MB     1%     Window Manager
+    unity             271 MB    14%    Desktop            ubuntu16.04
+    gnome3            193 MB    10%    Desktop            ubuntu18.04
+    xfce4.8           144 MB    10%    Desktop            xubuntu
+    lxde              85 MB     10%    Desktop            lubuntu
+    kde4.6            363 MB    4%     Desktop            kubuntu
+    gnome2.x          191 MB    1%     Desktop
+    icewm             85 MB     2%     Window Manager
+    enlightenment     72 MB     1%     Window Manager
+    fluxbox           69 MB     1%     Window Manager
+    openbox           60 MB     1%     Window Manager
+    jwm               58 MB     1%     Window Manager
     ==============  ========  =====  =================  ===============================
 
     :Edubuntu: 教育分支版
