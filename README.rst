@@ -56,11 +56,6 @@ mongodb
 :VMTools:    虚拟机与实体机之间文件拖动
 :FastoRedis: redis GUI
 :wechat:     `electronic wechat <https://github.com/geeeeeeeeek/electronic-wechat.git>`_
-:桌面:
-
-    :xubuntu-desktop:
-    :kubuntu-desktop:
-
 :下载:
 
     :wget: 单线程

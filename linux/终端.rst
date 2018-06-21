@@ -31,22 +31,24 @@ terminator
 :进入图形界面: Ctrl+Alt+F7/startx &
 :桌面环境:
 
-    ==============  ========  =====  =========
-    NAME              RAM       CPU    TYPE
-    ==============  ========  =====  =========
-    KDE 4.6           363 MB    4%     Desktop
-    Unity             271 MB    14%    Desktop(shell)
-    GNOME 3           193 MB    10%    Desktop
-    GNOME 2.x         191 MB    1%     Desktop
-    XFCE 4.8          144 MB    10%    Desktop
-    LXDE              85 MB     10%    Desktop
+    ==============  ========  =====  =================  ===============================
+    NAME              RAM       CPU    TYPE               对应的 ubuntu 桌面版本
+    ==============  ========  =====  =================  ===============================
+    Unity             271 MB    14%    Desktop            Ubuntu16.04
+    Gnome3            193 MB    10%    Desktop            Ubuntu18.04
+    Xfce4.8           144 MB    10%    Desktop            Xubuntu
+    Lxde              85 MB     10%    Desktop            Lubuntu
+    Kde4.6            363 MB    4%     Desktop            Kubuntu
+    Gnome2.x          191 MB    1%     Desktop
     IceWM             85 MB     2%     Window Manager
     Enlightenment     72 MB     1%     Window Manager
-    (E17 Standard)
     Fluxbox           69 MB     1%     Window Manager
     OpenBox           60 MB     1%     Window Manager
     JWM               58 MB     1%     Window Manager
-    ==============  ========  =====  =========
+    ==============  ========  =====  =================  ===============================
+
+    :Edubuntu: 教育分支版
+    :Ubuntu Studio: 针对音讯、影片和图像设计
 
 
 开关
