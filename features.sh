@@ -3,11 +3,8 @@
 # @Date:   2018-04-27 22:06:43
 # @Last Modified by:   forgetIt
 # @Last Modified time: 2018-04-29 20:29:39
-source config && echo ${PASSWORD} | sudo -S echo "start"
-
 
 # fonts
-# Noto Sans Mono CJK KR Regular
 sudo apt -y install fonts-mononoki fonts-wqy-microhei ttf-mscorefonts-installer
 
 # wine3.0
@@ -36,23 +33,22 @@ sudo apt update
 sudo apt install -y paper-icon-theme
 
 
-: <<'COMMENT'
-unpack and install
-COMMENT
-source config && echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m\n\033[0m"
+: <<'COMMIT'
+sudo apt install ubuntu-mate* fcitx-sunpinyin pastebinit
+fcitx-diagnose | pastebinit
+首选项 -> 语言支持
+COMMIT
+
 
 : <<'COMMENT'
 # sudo apt -y install libcanberra-gtk-module
 tar -zxvf "PyCharm.tar.gz" -C PyCharm --strip-components 1
-PyCharm/bin/pycharm.sh # 生成配置文件目录
-# sudo ln -sf "$(pwd)/PyCharm/bin/pycharm.sh" "/usr/bin/pycharm"
+sudo ln -sf ...
+# 启动一次，生成配置文件目录
 cd ${HOME}/.PyCharm*/config
-curl -fLo ./keymaps/Custom.xml --create-dirs \
-    https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
-
-nohup pycharm>~/jetbrains.log 2>&1 &
+curl -fLo ./keymaps/Custom.xml --create-dirs https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
+nohup charm>~/jetbrains.log 2>&1 &
 COMMENT
-exit 0
 
 # ***************************************************************
 # curl -fLo "./go.tar.gz" https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz

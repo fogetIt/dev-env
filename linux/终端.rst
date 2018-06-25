@@ -39,7 +39,7 @@ terminator
     xfce4.8           144 MB    10%    Desktop            xubuntu
     lxde              85 MB     10%    Desktop            lubuntu
     kde4.6            363 MB    4%     Desktop            kubuntu
-    gnome2.x          191 MB    1%     Desktop
+    gnome2.x          191 MB    1%     Desktop            ubuntu mate
     icewm             85 MB     2%     Window Manager
     enlightenment     72 MB     1%     Window Manager
     fluxbox           69 MB     1%     Window Manager

@@ -2,7 +2,7 @@
 # @Date:   2017-04-01 14:27:49
 # @Last Modified time: 2018-04-30 00:00:38
 # 将配置信息加载到 session 的环境变量中
-source config && echo ${PASSWORD} | sudo -S echo "start" || exit 1
+source config && echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m start \033[0m" || exit 1
 
 [[ -d ${PATH_SOFTWARES} ]] || mkdir ${PATH_SOFTWARES}
 [[ -f ${ROOT_CONFIG_FILE} ]] || touch ${ROOT_CONFIG_FILE} \
@@ -123,7 +123,7 @@ read -p "Configure desktop environment ? [Y/n]" var && [[ "${var}" == "Y" ]] && 
     else
         sudo apt install -y gnome-tweak-tool
         # 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
-        # alt+F2 --> r ，重启 gnome-shell
+        # 重启 gnome-shell: alt+F2 --> r
         GSE=gnome-shell-extension
         sudo apt install -y \
             "${GSE}-trash" "${GSE}-weather" "${GSE}-redshift" \
