@@ -96,11 +96,12 @@ EOF
     grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc" \
     || sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc" \
     || echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
-
-    [[ -d "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" && \
-    `ls -A "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"` != "" ]] || \
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-            ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    pushd "${HOME}/.oh-my-zsh/custom/plugins"
+        [[ -d zsh-syntax-highlighting && \
+        `ls -A zsh-syntax-highlighting` != "" ]] || \
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+                ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    popd
     # plugins=(... zsh-syntax-highlighting)
 )
 # ***************************************************************
@@ -112,6 +113,8 @@ if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_compl
     [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
+    npm config set registry https://registry.npm.taobao.org
+    echo $(npm config get registry)
 fi
 sudo apt install -y node-gyp
 # ***************************************************************
