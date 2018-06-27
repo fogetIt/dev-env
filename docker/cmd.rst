@@ -71,3 +71,14 @@ build
     docker rm $(docker ps -aq)
     # 清除所有镜像
     docker rmi $(docker images -q)
+
+
+获取构建容器时运行的命令
+-----------------------------------
+.. code-block:: bash
+
+    docker history IMAGE_ID > image-dockerfile
+    docker history --no-trunc=true IMAGE_ID > image-dockerfile
+    # 对 Dockerfile 中的 ADD 或 COPY 命令无效
+    # ADD file:1ac56373f7983caf22
+    # 因为无法知道维护者在镜像里使用了什么本地文件

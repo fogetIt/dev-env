@@ -22,10 +22,15 @@ sudo apt update
 sudo apt -y install apt-fast || exit 0
 which apt-fast && apt-fast --version | cat | head -n 2 || exit 0
 sudo apt -y install \
-    git language-pack-zh-hans openssh-server sshpass net-tools iptables ufw gufw \
-    python-pip python3-pip ipython ipython3 bpython bpython3 \
+    rar unrar unzip \
+    axel curl aria2 uget \
+    openssh-server sshpass \
+    git language-pack-zh-hans \
+    net-tools iptables ufw gufw \
+    python-pip ipython bpython \
+    python3-pip ipython3 bpython3 \
     tree terminator vim zsh screenfetch \
-    axel curl aria2 uget rar unrar unzip shutter dconf-tools
+    shutter dconf-tools
 sudo ufw enable && sudo ufw default deny
 # ***************************************************************
 read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -44,7 +49,8 @@ read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 )
 # ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    sudo apt -y install nginx redis-server \
+    sudo apt -y install \
+        nginx redis-server \
         mysql-server mysql-client \
         mongodb-server mongodb-clients
 )
@@ -52,7 +58,8 @@ read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 virtualenv --version || sudo pip install virtualenv -i ${PYPI}
 dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    sudo apt -y install python-tk python3-tk \
+    sudo apt -y install \
+        python-tk python3-tk \
         libmysqlclient-dev python-mysqldb
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
