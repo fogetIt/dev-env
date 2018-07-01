@@ -43,6 +43,9 @@ docker-composer
     sudo rm -rf /usr/lib/python2.7/dist-packages/OpenSSL
     sudo rm -rf /usr/lib/python2.7/dist-packages/pyOpenSSL-0.15.1.egg-info
     sudo pip install pyopenssl
+    # 交互式
+    # stdin_open: true  # 对应 docker 参数 -i
+    # tty: true         # 对应 docker 参数 -t
 
 
 docker-machine
