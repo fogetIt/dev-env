@@ -5,8 +5,8 @@
 source config && echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m start \033[0m" || exit 1
 
 [[ -d ${PATH_SOFTWARES} ]] || mkdir ${PATH_SOFTWARES}
-[[ -f ${ROOT_CONFIG_FILE} ]] || touch ${ROOT_CONFIG_FILE} \
-&& sudo tee ${ROOT_CONFIG_FILE} <<-'EOF'
+[[ -f ${ROOT_CONFIG_FILE} ]] || \
+    touch ${ROOT_CONFIG_FILE} && sudo tee ${ROOT_CONFIG_FILE} <<-'EOF'
 # sudo passwd root; su root
 [Seat:*]
 user-session=ubuntu
@@ -41,11 +41,11 @@ read -p "Configure vim editor ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 )
 # ***************************************************************
 read -p "Configure github ssh key ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    git config --global user.name ${GITHUB_NAME} \
-    && git config --global user.email ${GITHUB_EMAIL} \
-    && echo -e "\n" | ssh-keygen -t rsa -C ${GITHUB_EMAIL} \
-    && cat ${HOME}/.ssh/id_rsa.pub \
-    && read -p "add public key to github!"
+    git config --global user.name ${GITHUB_NAME} && \
+    git config --global user.email ${GITHUB_EMAIL} && \
+    echo -e "\n" | ssh-keygen -t rsa -C ${GITHUB_EMAIL} && \
+    cat ${HOME}/.ssh/id_rsa.pub && \
+    read -p "add public key to github!"
 )
 # ***************************************************************
 read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
@@ -58,9 +58,7 @@ read -p "Configure web tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
 virtualenv --version || sudo pip install virtualenv -i ${PYPI}
 dpkg-query -S python-dev python3-dev || sudo apt -y install python-dev python3-dev
 read -p "Configure python tools ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
-    sudo apt -y install \
-        python-tk python3-tk \
-        libmysqlclient-dev python-mysqldb
+    sudo apt -y install python-tk python3-tk libmysqlclient-dev python-mysqldb
     pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI}
     python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
 )
@@ -69,8 +67,8 @@ read -p "Configure zsh use oh-my-zsh ? [Y/n]" var && [[ "${var}" == "Y" ]] && (
     curl -L "${GITHUB_PREFIX}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
     [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
     pip install powerline-shell
-    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" \
-    && `ls -A "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"` != "" ]] || \
+    [[ -d "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme" && \
+    `ls -A "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"` != "" ]] || \
         git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git \
             "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme"
     [[ `ls -A "${PATH_SOFTWARES}/oh-my-zsh-powerline-theme/powerline-fonts"` != "" ]] || \

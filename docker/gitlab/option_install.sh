@@ -30,13 +30,13 @@ if [ ${1} == "zh" ]; then
 
     GITLAB=/tmp/gitlab
     # git clone https://gitlab.com/larryli/gitlab.git ${GITLAB} \
-    git clone https://git.coding.net/larryli/gitlab.git ${GITLAB} \
-    && echo "生成汉化补丁" \
-    && cd ${GITLAB} && git diff origin/8-8-stable origin/8-8-zh > ../zh_CN.diff \
-    && echo "应用汉化补丁" \
-    && sudo patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < ../zh_CN.diff \
-    && echo "清理" \
-    && cd .. && rm -rf ${GITLAB} zh_CN.diff
+    git clone https://git.coding.net/larryli/gitlab.git ${GITLAB} && \
+    echo "生成汉化补丁" && \
+    cd ${GITLAB} && git diff origin/8-8-stable origin/8-8-zh > ../zh_CN.diff && \
+    echo "应用汉化补丁" && \
+    sudo patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 < ../zh_CN.diff && \
+    echo "清理" && \
+    cd .. && rm -rf ${GITLAB} zh_CN.diff
 
     sudo gitlab-ctl start
 fi

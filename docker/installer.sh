@@ -33,17 +33,15 @@ if ! docker -v; then
     fi
 fi
 
-if ! docker-compose --version; then
-    if [[ ${CODENAME} == "bionic" ]]; then
-        pip install backports.ssl_match_hostname
-    fi
-    sudo pip install docker-compose==1.21.2
+if [[ ${CODENAME} == "bionic" ]]; then
+    pip install backports.ssl_match_hostname
 fi
+sudo pip install docker-compose==1.21.2
 
 if ! docker-machine --version; then
-    base=https://github.com/docker/machine/releases/download/v0.14.0 \
-    && curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine \
-    && sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+    base=https://github.com/docker/machine/releases/download/v0.14.0 && \
+    curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
+    sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 fi
 
 echo -n 'Docker:         '
@@ -56,13 +54,10 @@ docker-machine --version
 
 : <<'COMMENT'
 注册阿里云，使用国内镜像加速
-{
-    "registry-mirrors": [
-        "https://e92apzsu.mirror.aliyuncs.com",
-        "https://docker.mirrors.ustc.edu.cn",
-        "http://hub-mirror.c.163.com"
-    ]
-}
+registry-mirrors
+http://hub-mirror.c.163.com
+https://docker.mirrors.ustc.edu.cn
+https://e92apzsu.mirror.aliyuncs.com
 COMMENT
 [[ -d /etc/docker ]] || sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
@@ -70,13 +65,13 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
   "registry-mirrors": ["https://bsy887ib.mirror.aliyuncs.com"]
 }
 EOF
-# sudo service docker restart
 sudo systemctl daemon-reload
+# sudo service docker restart
 sudo systemctl restart docker
+if ! docker ps -q; then
+    echo "添加用户到 docker 组，避免输入 sudo"
+    sudo usermod -aG docker $(whoami)
+    echo "重新登录使 docker 组新用户生效"
+    exit 0
+fi
 
-
-: <<'COMMENT'
-# 将用户添加到 docker 组（安装时自动创建），避免输入 sudo
-# 该操作需要重新登录才能生效
-COMMENT
-sudo usermod -aG docker $(whoami)

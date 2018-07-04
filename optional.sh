@@ -142,11 +142,12 @@ COMMIT
     sudo apt -y install wine-stable playonlinux winetricks
     # ***************************************************************
     sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
-        cd ${PATH_SOFTWARES} \
-        && axel -n 16 "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
-        && chmod +x ./mongobooster*.AppImage \
-        && sudo apt install libstdc++6 \
-        && ./mongobooster*.AppImage
+        cd ${PATH_SOFTWARES} && \
+        url="http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
+        axel -n 16 $url && \
+        chmod +x ./mongobooster*.AppImage && \
+        sudo apt install libstdc++6 && \
+        ./mongobooster*.AppImage
     )
     # ***************************************************************
     sudo apt install perl
