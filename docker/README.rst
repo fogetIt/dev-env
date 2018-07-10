@@ -4,31 +4,33 @@ docker
 - 容器内没有后台服务的概念，应用都应该前台执行
     - Docker 不是虚拟机，不用 upstart/systemd 去启动后台服务
 
-:默认版本: sudo apt-fast -y install docker.io
-:最新版本: `参考 <./install.sh>`_
+- `默认版和最新版 <./install.sh>`_
+- `阿里云镜像库 <https://dev.aliyun.com/search.html>`_
+
 :宿主镜像: 专门为容器设计的 Linux 发行版(轻量、可移植)
 
-    .. code-block:: bash
+    - Ubuntu
+    - Alpine
+    - CoreOS
+    - Project Atomic
+    - Ubuntu Snappy
+    - RancherOS
+    - VMware-Photon
 
-        docker search linux
-        #: Ubuntu
-        #: Alpine
-        #: CoreOS
-        #: Project Atomic
-        #: Ubuntu Snappy
-        #: RancherOS
-        #: VMware-Photon
 :快照: 记录原始镜像的修改，只能本地运行
 :镜像: 打包后的快照，可以发给别人
-:client: 控制器，转发用户命令（docker pull, docker run）给守护进程
-:demaon: 守护进程，接收执行命令，返回命令执行结果，管理宿机上所有的容器
-:守护进程:
-    - 每个 docker 实例占用一个进程，每个实例里安装一个服务
-        - 通过 nginx 启动 django 算一个服务
-    - docker 守护进程绑定到一个 Unix socket，默认由 root 所有
-        - 其他用户要访问 docker 都需要用 sudo
+:查看 client 和 server 版本: docker version
+:client: docker cli
 
-- `阿里云镜像库 <https://dev.aliyun.com/search.html>`_
+    - 转发用户命令 (docker pull/run/ps) 给守护进程
+    - 默认由 root 所有，其他用户需要用 sudo 访问
+
+:server: docker daemon
+
+    - daemon 绑定到一个 socket ，接受 client 的请求
+    - 接收执行命令，返回命令执行结果，管理宿机上所有的容器
+    - 每个 docker 实例占用一个进程，每个实例里安装一个服务
+    - 通过 docker –d(--daemon=true; –d=true)启动守护进程
 
 :Dockerfile:
     :RUN: 拉取镜像之后，启动容器之前运行，生成目标镜像（可以有多个）
@@ -44,8 +46,8 @@ docker-composer
     sudo rm -rf /usr/lib/python2.7/dist-packages/pyOpenSSL-0.15.1.egg-info
     sudo pip install pyopenssl
     # 交互式
-    # stdin_open: true  # 对应 docker 参数 -i
-    # tty: true         # 对应 docker 参数 -t
+    # stdin_open: true  # 对应 docker -i
+    # tty: true         # 对应 docker -t
 
 
 docker-machine
@@ -75,3 +77,27 @@ docker-machine
     docker-machine status [xxx]
     docker-machine upgrade [xxx]
     docker-machine url [xxx]
+
+
+docker swarm
+=============
+.. code-block:: bash
+
+    # init vboxnet0
+    # 建立集群
+    docker swarm init --advertise-addr xx.xx.xx.xx:2377
+    # 把当前节点加入集群
+    docker-machine ssh manager
+    docker swarm join --token xxx xx.xx.xx.xx:2377
+    # 从集群删除当前节点
+    docker-machine ssh multihost1
+    docker swarm leave --force
+
+
+    # 节点操作
+    docker node ls
+    docker node demote xxx
+    docker node rm xxx
+
+    # 容器操作
+    docker service ls
