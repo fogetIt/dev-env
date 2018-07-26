@@ -1,42 +1,31 @@
 #!/bin/bash
-echo "zj12315" | sudo -S echo "start"
-
-# Array of supported versions
-# declare -a versions=('trusty' 'xenial' 'yakkety');
-
-if [ -z "$1" ]; then
-    source /etc/lsb-release || (
-        echo "Error: Release information not found"
-        exit 1
-    )
-    CODENAME=${DISTRIB_CODENAME}
-else
-    CODENAME=${1}
-fi
+echo "12345" | sudo -S echo "start"
+set -e
 
 if ! docker -v; then
-    if [[ ${CODENAME} == "bionic" ]]; then
-        sudo apt install docker.io -y
-    else
-        # curl -O https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        # Add Docker repository key to APT keychain
-        cat gpg | sudo apt-key add -
-        # Update where APT will search for Docker Packages
-        echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${CODENAME} stable" | \
-            sudo tee /etc/apt/sources.list.d/docker.list
-        sudo apt -y install ca-certificates      #: 安装证书
-        sudo apt -y install apt-transport-https  #: 确保 apt 能使用 https
-        # Verifies APT is pulling from the correct Repository
-        sudo apt-cache policy docker-ce
-        # Install kernel packages which allows us to use aufs storage driver if V14 (trusty/utopic)
-        sudo apt -y install docker-ce
-    fi
+    # Add Docker repository key to APT keychain
+    # curl -O https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    cat gpg | sudo apt-key add -
+: <<'COMMIT'
+    # Update where APT will search for Docker Packages
+    SITE="https://download.docker.com/linux/ubuntu"
+    source /etc/lsb-release
+    echo "deb [arch=amd64] ${SITE} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
+COMMIT
+    SITE="https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu"
+    sudo add-apt-repository "deb [arch=amd64] ${SITE} $(lsb_release) -cs stable"
+    # 安装证书，确保 apt 能使用 https
+    sudo apt -y install ca-certificates apt-transport-https
+    set +e
+    sudo apt update
+    set -e
+    # Verifies APT is pulling from the correct Repository
+    sudo apt-cache policy docker-ce
+    # Install kernel packages which allows us to use aufs storage driver if V14 (trusty/utopic)
+    sudo apt -y install docker-ce
 fi
 
-if [[ ${CODENAME} == "bionic" ]]; then
-    pip install backports.ssl_match_hostname
-fi
-sudo pip install docker-compose==1.21.2
+sudo pip install docker-compose
 
 if ! docker-machine --version; then
     base=https://github.com/docker/machine/releases/download/v0.14.0 && \
