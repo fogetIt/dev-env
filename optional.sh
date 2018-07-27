@@ -151,3 +151,17 @@ COMMIT
     )
     # ***************************************************************
     sudo apt install perl
+
+
+: <<'COMMIT'
+svn 客户端
+--------
+COMMIT
+cd;sudo apt install rapidsvn scite nautilus kdiff3 -y
+
+
+: <<'COMMIT'
+内存管理
+--------
+COMMIT
+sudo sync;free -m
