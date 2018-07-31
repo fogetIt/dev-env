@@ -6,11 +6,13 @@ dpkg
 ----
 .. code-block:: bash
 
-    sudo dpkg -i xxx           # 安装 .deb 包
-    sudo dpkg --configure -a   # 打断安装
-    sudo dpkg -l | grep xxx    # 查询相关包信息
-    sudo dpkg -P xxx           # 彻底卸载
-    sudo dpkg --purge xxx
+    dpkg -i xxx           # 安装 .deb 包
+    dpkg --configure -a   # 打断安装
+    dpkg -l | grep xxx    # 查询相关包信息
+    dpkg -P xxx           # 彻底卸载
+    dpkg --purge xxx
+    # dpkg-query
+    dpkg -S xxx xxx       # 搜索拥有该（1～多个）文件的软件包（--search）
 
 mongodb
 -------
@@ -21,7 +23,9 @@ mongodb
 
         # 允许外部访问
         bind_ip = 0.0.0.0
+
 :命令:
+
     .. code-block:: bash
 
         sudo service mongodb stop
