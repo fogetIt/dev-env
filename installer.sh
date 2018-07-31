@@ -34,7 +34,7 @@ apt-fast --version | cat | head -n 2 || exit 0
 sudo apt -y install \
     language-pack-zh-hans \
     rar unrar unzip \
-    axel curl aria2 uget git  \
+    axel curl aria2 uget git \
     openssh-server sshpass \
     net-tools iptables ufw gufw \
     libmysqlclient-dev python-mysqldb \
