@@ -37,16 +37,18 @@ docker
 :Dockerfile:
     :RUN: 拉取镜像之后，启动容器之前运行，生成目标镜像（可以有多个）
     :CMD: 只能有一条 CMD 命令，如果指定了多条命令，只有最后一条会被执行
+    :ARG: After docker 17.05.0-ce, ARG before FROM in Dockerfile is allowed.
 
 
-docker-composer
+docker-compose
 ================
 .. code-block:: bash
 
-    # python pip error
-    sudo rm -rf /usr/lib/python2.7/dist-packages/OpenSSL
-    sudo rm -rf /usr/lib/python2.7/dist-packages/pyOpenSSL-0.15.1.egg-info
-    sudo pip install pyopenssl
+    docker-compose -f xxx.yaml build
+    # up 会根据需要自动进行 build
+    docker-compose -f xxx.yaml up -d
+    docker-compose -f xxx.yaml down
+    docker-compose -f xxx.yaml rm -f
     # 交互式
     # stdin_open: true  # 对应 docker -i
     # tty: true         # 对应 docker -t
