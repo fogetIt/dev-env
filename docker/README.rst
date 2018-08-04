@@ -91,12 +91,9 @@ docker swarm
     # 建立集群
     docker swarm init --advertise-addr xx.xx.xx.xx:2377
     # 把当前节点加入集群
-    docker-machine ssh manager
-    docker swarm join --token xxx xx.xx.xx.xx:2377
+    docker-machine ssh manager 'docker swarm join --token ...'
     # 从集群删除当前节点
-    docker-machine ssh multihost1
-    docker swarm leave --force
-
+    docker-machine ssh worker1 'docker swarm leave --force'
 
     # 节点操作
     docker node ls
@@ -104,4 +101,14 @@ docker swarm
     docker node rm xxx
 
     # 容器操作
+
+    # 使用 docker-compose v3 deploy 部署
+    # -c/--compose-file xxx.yaml
+    # --orchestrator swarm/kubernetes/all
+    # --with-registry-auth                  向 swarm 代理发送注册表（registry）认证详细信息（用于私有仓库）
+    # --resolve-image always/changed/never  查询注册表以解决​​镜像摘要和支持的平台（默认 always）
+    docker stack deploy -c xxx.yaml xx
+
+    # 容器查看
     docker service ls
+    # Preparing 一个容器如果没有外部通信但又是运行中的状态
