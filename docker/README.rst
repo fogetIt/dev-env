@@ -35,6 +35,7 @@ docker
     - 通过 docker –d(--daemon=true; –d=true)启动守护进程
 
 :Dockerfile:
+
     :RUN: 拉取镜像之后，启动容器之前运行，生成目标镜像（可以有多个）
     :CMD: 只能有一条 CMD 命令，如果指定了多条命令，只有最后一条会被执行
     :ARG: After docker 17.05.0-ce, ARG before FROM in Dockerfile is allowed.

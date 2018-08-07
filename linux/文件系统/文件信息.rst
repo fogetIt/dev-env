@@ -48,6 +48,12 @@ l(i)s(t)
     --version  显示命令版本
 
 
+删除时排除某文件
+--------------------------
+.. code-block:: bash
+
+    rm -rf $(ls -A | egrep -v .gitkeep)
+
 l(s -)l
 -------
 - 显示文件详细信息
