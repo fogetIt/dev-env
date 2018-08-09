@@ -8,8 +8,11 @@ SOFTWARES="$HOME/softwares"
 # GITHUB_RAW="https://raw.github.com"
 GITHUB_RAW="https://raw.githubusercontent.com"
 PYPI_TSINGHUA="https://pypi.tuna.tsinghua.edu.cn/simple"
-
-echo ${PASSWORD} | sudo -S echo -e "\033[1;;42m start \033[0m" || exit 1
+info_log ()
+{
+    echo -e "\033[32m=====> INFO: ${1}\033[0m"
+}
+echo ${PASSWORD} | sudo -S info_log "starting" || exit 1
 [[ -d ${SOFTWARES} ]] || mkdir ${SOFTWARES}
 if [[ ! -f /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf ]]; then
     touch /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
@@ -31,8 +34,8 @@ sudo apt update
 set -e
 sudo apt -y install apt-fast || exit 0
 apt-fast --version | cat | head -n 2 || exit 0
+sudo locale-gen zh_CN.UTF-8
 sudo apt -y install \
-    language-pack-zh-hans \
     rar unrar unzip \
     axel curl aria2 uget git \
     openssh-server sshpass \
@@ -64,7 +67,7 @@ if [[ "${var}" == "Y" ]]; then
     sudo apt -y install nginx redis-server mysql-server mysql-client mongodb-server mongodb-clients
 fi
 # ***************************************************************
-echo "Configure python tools!"
+info_log "Configure python tools!"
 virtualenv --version || sudo pip install virtualenv -i ${PYPI_TSINGHUA}
 pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI_TSINGHUA}
 python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
@@ -109,10 +112,9 @@ ZSH_THEME='powerline'
 EOF
     fi
     # 打开终端，选择 powerline 字体
+    sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc"
     if ! grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc"; then
-        if ! sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc"; then
-            echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
-        fi
+        echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
     fi
     pushd "${HOME}/.oh-my-zsh/custom"
         if [[ ! -d plugins/zsh-syntax-highlighting || -z `ls -A plugins/zsh-syntax-highlighting` ]]; then
@@ -123,7 +125,7 @@ EOF
     # plugins=(... zsh-syntax-highlighting)
 fi
 # ***************************************************************
-echo "Configure nodejs tools!"
+info_log "Configure nodejs tools!"
 if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
     sudo apt -y install build-essential libssl-dev node-gyp
     curl -o- "${GITHUB_RAW}/creationix/nvm/v0.33.2/install.sh" | bash
@@ -133,7 +135,7 @@ if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_compl
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
     npm config set registry "https://registry.npm.taobao.org"
-    echo $(npm config get registry)
+    info_log $(npm config get registry)
 fi
 # ***************************************************************
 read -p "Configure desktop environment ? [Y/n]" var

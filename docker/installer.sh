@@ -8,12 +8,12 @@ if ! docker -v; then
     cat gpg | sudo apt-key add -
 : <<'COMMIT'
     # Update where APT will search for Docker Packages
-    SITE="https://download.docker.com/linux/ubuntu"
+    SOURCE="https://download.docker.com/linux/ubuntu"
     source /etc/lsb-release
-    echo "deb [arch=amd64] ${SITE} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
+    echo "deb [arch=amd64] ${SOURCE} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
 COMMIT
-    SITE="https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu"
-    sudo add-apt-repository "deb [arch=amd64] ${SITE} $(lsb_release) -cs stable"
+    SOURCE="https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu"
+    sudo add-apt-repository "deb [arch=amd64] ${SOURCE} $(lsb_release) -cs stable"
     # 安装证书，确保 apt 能使用 https
     sudo apt -y install ca-certificates apt-transport-https
     set +e
@@ -28,8 +28,8 @@ fi
 sudo pip install docker-compose
 
 if ! docker-machine --version; then
-    base=https://github.com/docker/machine/releases/download/v0.14.0 && \
-    curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine && \
+    base=https://github.com/docker/machine/releases/download/v0.14.0
+    curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine
     sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 fi
 
