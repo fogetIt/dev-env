@@ -157,6 +157,8 @@ vagrant up
 vagrant reload
 # 登录
 vagrant ssh
+# 执行初始化 shell
+vagrant provision
 
 
 
