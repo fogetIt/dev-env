@@ -66,22 +66,27 @@ docker-machine
     # 使用驱动创建虚拟主机（本机/远程）并安装 docker
     docker-machine create --driver virtualbox default
 
-    docker-machine env [xxx]           # 查看虚拟主机环境变量
-    eval "$(docker-machine env [xxx])" # 本机 docker 客户端与虚拟主机通信
-    docker-machine ssh [xxx]           # 进入虚拟主机
+    docker-machine env ...           # 查看虚拟主机环境变量
+    eval "$(docker-machine env ...)" # 本机 docker 客户端与虚拟主机通信
+    docker-machine ssh ...           # 进入虚拟主机
+    docker-machine stop ...
+    docker-machine start ...
+    docker-machine restart ...
+    docker-machine config ...
+    docker-machine inspect ...
+    docker-machine ip ...
+    docker-machine kill ...
+    docker-machine provision ...
+    docker-machine regenerate-certs ...
+    docker-machine status ...
+    docker-machine upgrade ...
+    docker-machine url ...
 
-    docker-machine stop [xxx]
-    docker-machine start [xxx]
-    docker-machine restart [xxx]
-    docker-machine config [xxx]
-    docker-machine inspect [xxx]
-    docker-machine ip [xxx]
-    docker-machine kill [xxx]
-    docker-machine provision [xxx]
-    docker-machine regenerate-certs [xxx]
-    docker-machine status [xxx]
-    docker-machine upgrade [xxx]
-    docker-machine url [xxx]
+    # 挂载目录：外部必须是目录，会同步内部目录的内容到外部
+    docker-machine mount xxx:{{inner_dir}} {{outer_dir}}
+    # 卸载目录：清空外部目录，保留内部目录
+    docker-machine mount -u xxx:{{inner_dir}} {{outer_dir}}
+    umount -f {{outer_dir}} && rm -rf {{outer_dir}}
 
 
 docker swarm
@@ -89,21 +94,15 @@ docker swarm
 .. code-block:: bash
 
     # init vboxnet0
-    # 建立集群
-    docker swarm init --advertise-addr xx.xx.xx.xx:2377
-    # 把当前节点加入集群
-    docker-machine ssh manager 'docker swarm join --token ...'
-    # 从集群删除当前节点
-    docker-machine ssh worker1 'docker swarm leave --force'
-
+    docker swarm init --advertise-addr xx.xx.xx.xx:2377        # 建立集群
+    docker-machine ssh manager 'docker swarm join --token ...' # 把当前节点加入集群
+    docker-machine ssh worker1 'docker swarm leave --force'    # 从集群删除当前节点
     # 节点操作
     docker node ls
     docker node demote xxx
     docker node rm xxx
 
-    # 容器操作
-
-    # 使用 docker-compose v3 deploy 部署
+    # deploy/docker-compose v3
     # -c/--compose-file xxx.yaml
     # --orchestrator swarm/kubernetes/all
     # --with-registry-auth                  向 swarm 代理发送注册表（registry）认证详细信息（用于私有仓库）
@@ -112,7 +111,7 @@ docker swarm
 
     # 容器查看
     docker service ls
-    # Preparing 一个容器如果没有外部通信但又是运行中的状态
+    # Preparing 一个容器没有外部通信但又是运行中的状态
 
     # 容器副本： --replicas n
     # 当其中某一个或几个节点宕机后， cluster 会根据自己的服务注册发现机制，以及之前的设定，在集群中剩余的空闲节点上，重新拉起容器副本
