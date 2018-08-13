@@ -17,7 +17,7 @@ echo ${PASSWORD} | sudo -S info_log "starting" || exit 1
 if [[ ! -f /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf ]]; then
     touch /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 fi
-sudo tee /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf <<-'EOF'
+sudo tee /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf <<EOF
 # sudo passwd root; su root
 [Seat:*]
 user-session=ubuntu
@@ -93,23 +93,24 @@ if [[ "${var}" == "Y" ]]; then
         popd
     popd
     if ! grep 'install_powerline_precmd()' "${HOME}/.zshrc"; then
-tee -a "${HOME}/.zshrc" <<-'EOF'
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-function install_powerline_precmd() {
-for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-    return
-    fi
-done
-precmd_functions+=(powerline_precmd)
-}
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
-ZSH_THEME='powerline'
-EOF
+        # -'EOF'
+        tee -a "${HOME}/.zshrc" <<-'EOF'
+        function powerline_precmd() {
+            PS1="$(powerline-shell --shell zsh $?)"
+        }
+        function install_powerline_precmd() {
+        for s in "${precmd_functions[@]}"; do
+            if [ "$s" = "powerline_precmd" ]; then
+            return
+            fi
+        done
+        precmd_functions+=(powerline_precmd)
+        }
+        if [ "$TERM" != "linux" ]; then
+            install_powerline_precmd
+        fi
+        ZSH_THEME='powerline'
+		EOF
     fi
     # 打开终端，选择 powerline 字体
     sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc"
