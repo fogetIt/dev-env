@@ -38,3 +38,12 @@ ntp
 .. code-block:: bash
 
     ntpdate us.pool.ntp.org
+
+
+时间计算
+----------
+.. code-block:: bash
+
+    TIMESTAMP=$(date +%s)
+    echo $(($(date +%s) - ${TIMESTAMP}))
+    [ $(($(date +%s) - ${TIMESTAMP})) -lt 0 ] || echo "do something"
