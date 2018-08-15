@@ -111,9 +111,9 @@ source /etc/profile
 tar -zxvf "PyCharm.tar.gz"
 # sudo ln -sf Pycharm/bin/pycharm.sh /usr/local/bin/pycharm
 # 启动一次，生成配置文件目录
+nohup charm>~/jetbrains.log 2>&1 &
 cd ${HOME}/.PyCharm*/config
 curl -fLo ./keymaps/Custom.xml --create-dirs https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
-nohup charm>~/jetbrains.log 2>&1 &
 
 
 # 其它
@@ -124,12 +124,10 @@ sudo apt -y install fonts-mononoki fonts-wqy-microhei ttf-mscorefonts-installer
 sudo apt -y install wine-stable playonlinux winetricks
 # ***************************************************************
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
-    cd ${PATH_SOFTWARES}
-    url="http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage" \
-    axel -n 16 $url
-    chmod +x ./mongobooster*.AppImage
+    axel -n 16 -o ~/softwares/ "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage"
+    chmod +x ~/softwares/mongobooster*.AppImage
     sudo apt install libstdc++6
-    ./mongobooster*.AppImage
+    cd ~/softwares/ && ./mongobooster*.AppImage
 )
 # ***************************************************************
 sudo apt install perl
@@ -190,3 +188,18 @@ yum install gcc g++ gcc-c++ libxslt-devel python-devel MySQL-python tree
 # mkfontscale && mkfontdir && fc-cache -fv
 # reboot
 yum install -y fontconfig mkfontscale
+
+
+# expect
+# ------
+expect -v || sudo apt -y install expect
+# 用法一：在脚本头部：#!/usr/local/bin/expect
+# 用法二：在 sh/bash 脚本中：expect -c "..." 或者 expect <EOF...EOF
+expect -c "
+set timeout 20
+spawn /etc/init.d/nginx restart
+expect {
+    \"Password:\" { send ${PASSWORD} }
+}
+expect eof
+"
