@@ -192,7 +192,7 @@ yum install -y fontconfig mkfontscale
 
 # expect
 # ------
-expect -v || sudo apt -y install expect
+sudo apt -y install expect
 # 用法一：在脚本头部：#!/usr/local/bin/expect
 # 用法二：在 sh/bash 脚本中：expect -c "..." 或者 expect <EOF...EOF
 expect -c "
