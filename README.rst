@@ -125,3 +125,12 @@ usage
     sudo apt upgrade
     chmod -R u+x "$(pwd)/*.sh"
     ./install.sh
+
+
+手动释放内存
+-----------------------
+.. code-block:: bash
+
+    cat /proc/sys/vm/drop_caches # 默认是 0
+    sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+    free -m
