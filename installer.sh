@@ -135,16 +135,16 @@ if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_compl
     source "${NVM_DIR}/bash_completion"
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
-    # npm 包安装的下载源
-    npm config set registry "https://registry.npm.taobao.org"
-    # node-gyp 编译 c++ 扩展所需源码的下载源
-    npm config set disturl "https://npm.taobao.org/dist"
-    # 一些特殊包的下载源
-    npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
-    npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
-    npm config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs/
-    info_log $(npm config get registry)
 fi
+# npm 包安装的下载源
+npm config set registry "https://registry.npm.taobao.org"
+# node-gyp 编译 c++ 扩展所需源码的下载源
+npm config set disturl "https://npm.taobao.org/dist"
+# 一些特殊包的下载源
+npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
+npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+npm config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs/
+info_log $(npm config get registry)
 # ***************************************************************
 read -p "Configure desktop environment ? [Y/n]" var
 if [[ "${var}" == "Y" ]]; then
