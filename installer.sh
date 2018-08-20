@@ -140,10 +140,17 @@ fi
 npm config set registry "https://registry.npm.taobao.org"
 # node-gyp 编译 c++ 扩展所需源码的下载源
 npm config set disturl "https://npm.taobao.org/dist"
-# 一些特殊包的下载源
-npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
-npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
-npm config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs/
+# node-pre-gyp 下载各平台编译好的二进制包的下载源
+# npm i --{module_name}_binary_host_mirror=http_address
+npm config set grpc_node_binary_host_mirror https://npm.taobao.org/mirrors/grpc
+npm config set node_sqlite3_binary_host_mirror https://npm.taobao.org/mirrors/sqlite3
+
+npm config set ELECTRON_MIRROR https://npm.taobao.org/mirrors/electron
+npm config set SASS_BINARY_SITE https://npm.taobao.org/mirrors/node-sass
+npm config set SELENIUM_CDNURL https://npm.taobao.org/mirrors/selenium
+npm config set PHANTOMJS_CDNURL https://npm.taobao.org/dist/phantomjs
+npm config set OPERADRIVER_CDNURL https://npm.taobao.org/mirrors/operadriver
+npm config set CHROMEDRIVER_CDNURL http://npm.taobao.org/mirrors/chromedriver
 info_log $(npm config get registry)
 # ***************************************************************
 read -p "Configure desktop environment ? [Y/n]" var
