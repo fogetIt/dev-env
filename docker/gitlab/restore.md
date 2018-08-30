@@ -8,15 +8,21 @@ sudo chown git /var/opt/gitlab/gitlab-rails/shared/registry
 ```
 
 ##### 停止相关数据连接服务
+```bash
 sudo gitlab-ctl stop unicorn
 sudo gitlab-ctl stop sidekiq
+```
 
 ##### 从备份中恢复
+```bash
 sudo gitlab-rake gitlab:backup:restore BACKUP=***
+```
 
 ##### 启动Gitlab
+```bash
 sudo gitlab-ctl start unicorn
 sudo gitlab-ctl start sidekiq
+```
 
 ##### 访问项目时 500
 覆盖 gitlab 的 db_key_base(/etc/gitlab/gitlab-secrets.json)

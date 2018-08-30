@@ -2,6 +2,11 @@
 # @Date:   2017-04-28 15:44:04
 # @Last Modified time: 2017-11-20 14:31:24
 echo "" | sudo -S echo "start"
+REMOTE_USER=""
+REMOTE_HOST=""
+REMOTE_PASSWORD=""
+LOCAL_BACKUP_PATH="${HOME}/gitlab-backups"
+REMOTE_BACKUP_PATH="gitlab-backups"
 
 : <<'COMMIT'
 # 定时任务命令和脚本中必须写绝对路径
@@ -21,5 +26,7 @@ elif [[ ${1} == "run" ]]; then
     # 每天 23 点执行定时任务，备份脚本
     sudo gitlab-rake gitlab:backup:create
     # 开放权限给远程备份的主机
-    sudo chmod -R 777 "${HOME}/gitlabackups"
+    sudo chmod -R 777 ${LOCAL_BACKUP_PATH}
+    sshpass -p ${REMOTE_PASSWORD} ssh ${REMOTE_HOST} "rm -rf ${REMOTE_BACKUP_PATH}"
+    sshpass -p ${REMOTE_PASSWORD} scp ${LOCAL_BACKUP_PATH} ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_BACKUP_PATH}
 fi

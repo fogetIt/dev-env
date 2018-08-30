@@ -1,5 +1,5 @@
 gitlab 汉化版
-=============
+===============
 - [github][github]
 - [gitlab-ce-zh][gitlab-ce-zh]
 
@@ -20,8 +20,7 @@ docker run ...
 docker rm -fv gitlab
 ```
 
-管理
------------------
+##### 管理
 ```bash
 : <<'COMMIT'
 docker exec -it gitlab ...
