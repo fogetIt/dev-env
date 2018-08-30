@@ -26,6 +26,9 @@ services:
         volume:
           # 创建 volume 时从容器内部向外拷贝文件（默认 true ）
           nocopy: false
+    # extends:         # 扩展自另一个服务， file 默认是当前文件
+    #   file: xxx.yml
+    #   service: xxx
     # extra_hosts:
     #   - "domain:ip"  # 往容器的 /etc/hosts 文件中添加记录
     # dns_search:      # 自定义 DNS 搜索，可以是一个单独的值或者一张列表，在搜索 host 时，不仅搜索 host ，还拼接域名
