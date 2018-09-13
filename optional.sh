@@ -96,9 +96,8 @@ GOROOT 包安装路径（可以指定多个）
         为了方便，可以把此目录加入到 PATH
         如果有多个目录，那么添加所有的bin目录
 COMMIT
-# curl -fLo "./go.tar.gz" https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz
 mkdir go
-tar -zxvf go*.tar.gz -C go --strip-components 1
+curl -fL https://studygolang.com/dl/golang/go1.9.2.linux-amd64.tar.gz | tar -zxvf - -C go --strip-components 1
 sudo ln -sf "${PATH_SOFTWARES}/go/bin/go" /usr/local/bin/go
 grep 'export GOROOT=${HOME}/go'                        /etc/profile || tee -e 'export GOROOT=${HOME}/go'
 grep 'export GOPATH=${HOME}/gocode'                    /etc/profile || tee -e 'export GOPATH=${HOME}/gocode'
