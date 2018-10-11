@@ -56,6 +56,7 @@
     Pixlr Editor                       图像编辑
     Charset                            设置/查看编码
     Get CRX                            提取crx文件
+    Vimium                             使用 vim 快捷键
     ===============================  ======
 
 
