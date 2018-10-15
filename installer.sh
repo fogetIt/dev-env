@@ -65,6 +65,7 @@ fi
 read -p "Configure web tools ? [Y/n]" var
 if [[ "${var}" == "Y" ]]; then
     sudo apt -y install nginx redis-server mysql-server mysql-client mongodb-server mongodb-clients
+    sudo snap install redis-desktop-manager
 fi
 # ***************************************************************
 info_log "Configure python tools!"
