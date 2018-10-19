@@ -29,9 +29,8 @@
     ===============================  ======
     plugins                            todo
     ===============================  ======
-    谷歌访问助手                         google
-    SetupVPN                           翻墙
-    Stylish                            为任意网站定制主题
+    谷歌访问助手/SetupVPN               google
+    Stylish/Stylus                     为任意网站定制主题
 
     Spring Summer Fall Winter          主题插件
     Infinity                           新标签页、背景、主题、管理
@@ -39,8 +38,6 @@
     octotree                           github 目录呈现
     Awesome AutoComplete For GitHub    github 快捷搜索
     Isometric Contributions            立体显示 github commit
-
-    ImTranslator
 
     Postman
     Postman Interceptor
