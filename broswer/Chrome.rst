@@ -30,30 +30,28 @@
     plugins                            todo
     ===============================  ======
     谷歌访问助手/SetupVPN               google
-    Stylish/Stylus                     为任意网站定制主题
-
-    Spring Summer Fall Winter          主题插件
-    Infinity                           新标签页、背景、主题、管理
-
+    Stylus                             为任意网站定制主题
+    右键搜
+    Adblock Plus
     octotree                           github 目录呈现
     Awesome AutoComplete For GitHub    github 快捷搜索
-    Isometric Contributions            立体显示 github commit
+    OneTab                             一键回收、还原所有 tab
+    Vimium                             使用 vim 快捷键
 
+    Spring Summer Fall Winter          主题
+    Infinity                           新标签页、背景、主题、管理
+    Isometric Contributions            立体显示 github commit
     Postman
     Postman Interceptor
     Request Maker
-    ReRes                              支持单个url或目录映射
-                                       勾选：允许访问文件网址
+    ReRes                              单个url或目录映射（允许访问文件网址）
     Web Maker                          前端编辑器
     ColorZilla                         取色器
-    Markdown Editor
     Quick QRCode                       快速生成二维码
-    OneTab                             一键回收、还原所有的 tab
     grammarly                          英语语法
     Pixlr Editor                       图像编辑
     Charset                            设置/查看编码
     Get CRX                            提取crx文件
-    Vimium                             使用 vim 快捷键
     ===============================  ======
 
 
