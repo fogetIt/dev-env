@@ -162,6 +162,7 @@ if [[ "${var}" == "Y" ]]; then
         set +e
         sudo apt update
         set -e
+	sudo apt install gtk-redshift redshift python-appindicator -y
     else
         sudo apt install -y gnome-tweak-tool
         # 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
