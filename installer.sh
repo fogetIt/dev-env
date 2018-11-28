@@ -4,16 +4,13 @@
 set -e
 set -x
 PASSWORD=${1}
-SOFTWARES="$HOME/softwares"
-# GITHUB_RAW="https://raw.github.com"
 GITHUB_RAW="https://raw.githubusercontent.com"
-PYPI_TSINGHUA="https://pypi.tuna.tsinghua.edu.cn/simple"
+TSINGHUA_PYPI="https://pypi.tuna.tsinghua.edu.cn/simple"
 info_log ()
 {
     echo -e "\033[32m=====> INFO: ${1}\033[0m"
 }
 echo ${PASSWORD} | sudo -S info_log "starting" || exit 1
-[[ -d ${SOFTWARES} ]] || mkdir ${SOFTWARES}
 if [[ ! -f /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf ]]; then
     touch /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 fi
@@ -50,7 +47,7 @@ sudo ufw default deny
 read -p "Configure vim editor ? [Y/n]" var
 if [[ "${var}" == "Y" ]]; then
     curl -fLo "${HOME}/.vimrc" "${GITHUB_RAW}/fogetIt/dev-env/master/editor/vim/.vimrc"
-    curl -fLo "${SOFTWARES}/vimrcs/autoload/plug.vim" --create-dirs "${GITHUB_RAW}/junegunn/vim-plug/master/plug.vim"
+    curl -fLo "/opt/vimrcs/autoload/plug.vim" --create-dirs "${GITHUB_RAW}/junegunn/vim-plug/master/plug.vim"
 fi
 # ***************************************************************
 read -p "Configure github ssh key ? [Y/n]" var
@@ -69,8 +66,8 @@ if [[ "${var}" == "Y" ]]; then
 fi
 # ***************************************************************
 info_log "Configure python tools!"
-virtualenv --version || sudo pip install virtualenv -i ${PYPI_TSINGHUA}
-pip3 list | grep QScintilla || pip3 install QScintilla -i ${PYPI_TSINGHUA}
+virtualenv --version || sudo pip install virtualenv -i ${TSINGHUA_PYPI}
+pip3 list | grep QScintilla || pip3 install QScintilla -i ${TSINGHUA_PYPI}
 python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
 # ***************************************************************
 read -p "Configure zsh use oh-my-zsh ? [Y/n]" var
@@ -79,7 +76,7 @@ if [[ "${var}" == "Y" ]]; then
     [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
 
     pip install powerline-shell
-    pushd ${SOFTWARES}
+    pushd /opt
         if [[ ! -d oh-my-zsh-powerline-theme || -z `ls -A oh-my-zsh-powerline-theme` ]]; then
             git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
         fi
@@ -167,15 +164,14 @@ if [[ "${var}" == "Y" ]]; then
         sudo apt install -y gnome-tweak-tool
         # 回收站、天气、色温、启动器、隐藏头部、托盘图标、断开 wifi
         # 重启 gnome-shell: alt+F2 --> r
-        GSE=gnome-shell-extension
         sudo apt install -y \
-            "${GSE}-trash" \
-            "${GSE}-weather" \
-            "${GSE}-redshift" \
-            "${GSE}-dashtodock" \
-            "${GSE}-autohidetopbar" \
-            "${GSE}-top-icons-plus" \
-            "${GSE}-disconnect-wifi"
+            gnome-shell-extension-trash \
+            gnome-shell-extension-weather \
+            gnome-shell-extension-redshift \
+            gnome-shell-extension-dashtodock \
+            gnome-shell-extension-autohidetopbar \
+            gnome-shell-extension-top-icons-plus \
+            gnome-shell-extension-disconnect-wifi
     fi
     sudo apt install papirus-icon-theme -y
 fi
