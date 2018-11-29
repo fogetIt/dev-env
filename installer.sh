@@ -40,7 +40,7 @@ sudo apt -y install \
     libmysqlclient-dev python-mysqldb \
     python-pip ipython bpython python-tk python-dev \
     python3-pip ipython3 bpython3 python3-tk python3-dev \
-    tree terminator vim zsh shutter screenfetch dconf-tools
+    tree terminator vim zsh shutter screenfetch dconf-tools parcellite
 sudo ufw enable
 sudo ufw default deny
 # ***************************************************************
