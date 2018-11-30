@@ -22,47 +22,6 @@
     5. 按照提示规则输入不用阻止插件的网址，点击完成，以后登录这些设置的网址就能自动运行插件了。
 
 
-工具 -> 扩展程序
-------------------
-    - `扩展程序 <chrome://extensions/>`_
-    - `应用商店 <chrome://apps/>`_
-    ===============================  ======
-    plugins                            todo
-    ===============================  ======
-    谷歌访问助手/SetupVPN               google
-    Stylus                             为任意网站定制主题
-    右键搜
-    Adblock Plus
-    octotree                           github 目录呈现
-    Awesome AutoComplete For GitHub    github 快捷搜索
-    OneTab                             一键回收、还原所有 tab
-    Vimium                             使用 vim 快捷键
-
-    Spring Summer Fall Winter          主题
-    Infinity                           新标签页、背景、主题、管理
-    Isometric Contributions            立体显示 github commit
-    Postman
-    Postman Interceptor
-    Request Maker
-    ReRes                              单个url或目录映射（允许访问文件网址）
-    Web Maker                          前端编辑器
-    ColorZilla                         取色器
-    Quick QRCode                       快速生成二维码
-    grammarly                          英语语法
-    Pixlr Editor                       图像编辑
-    Charset                            设置/查看编码
-    Get CRX                            提取crx文件
-    ===============================  ======
-
-
-百度云下载
----------------
-.. code-block:: bash
-
-    # aria2 + chorme baiduexporter
-    curl -o aria2.conf https://raw.githubusercontent.com/fogetIt/devenv/master/broswer/aria2.conf
-    aria2c --conf-path="$(pwd)/aria2.conf"
-
 :进程管理: Shift+Esc
 :打开文件夹: file:///xxx/xxx
 :修改页面: console -> document.body.contentEditable=true
