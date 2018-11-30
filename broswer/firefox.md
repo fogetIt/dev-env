@@ -2,37 +2,6 @@
 - 快捷键：Ctrl+Shift+Delete；
 - 菜单-->选项-->安全，去掉“常规”的三个勾选；
 
-### 优化提速
-- 地址栏输入about:support，打开配置文件夹，删掉places.sqlite，urlclassifier3.sqlite。
-- 地址栏输入about:config
-    + network.http.pipelining
-        * 右键，切换 -> true；
-    + network.http.proxy.pipelining
-        * 右键，切换 -> true；
-    + network.http.pipelining.maxrequests
-        * 右键，修改 -> 8————每次发送8个请求；
-    + network.dns.disableIPv6
-        * 右键，切换 -> true————禁用ipv6解析；
-    + browser.tabs.loadDivertedInBackground
-        * 右键，切换 -> true————新打开的标签页在后台；
-    + browser.sessionhistory.max_total_viewers
-        * 右键，修改 ->5或更小————页面快进/快退功能中保存的页面总数，默认是-1（无限）；
-    + 右击鼠标 -> 新建 -> 布尔（boolean）项，输入：
-        * config.trim_on_minimize并设为true————最小化时自动释放内存；
-    + 右击鼠标 -> 新建 -> 整数，输入：
-        * nglayout.initialpaint.delay并设为0————当浏览器收到网站回复的信息后能够快速的反应；
-
-```
-32MB 0
-64MB 1
-128MB 2
-256MB 3
-512MB 4
-1GB 8
-```
-
-**完全关闭FireFox后退出，再重新打开FireFox！**
-
 firefox developer 查看 response header：
 右键-->“查看元素”-->“网络”-->“重新载入”-->点击之后在右边即可查看响应头。
 
