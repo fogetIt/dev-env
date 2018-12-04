@@ -33,14 +33,11 @@ sudo apt -y install apt-fast || exit 0
 apt-fast --version | cat | head -n 2 || exit 0
 sudo locale-gen zh_CN.UTF-8
 sudo apt -y install \
-    rar unrar unzip \
-    axel curl aria2 uget git \
-    openssh-server sshpass \
-    net-tools iptables ufw gufw \
-    libmysqlclient-dev python-mysqldb \
-    python-pip ipython bpython python-tk python-dev \
-    python3-pip ipython3 bpython3 python3-tk python3-dev \
-    tree terminator vim zsh shutter screenfetch dconf-tools parcellite
+    rar unrar unzip axel curl aria2 openssh-server sshpass net-tools iptables ufw gufw \
+    uget git tree terminator vim zsh shutter screenfetch dconf-tools parcellite wps-office \
+    libmysqlclient-dev python-mysqldb python-pip ipython bpython python-tk python-dev \
+    python3-pip ipython3 bpython3 python3-tk python3-dev
+    
 sudo ufw enable
 sudo ufw default deny
 # ***************************************************************
