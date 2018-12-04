@@ -20,13 +20,10 @@ Awesome AutoComplete For GitHub    github 快捷搜索
 OneTab                             一键回收、还原所有 tab
 Vimium                             使用 vim 快捷键
 划词翻译/yeekit
-Spring Summer Fall Winter          主题
-Infinity                           新标签页、背景、主题、管理
-Isometric Contributions            立体显示 github commit
-Postman
+Infinity Pro                       新标签页(背景、主题、快捷访问)
 Postman Interceptor
 Request Maker
-ReRes                              单个url或目录映射（允许访问文件网址）
+ReRes                              单个 url 或目录映射
 Web Maker                          前端编辑器
 ColorZilla                         取色器
 Quick QRCode                       快速生成二维码
