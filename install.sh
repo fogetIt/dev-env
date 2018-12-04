@@ -3,14 +3,14 @@
 # @Last Modified time: 2018-04-30 00:00:38
 set -e
 set -x
-PASSWORD=${1}
+PASSWD=${1}
 GITHUB_RAW="https://raw.githubusercontent.com"
 TSINGHUA_PYPI="https://pypi.tuna.tsinghua.edu.cn/simple"
 info_log ()
 {
     echo -e "\033[32m=====> INFO: ${1}\033[0m"
 }
-echo ${PASSWORD} | sudo -S info_log "starting" || exit 1
+echo ${PASSWD} | sudo -S info_log "starting" || exit 1
 if [[ ! -f /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf ]]; then
     touch /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 fi
@@ -70,7 +70,7 @@ python  -c "import PyQt5;exit()" || sudo apt -y install python-pyqt5
 read -p "Configure zsh use oh-my-zsh ? [Y/n]" var
 if [[ "${var}" == "Y" ]]; then
     curl -L "${GITHUB_RAW}/robbyrussell/oh-my-zsh/master/tools/install.sh" | sh
-    [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWORD} | chsh -s `which zsh`
+    [[ ${SHELL} == /usr/bin/zsh ]] || echo ${PASSWD} | chsh -s `which zsh`
 
     pip install powerline-shell
     pushd /opt
