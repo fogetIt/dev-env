@@ -13,6 +13,7 @@ names                              todo
 ===============================  ======
 谷歌访问助手/SetupVPN                google
 Stylus                             为任意网站定制主题
+Dark Background and Light Text
 右键搜
 Adblock Plus
 octotree                           github 目录呈现
