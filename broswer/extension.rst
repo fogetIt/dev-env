@@ -20,7 +20,7 @@ octotree                           github 目录呈现
 Awesome AutoComplete For GitHub    github 快捷搜索
 OneTab                             一键回收、还原所有 tab
 Vimium                             使用 vim 快捷键
-划词翻译/yeekit
+划词翻译
 Infinity Pro                       新标签页(背景、主题、快捷访问)
 Postman Interceptor
 Request Maker
