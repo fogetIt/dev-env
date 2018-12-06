@@ -16,6 +16,7 @@ Stylus                             为任意网站定制主题
 Dark Background and Light Text
 右键搜
 Adblock Plus/uBlock Origin
+简悦 - SimpRead
 octotree                           github 目录呈现
 Awesome AutoComplete For GitHub    github 快捷搜索
 OneTab                             一键回收、还原所有 tab
