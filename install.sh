@@ -20,6 +20,7 @@ sudo tee /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf <<EOF
 user-session=ubuntu
 greeter-show-manual-login=true
 EOF
+sudo apt -y purge libreoffice*
 # ***************************************************************
 which apt-fast || sudo add-apt-repository -y ppa:apt-fast/stable
 if ! sudo apt policy uget | grep uget; then
