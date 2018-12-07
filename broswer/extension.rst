@@ -21,6 +21,7 @@ Country Flags & IP Whois
 护眼扩展
 octotree                           github 目录呈现
 Awesome AutoComplete For GitHub    github 快捷搜索
+Search the current site
 OneTab                             一键回收、还原所有 tab
 Vimium                             使用 vim 快捷键
 划词翻译/S3.Translator/沙拉查词
