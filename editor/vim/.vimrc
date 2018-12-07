@@ -69,8 +69,8 @@ if has("autocmd")
 endif
 
 
-set rtp+=~/softwares/vimrcs
-call plug#begin('~/softwares/vimrcs/plugins')
+set rtp+=/opt/vimrcs
+call plug#begin('/opt/vimrcs/plugins')
 
 
 Plug 'scrooloose/nerdtree'

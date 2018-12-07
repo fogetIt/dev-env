@@ -38,9 +38,9 @@ sudo apt update
 sudo apt install -y paper-icon-theme
 
 
-# ubuntu-mate
+# fcitx
 # -------------
-sudo apt install ubuntu-mate* fcitx-sunpinyin pastebinit
+sudo apt install fcitx-sunpinyin pastebinit
 fcitx-diagnose | pastebinit
 # 首选项 -> 语言支持
 
@@ -107,35 +107,22 @@ source /etc/profile
 
 # pycharm
 # -------
-tar -zxvf "PyCharm.tar.gz"
+tar -zxvf PyCharm.tar.gz
 # sudo ln -sf Pycharm/bin/pycharm.sh /usr/local/bin/pycharm
 # 启动一次，生成配置文件目录
 nohup charm>~/jetbrains.log 2>&1 &
-cd ${HOME}/.PyCharm*/config
-curl -fLo ./keymaps/Custom.xml --create-dirs https://raw.githubusercontent.com/fogetIt/dev-env/master/editor/jetbrains/Custom.xml
+curl -fLo ${HOME}/.PyCharm*/config/keymaps/Custom.xml --create-dirs \
+https://raw.githubusercontent.com/fogetIt/devenv/master/editor/jetbrains/Custom.xml
 
 
 # 其它
 # --------
+# nosqlbooster4mongo
 # fonts
 sudo apt -y install fonts-mononoki fonts-wqy-microhei ttf-mscorefonts-installer
 # wine3.0
 sudo apt -y install wine-stable playonlinux winetricks
-# ***************************************************************
-sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
-    axel -n 16 -o ~/softwares/ "http://s3.mongobooster.com/download/3.5/mongobooster-3.5.5-x86_64.AppImage"
-    chmod +x ~/softwares/mongobooster*.AppImage
-    sudo apt install libstdc++6
-    cd ~/softwares/ && ./mongobooster*.AppImage
-)
-# ***************************************************************
 sudo apt install perl
-
-
-# svn 客户端
-# --------
-sudo apt install subversion -y
-cd;sudo apt install rapidsvn scite nautilus kdiff3 -y
 
 
 # 内存管理
@@ -191,7 +178,6 @@ yum install -y fontconfig mkfontscale
 
 # expect
 # ------
-sudo apt -y install expect
 # 用法一：在脚本头部：#!/usr/local/bin/expect
 # 用法二：在 sh/bash 脚本中：expect -c "..." 或者 expect <EOF...EOF
 expect -c "
