@@ -2,6 +2,13 @@ sudo
 ----
 -S  read password from stdout
 
+apt
+----
+.. code:: bash
+
+     apt remove  # 删除软件包，保留软件的配置文件
+     apt purge      # 同时清除软件包和软件的配置文件
+
 dpkg
 ----
 .. code-block:: bash
