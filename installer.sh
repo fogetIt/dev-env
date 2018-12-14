@@ -127,12 +127,12 @@ if ! grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc"; then
     echo 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
 fi
 # *****************************************************************************
-if [[ ! -d ${NVM_DIR} || ! -s "${NVM_DIR}/nvm.sh" || ! -s "${NVM_DIR}/bash_completion" ]]; then
+if [[ ! command -v nvm ]]; then
     curl -o- \
-https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-    export NVM_DIR="${HOME}/.nvm"
-    source "${NVM_DIR}/nvm.sh"
-    source "${NVM_DIR}/bash_completion"
+https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    [[ -d ${NVM_DIR} ]] || export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+    [[ -s "${NVM_DIR}/nvm.sh" ]] || source "${NVM_DIR}/nvm.sh"
+    [[ -s "${NVM_DIR}/bash_completion" ]] && \. "${NVM_DIR}/bash_completion"
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
 fi
