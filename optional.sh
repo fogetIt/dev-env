@@ -117,7 +117,8 @@ https://raw.githubusercontent.com/fogetIt/devenv/master/editor/jetbrains/Custom.
 
 # 其它
 # --------
-# nosqlbooster4mongo
+docker pull swimmingwhale/living-mongo:v1.0
+docker run -dt --name living-mongo -p 8110:80 swimmingwhale/living-mongo
 # fonts
 sudo apt -y install fonts-mononoki fonts-wqy-microhei ttf-mscorefonts-installer
 # wine3.0
