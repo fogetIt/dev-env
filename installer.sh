@@ -138,6 +138,7 @@ https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 fi
 # npm 包安装的下载源
 npm config set registry "https://registry.npm.taobao.org"
+npm list tldr -g || npm install tldr -g
 # node-gyp 编译 c++ 扩展所需源码的下载源
 npm config set disturl "https://npm.taobao.org/dist"
 # node-pre-gyp 各平台编译好的二进制包的下载源
