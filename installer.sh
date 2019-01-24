@@ -130,7 +130,7 @@ fi
 if [[ ! command -v nvm ]]; then
     curl -o- \
 https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-    [[ -d ${NVM_DIR} ]] || export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+    [[ -d ${NVM_DIR} ]] || export NVM_DIR="${HOME}/.nvm"
     [[ -s "${NVM_DIR}/nvm.sh" ]] || source "${NVM_DIR}/nvm.sh"
     [[ -s "${NVM_DIR}/bash_completion" ]] && \. "${NVM_DIR}/bash_completion"
     node -v || nvm install --lts
