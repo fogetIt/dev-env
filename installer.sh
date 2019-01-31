@@ -59,6 +59,20 @@ sudo pip install \
     pygments -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip3 install QScintilla -i https://pypi.tuna.tsinghua.edu.cn/simple
 # *****************************************************************************
+if ! grep 'ccat()' ${HOME}/.zshrc; then
+    echo -n '
+function ccat() {
+    local style="monokai"
+    if [ $# -eq 0 ]; then
+        pygmentize -P style=$style -P tabsize=4 -f terminal256 -g
+    else
+        for NAME in $@; do
+            pygmentize -P style=$style -P tabsize=4 -f terminal256 -g "$NAME"
+        done
+    fi
+}' >> ${HOME}/.zshrc
+fi
+# *****************************************************************************
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
     sudo apt install libstdc++6
     pushd /opt
