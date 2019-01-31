@@ -53,7 +53,10 @@ git config --global user.email "2271404280@qq.com"
     [[ "${var}" == "Y" ]] && x-www-browser 'https://github.com'
 )
 # *****************************************************************************
-sudo pip install virtualenv powerline-shell -i https://pypi.tuna.tsinghua.edu.cn/simple
+sudo pip install \
+    virtualenv \
+    powerline-shell \
+    pygments -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip3 install QScintilla -i https://pypi.tuna.tsinghua.edu.cn/simple
 # *****************************************************************************
 sudo find ${HOME}/.config/ -name mongobooster | grep mongobooster || (
