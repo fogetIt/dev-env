@@ -87,6 +87,15 @@ PyCharm
 ========
 
 :virtualenv: File -> Settings -> Project -> Project Interpreter
+:autopep8: File -> Settings -> Tools -> External Tools
+
+.. code:: bash
+
+    sudo apt install -y libffi-dev
+    pip install autopep8
+    # Programs：autopep8
+    # Parameters：--in-place --aggressive $FilePath$
+    # Working directory：$ProjectFileDir$
 
 
 WebStorm
