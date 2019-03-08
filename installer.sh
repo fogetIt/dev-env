@@ -150,6 +150,8 @@ https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
     [[ -d ${NVM_DIR} ]] || export NVM_DIR="${HOME}/.nvm"
     [[ -s "${NVM_DIR}/nvm.sh" ]] || source "${NVM_DIR}/nvm.sh"
     [[ -s "${NVM_DIR}/bash_completion" ]] && \. "${NVM_DIR}/bash_completion"
+    . "${HOME}/.bashrc"
+    . "${HOME}/.zshrc"
     node -v || nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
 fi
