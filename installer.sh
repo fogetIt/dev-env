@@ -31,6 +31,7 @@ sudo apt -y install \
     nginx redis-server mysql-server mysql-client \
     mongodb-server mongodb-clients \
     subversion rapidsvn scite nautilus kdiff3 \
+    virtualbox vagrant \
     gnome-tweak-tool \
     papirus-icon-theme \
     gnome-shell-extension-trash \
