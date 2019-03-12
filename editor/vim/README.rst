@@ -32,11 +32,13 @@ vim-gnome    vim with gnome GUI
 :dein.vim: 与 neobundle 是同一个作者，持续更新中
 :vim-plug: 异步安装插件，按需延时加载
 :vim-airline:
+
     - statusline
     - tabline
         - 可以取代 minibufexpl, powerline
 
 :ctrlp.vim:
+
     - 实现了 sublime Ctrl+P 的功能
     - 纯 vimscript 实现，没有外部依赖
         - 可以取代 lookupfile, mru

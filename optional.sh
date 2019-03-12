@@ -11,6 +11,12 @@
 :conky: 显示系统信息
 :unity-tweak-tool: 系统管理工具
 COMMIT
+sudo apt install -y unity-tweak-tool docky conky
+# 主题、插件
+sudo add-apt-repository ppa:papirus/papirus -y
+sudo apt update
+sudo apt install papirus-icon-theme -y
+sudo apt install gtk-redshift redshift python-appindicator -y
 # 动态壁纸包
 sudo add-apt-repository ppa:fyrmir/livewallpaper-daily
 sudo apt update
@@ -187,3 +193,51 @@ expect {
 }
 expect eof
 "
+
+
+
+
+
+
+
+
+
+# powerline
+# *****************************************************************************
+if ! grep 'powerline-theme' /opt/software.list; then
+    mkdir ~/.tmp
+    pushd ~/.tmp
+        sudo rm -rf oh-my-zsh-powerline-theme
+        sudo git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+        pushd oh-my-zsh-powerline-theme
+            sudo rm -rf powerline-fonts
+            sudo git clone https://github.com/powerline/fonts.git powerline-fonts
+            pushd powerline-fonts
+                /bin/sh install.sh
+            popd
+            /bin/sh install_in_omz.sh
+        popd
+    popd
+    pushd "${HOME}/.oh-my-zsh/custom"
+        if [[ ! -d plugins/zsh-syntax-highlighting || -z `ls -A plugins/zsh-syntax-highlighting` ]]; then
+            git clone \
+https://github.com/zsh-users/zsh-syntax-highlighting.git \
+            ${ZSH_CUSTOM:-$(pwd)}/plugins/zsh-syntax-highlighting
+        fi
+    popd
+    # plugins=(... zsh-syntax-highlighting)
+    echo 'powerline-theme' | sudo tee -a /opt/software.list
+fi
+# *****************************************************************************
+echo -n 'function powerline_precmd() { PS1="$(powerline-shell --shell zsh $?)"; }
+function install_powerline_precmd() { for s in "${precmd_functions[@]}"; do
+if [ "$s" = "powerline_precmd" ]; then; return; fi; done; precmd_functions+=(powerline_precmd); }
+[ "$TERM" != "linux" ] && install_powerline_precmd' > ${HOME}/.powerline-shell
+if ! grep '^source ${HOME}/.powerline-shell$' "${HOME}/.zshrc"; then
+    echo 'source ${HOME}/.powerline-shell' | tee -a "${HOME}/.zshrc"
+fi
+# 打开终端，选择 powerline 字体
+sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc"
+if ! grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc"; then
+    echo -n 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
+fi

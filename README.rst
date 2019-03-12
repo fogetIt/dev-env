@@ -2,6 +2,16 @@ sudo
 ----
 -S  read password from stdout
 
+root
+----
+::
+
+    # /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+    # sudo passwd root; su root
+    [Seat:*]
+    user-session=ubuntu
+    greeter-show-manual-login=true
+
 apt
 ----
 .. code:: bash
@@ -20,6 +30,13 @@ dpkg
     dpkg --purge xxx
     # dpkg-query
     dpkg -S xxx xxx       # 搜索拥有该（1～多个）文件的软件包（--search）
+
+shell
+-----
+.. code:: bash
+
+    chsh -s `which zsh`
+    echo ${SHELL}
 
 mongodb
 -------
