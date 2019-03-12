@@ -146,7 +146,7 @@ if ! grep 'powerline-theme' /opt/software.list; then
             pushd powerline-fonts
                 /bin/sh install.sh
                 # 刷新字体缓存
-                fc-cache -vf
+                sudo fc-cache -vf
             popd
             /bin/sh install_in_omz.sh
         popd
