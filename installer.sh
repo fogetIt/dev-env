@@ -145,6 +145,8 @@ if ! grep 'powerline-theme' /opt/software.list; then
             git clone https://github.com/powerline/fonts.git powerline-fonts
             pushd powerline-fonts
                 /bin/sh install.sh
+                # 刷新字体缓存
+                fc-cache -vf
             popd
             /bin/sh install_in_omz.sh
         popd
