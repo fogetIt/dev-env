@@ -39,7 +39,8 @@ sudo apt -y install \
     gnome-shell-extension-dashtodock \
     gnome-shell-extension-autohidetopbar \
     gnome-shell-extension-top-icons-plus \
-    gnome-shell-extension-disconnect-wifi \
+    gnome-shell-extension-disconnect-wifi
+# 重启 gnome-shell: alt+F2 --> r
 # sudo snap install redis-desktop-manager
 # *****************************************************************************
 sudo ufw enable
@@ -115,7 +116,7 @@ https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
     [[ -s "${NVM_DIR}/bash_completion" ]] && source "${NVM_DIR}/bash_completion"
     . "${HOME}/.bashrc"
     # . "${HOME}/.zshrc"
-    node -v || nvm install --lts
+    nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
 fi
 # npm 包安装的下载源
@@ -134,4 +135,39 @@ npm config set CHROMEDRIVER_CDNURL http://npm.taobao.org/mirrors/chromedriver
 npm config set grpc_node_binary_host_mirror https://npm.taobao.org/mirrors/grpc
 npm config set node_sqlite3_binary_host_mirror https://npm.taobao.org/mirrors/sqlite3
 info_log $(npm config get registry)
+# *****************************************************************************
+if ! grep 'powerline-theme' /opt/software.list; then
+    pushd ~
+        rm -rf oh-my-zsh-powerline-theme
+        git clone https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git
+        pushd oh-my-zsh-powerline-theme
+            rm -rf powerline-fonts
+            git clone https://github.com/powerline/fonts.git powerline-fonts
+            pushd powerline-fonts
+                /bin/sh install.sh
+            popd
+            /bin/sh install_in_omz.sh
+        popd
+    popd
+    pushd "${HOME}/.oh-my-zsh/custom"
+        if [[ ! -d plugins/zsh-syntax-highlighting || -z `ls -A plugins/zsh-syntax-highlighting` ]]; then
+            git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$(pwd)}/plugins/zsh-syntax-highlighting
+        fi
+    popd
+    # plugins=(... zsh-syntax-highlighting)
+    echo 'powerline-theme' | sudo tee -a /opt/software.list
+fi
+# *****************************************************************************
+echo -n 'function powerline_precmd() { PS1="$(powerline-shell --shell zsh $?)"; }
+function install_powerline_precmd() { for s in "${precmd_functions[@]}"; do
+if [ "$s" = "powerline_precmd" ]; then; return; fi; done; precmd_functions+=(powerline_precmd); }
+[ "$TERM" != "linux" ] && install_powerline_precmd' > ${HOME}/.powerline-shell
+if ! grep '^source ${HOME}/.powerline-shell$' "${HOME}/.zshrc"; then
+    echo 'source ${HOME}/.powerline-shell' | tee -a "${HOME}/.zshrc"
+fi
+# 打开终端，选择 powerline 字体
+sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc"
+if ! grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc"; then
+    echo -n 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
+fi
 
