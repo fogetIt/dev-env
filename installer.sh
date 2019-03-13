@@ -106,6 +106,8 @@ if ! grep 'vimrc' /opt/software.list; then
 https://raw.githubusercontent.com/fogetIt/devenv/master/editor/vim/.vimrc
     sudo curl -fLo /opt/vimrcs/autoload/plug.vim --create-dirs \
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    sudo chown ${USER} /opt/vimrcs -R
+    # :PlugInstall!
     echo 'vimrc' | sudo tee -a /opt/software.list
 fi
 # *****************************************************************************
