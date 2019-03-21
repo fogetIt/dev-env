@@ -6,7 +6,7 @@
             "icon": "dot",
             "color": "bracketsolider.default",
             // "color": "entity.name.class"
-            "style": "solid"
+            "style": "solid",
             // "style": "thin_underline"
             // "style": "underline"
             // "style": "solid"

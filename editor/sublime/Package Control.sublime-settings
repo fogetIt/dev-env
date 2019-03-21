@@ -9,13 +9,13 @@
 .+\s@Last Modified by:\s.+\n
 .+\s@Author:\s.+\n
  */
-        "GitGutter",
+        // "GitGutter",
+        // "GitStatusBar", // 状态栏显示分支信息
         "Local History",
         "Clipboard Manager", // 超级剪贴板
         "Sublimerge 3",      // Right -> sublimerge
 
         "StyleToken",   // Right -> Style Token
-        "GitStatusBar", // 状态栏显示分支信息
 
         "BracketHighlighter", // 高亮匹配标签、括号、引号
         "Color Highlighter",  // Right -> Insert color...
