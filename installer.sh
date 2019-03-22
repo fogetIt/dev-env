@@ -52,7 +52,7 @@ git config --global user.email "2271404280@qq.com"
 [[ -f ${HOME}/.ssh/id_rsa.pub ]] || (
     echo -e "\n" | ssh-keygen -t rsa -C "2271404280@qq.com"
     cat ${HOME}/.ssh/id_rsa.pub
-    read -p "Add public key to github!" var
+    read -p "Add public key to github?[Y]" var
     [[ "${var}" == "Y" ]] && x-www-browser 'https://github.com'
 )
 # *****************************************************************************
@@ -111,17 +111,19 @@ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo 'vimrc' | sudo tee -a /opt/software.list
 fi
 # *****************************************************************************
-if ! command -v nvm; then
-    curl -o- \
-https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+echo -n '
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
     [[ -d ${NVM_DIR} ]] || export NVM_DIR="${HOME}/.nvm"
     [[ -s "${NVM_DIR}/nvm.sh" ]] || source "${NVM_DIR}/nvm.sh"
     [[ -s "${NVM_DIR}/bash_completion" ]] && source "${NVM_DIR}/bash_completion"
     . "${HOME}/.bashrc"
-    # . "${HOME}/.zshrc"
+    # modify ~/.zshrc
+    . "${HOME}/.zshrc"
     nvm install --lts
     nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
-fi
+'
+read -p "Exit to install nvm?[Y]" var
+[[ "${var}" == "Y" ]] && exit 0
 # npm 包安装的下载源
 npm config set registry "https://registry.npm.taobao.org"
 npm list tldr -g || npm install tldr -g
@@ -175,4 +177,3 @@ sed -i s/^ZSH_THEME=\\\S\\\+$/ZSH_THEME=\"powerline\"/g "${HOME}/.zshrc"
 if ! grep '^ZSH_THEME="powerline"$' "${HOME}/.zshrc"; then
     echo -n 'ZSH_THEME="powerline"' | tee -a "${HOME}/.zshrc"
 fi
-
