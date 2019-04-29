@@ -27,7 +27,8 @@ Imagus                             悬停鼠标显示大图
 Search the current site
 OneTab                             一键回收、还原所有 tab
 Vimium                             使用 vim 快捷键
-划词翻译/沙拉查词
+划词翻译
+沙拉查词
 Infinity Pro                       新标签页(背景、主题、快捷访问)
 Postman Interceptor
 Request Maker
