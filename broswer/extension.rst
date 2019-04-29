@@ -21,6 +21,7 @@ uBlock Origin
 Country Flags & IP Whois
 护眼扩展
 octotree                           github 目录呈现
+octotree pro
 GitCodeTree                        码云目录呈现
 Awesome AutoComplete For GitHub    github 快捷搜索
 Imagus                             悬停鼠标显示大图
@@ -40,4 +41,5 @@ grammarly                          英语语法
 Pixlr Editor                       图像编辑
 Charset                            设置/查看编码
 Get CRX                            提取crx文件
+Web Developer
 ===============================  ======
