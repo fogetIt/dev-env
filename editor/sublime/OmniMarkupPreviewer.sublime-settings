@@ -1,6 +1,0 @@
-{
-    "renderer_options-MarkdownRenderer": {
-    	// "extensions": ["tables", "strikeout", "fenced_code", "codehilite"],
-        "extensions": ["tables", "fenced_code", "codehilite"]
-    }
-}

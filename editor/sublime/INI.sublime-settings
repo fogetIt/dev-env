@@ -1,9 +1,0 @@
-{
-	"extensions":
-	[
-		"ini",
-		".vimrc",
-		"conf",
-		"config",
-	]
-}
