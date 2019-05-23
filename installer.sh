@@ -120,7 +120,7 @@ echo -n '
     # modify ~/.zshrc
     . "${HOME}/.zshrc"
     nvm install --lts
-    nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default 'lts/*'
+    nvm ls-remote --lts | grep $(node -v) || nvm use --lts && nvm alias default "lts/*"
 '
 read -p "Exit to install nvm?[Y]" var
 [[ "${var}" == "Y" ]] && exit 0
