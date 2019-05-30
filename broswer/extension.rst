@@ -21,14 +21,12 @@ uBlock Origin
 Country Flags & IP Whois
 护眼扩展
 octotree                           github 目录呈现
-octotree pro
 GitCodeTree                        码云目录呈现
 Awesome AutoComplete For GitHub    github 快捷搜索
 Imagus                             悬停鼠标显示大图
 Search the current site
 OneTab                             一键回收、还原所有 tab
 Vimium                             使用 vim 快捷键
-划词翻译
 沙拉查词
 Infinity Pro                       新标签页(背景、主题、快捷访问)
 Postman Interceptor
@@ -40,6 +38,6 @@ Quick QRCode                       快速生成二维码
 grammarly                          英语语法
 Pixlr Editor                       图像编辑
 Charset                            设置/查看编码
-Get CRX                            提取crx文件
+Get CRX                            提取 crx 文件
 Web Developer
 ===============================  ======
